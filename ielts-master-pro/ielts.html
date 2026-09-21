@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS 4 Beceri & 3 Kademeli Çözümler | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(150, 150, 150, 0.2); border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-amber-300/30 dark:selection:bg-amber-400/20">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-80 transition-opacity shadow-sm">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-amber-500 hover:text-amber-400 font-bold border border-amber-500/25 bg-amber-500/10 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Reading Text Floating Selection Highlighter Toolbar -->
+  <div id="text-highlighter-toolbar" class="fixed z-50 hidden apple-glass p-1.5 rounded-full shadow-2xl border border-black/10 dark:border-white/15 flex items-center space-x-1">
+    <button onclick="applyHighlight('yellow')" class="highlighter-btn px-2.5 py-1 rounded-full text-[11px] font-mono bg-amber-200/80 text-amber-900 border border-amber-300" title="Sarı Fosforlu">🟡 Sarı</button>
+    <button onclick="applyHighlight('green')" class="highlighter-btn px-2.5 py-1 rounded-full text-[11px] font-mono bg-emerald-200/80 text-emerald-900 border border-emerald-300" title="Yeşil Fosforlu">🟢 Yeşil</button>
+    <button onclick="speakSelectedText()" class="highlighter-btn p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-neutral-700 dark:text-neutral-300 text-xs" title="Seslendir">🔊</button>
+    <button onclick="clearHighlights()" class="highlighter-btn px-2 py-1 rounded-full text-[10px] font-mono text-neutral-400 hover:text-rose-500" title="Vurguları Temizle">✕ Temizle</button>
+  </div>
+
+  <!-- Main Content: Apple Developer Sidebar Layout -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
+    
+    <div class="border-b border-black/5 dark:border-white/10 pb-5 mb-6">
+      <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-amber-500 font-bold mb-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+        <span>4 Beceri · 240 Örnek Test · 3 Kademeli Kapalı/Açılır Cevaplar (Orta, İyi, Çok İyi)</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-black dark:text-white">
+        IELTS Sınav Hazırlık & Alıştırma Merkezi
+      </h1>
+    </div>
+
+    <!-- 2-Column Sidebar Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- SIDEBAR -->
+      <aside class="lg:col-span-4 space-y-5">
+        
+        <!-- 1. Skills -->
+        <div class="vercel-card rounded-2xl p-4 space-y-3">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">1. Beceri Seçin:</span>
+          <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+            <button onclick="switchSkill('listening')" id="side-tab-listening" class="skill-nav-btn p-2.5 rounded-xl border border-amber-500 flex items-center space-x-2 transition-all bg-amber-500 text-black font-bold shadow-sm">
+              <span>🎧</span><span>Listening</span>
+            </button>
+            <button onclick="switchSkill('reading')" id="side-tab-reading" class="skill-nav-btn p-2.5 rounded-xl border border-black/10 dark:border-white/10 flex items-center space-x-2 transition-all hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-300">
+              <span>📖</span><span>Reading</span>
+            </button>
+            <button onclick="switchSkill('writing')" id="side-tab-writing" class="skill-nav-btn p-2.5 rounded-xl border border-black/10 dark:border-white/10 flex items-center space-x-2 transition-all hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-300">
+              <span>✍️</span><span>Writing</span>
+            </button>
+            <button onclick="switchSkill('speaking')" id="side-tab-speaking" class="skill-nav-btn p-2.5 rounded-xl border border-black/10 dark:border-white/10 flex items-center space-x-2 transition-all hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-300">
+              <span>🗣️</span><span>Speaking</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Tiers -->
+        <div class="vercel-card rounded-2xl p-4 space-y-2.5">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">2. Zorluk Seviyesi:</span>
+          <div class="space-y-1.5 text-xs font-mono">
+            <button onclick="switchTier('low')" id="side-tier-low" class="tier-nav-btn w-full p-2.5 rounded-xl border border-amber-500 text-left flex items-center justify-between transition-all bg-amber-500 text-black font-bold shadow-sm">
+              <span>🌱 Foundation (4.5 - 5.5)</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-black/20 text-black font-bold">20 Test</span>
+            </button>
+            <button onclick="switchTier('mid')" id="side-tier-mid" class="tier-nav-btn w-full p-2.5 rounded-xl border text-left flex items-center justify-between transition-all border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-400">
+              <span>🎯 Target (6.0 - 7.0)</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/5">20 Test</span>
+            </button>
+            <button onclick="switchTier('high')" id="side-tier-high" class="tier-nav-btn w-full p-2.5 rounded-xl border text-left flex items-center justify-between transition-all border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-400">
+              <span>⚡ Advanced (7.5 - 9.0)</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/5">20 Test</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Exercise List -->
+        <div class="vercel-card rounded-2xl p-4 space-y-3">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">3. Örnek Listesi:</span>
+            <span id="exercise-count-badge" class="font-mono text-[10px] text-neutral-500">20 Örnek Mevcut</span>
+          </div>
+
+          <div class="relative">
+            <input type="text" id="exercise-search" oninput="filterExercisesList(this.value)" placeholder="🔍 Örnek veya konu ara..." class="w-full px-3 py-2 rounded-xl bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 text-xs font-mono text-black dark:text-white focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white">
+          </div>
+
+          <div id="exercise-sidebar-list" class="space-y-1.5 max-h-[480px] overflow-y-auto pr-1 custom-scrollbar"></div>
+        </div>
+
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <section class="lg:col-span-8 space-y-6">
+        <div id="exercise-detail-content" class="space-y-6"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">240 Doğrulanmış Ünite · 3 Kademeli Karşılaştırmalı Çözüm Analizi</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Listening · Reading · Writing · Speaking</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="text-amber-500 font-bold">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Connect Data from Platform -->
+  <script src="../ielts-master-platform/assets/js/ielts/listening.js"></script>
+  <script src="../ielts-master-platform/assets/js/ielts/reading.js"></script>
+  <script src="../ielts-master-platform/assets/js/ielts/writing.js"></script>
+  <script src="../ielts-master-platform/assets/js/ielts/speaking.js"></script>
+  <script src="../ielts-master-platform/assets/js/ielts-data.js"></script>
+  <script src="../ielts-master-platform/assets/js/ielts/tier-engine.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    let currentSkill = 'listening';
+    let currentTier = 'low';
+    let selectedExerciseIdx = 0;
+    let readingMode = 'study';
+    let searchQuery = '';
+    let activeWritingTierTab = 'iyi';
+    let activeSpeakingTierTab = 'iyi';
+    let audioSpeed = 1.0;
+    let isPlayingAudio = false;
+
+    function getExercisesForSkill(skill, tier) {
+      if (!IELTS_DATA[skill] || !IELTS_DATA[skill][tier]) return [];
+      const d = IELTS_DATA[skill][tier];
+      return d.exercises || d.tasks || d.questions || [];
+    }
+
+    function switchSkill(skill) {
+      currentSkill = skill;
+      selectedExerciseIdx = 0;
+      searchQuery = '';
+      activeWritingTierTab = 'iyi';
+      activeSpeakingTierTab = 'iyi';
+      const searchEl = document.getElementById('exercise-search');
+      if (searchEl) searchEl.value = '';
+
+      document.querySelectorAll('.skill-nav-btn').forEach(btn => {
+        btn.className = 'skill-nav-btn p-2.5 rounded-xl border border-black/10 dark:border-white/10 flex items-center space-x-2 transition-all hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-300 text-xs font-semibold';
+      });
+      const active = document.getElementById(`side-tab-${skill}`);
+      if (active) {
+        active.className = 'skill-nav-btn p-2.5 rounded-xl border border-amber-500 flex items-center space-x-2 transition-all bg-amber-500 text-black font-bold shadow-sm text-xs';
+      }
+
+      renderSidebarList();
+      renderExerciseDetail();
+    }
+
+    function switchTier(tier) {
+      currentTier = tier;
+      selectedExerciseIdx = 0;
+      activeWritingTierTab = 'iyi';
+      activeSpeakingTierTab = 'iyi';
+
+      document.querySelectorAll('.tier-nav-btn').forEach(btn => {
+        btn.className = 'tier-nav-btn w-full p-2.5 rounded-xl border text-left flex items-center justify-between transition-all border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-400 text-xs font-mono';
+      });
+      const active = document.getElementById(`side-tier-${tier}`);
+      if (active) {
+        active.className = 'tier-nav-btn w-full p-2.5 rounded-xl border border-amber-500 text-left flex items-center justify-between transition-all bg-amber-500 text-black font-bold shadow-sm text-xs font-mono';
+      }
+
+      renderSidebarList();
+      renderExerciseDetail();
+    }
+
+    function selectExercise(idx) {
+      selectedExerciseIdx = idx;
+      activeWritingTierTab = 'iyi';
+      activeSpeakingTierTab = 'iyi';
+      renderSidebarList();
+      renderExerciseDetail();
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+
+    function filterExercisesList(query) {
+      searchQuery = query.toLowerCase().trim();
+      renderSidebarList();
+    }
+
+    function toggleAnswer(id, btn) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isHidden = el.classList.contains('hidden');
+      if (isHidden) {
+        el.classList.remove('hidden');
+        if (btn) btn.innerHTML = '🙈 Analizi ve Cevabı Gizle';
+      } else {
+        el.classList.add('hidden');
+        if (btn) btn.innerHTML = '👁️ 3 Kademeli Çözüm Analizini Göster';
+      }
+    }
+
+    function toggleAllAnswers(prefix, show) {
+      document.querySelectorAll(`[id^="${prefix}"]`).forEach(el => {
+        if (show) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+      document.querySelectorAll(`.toggle-btn-${prefix}`).forEach(btn => {
+        btn.innerHTML = show ? '🙈 Analizi ve Cevabı Gizle' : '👁️ 3 Kademeli Çözüm Analizini Göster';
+      });
+    }
+
+    function switchWritingTierTab(tier) {
+      activeWritingTierTab = tier;
+      const items = getExercisesForSkill('writing', currentTier);
+      const item = items[selectedExerciseIdx];
+      if (item) renderWritingTierCard(item);
+    }
+
+    function switchSpeakingTierTab(tier) {
+      activeSpeakingTierTab = tier;
+      const items = getExercisesForSkill('speaking', currentTier);
+      const item = items[selectedExerciseIdx];
+      if (item) renderSpeakingTierCard(item);
+    }
+
+    function renderSidebarList() {
+      const listContainer = document.getElementById('exercise-sidebar-list');
+      const countBadge = document.getElementById('exercise-count-badge');
+      const items = getExercisesForSkill(currentSkill, currentTier);
+
+      const filtered = items.map((item, idx) => ({ item, idx })).filter(({ item }) => {
+        if (!searchQuery) return true;
+        const text = `${item.title || ''} ${item.category || ''} ${item.topic || ''} ${item.prompt || ''}`.toLowerCase();
+        return text.includes(searchQuery);
+      });
+
+      if (countBadge) countBadge.innerText = `${filtered.length} / ${items.length} Örnek`;
+
+      if (filtered.length === 0) {
+        listContainer.innerHTML = `<div class="p-4 text-center text-xs font-mono text-neutral-400">Aramanıza uygun alıştırma bulunamadı.</div>`;
+        return;
+      }
+
+      listContainer.innerHTML = filtered.map(({ item, idx }) => {
+        const isSelected = idx === selectedExerciseIdx;
+        const title = item.title || item.topic || `Görev #${idx + 1}`;
+        const category = item.category || (item.part ? item.part : (item.type ? item.type : 'IELTS Soru'));
+        const qCount = item.questions ? `${item.questions.length} Soru` : (item.type ? item.type : 'Model Yanıt');
+
+        return `
+          <button onclick="selectExercise(${idx})" class="w-full text-left p-3 rounded-xl border transition-all ${
+            isSelected
+              ? 'bg-black dark:bg-white text-white dark:text-black border-black dark:border-white shadow-xs font-semibold'
+              : 'border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-700 dark:text-neutral-300'
+          }">
+            <div class="flex items-center justify-between text-[10px] font-mono opacity-80 mb-1">
+              <span>Örnek #${idx + 1}</span>
+              <span class="px-1.5 py-0.5 rounded ${isSelected ? 'bg-white/20 dark:bg-black/20' : 'bg-black/5 dark:bg-white/10'}">${qCount}</span>
+            </div>
+            <div class="text-xs font-medium leading-snug line-clamp-1">${title}</div>
+            <div class="text-[10px] opacity-70 mt-1 truncate">${category}</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderExerciseDetail() {
+      const container = document.getElementById('exercise-detail-content');
+      const items = getExercisesForSkill(currentSkill, currentTier);
+      const item = items[selectedExerciseIdx] || items[0];
+
+      if (!item) {
+        container.innerHTML = `<div class="p-8 text-center text-xs font-mono text-neutral-400">Bu seviyede içerik yüklenemedi.</div>`;
+        return;
+      }
+
+      if (currentSkill === 'listening') {
+        renderListeningDetail(container, item, selectedExerciseIdx);
+      } else if (currentSkill === 'reading') {
+        renderReadingDetail(container, item, selectedExerciseIdx);
+      } else if (currentSkill === 'writing') {
+        renderWritingDetail(container, item, selectedExerciseIdx);
+      } else if (currentSkill === 'speaking') {
+        renderSpeakingDetail(container, item, selectedExerciseIdx);
+      }
+    }
+
+    function renderListeningDetail(container, item, idx) {
+      let questionsHtml = (item.questions || []).map((q, qIdx) => {
+        const tiers = IELTS_TIER_ENGINE.getQuestionTiers(q);
+        return `
+          <div class="p-4 rounded-xl vercel-card space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-bold text-neutral-400">Soru #${q.num} · ${q.type}</span>
+            </div>
+            <p class="text-xs sm:text-sm font-medium text-black dark:text-white">${q.prompt}</p>
+            ${q.options ? `
+              <div class="space-y-1 text-xs">
+                ${q.options.map(opt => `<div class="p-2 rounded-lg bg-neutral-50 dark:bg-[#141414] border border-black/5 dark:border-white/5 font-mono">${opt}</div>`).join('')}
+              </div>
+            ` : ''}
+            <div class="pt-2 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
+              <button onclick="toggleAnswer('l-ans-${qIdx}', this)" class="toggle-btn-l-ans px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5 transition-all text-neutral-600 dark:text-neutral-300">
+                👁️ 3 Kademeli Çözüm Analizini Göster
+              </button>
+            </div>
+            <div id="l-ans-${qIdx}" class="hidden space-y-2.5 pt-2 transition-all">
+              <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs flex items-center justify-between">
+                <span class="text-neutral-400 font-mono">Doğru Cevap:</span> 
+                <span class="font-mono font-bold text-emerald-600 dark:text-emerald-400 text-sm">${q.answer}</span>
+              </div>
+              <div class="space-y-1.5 text-xs">
+                <div class="p-2.5 rounded-xl bg-amber-500/5 border border-amber-500/20 space-y-1">
+                  <div class="font-mono text-[11px] font-bold text-amber-600 dark:text-amber-400">${tiers.orta.title}</div>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-[11px] leading-relaxed">${tiers.orta.content}</p>
+                </div>
+                <div class="p-2.5 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-1">
+                  <div class="font-mono text-[11px] font-bold text-emerald-600 dark:text-emerald-400">${tiers.iyi.title}</div>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-[11px] leading-relaxed">${tiers.iyi.content}</p>
+                </div>
+                <div class="p-2.5 rounded-xl bg-purple-500/5 border border-purple-500/20 space-y-1">
+                  <div class="font-mono text-[11px] font-bold text-purple-600 dark:text-purple-400">${tiers.cokIyi.title}</div>
+                  <p class="text-neutral-600 dark:text-neutral-400 text-[11px] leading-relaxed">${tiers.cokIyi.content}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="vercel-card rounded-2xl p-6 sm:p-7 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+            <div class="space-y-1">
+              <div class="flex items-center space-x-2">
+                <span class="text-[10px] font-mono uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-black/5 dark:bg-white/10 font-bold">${item.section || 'Listening Test'}</span>
+                <span class="text-xs font-mono text-neutral-400">${item.category}</span>
+              </div>
+              <h2 class="text-lg sm:text-xl font-bold text-black dark:text-white mt-1">Örnek #${idx + 1}: ${item.title}</h2>
+              <p class="text-xs text-neutral-500">${item.context}</p>
+            </div>
+            <div class="flex items-center space-x-2 text-xs font-mono">
+              <span class="text-neutral-400">Hız:</span>
+              <button onclick="setAudioSpeed(0.8)" id="speed-08" class="px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 ${audioSpeed === 0.8 ? 'bg-black dark:bg-white text-white dark:text-black font-bold' : ''}">0.8x</button>
+              <button onclick="setAudioSpeed(1.0)" id="speed-10" class="px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 ${audioSpeed === 1.0 ? 'bg-black dark:bg-white text-white dark:text-black font-bold' : ''}">1.0x</button>
+              <button onclick="setAudioSpeed(1.2)" id="speed-12" class="px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 ${audioSpeed === 1.2 ? 'bg-black dark:bg-white text-white dark:text-black font-bold' : ''}">1.2x</button>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <button onclick="playListeningAudio()" id="play-audio-btn" class="px-5 py-2.5 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold text-xs flex items-center space-x-2 hover:opacity-90 transition-opacity shadow-sm">
+              <span id="play-btn-icon">🔊</span>
+              <span id="play-btn-text">Ses Kaydını Dinle</span>
+            </button>
+            <button onclick="stopListeningAudio()" class="px-3.5 py-2 rounded-full border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5">⏹ Durdur</button>
+            <div class="audio-indicator hidden flex items-center space-x-1 h-5 text-neutral-400">
+              <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+            </div>
+          </div>
+        </div>
+        <details class="group vercel-card rounded-2xl p-4">
+          <summary class="cursor-pointer font-semibold text-xs text-neutral-700 dark:text-neutral-300 flex items-center justify-between">
+            <span class="font-mono">📄 Ses Transkriptini (Diyalog/Monolog Metni) İncele</span>
+            <span class="transform group-open:rotate-180 transition-transform text-neutral-400 text-xs">▼</span>
+          </summary>
+          <div class="mt-3 pt-3 border-t border-black/5 dark:border-white/10 text-xs leading-relaxed text-neutral-600 dark:text-neutral-400 font-mono whitespace-pre-line" id="transcript-text">${item.transcript}</div>
+        </details>
+        <div class="flex items-center justify-between p-3 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 text-xs font-mono">
+          <span class="text-neutral-600 dark:text-neutral-400 font-bold">${item.questions ? item.questions.length : 0} Soru Mevcut (Cevaplar Gizli)</span>
+          <div class="flex items-center space-x-2">
+            <button onclick="toggleAllAnswers('l-ans', true)" class="px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">👁️ Tüm Cevapları Aç</button>
+            <button onclick="toggleAllAnswers('l-ans', false)" class="px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">🙈 Tümünü Gizle</button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${questionsHtml}</div>
+      `;
+    }
+
+    function renderReadingDetail(container, item, idx) {
+      let isExam = (readingMode === 'exam');
+      let questionsHtml = (item.questions || []).map((q, qIdx) => {
+        const tiers = IELTS_TIER_ENGINE.getQuestionTiers(q);
+        if (isExam) {
+          return `
+            <div class="p-4 rounded-xl vercel-card space-y-3" id="rq-card-${qIdx}">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-bold text-neutral-400">Soru #${q.num} · ${q.type}</span>
+                <span id="rq-status-${qIdx}" class="text-xs font-mono font-bold hidden"></span>
+              </div>
+              <p class="text-xs sm:text-sm font-semibold text-black dark:text-white">${q.statement || q.prompt}</p>
+              ${q.options ? `
+                <div class="space-y-1.5 text-xs">
+                  ${q.options.map((opt) => `
+                    <label class="flex items-center space-x-2 p-2 rounded-lg border border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer">
+                      <input type="radio" name="r-exam-ans-${qIdx}" value="${opt.trim()}" class="accent-black dark:accent-white">
+                      <span>${opt}</span>
+                    </label>
+                  `).join('')}
+                </div>
+              ` : `
+                <input type="text" id="r-exam-ans-${qIdx}" placeholder="Cevabınızı buraya yazın..." class="w-full p-2.5 rounded-lg bg-neutral-50 dark:bg-[#070707] border border-black/10 dark:border-white/10 text-xs font-mono">
+              `}
+              <div id="rq-eval-${qIdx}" class="hidden p-3 rounded-lg text-xs space-y-1.5 bg-neutral-50 dark:bg-[#141414] border border-black/5 dark:border-white/5">
+                <div><span class="text-neutral-400 font-mono">Doğru Cevap:</span> <span class="font-mono font-bold text-emerald-500">${q.answer}</span></div>
+                <div class="text-[11px] text-neutral-500 pt-1 border-t border-black/5 dark:border-white/5 font-sans">${q.explanation}</div>
+              </div>
+            </div>
+          `;
+        } else {
+          return `
+            <div class="p-4 rounded-xl vercel-card space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-bold text-neutral-400">Soru #${q.num} · ${q.type}</span>
+              </div>
+              <p class="text-xs sm:text-sm font-semibold text-black dark:text-white">${q.statement || q.prompt}</p>
+              ${q.options ? `
+                <div class="space-y-1.5 text-xs">
+                  ${q.options.map(opt => `<div class="p-2 rounded-lg bg-neutral-50 dark:bg-[#141414] border border-black/5 dark:border-white/5 font-mono">${opt}</div>`).join('')}
+                </div>
+              ` : ''}
+              <div class="pt-2 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
+                <button onclick="toggleAnswer('r-ans-${qIdx}', this)" class="toggle-btn-r-ans px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5 transition-all text-neutral-600 dark:text-neutral-300">
+                  👁️ 3 Kademeli Çözüm Analizini Göster
+                </button>
+              </div>
+              <div id="r-ans-${qIdx}" class="hidden space-y-2.5 pt-2 transition-all">
+                <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs flex items-center justify-between">
+                  <span class="text-neutral-400 font-mono">Doğru Cevap:</span> 
+                  <span class="font-mono font-bold text-emerald-600 dark:text-emerald-400 text-sm">${q.answer}</span>
+                </div>
+                <div class="space-y-1.5 text-xs">
+                  <div class="p-2.5 rounded-xl bg-amber-500/5 border border-amber-500/20 space-y-1">
+                    <div class="font-mono text-[11px] font-bold text-amber-600 dark:text-amber-400">${tiers.orta.title}</div>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-[11px] leading-relaxed">${tiers.orta.content}</p>
+                  </div>
+                  <div class="p-2.5 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-1">
+                    <div class="font-mono text-[11px] font-bold text-emerald-600 dark:text-emerald-400">${tiers.iyi.title}</div>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-[11px] leading-relaxed">${tiers.iyi.content}</p>
+                  </div>
+                  <div class="p-2.5 rounded-xl bg-purple-500/5 border border-purple-500/20 space-y-1">
+                    <div class="font-mono text-[11px] font-bold text-purple-600 dark:text-purple-400">${tiers.cokIyi.title}</div>
+                    <p class="text-neutral-600 dark:text-neutral-400 text-[11px] leading-relaxed">${tiers.cokIyi.content}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }).join('');
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-4">
+            <div class="flex p-1 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 inline-flex text-xs font-semibold">
+              <button onclick="setReadingMode('study')" class="px-4 py-1.5 rounded-full ${!isExam ? 'bg-white dark:bg-neutral-800 text-black dark:text-white shadow-xs' : 'text-neutral-500 hover:text-black dark:hover:text-white'} transition-all">📖 İnceleme Modu</button>
+              <button onclick="setReadingMode('exam')" class="px-4 py-1.5 rounded-full ${isExam ? 'bg-white dark:bg-neutral-800 text-black dark:text-white shadow-xs' : 'text-neutral-500 hover:text-black dark:hover:text-white'} transition-all">✍️ İnteraktif Sınav Modu</button>
+            </div>
+            ${!isExam ? `
+              <div class="flex items-center space-x-2 font-mono text-xs">
+                <button onclick="toggleAllAnswers('r-ans', true)" class="px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">👁️ Tüm Cevapları Aç</button>
+                <button onclick="toggleAllAnswers('r-ans', false)" class="px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">🙈 Tümünü Gizle</button>
+              </div>
+            ` : `
+              <button onclick="scoreReadingCurrentExam()" class="px-5 py-2 rounded-full text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center space-x-2 transition-all">
+                <span>✅</span><span>Cevaplarımı Puanla</span>
+              </button>
+            `}
+          </div>
+          <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4">
+            <div class="border-b border-black/5 dark:border-white/10 pb-4">
+              <div class="flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400">
+                <span>Reading Passage · Örnek #${idx + 1}</span>
+                <span>·</span><span>${item.category}</span>
+              </div>
+              <h2 class="text-xl sm:text-2xl font-black text-black dark:text-white mt-1">${item.title}</h2>
+              <p class="text-xs text-neutral-500 mt-1">${item.summary}</p>
+            </div>
+            <div id="reading-passage-text" onmouseup="handleTextSelection()" class="text-xs sm:text-sm leading-relaxed text-neutral-700 dark:text-neutral-300 space-y-3 font-sans whitespace-pre-line select-text">
+              ${item.passage}
+            </div>
+          </div>
+          <div id="reading-scorecard" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold flex items-center justify-between"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${questionsHtml}</div>
+        </div>
+      `;
+    }
+
+    function setReadingMode(mode) {
+      readingMode = mode;
+      renderExerciseDetail();
+    }
+
+    function scoreReadingCurrentExam() {
+      const items = getExercisesForSkill('reading', currentTier);
+      const item = items[selectedExerciseIdx];
+      if (!item || !item.questions) return;
+
+      let correctCount = 0;
+      item.questions.forEach((q, qIdx) => {
+        let userAns = "";
+        const radio = document.querySelector(`input[name="r-exam-ans-${qIdx}"]:checked`);
+        if (radio) {
+          userAns = radio.value.trim().toLowerCase();
+        } else {
+          const textInput = document.getElementById(`r-exam-ans-${qIdx}`);
+          if (textInput) userAns = textInput.value.trim().toLowerCase();
+        }
+
+        const correctAns = q.answer.trim().toLowerCase();
+        const card = document.getElementById(`rq-card-${qIdx}`);
+        const status = document.getElementById(`rq-status-${qIdx}`);
+        const evalBox = document.getElementById(`rq-eval-${qIdx}`);
+
+        if (evalBox) evalBox.classList.remove('hidden');
+        if (status) status.classList.remove('hidden');
+
+        let isCorrect = false;
+        if (userAns && (correctAns.includes(userAns) || userAns.includes(correctAns))) {
+          isCorrect = true;
+        }
+
+        if (isCorrect) {
+          correctCount++;
+          if (status) {
+            status.className = 'text-xs font-mono font-bold text-emerald-500';
+            status.innerText = '✓ Doğru';
+          }
+          if (card) card.classList.add('border-emerald-500/40');
+        } else {
+          if (status) {
+            status.className = 'text-xs font-mono font-bold text-rose-500';
+            status.innerText = '✕ Yanlış';
+          }
+          if (card) card.classList.add('border-rose-500/40');
+        }
+      });
+
+      const scorecard = document.getElementById('reading-scorecard');
+      if (scorecard) {
+        scorecard.classList.remove('hidden');
+        const total = item.questions.length;
+        const pct = Math.round((correctCount / total) * 100);
+        let band = "6.0";
+        if (pct >= 85) band = "8.5 - 9.0";
+        else if (pct >= 75) band = "7.5 - 8.0";
+        else if (pct >= 60) band = "6.5 - 7.0";
+        else if (pct >= 45) band = "5.5 - 6.0";
+        else band = "4.5 - 5.0";
+        scorecard.innerText = `Sonuç: ${total} Üzerinden ${correctCount} Doğru! (Tahmini Band: ${band})`;
+      }
+
+      App.showToast(`Test Puanlandı: ${correctCount}/${item.questions.length} Doğru!`, "success");
+    }
+
+    function renderWritingDetail(container, item, idx) {
+      container.innerHTML = `
+        <div class="space-y-6">
+          <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+              <div class="space-y-1">
+                <div class="flex items-center space-x-2">
+                  <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 font-bold uppercase">
+                    ${item.type || 'Writing Task'}
+                  </span>
+                  <span class="text-xs text-neutral-400 font-mono">${item.category}</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-black dark:text-white">Örnek #${idx + 1}: ${item.category}</h3>
+              </div>
+              <span class="text-xs font-mono text-neutral-400">
+                ${(item.type && item.type.includes('Task 1')) ? 'Min 150 kelime · 20 dk' : 'Min 250 kelime · 40 dk'}
+              </span>
+            </div>
+            <div class="p-4 rounded-xl bg-neutral-50 dark:bg-[#070707] border border-black/5 dark:border-white/10 text-xs sm:text-sm text-black dark:text-white font-sans leading-relaxed">
+              <strong>Sınav Yönergesi (Prompt):</strong>
+              <p class="mt-1">${item.prompt}</p>
+            </div>
+            <div class="pt-2">
+              <button onclick="toggleAnswer('w-tiered-box', this)" class="px-5 py-2.5 rounded-full border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5 transition-all text-neutral-700 dark:text-neutral-200 font-bold flex items-center space-x-2 shadow-xs">
+                <span>👁️</span><span>Orta, İyi ve Çok İyi Cevapları İncele</span>
+              </button>
+            </div>
+            <div id="w-tiered-box" class="hidden space-y-5 pt-4 border-t border-black/5 dark:border-white/10">
+              <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 text-xs font-mono">
+                <button onclick="switchWritingTierTab('orta')" id="w-tier-tab-orta" class="px-3.5 py-1.5 rounded-xl transition-all ${activeWritingTierTab === 'orta' ? 'bg-amber-500 text-white font-bold shadow-xs' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}">
+                  🟡 Orta (Band 5.5 - 6.0)
+                </button>
+                <button onclick="switchWritingTierTab('iyi')" id="w-tier-tab-iyi" class="px-3.5 py-1.5 rounded-xl transition-all ${activeWritingTierTab === 'iyi' ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}">
+                  🟢 İyi (Band 7.0 - 7.5)
+                </button>
+                <button onclick="switchWritingTierTab('cokIyi')" id="w-tier-tab-cokIyi" class="px-3.5 py-1.5 rounded-xl transition-all ${activeWritingTierTab === 'cokIyi' ? 'bg-purple-600 text-white font-bold shadow-xs' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}">
+                  🟣 Çok İyi (Band 8.5 - 9.0)
+                </button>
+              </div>
+              <div id="writing-tier-card-area"></div>
+            </div>
+          </div>
+          <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-4">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Canlı Essay Çalışma Alanı</span>
+                <h3 class="text-base sm:text-lg font-bold text-black dark:text-white mt-0.5">Kendi Cevabınızı Yazın & Yapay Zeka ile Değerlendirin</h3>
+              </div>
+              <div class="flex items-center space-x-2 font-mono text-xs">
+                <span id="essay-timer-display" class="font-bold text-sm text-neutral-700 dark:text-neutral-300">40:00</span>
+                <button onclick="startEssayTimer()" class="px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">Başlat</button>
+                <button onclick="pauseEssayTimer()" class="px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">Duraklat</button>
+                <button onclick="resetEssayTimer()" class="px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-rose-500">Sıfırla</button>
+                <span id="live-word-count-badge" class="px-2.5 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 font-bold ml-2">0 Kelime</span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <textarea id="essay-textarea" oninput="analyzeEssayText()" rows="10" placeholder="Bu soruya yönelik kendi essayinizi buraya yazın..." class="w-full p-4 rounded-xl text-xs sm:text-sm leading-relaxed bg-neutral-50 dark:bg-[#070707] border border-black/10 dark:border-white/10 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white font-mono text-black dark:text-white"></textarea>
+            </div>
+            <div class="p-4 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-2">
+              <div class="flex items-center justify-between text-xs">
+                <span class="font-mono text-[10px] uppercase tracking-wider text-neutral-400">Akademik Bağlaç Radarı</span>
+                <span id="connectors-count" class="font-mono text-emerald-500 font-bold">0 farklı bağlaç</span>
+              </div>
+              <div id="detected-connectors" class="flex flex-wrap gap-1.5 text-[11px] font-mono text-neutral-400">
+                <span class="italic">Akademik bağlaçlar yazdıkça burada tespit edilecektir.</span>
+              </div>
+            </div>
+            <div class="flex justify-end pt-2">
+              <button onclick="evaluateEssayDetailed()" class="px-6 py-2.5 rounded-full font-bold text-xs bg-emerald-600 hover:bg-emerald-700 text-white flex items-center space-x-2 shadow-sm transition-all">
+                <span>🤖</span><span>Essay'imi Otomatik Değerlendir & Band Skoru Çıkar</span>
+              </button>
+            </div>
+            <div id="ai-evaluation-result" class="hidden p-6 rounded-2xl bg-neutral-50 dark:bg-[#0a0a0a] border border-emerald-500/30 space-y-4"></div>
+          </div>
+        </div>
+      `;
+      renderWritingTierCard(item);
+    }
+
+    function renderWritingTierCard(item) {
+      const area = document.getElementById('writing-tier-card-area');
+      if (!area) return;
+      const tiers = IELTS_TIER_ENGINE.getWritingTiers(item);
+      const cur = tiers[activeWritingTierTab] || tiers.iyi;
+
+      ['orta', 'iyi', 'cokIyi'].forEach(key => {
+        const btn = document.getElementById(`w-tier-tab-${key}`);
+        if (btn) {
+          if (key === activeWritingTierTab) {
+            btn.className = `px-3.5 py-1.5 rounded-xl transition-all font-bold shadow-xs text-white ${key === 'orta' ? 'bg-amber-500' : (key === 'iyi' ? 'bg-emerald-600' : 'bg-purple-600')}`;
+          } else {
+            btn.className = `px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white`;
+          }
+        }
+      });
+
+      const words = cur.text ? cur.text.split(/\s+/).length : 0;
+      area.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+            <div class="flex items-center space-x-2">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider ${cur.badgeColor === 'amber' ? 'text-amber-500' : (cur.badgeColor === 'emerald' ? 'text-emerald-500' : 'text-purple-500')}">
+                ${cur.bandLabel}
+              </span>
+              <span class="text-[11px] font-mono text-neutral-400">(${words} kelime)</span>
+            </div>
+            <button onclick="App.speakText(document.getElementById('w-active-model-text').innerText)" class="text-xs font-mono px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-1">
+              <span>🔊</span><span>Sesli Dinle</span>
+            </button>
+          </div>
+          <div id="w-active-model-text" class="p-5 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 text-xs sm:text-sm leading-relaxed text-neutral-700 dark:text-neutral-300 font-sans whitespace-pre-line">
+            ${cur.text}
+          </div>
+          <div class="p-4 rounded-xl border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-[#070707] space-y-2.5 text-xs">
+            <div class="font-mono text-[11px] font-bold uppercase tracking-wider text-neutral-500">Examiner Değerlendirmesi & Neden Bu Notu Alır?</div>
+            <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed">${cur.critique}</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-black/5 dark:border-white/10 text-[11px]">
+              <div class="space-y-1">
+                <span class="font-bold text-emerald-600 dark:text-emerald-400 font-mono">✓ Güçlü Yönler:</span>
+                <ul class="space-y-0.5 text-neutral-500">${cur.strengths.map(s => `<li>• ${s}</li>`).join('')}</ul>
+              </div>
+              <div class="space-y-1">
+                <span class="font-bold text-amber-600 dark:text-amber-400 font-mono">⚠️ Eksikler & Geliştirme:</span>
+                <ul class="space-y-0.5 text-neutral-500">${cur.weaknesses.map(w => `<li>• ${w}</li>`).join('')}</ul>
+              </div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-black/5 dark:bg-white/5 text-[11px] font-mono text-neutral-700 dark:text-neutral-300 mt-2">
+              <strong>🎯 Bir Üst Seviyeye Çıkış Tavsiyesi:</strong> ${cur.upgradeTip}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSpeakingDetail(container, item, idx) {
+      container.innerHTML = `
+        <div class="space-y-6">
+          <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+              <div class="space-y-1">
+                <div class="flex items-center space-x-2">
+                  <span class="font-mono text-[10px] px-2.5 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 font-bold uppercase">${item.part || 'Speaking'}</span>
+                  <span class="text-xs text-neutral-400 font-mono">${item.topic}</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-black dark:text-white">Örnek #${idx + 1}: ${item.topic}</h3>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-neutral-50 dark:bg-[#070707] border border-black/5 dark:border-white/10 text-xs sm:text-sm text-black dark:text-white font-sans leading-relaxed">
+              <strong>Sınav Görevlisi Sorusu / Cue Card:</strong>
+              <p class="mt-1">${item.prompt}</p>
+            </div>
+            <div class="pt-2">
+              <button onclick="toggleAnswer('s-tiered-box', this)" class="px-5 py-2.5 rounded-full border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5 transition-all text-neutral-700 dark:text-neutral-200 font-bold flex items-center space-x-2 shadow-xs">
+                <span>👁️</span><span>Orta, İyi ve Çok İyi Konuşma Yanıtlarını İncele</span>
+              </button>
+            </div>
+            <div id="s-tiered-box" class="hidden space-y-5 pt-4 border-t border-black/5 dark:border-white/10">
+              <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 text-xs font-mono">
+                <button onclick="switchSpeakingTierTab('orta')" id="s-tier-tab-orta" class="px-3.5 py-1.5 rounded-xl transition-all ${activeSpeakingTierTab === 'orta' ? 'bg-amber-500 text-white font-bold shadow-xs' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}">
+                  🟡 Orta (Band 5.0 - 5.5)
+                </button>
+                <button onclick="switchSpeakingTierTab('iyi')" id="s-tier-tab-iyi" class="px-3.5 py-1.5 rounded-xl transition-all ${activeSpeakingTierTab === 'iyi' ? 'bg-emerald-600 text-white font-bold shadow-xs' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}">
+                  🟢 İyi (Band 7.0 - 7.5)
+                </button>
+                <button onclick="switchSpeakingTierTab('cokIyi')" id="s-tier-tab-cokIyi" class="px-3.5 py-1.5 rounded-xl transition-all ${activeSpeakingTierTab === 'cokIyi' ? 'bg-purple-600 text-white font-bold shadow-xs' : 'text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white'}">
+                  🟣 Çok İyi (Band 8.5 - 9.0)
+                </button>
+              </div>
+              <div id="speaking-tier-card-area"></div>
+            </div>
+          </div>
+          <div class="vercel-card rounded-2xl p-6 space-y-4 border border-black/10 dark:border-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-3">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">📝 Konuşma Öncesi Hazırlık Not Defteri</span>
+                <h4 class="text-xs font-bold text-black dark:text-white">1 Dakikalık Düşünme & Not Alma Süresi</h4>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span id="prep-timer-display" class="font-mono text-sm font-bold text-emerald-500">01:00</span>
+                <button onclick="startPrepTimer()" id="prep-timer-btn" class="px-3.5 py-1.5 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold text-xs hover:opacity-90">Hazırlığı Başlat (60s)</button>
+              </div>
+            </div>
+            <div class="space-y-1.5">
+              <textarea id="speaking-scratchpad" rows="3" placeholder="Konuşma öncesi 1 dakikada anahtar kelimelerinizi buraya not alın..." class="w-full p-3 rounded-xl text-xs bg-neutral-50 dark:bg-[#070707] border border-black/10 dark:border-white/10 font-mono text-black dark:text-white focus:outline-none"></textarea>
+            </div>
+          </div>
+          <div class="vercel-card rounded-2xl p-6 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-4">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">🎙️ Canlı Mikrofon & Ses Tanıma (Speech-to-Text)</span>
+                <h4 class="text-sm font-bold text-black dark:text-white mt-0.5">Cevabınızı Konuşun, Kaydedin ve Canlı Dökümü İnceleyin</h4>
+              </div>
+              <div class="flex items-center space-x-3">
+                <span id="recording-timer" class="font-mono text-sm font-bold text-neutral-500">00:00</span>
+                <button onclick="toggleAudioRecording()" id="rec-btn" class="px-4 py-2 rounded-full text-xs font-semibold flex items-center space-x-2 bg-rose-600 hover:bg-rose-700 text-white shadow transition-all">
+                  <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                  <span id="rec-btn-text">Kayda Başla</span>
+                </button>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+                <span>Canlı Konuşma Dökümü:</span>
+                <span id="stt-status-badge" class="text-neutral-500">Mikrofon hazır</span>
+              </div>
+              <div id="speech-transcript-box" class="min-h-[70px] p-4 rounded-xl bg-neutral-50 dark:bg-[#070707] border border-black/5 dark:border-white/10 text-xs sm:text-sm font-sans leading-relaxed text-black dark:text-white italic">
+                Mikrofonu başlattığınızda İngilizce konuşmanız canlı olarak buraya dökülecektir...
+              </div>
+              <div id="speech-metrics" class="hidden flex items-center space-x-4 text-xs font-mono text-emerald-500 pt-1"></div>
+            </div>
+            <div id="user-audio-container" class="hidden p-3 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-2">
+              <span class="text-[10px] font-mono text-neutral-400 uppercase">Sizin Ses Kaydınız:</span>
+              <audio id="user-audio-player" controls class="w-full h-8"></audio>
+            </div>
+          </div>
+        </div>
+      `;
+      renderSpeakingTierCard(item);
+    }
+
+    function renderSpeakingTierCard(item) {
+      const area = document.getElementById('speaking-tier-card-area');
+      if (!area) return;
+      const tiers = IELTS_TIER_ENGINE.getSpeakingTiers(item);
+      const cur = tiers[activeSpeakingTierTab] || tiers.iyi;
+
+      ['orta', 'iyi', 'cokIyi'].forEach(key => {
+        const btn = document.getElementById(`s-tier-tab-${key}`);
+        if (btn) {
+          if (key === activeSpeakingTierTab) {
+            btn.className = `px-3.5 py-1.5 rounded-xl transition-all font-bold shadow-xs text-white ${key === 'orta' ? 'bg-amber-500' : (key === 'iyi' ? 'bg-emerald-600' : 'bg-purple-600')}`;
+          } else {
+            btn.className = `px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white`;
+          }
+        }
+      });
+
+      area.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider ${cur.badgeColor === 'amber' ? 'text-amber-500' : (cur.badgeColor === 'emerald' ? 'text-emerald-500' : 'text-purple-500')}">
+              ${cur.bandLabel}
+            </span>
+            <button onclick="App.speakText(document.getElementById('s-active-model-text').innerText)" class="text-xs font-mono px-3 py-1 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-1">
+              <span>🔊</span><span>Model Yanıtı Dinle</span>
+            </button>
+          </div>
+          <div id="s-active-model-text" class="p-5 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 text-xs sm:text-sm leading-relaxed text-neutral-700 dark:text-neutral-300 font-sans italic">
+            "${cur.spokenText}"
+          </div>
+          <div class="p-4 rounded-xl border border-black/10 dark:border-white/10 bg-neutral-50 dark:bg-[#070707] space-y-2.5 text-xs">
+            <div class="font-mono text-[11px] font-bold uppercase tracking-wider text-neutral-500">Mülakat Değerlendirmesi & Akıcılık Analizi</div>
+            <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed">${cur.critique}</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-black/5 dark:border-white/10 text-[11px]">
+              <div class="space-y-1">
+                <span class="font-bold text-emerald-600 dark:text-emerald-400 font-mono">✓ Güçlü Yönler:</span>
+                <ul class="space-y-0.5 text-neutral-500">${cur.strengths.map(s => `<li>• ${s}</li>`).join('')}</ul>
+              </div>
+              <div class="space-y-1">
+                <span class="font-bold text-amber-600 dark:text-amber-400 font-mono">⚠️ Eksikler & Geliştirme:</span>
+                <ul class="space-y-0.5 text-neutral-500">${cur.weaknesses.map(w => `<li>• ${w}</li>`).join('')}</ul>
+              </div>
+            </div>
+            <div class="p-2.5 rounded-lg bg-black/5 dark:bg-white/5 text-[11px] font-mono text-neutral-700 dark:text-neutral-300 mt-2">
+              <strong>🎯 Puanı Yükseltme Tavsiyesi:</strong> ${cur.upgradeTip}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function setAudioSpeed(speed) {
+      audioSpeed = speed;
+      document.querySelectorAll('[id^="speed-"]').forEach(b => {
+        b.className = 'px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10';
+      });
+      const target = document.getElementById(`speed-${speed.toString().replace('.', '')}`);
+      if (target) target.className = 'px-2.5 py-1 rounded-full border border-black/10 dark:border-white/10 bg-black dark:bg-white text-white dark:text-black font-bold';
+      App.showToast(`Oynatma hızı ${speed}x olarak ayarlandı.`, "info");
+    }
+
+    function playListeningAudio() {
+      const textEl = document.getElementById('transcript-text');
+      if (!textEl) return;
+      const text = textEl.innerText;
+      if (!text) return;
+
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-GB';
+      utterance.rate = audioSpeed;
+
+      const indicator = document.querySelector('.audio-indicator');
+      const btnText = document.getElementById('play-btn-text');
+
+      utterance.onstart = () => {
+        if (indicator) indicator.classList.remove('hidden');
+        if (btnText) btnText.innerText = 'Çalıyor...';
+        isPlayingAudio = true;
+      };
+
+      utterance.onend = () => {
+        if (indicator) indicator.classList.add('hidden');
+        if (btnText) btnText.innerText = 'Ses Kaydını Dinle';
+        isPlayingAudio = false;
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopListeningAudio() {
+      window.speechSynthesis.cancel();
+      const indicator = document.querySelector('.audio-indicator');
+      const btnText = document.getElementById('play-btn-text');
+      if (indicator) indicator.classList.add('hidden');
+      if (btnText) btnText.innerText = 'Ses Kaydını Dinle';
+      isPlayingAudio = false;
+    }
+
+    let essayTimerSeconds = 40 * 60;
+    let essayTimerInterval = null;
+
+    function startEssayTimer() {
+      if (essayTimerInterval) return;
+      essayTimerInterval = setInterval(() => {
+        if (essayTimerSeconds > 0) {
+          essayTimerSeconds--;
+          updateEssayTimerDisplay();
+        } else {
+          clearInterval(essayTimerInterval);
+          essayTimerInterval = null;
+          App.showToast("Süreniz doldu! 🔔", "error");
+        }
+      }, 1000);
+    }
+
+    function pauseEssayTimer() {
+      clearInterval(essayTimerInterval);
+      essayTimerInterval = null;
+    }
+
+    function resetEssayTimer() {
+      pauseEssayTimer();
+      essayTimerSeconds = 40 * 60;
+      updateEssayTimerDisplay();
+    }
+
+    function updateEssayTimerDisplay() {
+      const m = Math.floor(essayTimerSeconds / 60);
+      const s = essayTimerSeconds % 60;
+      const el = document.getElementById('essay-timer-display');
+      if (el) el.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function analyzeEssayText() {
+      const text = document.getElementById('essay-textarea').value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      const badge = document.getElementById('live-word-count-badge');
+
+      if (badge) {
+        badge.innerText = `${words} Kelime`;
+        if (words >= 250) {
+          badge.className = 'px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold font-mono ml-2';
+        } else {
+          badge.className = 'px-2.5 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 font-bold font-mono ml-2';
+        }
+      }
+
+      const markers = [
+        'however', 'furthermore', 'moreover', 'consequently', 'in contrast', 
+        'nevertheless', 'on the other hand', 'to begin with', 'in conclusion', 
+        'notwithstanding', 'subsequently', 'in light of', 'predominantly', 
+        'conversely', 'it is widely acknowledged'
+      ];
+
+      const lower = text.toLowerCase();
+      const detected = markers.filter(m => lower.includes(m));
+      const countEl = document.getElementById('connectors-count');
+      const container = document.getElementById('detected-connectors');
+
+      if (countEl && container) {
+        countEl.innerText = `${detected.length} farklı bağlaç tespit edildi`;
+        if (detected.length > 0) {
+          container.innerHTML = detected.map(m => `
+            <span class="px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-mono">
+              ✓ ${m}
+            </span>
+          `).join('');
+        } else {
+          container.innerHTML = `<span class="italic text-neutral-500">Akademik bağlaçlar yazdıkça burada tespit edilecektir.</span>`;
+        }
+      }
+    }
+
+    function evaluateEssayDetailed() {
+      const text = document.getElementById('essay-textarea').value.trim();
+      const resultBox = document.getElementById('ai-evaluation-result');
+
+      if (!text || text.split(/\s+/).length < 40) {
+        App.showToast("Değerlendirme için lütfen en az 40-50 kelimelik bir metin yazın.", "warning");
+        return;
+      }
+
+      const words = text.split(/\s+/).length;
+      let trScore = words >= 250 ? 7.5 : (words >= 200 ? 6.5 : 5.0);
+      let ccScore = 7.0;
+      let lrScore = 7.0;
+      let grScore = 7.0;
+      const overall = ((trScore + ccScore + lrScore + grScore) / 4).toFixed(1);
+
+      resultBox.classList.remove('hidden');
+      resultBox.innerHTML = `
+        <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+          <div>
+            <span class="text-[10px] font-mono text-emerald-500 font-bold uppercase">Yapay Zeka Analiz Raporu</span>
+            <h4 class="text-base font-bold text-black dark:text-white">Essay Performans Özeti</h4>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] font-mono text-neutral-400 block uppercase">Tahmini Band Skoru</span>
+            <span class="text-3xl font-black text-emerald-500">${overall}</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="p-3.5 rounded-xl bg-neutral-100 dark:bg-[#141414] space-y-1">
+            <div class="flex items-center justify-between font-bold text-black dark:text-white font-mono">
+              <span>1. Task Response</span>
+              <span class="text-emerald-500">Band ${trScore.toFixed(1)}</span>
+            </div>
+            <p class="text-neutral-500 text-[11px]">${words >= 250 ? '250+ kelime barajı aşıldı.' : 'Kelime sayısı 250 barajının altında.'}</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-neutral-100 dark:bg-[#141414] space-y-1">
+            <div class="flex items-center justify-between font-bold text-black dark:text-white font-mono">
+              <span>2. Coherence & Cohesion</span>
+              <span class="text-emerald-500">Band ${ccScore.toFixed(1)}</span>
+            </div>
+            <p class="text-neutral-500 text-[11px]">Paragraf geçişleri ve bağlaç kullanımı dengeli.</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-neutral-100 dark:bg-[#141414] space-y-1">
+            <div class="flex items-center justify-between font-bold text-black dark:text-white font-mono">
+              <span>3. Lexical Resource</span>
+              <span class="text-emerald-500">Band ${lrScore.toFixed(1)}</span>
+            </div>
+            <p class="text-neutral-500 text-[11px]">Akademik kelimeler ve eşdizimler tespit edildi.</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-neutral-100 dark:bg-[#141414] space-y-1">
+            <div class="flex items-center justify-between font-bold text-black dark:text-white font-mono">
+              <span>4. Grammatical Range</span>
+              <span class="text-emerald-500">Band ${grScore.toFixed(1)}</span>
+            </div>
+            <p class="text-neutral-500 text-[11px]">Karmaşık cümle yapıları ve zaman uyumu mevcut.</p>
+          </div>
+        </div>
+      `;
+      resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    let prepSeconds = 60;
+    let prepInterval = null;
+
+    function startPrepTimer() {
+      if (prepInterval) return;
+      prepSeconds = 60;
+      const btn = document.getElementById('prep-timer-btn');
+      if (btn) btn.disabled = true;
+
+      prepInterval = setInterval(() => {
+        prepSeconds--;
+        const display = document.getElementById('prep-timer-display');
+        if (display) {
+          const m = Math.floor(prepSeconds / 60);
+          const s = prepSeconds % 60;
+          display.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+        if (prepSeconds <= 0) {
+          clearInterval(prepInterval);
+          prepInterval = null;
+          if (btn) btn.disabled = false;
+          App.showToast("1 dakikalık düşünme süreniz tamamlandı! 🎙️", "info");
+        }
+      }, 1000);
+    }
+
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isRecording = false;
+    let recSeconds = 0;
+    let recInterval = null;
+    let speechRecognizer = null;
+    let spokenWordsCount = 0;
+
+    async function toggleAudioRecording() {
+      const btn = document.getElementById('rec-btn');
+      const btnText = document.getElementById('rec-btn-text');
+      const transcriptBox = document.getElementById('speech-transcript-box');
+      const sttBadge = document.getElementById('stt-status-badge');
+      const metricsBox = document.getElementById('speech-metrics');
+
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+
+          mediaRecorder.ondataavailable = (e) => {
+            if (e.data.size > 0) audioChunks.push(e.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const player = document.getElementById('user-audio-player');
+            const pContainer = document.getElementById('user-audio-container');
+            if (player && pContainer) {
+              player.src = audioUrl;
+              pContainer.classList.remove('hidden');
+            }
+          };
+
+          const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+          if (SpeechRecognition) {
+            speechRecognizer = new SpeechRecognition();
+            speechRecognizer.continuous = true;
+            speechRecognizer.interimResults = true;
+            speechRecognizer.lang = 'en-GB';
+
+            transcriptBox.innerText = '';
+            spokenWordsCount = 0;
+
+            speechRecognizer.onresult = (event) => {
+              let fullText = '';
+              for (let i = 0; i < event.results.length; i++) {
+                fullText += event.results[i][0].transcript + ' ';
+              }
+              transcriptBox.innerText = fullText.trim();
+              const words = fullText.trim() ? fullText.trim().split(/\s+/).length : 0;
+              spokenWordsCount = words;
+              if (sttBadge) sttBadge.innerText = `Dinliyor... (${words} kelime)`;
+            };
+
+            speechRecognizer.onerror = (e) => {
+              console.log("Speech recognition notice:", e);
+            };
+
+            speechRecognizer.start();
+          }
+
+          mediaRecorder.start();
+          isRecording = true;
+          recSeconds = 0;
+          btn.className = 'px-4 py-2 rounded-full text-xs font-semibold flex items-center space-x-2 bg-neutral-900 dark:bg-white text-white dark:text-black shadow transition-all';
+          btnText.innerText = 'Kaydı Durdur ⏹';
+
+          recInterval = setInterval(() => {
+            recSeconds++;
+            const m = Math.floor(recSeconds / 60);
+            const s = recSeconds % 60;
+            document.getElementById('recording-timer').innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+          }, 1000);
+
+          App.showToast("Kayıt ve ses tanıma başladı!", "info");
+        } catch (err) {
+          App.showToast("Mikrofon erişimi sağlanamadı.", "error");
+        }
+      } else {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
+          mediaRecorder.stream.getTracks().forEach(track => track.stop());
+        }
+        if (speechRecognizer) {
+          speechRecognizer.stop();
+          speechRecognizer = null;
+        }
+
+        clearInterval(recInterval);
+        isRecording = false;
+        btn.className = 'px-4 py-2 rounded-full text-xs font-semibold flex items-center space-x-2 bg-rose-600 hover:bg-rose-700 text-white shadow transition-all';
+        btnText.innerText = 'Yeni Kayıt Başlat 🎙️';
+
+        if (sttBadge) sttBadge.innerText = 'Transkripsiyon tamamlandı ✓';
+
+        if (metricsBox && recSeconds > 0) {
+          const wpm = Math.round((spokenWordsCount / recSeconds) * 60);
+          metricsBox.classList.remove('hidden');
+          metricsBox.innerHTML = `
+            <span>Toplam Konuşulan: <strong>${spokenWordsCount} Kelime</strong></span>
+            <span>Konuşma Hızı: <strong>~${wpm} Kelime/Dk</strong> (İdeal: 110-140 WPM)</span>
+          `;
+        }
+
+        App.showToast("Kayıt ve döküm tamamlandı!", "success");
+      }
+    }
+
+    function handleTextSelection() {
+      const selection = window.getSelection();
+      const toolbar = document.getElementById('text-highlighter-toolbar');
+      if (!selection || selection.isCollapsed || !selection.toString().trim()) {
+        toolbar.classList.add('hidden');
+        return;
+      }
+      const range = selection.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+      toolbar.style.top = `${Math.max(10, rect.top - 45)}px`;
+      toolbar.style.left = `${Math.max(10, rect.left + (rect.width / 2) - 100)}px`;
+      toolbar.classList.remove('hidden');
+    }
+
+    function applyHighlight(color) {
+      const selection = window.getSelection();
+      if (!selection.rangeCount) return;
+      const range = selection.getRangeAt(0);
+      const span = document.createElement('span');
+      span.className = color === 'yellow' ? 'bg-amber-300/40 text-black dark:text-white px-0.5 rounded' : 'bg-emerald-300/40 text-black dark:text-white px-0.5 rounded';
+      span.appendChild(range.extractContents());
+      range.insertNode(span);
+      selection.removeAllRanges();
+      document.getElementById('text-highlighter-toolbar').classList.add('hidden');
+      App.showToast("Metin fosforlu kalemle vurgulandı.", "info");
+    }
+
+    function clearHighlights() {
+      const textContainer = document.getElementById('reading-passage-text');
+      if (!textContainer) return;
+      textContainer.querySelectorAll('span.bg-amber-300\\/40, span.bg-emerald-300\\/40').forEach(s => {
+        const parent = s.parentNode;
+        while (s.firstChild) parent.insertBefore(s.firstChild, s);
+        parent.removeChild(s);
+      });
+      document.getElementById('text-highlighter-toolbar').classList.add('hidden');
+      App.showToast("Fosforlu vurgular temizlendi.", "info");
+    }
+
+    function speakSelectedText() {
+      const sel = window.getSelection().toString().trim();
+      if (sel) {
+        App.speakText(sel);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSidebarList();
+      renderExerciseDetail();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Öğrenci Karnesi & Gelişim Analitiği | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-amber-300/30 dark:selection:bg-amber-400/20">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-90 transition-opacity shadow-sm shadow-amber-500/30">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-rose-500 hover:text-rose-600 font-bold border border-rose-500/20 bg-rose-500/5 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+    
+    <!-- Top Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-5">
+      <div>
+        <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-1">
+          <span>Gelişim Raporu & Yapay Zeka Yetkinlik Analitiği</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-black dark:text-white">
+          Öğrenci Karnesi & İlerleme Merkezi
+        </h1>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button onclick="window.print()" class="px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5 flex items-center space-x-1.5">
+          <span>🖨️</span>
+          <span>Karnemi Yazdır (PDF)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Top Key Metrics Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="vercel-card rounded-2xl p-5 space-y-1">
+        <span class="text-[10px] font-mono uppercase text-neutral-400 block">Günlük Seri</span>
+        <div class="text-2xl sm:text-3xl font-black text-amber-500 flex items-center space-x-1">
+          <span>🔥</span>
+          <span id="metric-streak">1 Gün</span>
+        </div>
+        <span class="text-[10px] text-neutral-500 font-mono">Düzenli çalışma rutini</span>
+      </div>
+
+      <div class="vercel-card rounded-2xl p-5 space-y-1">
+        <span class="text-[10px] font-mono uppercase text-neutral-400 block">Çözülen Testler</span>
+        <div class="text-2xl sm:text-3xl font-black text-emerald-500" id="metric-total-tests">0 / 80</div>
+        <span class="text-[10px] text-neutral-500 font-mono">1.600 soruluk soru havuzu</span>
+      </div>
+
+      <div class="vercel-card rounded-2xl p-5 space-y-1">
+        <span class="text-[10px] font-mono uppercase text-neutral-400 block">Kalıcı Hafızada Kelime</span>
+        <div class="text-2xl sm:text-3xl font-black text-purple-500" id="metric-srs-mastered">0</div>
+        <span class="text-[10px] text-neutral-500 font-mono">SRS 7 Günlük Kutu 3</span>
+      </div>
+
+      <div class="vercel-card rounded-2xl p-5 space-y-1">
+        <span class="text-[10px] font-mono uppercase text-neutral-400 block">Tahmini IELTS Band</span>
+        <div class="text-2xl sm:text-3xl font-black text-blue-500" id="metric-band-estimate">6.5 - 7.0</div>
+        <span class="text-[10px] text-neutral-500 font-mono">B2 Yetkin Seviye</span>
+      </div>
+    </div>
+
+    <!-- Middle Row: Radar Chart + CEFR Completion Meters -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- 7-Axis Competency Radar Chart (Spider Chart) -->
+      <div class="lg:col-span-6 vercel-card rounded-2xl p-6 sm:p-7 space-y-4">
+        <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400">7 Boyutlu Yetkinlik Dağılımı</span>
+            <h3 class="text-base font-bold text-black dark:text-white">Gramer & Beceri Radarı</h3>
+          </div>
+          <span class="text-xs font-mono text-emerald-500 font-bold">% Dağılım</span>
+        </div>
+
+        <div id="radar-chart-box" class="py-2 flex items-center justify-center min-h-[300px]">
+          <!-- Injected dynamically via ANALYTICS_ENGINE.renderRadarChartSvg() -->
+        </div>
+
+        <p class="text-[11px] text-neutral-500 text-center font-mono">
+          Radar grafiği çözdüğünüz test sonuçlarına ve kelime hafızanıza göre dinamik olarak güncellenir.
+        </p>
+      </div>
+
+      <!-- CEFR Progress Bars & SRS Memory Boxes -->
+      <div class="lg:col-span-6 space-y-5">
+        
+        <!-- CEFR Seviye İlerleme Çubukları -->
+        <div class="vercel-card rounded-2xl p-6 space-y-4">
+          <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+            <h3 class="text-base font-bold text-black dark:text-white">CEFR Seviye Tamamlanma Durumu</h3>
+            <span class="text-xs font-mono text-neutral-400">A1 - C2</span>
+          </div>
+
+          <div id="cefr-progress-bars" class="space-y-3 font-mono text-xs">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- SRS Memory Box Overview -->
+        <div class="vercel-card rounded-2xl p-6 space-y-4 border border-purple-500/20 bg-purple-500/5">
+          <div class="flex items-center justify-between border-b border-purple-500/20 pb-3">
+            <div class="flex items-center space-x-2">
+              <span class="text-base">🧠</span>
+              <h3 class="text-base font-bold text-black dark:text-white">Aralıklı Tekrar (SRS / Leitner) Durumu</h3>
+            </div>
+            <a href="vocabulary.html" class="text-xs font-mono text-purple-600 dark:text-purple-400 hover:underline">Kelimeye Git ➔</a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 text-center text-xs font-mono pt-1">
+            <div class="p-3 rounded-xl bg-white/10 dark:bg-black/20 space-y-1">
+              <span class="text-rose-400 font-bold block text-sm" id="srs-box1-count">0</span>
+              <span class="text-[10px] text-neutral-400">Kutu 1 (1 Gün)</span>
+            </div>
+            <div class="p-3 rounded-xl bg-white/10 dark:bg-black/20 space-y-1">
+              <span class="text-amber-400 font-bold block text-sm" id="srs-box2-count">0</span>
+              <span class="text-[10px] text-neutral-400">Kutu 2 (3 Gün)</span>
+            </div>
+            <div class="p-3 rounded-xl bg-white/10 dark:bg-black/20 space-y-1">
+              <span class="text-emerald-400 font-bold block text-sm" id="srs-box3-count">0</span>
+              <span class="text-[10px] text-neutral-400">Kutu 3 (7 Gün)</span>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-black/5 dark:bg-white/5 flex items-center justify-between text-xs font-mono">
+            <span class="text-neutral-500">Bugün Tekrar Bekleyen:</span>
+            <span class="font-bold text-rose-500" id="srs-due-today">0 Kelime</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Data Backup & Multi-Device Sync Card -->
+    <div class="vercel-card rounded-2xl p-6 sm:p-7 space-y-4 border border-black/10 dark:border-white/10">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-4">
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Veri Güvenliği & Cihazlar Arası Taşıma</span>
+          <h3 class="text-base font-bold text-black dark:text-white mt-0.5">Çalışma Verilerini Yedekle & Geri Yükle</h3>
+          <p class="text-xs text-neutral-500 font-sans mt-0.5">
+            Çözdüğünüz tüm testler, kelime hafıza durumunuz, kelime defteriniz ve günlük seriniz tarayıcınızda saklanır. İlerlemenizi kaybetmemek veya başka bir cihaza aktarmak için tek tıkla yedek alın.
+          </p>
+        </div>
+
+        <div class="flex items-center space-x-2 shrink-0">
+          <button onclick="App.exportBackup()" class="px-4 py-2 rounded-xl bg-black dark:bg-white text-white dark:text-black font-mono text-xs font-bold hover:opacity-90 transition-all flex items-center space-x-1.5 shadow-sm">
+            <span>💾</span>
+            <span>Yedek İndir (JSON)</span>
+          </button>
+
+          <label class="px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 font-mono text-xs font-bold cursor-pointer transition-all flex items-center space-x-1.5 text-neutral-700 dark:text-neutral-300">
+            <span>📥</span>
+            <span>Yedeği Yükle</span>
+            <input type="file" id="backup-file-input" accept=".json" onchange="App.importBackup(this)" class="hidden">
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-neutral-400">
+        <span class="flex items-center space-x-1">
+          <span class="text-emerald-500">✓</span>
+          <span>80 Test Sonucu</span>
+        </span>
+        <span class="flex items-center space-x-1">
+          <span class="text-emerald-500">✓</span>
+          <span>Leitner SRS Hafıza Kutuları</span>
+        </span>
+        <span class="flex items-center space-x-1">
+          <span class="text-emerald-500">✓</span>
+          <span>Kişisel Kelime Defteri</span>
+        </span>
+        <span class="flex items-center space-x-1">
+          <span class="text-emerald-500">✓</span>
+          <span>Günlük Seri (Streak)</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Bottom Row: Recent Test Attempts Table -->
+    <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4">
+      <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-4">
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Deneme Sınavları Geçmişi</span>
+          <h3 class="text-base font-bold text-black dark:text-white">Çözülen Testler ve Doğruluk Oranları</h3>
+        </div>
+        <a href="tests.html" class="px-3.5 py-1.5 rounded-xl bg-black dark:bg-white text-white dark:text-black font-mono text-xs font-bold hover:opacity-90">
+          Yeni Test Çöz ➔
+        </a>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left font-mono text-xs">
+          <thead>
+            <tr class="border-b border-black/5 dark:border-white/10 text-neutral-400 text-[10px] uppercase">
+              <th class="py-2.5">Test Adı / Kodu</th>
+              <th class="py-2.5">Doğru Sayısı</th>
+              <th class="py-2.5">Başarı Yüzdesi</th>
+              <th class="py-2.5">Durum / Değerlendirme</th>
+              <th class="py-2.5 text-right">Eylem</th>
+            </tr>
+          </thead>
+          <tbody id="test-history-tbody" class="divide-y divide-black/5 dark:divide-white/5">
+            <!-- Injected dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">Öğrenci Karnesi · Yetkinlik Radarı & Gerçek Zamanlı Band 8.5+ Tahmini</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Analitik & İlerleme Motoru</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="text-amber-500 font-bold">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/srs-engine.js"></script>
+  <script src="assets/js/analytics.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Streak & Key Metrics
+      const streak = App.getStreak();
+      document.getElementById('metric-streak').innerText = `${streak} Gün`;
+
+      const srsStats = SRS_ENGINE.getStats();
+      document.getElementById('metric-srs-mastered').innerText = srsStats.mastered;
+      document.getElementById('srs-box1-count').innerText = srsStats.learning;
+      document.getElementById('srs-box2-count').innerText = srsStats.reviewing;
+      document.getElementById('srs-box3-count').innerText = srsStats.mastered;
+      document.getElementById('srs-due-today').innerText = `${srsStats.dueCount} Kelime`;
+
+      // 2. Render 7-Axis Radar Chart
+      ANALYTICS_ENGINE.renderRadarChartSvg('radar-chart-box');
+
+      // 3. Render CEFR Progress Bars
+      const cefrData = ANALYTICS_ENGINE.getCefrProgress();
+      const cefrContainer = document.getElementById('cefr-progress-bars');
+      let totalCompleted = 0;
+
+      cefrContainer.innerHTML = Object.keys(cefrData).map(lvl => {
+        const item = cefrData[lvl];
+        totalCompleted += item.completedTests;
+        return `
+          <div class="space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-neutral-700 dark:text-neutral-300">${lvl} Seviyesi</span>
+              <span class="text-neutral-500">${item.completedTests} / 10 Test (%${item.percentage})</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden">
+              <div class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: ${Math.max(5, item.percentage)}%;"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('metric-total-tests').innerText = `${totalCompleted} / 80`;
+
+      // 4. Render Test History Table
+      const history = ANALYTICS_ENGINE.getTestHistory();
+      const historyTbody = document.getElementById('test-history-tbody');
+
+      if (history.length === 0) {
+        historyTbody.innerHTML = `
+          <tr>
+            <td colspan="5" class="py-6 text-center text-neutral-400">
+              Henüz tamamlanan test bulunmuyor. Testler menüsünden ilk denemenizi çözün!
+            </td>
+          </tr>
+        `;
+      } else {
+        historyTbody.innerHTML = history.map(h => {
+          const color = h.percentage >= 80 ? 'text-emerald-500' : (h.percentage >= 60 ? 'text-amber-500' : 'text-rose-500');
+          const badge = h.percentage >= 80 ? 'Yetkin' : (h.percentage >= 60 ? 'Geliştirilebilir' : 'Eksikler Var');
+
+          return `
+            <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+              <td class="py-3 font-bold text-black dark:text-white uppercase">${h.testId}</td>
+              <td class="py-3">${h.score} / 20</td>
+              <td class="py-3 font-bold ${color}">%${h.percentage}</td>
+              <td class="py-3"><span class="px-2 py-0.5 rounded bg-black/5 dark:bg-white/10 ${color}">${badge}</span></td>
+              <td class="py-3 text-right">
+                <a href="tests.html" class="text-neutral-400 hover:text-black dark:hover:text-white underline">Tekrar Çöz ➔</a>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+    });
+  </script>
+</body>
+</html>

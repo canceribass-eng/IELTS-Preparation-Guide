@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEFR A1-C2 & AWL 3D Flashcard Sistemi | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 3D Apple Flashcard Styling */
+    .perspective-1000 { perspective: 1200px; }
+    .flashcard-3d {
+      perspective: 1200px;
+      user-select: none;
+      -webkit-user-select: none;
+      transform: none !important;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+    .flashcard-inner.is-flipped {
+      transform: rotateY(180deg) !important;
+    }
+    .flashcard-inner.is-flipped:hover {
+      transform: rotateY(180deg) !important;
+    }
+    .flashcard-front,
+    .flashcard-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 1.5rem;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .flashcard-front, .flashcard-front:hover {
+      transform: rotateY(0deg) !important;
+    }
+    .flashcard-back, .flashcard-back:hover {
+      transform: rotateY(180deg) !important;
+    }
+    .flashcard-3d:hover .flashcard-front,
+    .flashcard-3d:hover .flashcard-back {
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+      border-color: rgba(168, 85, 247, 0.35);
+    }
+    .dark .flashcard-3d:hover .flashcard-front,
+    .dark .flashcard-3d:hover .flashcard-back {
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+      border-color: rgba(168, 85, 247, 0.4);
+    }
+
+    /* Ambient Glow for Zen Stage */
+    @keyframes ambientPulse {
+      0%, 100% { opacity: 0.20; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.06); }
+    }
+    .ambient-glow {
+      animation: ambientPulse 7s ease-in-out infinite;
+    }
+
+    /* Apple Dynamic Island / Floating Glass Dock */
+    .dock-glass {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+    .dark .dock-glass {
+      background: rgba(18, 18, 18, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-purple-300/30 dark:selection:bg-purple-400/20">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-80 transition-opacity shadow-sm">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-amber-500 hover:text-amber-400 font-bold border border-amber-500/25 bg-amber-500/10 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content: Zen Focus Studio -->
+  <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-6 w-full space-y-6 pb-28">
+    
+    <!-- Zen Studio Top Header & Live Telemetry -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-4">
+      <div>
+        <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-0.5">
+          <span>SuperMemo SM-2 · Zen Odak Sahnesi</span>
+        </div>
+        <h1 class="text-xl sm:text-2xl font-black tracking-tight text-black dark:text-white flex items-center space-x-2">
+          <span>Vocabulary Studio</span>
+          <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 font-bold">Zen</span>
+        </h1>
+      </div>
+
+      <!-- Telemetry Pills & Mode Switcher -->
+      <div class="flex items-center flex-wrap gap-2.5">
+        <!-- Live Telemetry Badges -->
+        <div class="inline-flex items-center space-x-2 text-xs font-mono px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10">
+          <span class="text-amber-500 font-bold" title="Günlük Seri">🔥 <span id="zen-streak">0</span>g</span>
+          <span class="text-neutral-300 dark:text-neutral-700">|</span>
+          <span class="text-emerald-500 font-bold" title="Ortalama Bellek Gücü">🧠 <span id="zen-retention">%100</span></span>
+          <span class="text-neutral-300 dark:text-neutral-700">|</span>
+          <span class="text-rose-500 font-bold" title="Bugün Tekrarı Gelen">🔔 <span id="zen-due">0</span></span>
+        </div>
+
+        <!-- Mode Switcher -->
+        <div class="segmented-control">
+          <button onclick="switchMode('card')" id="btn-mode-card" class="px-3 py-1 rounded-full text-xs font-semibold transition-all bg-white dark:bg-neutral-800 shadow-sm text-black dark:text-white">
+            🃏 Kart
+          </button>
+          <button onclick="switchMode('cloze')" id="btn-mode-cloze" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-neutral-500 hover:text-black dark:hover:text-white">
+            🧩 Boşluk
+          </button>
+          <button onclick="switchMode('collocation')" id="btn-mode-collocation" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-neutral-500 hover:text-black dark:hover:text-white">
+            🎯 Eşdizim
+          </button>
+          <button onclick="switchMode('table')" id="btn-mode-table" class="px-3 py-1 rounded-full text-xs font-semibold transition-all text-neutral-500 hover:text-black dark:hover:text-white">
+            📑 Tablo
+          </button>
+        </div>
+
+        <button onclick="openAddWordModal()" class="px-3 py-1.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white font-mono text-xs font-bold transition-all flex items-center space-x-1 shadow-sm">
+          <span>➕</span>
+          <span class="hidden sm:inline">Deftere Ekle</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Filters & Tabs Bar -->
+    <div class="space-y-3">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <!-- Level Badges & Special SRS Tabs -->
+        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 text-xs font-mono">
+          <button onclick="selectLevelFilter('ALL')" id="pill-ALL" class="level-pill px-3 py-1 rounded-full font-bold transition-all bg-black dark:bg-white text-white dark:text-black">
+            Tümü (1750)
+          </button>
+          <button onclick="selectLevelFilter('DUE')" id="pill-DUE" class="level-pill px-3 py-1 rounded-full transition-all text-rose-500 hover:text-rose-600 font-bold border border-rose-500/20 bg-rose-500/5">
+            🔔 Bugün Tekrar (SRS)
+          </button>
+          <button onclick="selectLevelFilter('NOTEBOOK')" id="pill-NOTEBOOK" class="level-pill px-3 py-1 rounded-full transition-all text-purple-500 hover:text-purple-600 font-bold border border-purple-500/20 bg-purple-500/5">
+            📝 Kelime Defterim
+          </button>
+          <button onclick="selectLevelFilter('A1')" id="pill-A1" class="level-pill px-2.5 py-1 rounded-full transition-all text-neutral-500 hover:text-black dark:hover:text-white">A1</button>
+          <button onclick="selectLevelFilter('A2')" id="pill-A2" class="level-pill px-2.5 py-1 rounded-full transition-all text-neutral-500 hover:text-black dark:hover:text-white">A2</button>
+          <button onclick="selectLevelFilter('B1')" id="pill-B1" class="level-pill px-2.5 py-1 rounded-full transition-all text-neutral-500 hover:text-black dark:hover:text-white">B1</button>
+          <button onclick="selectLevelFilter('B2')" id="pill-B2" class="level-pill px-2.5 py-1 rounded-full transition-all text-neutral-500 hover:text-black dark:hover:text-white">B2</button>
+          <button onclick="selectLevelFilter('C1')" id="pill-C1" class="level-pill px-2.5 py-1 rounded-full transition-all text-neutral-500 hover:text-black dark:hover:text-white">C1</button>
+          <button onclick="selectLevelFilter('C2')" id="pill-C2" class="level-pill px-2.5 py-1 rounded-full transition-all text-neutral-500 hover:text-black dark:hover:text-white">C2</button>
+          <button onclick="selectLevelFilter('AWL')" id="pill-AWL" class="level-pill px-2.5 py-1 rounded-full transition-all text-neutral-500 hover:text-black dark:hover:text-white">AWL</button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-60">
+          <input type="text" id="vocab-search" oninput="handleVocabSearch(this.value)" placeholder="Kelime ara..." class="w-full pl-8 pr-3 py-1.5 rounded-full text-xs bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white font-mono">
+          <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs text-neutral-400">🔍</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Dynamic Zen Workspace -->
+    <div id="vocab-workspace" class="relative">
+      <!-- Injected by render() -->
+    </div>
+
+  </main>
+
+  <!-- Floating Dynamic Island Command Dock (Apple Style) -->
+  <div id="zen-floating-dock" class="fixed bottom-6 inset-x-0 z-40 flex justify-center pointer-events-none px-4 transition-all duration-300">
+    <div class="dock-glass rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3 sm:gap-6 pointer-events-auto max-w-xl w-full">
+      <!-- Left: Counter & Prev -->
+      <div class="flex items-center space-x-2">
+        <button onclick="prevCard()" class="p-1.5 px-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-xs font-mono text-neutral-400 hover:text-black dark:hover:text-white transition-all" title="Önceki (Sol Ok)">
+          ◀
+        </button>
+        <span class="text-xs font-mono font-bold text-purple-500" id="dock-counter">1 / 15</span>
+      </div>
+
+      <!-- Center: 4 Tactile SM-2 Rating Pills -->
+      <div class="flex items-center space-x-1.5 sm:space-x-2 font-mono">
+        <button onclick="rateFromDock('again')" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 dark:text-rose-400 font-bold text-xs transition-all flex items-center space-x-1 active:scale-95" title="Unuttum [1]">
+          <span class="opacity-70 text-[10px]">[1]</span>
+          <span class="text-[11px]">1g</span>
+        </button>
+        <button onclick="rateFromDock('hard')" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-600 dark:text-amber-400 font-bold text-xs transition-all flex items-center space-x-1 active:scale-95" title="Zorlandım [2]">
+          <span class="opacity-70 text-[10px]">[2]</span>
+          <span class="text-[11px]">3g</span>
+        </button>
+        <button onclick="rateFromDock('good')" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-blue-500/15 hover:bg-blue-500/25 text-blue-600 dark:text-blue-400 font-bold text-xs transition-all flex items-center space-x-1 active:scale-95" title="Hatırladım [3]">
+          <span class="opacity-70 text-[10px]">[3]</span>
+          <span class="text-[11px]">7g</span>
+        </button>
+        <button onclick="rateFromDock('easy')" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-600 dark:text-emerald-400 font-bold text-xs transition-all flex items-center space-x-1 active:scale-95" title="Kolaydı [4]">
+          <span class="opacity-70 text-[10px]">[4]</span>
+          <span class="text-[11px]">14g+</span>
+        </button>
+      </div>
+
+      <!-- Right: Flip & Next -->
+      <div class="flex items-center space-x-2">
+        <button id="dock-flip-btn" onclick="flipCard()" class="px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 text-xs font-mono font-semibold transition-all text-neutral-700 dark:text-neutral-300" title="Kartı Çevir (Boşluk)">
+          🔄
+        </button>
+        <button onclick="nextCard()" class="p-1.5 px-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-xs font-mono text-neutral-400 hover:text-black dark:hover:text-white transition-all" title="Sonraki (Sağ Ok)">
+          ▶
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Custom Word Modal -->
+  <div id="add-word-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="vercel-card rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+        <h3 class="text-base font-bold text-black dark:text-white">Kişisel Kelime Defterine Ekle</h3>
+        <button onclick="closeAddWordModal()" class="text-neutral-400 hover:text-black dark:hover:text-white">✕</button>
+      </div>
+
+      <div class="space-y-3 font-mono text-xs">
+        <div>
+          <label class="block text-neutral-400 mb-1">İngilizce Kelime:</label>
+          <input type="text" id="modal-new-word" placeholder="Örn: Ubiquitous" class="w-full px-3 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-neutral-400 mb-1">Türkçe Anlamı:</label>
+          <input type="text" id="modal-new-meaning" placeholder="Örn: Her yerde bulunan, yaygın" class="w-full px-3 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-neutral-400 mb-1">Örnek Cümle:</label>
+          <textarea id="modal-new-example" rows="2" placeholder="Örn: Smart devices have become ubiquitous in modern life." class="w-full px-3 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-neutral-400 mb-1">Seviye:</label>
+          <select id="modal-new-level" class="w-full px-3 py-2 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none">
+            <option value="B1">B1 (Intermediate)</option>
+            <option value="B2" selected>B2 (Upper-Intermediate)</option>
+            <option value="C1">C1 (Advanced)</option>
+            <option value="C2">C2 (Proficiency)</option>
+            <option value="AWL">AWL (Academic)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end space-x-2 pt-3 border-t border-black/5 dark:border-white/10">
+        <button onclick="closeAddWordModal()" class="px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 text-xs font-mono">İptal</button>
+        <button onclick="submitNewWord()" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-mono text-xs font-bold">Deftere Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md pb-16 sm:pb-10">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">1.750+ Kelime · 3D Flashcard & Leitner Aralıklı Tekrar (SRS) Motoru</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Kısayollar: [Boşluk]: Çevir · [Oklar]: Gezin · [1-4]: Oyla</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="text-amber-500 font-bold">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Connect Data from Platform -->
+  <script src="../ielts-master-platform/assets/js/vocab/a1.js"></script>
+  <script src="../ielts-master-platform/assets/js/vocab/a2.js"></script>
+  <script src="../ielts-master-platform/assets/js/vocab/b1.js"></script>
+  <script src="../ielts-master-platform/assets/js/vocab/b2.js"></script>
+  <script src="../ielts-master-platform/assets/js/vocab/c1.js"></script>
+  <script src="../ielts-master-platform/assets/js/vocab/c2.js"></script>
+  <script src="../ielts-master-platform/assets/js/vocab/awl.js"></script>
+  <script src="../ielts-master-platform/assets/js/vocab-data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/srs-engine.js"></script>
+
+  <script>
+    // =======================================================================
+    // IELTS Master Pro - Next-Gen Vocabulary Controller
+    // Multi-Modal Active Recall (Flashcard, Cloze, Collocation, Table)
+    // Daily Smart Review Session & SuperMemo SM-2 Adaptive Progression
+    // =======================================================================
+
+    let currentMode = 'card'; // 'card', 'cloze', 'collocation', 'table'
+    let activeLevel = 'ALL';
+    let searchQuery = '';
+    let currentCardIndex = 0;
+    let isFlipped = false;
+
+    // Daily Smart Review Session State
+    let isDailySessionActive = false;
+    let sessionWords = [];
+    let sessionIndex = 0;
+    let sessionResults = [];
+
+    // Interactive Quiz State (Cloze & Collocation)
+    let interactiveState = {
+      answered: false,
+      selectedIdx: null,
+      isCorrect: false,
+      correctIdx: null,
+      options: []
+    };
+
+    // Table Pagination
+    let tableCurrentPage = 1;
+    const tablePageSize = 20;
+
+    // ---------------------------------------------------------------------
+    // FILTERING & WORD RETRIEVAL
+    // ---------------------------------------------------------------------
+    function getAllWords() {
+      if (typeof VOCAB_DATA !== 'undefined' && VOCAB_DATA.length > 0) {
+        return VOCAB_DATA;
+      }
+      return [];
+    }
+
+    function getFilteredWords() {
+      if (isDailySessionActive) {
+        return sessionWords;
+      }
+
+      let pool = [];
+      const all = getAllWords();
+
+      if (activeLevel === 'NOTEBOOK') {
+        pool = SRS_ENGINE.getNotebookWords().map(w => ({
+          word: w.word,
+          meaningTr: w.meaning,
+          exampleEn: w.example,
+          level: w.level || 'B2',
+          phonetic: `/ ${w.word.toLowerCase()} /`,
+          partOfSpeech: 'noun / phrase',
+          isNotebook: true,
+          id: w.id,
+          collocations: []
+        }));
+      } else if (activeLevel === 'DUE') {
+        pool = all.filter(w => SRS_ENGINE.isWordDue(w.word));
+      } else if (activeLevel === 'ALL') {
+        pool = all;
+      } else {
+        pool = all.filter(w => w.level === activeLevel);
+      }
+
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase().trim();
+        pool = pool.filter(w => {
+          const matchWord = w.word && w.word.toLowerCase().includes(q);
+          const matchMeaning = (w.meaningTr || w.meaning) && (w.meaningTr || w.meaning).toLowerCase().includes(q);
+          const matchDef = w.definitionEn && w.definitionEn.toLowerCase().includes(q);
+          return matchWord || matchMeaning || matchDef;
+        });
+      }
+
+      return pool;
+    }
+
+    // ---------------------------------------------------------------------
+    // MAIN RENDER DISPATCHER
+    // ---------------------------------------------------------------------
+    function render() {
+      updateSrsStatsBar();
+      const words = getFilteredWords();
+      const container = document.getElementById('vocab-workspace');
+
+      // Empty State Handling
+      if (words.length === 0) {
+        updateZenDock([], 0);
+        container.innerHTML = `
+          <div class="p-12 text-center text-neutral-400 font-mono text-xs vercel-card rounded-3xl space-y-3 max-w-lg mx-auto">
+            <span class="text-3xl block">🎉</span>
+            <p class="font-bold text-sm text-black dark:text-white">
+              ${activeLevel === 'DUE' ? 'Harika! Bugün tekrar edilecek vadesi gelen kelimeniz yok.' : (activeLevel === 'NOTEBOOK' ? 'Kelime defteriniz henüz boş.' : 'Aradığınız kriterde kelime bulunamadı.')}
+            </p>
+            <p class="text-[11px] text-neutral-500">
+              ${activeLevel === 'DUE' ? 'Tüm kelimeler kalıcı hafıza takvimine uygun durumdadır.' : (activeLevel === 'NOTEBOOK' ? 'Yukarıdaki "+ Deftere Ekle" butonuyla yeni kelimeler kaydedebilirsiniz.' : 'Arama filtrenizi değiştirebilirsiniz.')}
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const activeList = isDailySessionActive ? sessionWords : words;
+      const activeIdx = isDailySessionActive ? sessionIndex : currentCardIndex;
+
+      // Update Zen Floating Command Dock
+      updateZenDock(activeList, activeIdx);
+
+      if (currentMode === 'card') {
+        render3DFlashcard(container, activeList, activeIdx);
+      } else if (currentMode === 'cloze') {
+        renderClozeRecall(container, activeList, activeIdx);
+      } else if (currentMode === 'collocation') {
+        renderCollocationSprint(container, activeList, activeIdx);
+      } else {
+        renderTable(container, activeList);
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // ZEN FLOATING DOCK CONTROLLER
+    // ---------------------------------------------------------------------
+    function updateZenDock(list, idx) {
+      const dock = document.getElementById('zen-floating-dock');
+      if (!dock) return;
+
+      if (currentMode === 'table' || !list || list.length === 0) {
+        dock.classList.add('hidden');
+        dock.classList.remove('flex');
+        return;
+      }
+
+      dock.classList.remove('hidden');
+      dock.classList.add('flex');
+
+      const counter = document.getElementById('dock-counter');
+      if (counter) {
+        counter.innerText = `${idx + 1} / ${list.length}`;
+      }
+
+      const flipBtn = document.getElementById('dock-flip-btn');
+      if (flipBtn) {
+        if (currentMode === 'card') {
+          flipBtn.classList.remove('hidden');
+        } else {
+          flipBtn.classList.add('hidden');
+        }
+      }
+    }
+
+    function rateFromDock(quality) {
+      const words = getFilteredWords();
+      if (words.length === 0) return;
+      const activeList = isDailySessionActive ? sessionWords : words;
+      const activeIdx = isDailySessionActive ? sessionIndex : currentCardIndex;
+      const item = activeList[activeIdx];
+      if (item) {
+        rateCardAndAdvance(item.word, quality, activeList.length);
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // 1. ZEN 3D FLASHCARD RENDER
+    // ---------------------------------------------------------------------
+    function render3DFlashcard(container, list, idx) {
+      if (idx >= list.length) idx = 0;
+      const item = list[idx];
+      const cardMeta = SRS_ENGINE.getCard(item.word);
+      const retention = SRS_ENGINE.getRetention(item.word);
+      const interval = cardMeta ? (cardMeta.interval || 1) : 1;
+      const box = cardMeta ? (cardMeta.box || 1) : 0;
+
+      // Retention Badge Style
+      let retentionColor = 'bg-emerald-500/15 text-emerald-500 border-emerald-500/20';
+      if (retention < 50) retentionColor = 'bg-rose-500/15 text-rose-500 border-rose-500/20';
+      else if (retention < 80) retentionColor = 'bg-amber-500/15 text-amber-500 border-amber-500/20';
+
+      const boxLabels = {
+        0: 'Yeni Kelime',
+        1: 'Kutu 1 (1 Gün)',
+        2: 'Kutu 2 (3 Gün)',
+        3: 'Kutu 3 (7 Gün)',
+        4: 'Kutu 4 (16 Gün)',
+        5: 'Kutu 5 (Kalıcı Bellek)'
+      };
+      const boxBadge = boxLabels[box] || 'Öğreniliyor';
+
+      const meaningText = item.meaningTr || item.meaning || item.tr || '';
+      const exampleText = item.exampleEn || item.example || item.ex || '';
+
+      container.innerHTML = `
+        <div class="relative max-w-xl mx-auto py-2">
+          
+          <!-- Ambient Aura behind the card -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/15 via-indigo-600/15 to-transparent blur-3xl -z-10 ambient-glow rounded-full pointer-events-none"></div>
+
+          <!-- 3D Flipping Flashcard Element -->
+          <div class="flashcard-3d w-full h-[390px] sm:h-[430px] cursor-pointer" onclick="flipCard()">
+            <div id="flashcard-element" class="flashcard-inner w-full h-full relative ${isFlipped ? 'is-flipped' : ''}">
+              
+              <!-- FRONT SIDE (Zen Aesthetic) -->
+              <div class="flashcard-front absolute inset-0 rounded-3xl p-8 sm:p-10 flex flex-col justify-between text-center select-none shadow-2xl border border-black/10 dark:border-white/15 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl">
+                <!-- Top Status Bar -->
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="px-2.5 py-0.5 rounded-full border text-[10px] font-bold ${retentionColor}" title="Ebbinghaus Hatırlama Direnci">
+                    🧠 %${retention} Bellek
+                  </span>
+                  
+                  <div class="flex items-center space-x-2">
+                    <span class="px-2.5 py-0.5 rounded-full border border-black/10 dark:border-white/10 font-bold text-black dark:text-white text-[10px]">${item.level || 'B2'}</span>
+                    <button onclick="event.stopPropagation(); App.speakText('${item.word.replace(/'/g, "\\'")}')" class="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-neutral-400 hover:text-black dark:hover:text-white transition-all text-xs" title="Sesli Dinle (Kısayol: R)">
+                      🔊
+                    </button>
+                    ${item.isNotebook ? `
+                      <button onclick="event.stopPropagation(); removeNotebookItem('${item.id}')" class="p-1.5 rounded-full text-rose-500 hover:bg-rose-500/10 text-xs" title="Defterden Sil">✕</button>
+                    ` : `
+                      <button onclick="event.stopPropagation(); quickAddNotebook('${item.word.replace(/'/g, "\\'")}', '${meaningText.replace(/'/g, "\\'")}', '${item.level || 'B2'}')" class="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-neutral-400 hover:text-purple-500 text-xs" title="Defterime Ekle">📝</button>
+                    `}
+                  </div>
+                </div>
+
+                <!-- Center Hero Typography -->
+                <div class="space-y-3 py-6">
+                  <h2 class="text-4xl sm:text-6xl font-black tracking-tight text-black dark:text-white font-sans">${item.word}</h2>
+                  <p class="text-sm font-mono text-neutral-400 tracking-wide">${item.phonetic || ''}</p>
+                  <div>
+                    <span class="inline-block px-3 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-900 text-[11px] font-mono text-neutral-400 capitalize">${item.partOfSpeech || 'academic word'}</span>
+                  </div>
+                </div>
+
+                <!-- Bottom Interactive Prompt -->
+                <div class="text-[11px] font-mono text-neutral-400 flex items-center justify-center space-x-2 group">
+                  <span class="px-3.5 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:border-purple-500/30 group-hover:text-purple-400 transition-all">
+                    Türkçe Anlam & Örnekleri Aç [Boşluk] ➔
+                  </span>
+                </div>
+              </div>
+
+              <!-- BACK SIDE (Zen Aesthetic) -->
+              <div class="flashcard-back absolute inset-0 rounded-3xl p-8 sm:p-10 flex flex-col justify-between text-center select-none shadow-2xl border border-black/10 dark:border-white/15 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl">
+                <!-- Top Back Header -->
+                <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+                  <span class="text-emerald-500 font-bold text-xs flex items-center space-x-1">
+                    <span>✓</span>
+                    <span>Türkçe Anlamı</span>
+                  </span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-900 font-mono text-[10px] text-neutral-400">${boxBadge} · Aralık: ${interval}g</span>
+                </div>
+
+                <!-- Center Back Content -->
+                <div class="space-y-4 py-4">
+                  <h3 class="text-2xl sm:text-3xl font-extrabold text-black dark:text-white font-sans tracking-tight">${meaningText}</h3>
+                  
+                  ${exampleText ? `
+                    <div class="p-3.5 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-left space-y-1">
+                      <span class="text-[10px] uppercase font-mono text-neutral-400 block">IELTS Akademik Kullanımı:</span>
+                      <p class="text-xs text-neutral-700 dark:text-neutral-300 leading-relaxed italic">
+                        "${exampleText}"
+                      </p>
+                    </div>
+                  ` : ''}
+
+                  ${(item.collocations && item.collocations.length > 0) ? `
+                    <div class="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+                      ${item.collocations.map(c => `<span class="px-2.5 py-0.5 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 text-[10px] font-mono border border-purple-500/20">${c}</span>`).join('')}
+                    </div>
+                  ` : ''}
+                </div>
+
+                <!-- Bottom Flip Return -->
+                <div class="text-[11px] font-mono text-neutral-400 flex items-center justify-center space-x-1">
+                  <span class="px-3.5 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-purple-400">
+                    İngilizce Kelimeye Dön ➔
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    // ---------------------------------------------------------------------
+    // 2. CLOZE / CÜMLE İÇİ BOŞLUK DOLDURMA (ACTIVE CONTEXTUAL RECALL)
+    // ---------------------------------------------------------------------
+    function renderClozeRecall(container, list, idx) {
+      if (idx >= list.length) idx = 0;
+      const item = list[idx];
+      const sentence = item.exampleEn || item.example || `The concept of ${item.word} is crucial in academic discourse.`;
+      
+      // Mask the target word in the sentence
+      const escapedWord = item.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const targetRegex = new RegExp(`\\b${escapedWord}(s|ed|ing|d|es)?\\b`, 'gi');
+      const blankHtml = `<span class="px-3 py-0.5 mx-1 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-600 dark:text-purple-400 font-mono font-bold tracking-widest">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span>`;
+      let maskedSentence = sentence;
+
+      if (targetRegex.test(sentence)) {
+        maskedSentence = sentence.replace(targetRegex, blankHtml);
+      } else {
+        maskedSentence = `${sentence} ${blankHtml}`;
+      }
+
+      // Generate 4 options (1 correct, 3 distractors)
+      if (!interactiveState.options || interactiveState.currentWord !== item.word) {
+        interactiveState = {
+          currentWord: item.word,
+          answered: false,
+          selectedIdx: null,
+          isCorrect: false,
+          correctIdx: 0,
+          options: generateWordOptions(item.word, item.level)
+        };
+      }
+
+      const optionsHtml = interactiveState.options.map((opt, optIdx) => {
+        let btnClass = "p-4 rounded-2xl border border-black/10 dark:border-white/10 hover:border-purple-500/40 bg-white/90 dark:bg-[#0c0c0c]/90 text-sm font-bold text-black dark:text-white transition-all flex items-center justify-between shadow-sm hover:scale-[1.01]";
+        let icon = `<span class="w-6 h-6 rounded-full border border-black/10 dark:border-white/10 text-xs flex items-center justify-center font-mono opacity-50">${String.fromCharCode(65 + optIdx)}</span>`;
+
+        if (interactiveState.answered) {
+          if (optIdx === interactiveState.correctIdx) {
+            btnClass = "p-4 rounded-2xl border border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-sm font-bold transition-all flex items-center justify-between";
+            icon = `<span class="w-6 h-6 rounded-full bg-emerald-500 text-white text-xs flex items-center justify-center">✓</span>`;
+          } else if (optIdx === interactiveState.selectedIdx) {
+            btnClass = "p-4 rounded-2xl border border-rose-500 bg-rose-500/15 text-rose-600 dark:text-rose-400 text-sm font-bold transition-all flex items-center justify-between";
+            icon = `<span class="w-6 h-6 rounded-full bg-rose-500 text-white text-xs flex items-center justify-center">✕</span>`;
+          } else {
+            btnClass += " opacity-40";
+          }
+        }
+
+        return `
+          <button onclick="handleClozeOptionSelect(${optIdx}, '${item.word.replace(/'/g, "\\'")}', ${list.length})" ${interactiveState.answered ? 'disabled' : ''} class="${btnClass}">
+            <span class="font-sans">${opt}</span>
+            ${icon}
+          </button>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="relative max-w-xl mx-auto py-2">
+          <!-- Ambient Aura behind the card -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/15 via-indigo-600/15 to-transparent blur-3xl -z-10 ambient-glow rounded-full pointer-events-none"></div>
+
+          <div class="rounded-3xl p-6 sm:p-8 space-y-6 border border-black/10 dark:border-white/15 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl shadow-2xl">
+            <!-- Top Status Bar -->
+            <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+              <span class="px-2.5 py-0.5 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-400 font-bold text-[10px]">
+                🧩 Cümle İçi Boşluk Doldurma
+              </span>
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded-full border border-black/10 dark:border-white/10 font-bold text-black dark:text-white text-[10px]">${item.level || 'B2'}</span>
+                <button onclick="App.speakText('${item.word.replace(/'/g, "\\'")}')" class="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-neutral-400 hover:text-black dark:hover:text-white text-xs" title="Sesli Dinle (Kısayol: R)">🔊</button>
+              </div>
+            </div>
+
+            <!-- Question Stem -->
+            <div class="space-y-3 py-2">
+              <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block">IELTS Akademik Cümle Bağlamı:</span>
+              <p class="text-base sm:text-lg leading-relaxed text-neutral-800 dark:text-neutral-200 font-sans">
+                ${maskedSentence}
+              </p>
+            </div>
+
+            <!-- Options Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              ${optionsHtml}
+            </div>
+
+            <!-- Feedback & Explanation Box -->
+            ${interactiveState.answered ? `
+              <div class="p-4 rounded-2xl ${interactiveState.isCorrect ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-rose-500/10 border border-rose-500/20'} space-y-2 animate-in fade-in duration-300">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm ${interactiveState.isCorrect ? 'text-emerald-500' : 'text-rose-500'}">
+                    ${interactiveState.isCorrect ? '✓ Harika! Doğru Seçim.' : '✕ Yanlış Seçim!'}
+                  </span>
+                  <span class="text-[10px] font-mono text-neutral-400">Paneldeki [1] [2] [3] [4] ile derecelendirin</span>
+                </div>
+                <p class="text-xs text-neutral-700 dark:text-neutral-300">
+                  <strong class="font-bold text-black dark:text-white">${item.word}</strong>: ${item.meaningTr || item.meaning || ''}
+                </p>
+                <div class="flex items-center justify-end pt-2">
+                  <button onclick="nextCard(${list.length})" class="px-4 py-1.5 rounded-full bg-black dark:bg-white text-white dark:text-black text-xs font-mono font-bold hover:opacity-90 transition-all">
+                    Sonraki Soru ➔
+                  </button>
+                </div>
+              </div>
+            ` : `
+              <div class="flex items-center justify-between text-xs font-mono pt-2">
+                <button onclick="prevCard(${list.length})" class="px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-400 hover:text-black dark:hover:text-white transition-all">◀ Önceki</button>
+                <button onclick="skipInteractiveCard(${list.length})" class="px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-400 hover:text-black dark:hover:text-white transition-all">Pas Geç ➔</button>
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    function handleClozeOptionSelect(selectedIdx, targetWord, total) {
+      if (interactiveState.answered) return;
+      interactiveState.answered = true;
+      interactiveState.selectedIdx = selectedIdx;
+      interactiveState.isCorrect = (selectedIdx === interactiveState.correctIdx);
+
+      if (!interactiveState.isCorrect) {
+        SRS_ENGINE.rateWord(targetWord, 'again');
+      }
+
+      render();
+    }
+
+    // ---------------------------------------------------------------------
+    // 3. COLLOCATION & EŞDİZİM SPRINT (BAND 7-9 LEXICAL RESOURCE)
+    // ---------------------------------------------------------------------
+    function renderCollocationSprint(container, list, idx) {
+      if (idx >= list.length) idx = 0;
+      const item = list[idx];
+      const hasCollocations = item.collocations && item.collocations.length > 0;
+
+      // Generate options for Collocation
+      if (!interactiveState.options || interactiveState.currentWord !== item.word) {
+        const generated = generateCollocationOptions(item);
+        interactiveState = {
+          currentWord: item.word,
+          answered: false,
+          selectedIdx: null,
+          isCorrect: false,
+          correctIdx: generated.correctIdx,
+          options: generated.options,
+          meta: generated
+        };
+      }
+
+      const meta = interactiveState.meta || generateCollocationOptions(item);
+
+      const optionsHtml = interactiveState.options.map((opt, optIdx) => {
+        let btnClass = "p-4 rounded-2xl border border-black/10 dark:border-white/10 hover:border-purple-500/40 bg-white/90 dark:bg-[#0c0c0c]/90 text-sm font-bold text-black dark:text-white transition-all flex items-center justify-between shadow-sm hover:scale-[1.01]";
+        let icon = `<span class="w-6 h-6 rounded-full border border-black/10 dark:border-white/10 text-xs flex items-center justify-center font-mono opacity-50">${String.fromCharCode(65 + optIdx)}</span>`;
+
+        if (interactiveState.answered) {
+          if (optIdx === interactiveState.correctIdx) {
+            btnClass = "p-4 rounded-2xl border border-emerald-500 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-sm font-bold transition-all flex items-center justify-between";
+            icon = `<span class="w-6 h-6 rounded-full bg-emerald-500 text-white text-xs flex items-center justify-center">✓</span>`;
+          } else if (optIdx === interactiveState.selectedIdx) {
+            btnClass = "p-4 rounded-2xl border border-rose-500 bg-rose-500/15 text-rose-600 dark:text-rose-400 text-sm font-bold transition-all flex items-center justify-between";
+            icon = `<span class="w-6 h-6 rounded-full bg-rose-500 text-white text-xs flex items-center justify-center">✕</span>`;
+          } else {
+            btnClass += " opacity-40";
+          }
+        }
+
+        return `
+          <button onclick="handleCollocationOptionSelect(${optIdx}, '${item.word.replace(/'/g, "\\'")}', ${list.length})" ${interactiveState.answered ? 'disabled' : ''} class="${btnClass}">
+            <span class="font-sans">${opt}</span>
+            ${icon}
+          </button>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="relative max-w-xl mx-auto py-2">
+          <!-- Ambient Aura behind the card -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/15 via-indigo-600/15 to-transparent blur-3xl -z-10 ambient-glow rounded-full pointer-events-none"></div>
+
+          <div class="rounded-3xl p-6 sm:p-8 space-y-6 border border-black/10 dark:border-white/15 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-xl shadow-2xl text-center">
+            <!-- Top Status Bar -->
+            <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+              <span class="px-2.5 py-0.5 rounded-full border border-indigo-500/20 bg-indigo-500/10 text-indigo-400 font-bold text-[10px]">
+                🎯 IELTS Eşdizim (Collocation Partner)
+              </span>
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded-full border border-black/10 dark:border-white/10 font-bold text-black dark:text-white text-[10px]">${item.level || 'B2'}</span>
+                <button onclick="App.speakText('${item.word.replace(/'/g, "\\'")}')" class="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-neutral-400 hover:text-black dark:hover:text-white text-xs" title="Sesli Dinle (Kısayol: R)">🔊</button>
+              </div>
+            </div>
+
+            <!-- Question Stem -->
+            <div class="space-y-3 py-2">
+              <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block font-bold">Band 7.5 - 9.0 Doğal Akademik Eşleşme</span>
+              
+              <!-- Target Pattern Box -->
+              <div class="p-4 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 inline-block text-xl sm:text-2xl font-mono">
+                ${meta.patternHtml}
+              </div>
+
+              <p class="text-xs text-neutral-500 font-mono pt-1">
+                <strong>"${item.word}"</strong> kelimesiyle en doğal akademik eşdizimi oluşturan partner ifadeyi seçiniz:
+              </p>
+            </div>
+
+            <!-- Options Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left pt-1">
+              ${optionsHtml}
+            </div>
+
+            <!-- Feedback & Explanation Box -->
+            ${interactiveState.answered ? `
+              <div class="p-4 rounded-2xl ${interactiveState.isCorrect ? 'bg-emerald-500/10 border border-emerald-500/20' : 'bg-rose-500/10 border border-rose-500/20'} space-y-2 animate-in fade-in duration-300 text-left">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm ${interactiveState.isCorrect ? 'text-emerald-500' : 'text-rose-500'}">
+                    ${interactiveState.isCorrect ? '✓ Harika! Eşdizim Doğrulandı.' : '✕ Doğru Eşdizim: ' + meta.fullPhrase}
+                  </span>
+                  <span class="text-[10px] font-mono text-neutral-400">SRS Takvimi Güncellendi</span>
+                </div>
+                <div class="py-1">
+                  <div class="text-base font-bold text-purple-600 dark:text-purple-400 font-mono flex items-center space-x-1.5">
+                    <span>🎯</span>
+                    <span>${meta.fullPhrase}</span>
+                  </div>
+                  <p class="text-xs text-neutral-700 dark:text-neutral-300 mt-1">
+                    <strong class="font-bold text-black dark:text-white">${item.word}</strong>: ${item.meaningTr || item.meaning || ''}
+                  </p>
+                </div>
+                ${item.exampleEn ? `<p class="text-[11px] italic text-neutral-500 pt-1 border-t border-black/5 dark:border-white/5">"${item.exampleEn}"</p>` : ''}
+                <div class="flex items-center justify-end pt-2">
+                  <button onclick="nextCard(${list.length})" class="px-4 py-1.5 rounded-full bg-black dark:bg-white text-white dark:text-black text-xs font-mono font-bold hover:opacity-90 transition-all">
+                    Sonraki Soru ➔
+                  </button>
+                </div>
+              </div>
+            ` : `
+              <div class="flex items-center justify-between text-xs font-mono pt-2">
+                <button onclick="prevCard(${list.length})" class="px-3.5 py-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-400 hover:text-black dark:hover:text-white transition-all">◀ Önceki</button>
+                <button onclick="skipInteractiveCard(${list.length})" class="px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-400 hover:text-black dark:hover:text-white transition-all">Pas Geç ➔</button>
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    function handleCollocationOptionSelect(selectedIdx, targetWord, total) {
+      if (interactiveState.answered) return;
+      interactiveState.answered = true;
+      interactiveState.selectedIdx = selectedIdx;
+      interactiveState.isCorrect = (selectedIdx === interactiveState.correctIdx);
+
+      if (!interactiveState.isCorrect) {
+        SRS_ENGINE.rateWord(targetWord, 'again');
+      } else {
+        SRS_ENGINE.rateWord(targetWord, 'good');
+      }
+
+      render();
+    }
+
+    // ---------------------------------------------------------------------
+    // OPTION GENERATORS (HELPERS)
+    // ---------------------------------------------------------------------
+    function generateWordOptions(correctWord, level) {
+      const all = getAllWords();
+      const sameLevel = all.filter(w => w.word !== correctWord && (w.level === level || true));
+      const shuffled = [...sameLevel].sort(() => 0.5 - Math.random());
+      const distractors = shuffled.slice(0, 3).map(w => w.word);
+
+      const options = [correctWord, ...distractors].sort(() => 0.5 - Math.random());
+      interactiveState.correctIdx = options.indexOf(correctWord);
+      return options;
+    }
+
+    function parseCollocation(fullPhrase, targetWord) {
+      if (!fullPhrase || !targetWord) return null;
+      const cleanTarget = targetWord.toLowerCase().trim();
+      const escapedTarget = cleanTarget.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`\\b${escapedTarget}(s|ed|ing|d|es)?\\b`, 'i');
+      const match = fullPhrase.match(regex);
+
+      const blankBox = `<span class="px-3 py-0.5 mx-1 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-600 dark:text-purple-400 font-mono font-bold tracking-widest">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span>`;
+
+      if (!match) {
+        return {
+          partner: fullPhrase,
+          position: 'after',
+          patternHtml: `<span class="text-purple-600 dark:text-purple-400 font-bold">${targetWord}</span> + ${blankBox}`,
+          fullPhrase: `${targetWord} ${fullPhrase}`
+        };
+      }
+
+      const matchedWord = match[0];
+      const idx = fullPhrase.toLowerCase().indexOf(matchedWord.toLowerCase());
+      const before = fullPhrase.slice(0, idx).trim();
+      const after = fullPhrase.slice(idx + matchedWord.length).trim();
+
+      if (after && !before) {
+        return {
+          partner: after,
+          position: 'after',
+          patternHtml: `<span class="text-purple-600 dark:text-purple-400 font-bold">${matchedWord}</span> + ${blankBox}`,
+          fullPhrase: fullPhrase
+        };
+      } else if (before && !after) {
+        return {
+          partner: before,
+          position: 'before',
+          patternHtml: `${blankBox} + <span class="text-purple-600 dark:text-purple-400 font-bold">${matchedWord}</span>`,
+          fullPhrase: fullPhrase
+        };
+      } else if (before && after) {
+        return {
+          partner: `${before} ... ${after}`,
+          position: 'wrap',
+          patternHtml: `${before} <span class="text-purple-600 dark:text-purple-400 font-bold">${matchedWord}</span> ${blankBox}`,
+          fullPhrase: fullPhrase
+        };
+      } else {
+        return {
+          partner: fullPhrase,
+          position: 'after',
+          patternHtml: `<span class="text-purple-600 dark:text-purple-400 font-bold">${targetWord}</span> + ${blankBox}`,
+          fullPhrase: fullPhrase
+        };
+      }
+    }
+
+    function generateCollocationOptions(item) {
+      const all = getAllWords();
+      let parsed = null;
+
+      if (item.collocations && item.collocations.length > 0) {
+        for (let c of item.collocations) {
+          const res = parseCollocation(c, item.word);
+          if (res && res.partner) {
+            parsed = res;
+            break;
+          }
+        }
+      }
+
+      if (!parsed) {
+        const fallbackPartner = item.partOfSpeech === 'verb' ? 'significantly' : (item.partOfSpeech === 'adj' ? 'factor' : 'analysis');
+        parsed = {
+          partner: fallbackPartner,
+          position: 'after',
+          patternHtml: `<span class="text-purple-600 dark:text-purple-400 font-bold">${item.word}</span> + <span class="px-3 py-0.5 mx-1 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-600 dark:text-purple-400 font-mono font-bold tracking-widest">[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]</span>`,
+          fullPhrase: `${item.word} ${fallbackPartner}`
+        };
+      }
+
+      const correctPartner = parsed.partner;
+      const targetLower = item.word.toLowerCase();
+
+      // Collect distractors from other words' collocations
+      const pool = [];
+      all.forEach(w => {
+        if (w.word.toLowerCase() !== targetLower && w.collocations && w.collocations.length > 0) {
+          for (let c of w.collocations) {
+            const p = parseCollocation(c, w.word);
+            if (p && p.partner && p.partner.toLowerCase() !== correctPartner.toLowerCase()) {
+              if (!p.partner.toLowerCase().includes(targetLower) && p.partner.length <= 25) {
+                if (p.position === parsed.position) {
+                  pool.push(p.partner);
+                }
+              }
+            }
+          }
+        }
+      });
+
+      const uniquePool = Array.from(new Set(pool));
+      const shuffled = uniquePool.sort(() => 0.5 - Math.random());
+      const distractors = shuffled.slice(0, 3);
+
+      const fallbackDistractors = ['an impact', 'a decision', 'resources', 'evidence', 'growth', 'standards', 'significantly', 'essential'];
+      while (distractors.length < 3) {
+        const f = fallbackDistractors.pop();
+        if (f && f.toLowerCase() !== correctPartner.toLowerCase() && !distractors.includes(f)) {
+          distractors.push(f);
+        }
+      }
+
+      const options = [correctPartner, ...distractors].sort(() => 0.5 - Math.random());
+      const correctIdx = options.indexOf(correctPartner);
+
+      return {
+        options,
+        correctIdx,
+        fullPhrase: parsed.fullPhrase,
+        patternHtml: parsed.patternHtml,
+        partner: correctPartner
+      };
+    }
+
+    function skipInteractiveCard(total) {
+      nextCard(total);
+    }
+
+    // ---------------------------------------------------------------------
+    // 4. DAILY SMART SESSION CONTROLLER & CELEBRATION MODAL
+    // ---------------------------------------------------------------------
+    function startDailySession(count = 15) {
+      const all = getAllWords();
+      sessionWords = SRS_ENGINE.getDueWords(all, count);
+      if (sessionWords.length === 0) {
+        sessionWords = all.slice(0, count);
+      }
+      isDailySessionActive = true;
+      sessionIndex = 0;
+      sessionResults = [];
+      interactiveState.currentWord = null;
+      isFlipped = false;
+
+      // Scroll smoothly to workspace
+      const el = document.getElementById('session-active-bar');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      render();
+    }
+
+    function exitDailySession() {
+      isDailySessionActive = false;
+      sessionWords = [];
+      sessionIndex = 0;
+      render();
+    }
+
+    function renderSessionCelebration(container) {
+      const stats = SRS_ENGINE.getStats();
+      container.innerHTML = `
+        <div class="max-w-xl mx-auto p-8 sm:p-10 vercel-card rounded-3xl border border-purple-500/30 text-center space-y-6 shadow-2xl animate-in zoom-in-95 duration-500">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-600 to-amber-500 text-white flex items-center justify-center text-3xl mx-auto shadow-lg shadow-purple-500/30">
+            🏆
+          </div>
+
+          <div class="space-y-2">
+            <h2 class="text-2xl sm:text-3xl font-black text-black dark:text-white tracking-tight">
+              Tebrikler! Günün Seansı Tamamlandı!
+            </h2>
+            <p class="text-xs sm:text-sm text-neutral-500 max-w-md mx-auto">
+              Bugün için planlanan kelimeleri başarıyla tazelediniz. SuperMemo SM-2 algoritması hafıza aralıklarınızı bir sonraki aşamaya yükseltti.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 font-mono text-center pt-2">
+            <div class="p-3.5 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/5">
+              <span class="text-[10px] text-neutral-400 uppercase block">Seri</span>
+              <span class="text-xl font-bold text-amber-500">🔥 ${stats.streak} Gün</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/5">
+              <span class="text-[10px] text-neutral-400 uppercase block">Tekrar Sayısı</span>
+              <span class="text-xl font-bold text-purple-500">${sessionWords.length} Kart</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/5">
+              <span class="text-[10px] text-neutral-400 uppercase block">Bellek Direnci</span>
+              <span class="text-xl font-bold text-emerald-500">%${stats.averageRetention}</span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-center space-x-3 pt-4">
+            <button onclick="exitDailySession()" class="px-5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 font-mono text-xs font-bold hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+              Listeye Dön
+            </button>
+            <button onclick="startDailySession(15)" class="px-6 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-mono text-xs font-bold shadow-md hover:shadow-purple-500/25 transition-all">
+              ⚡ 15 Kelime Daha Çalış
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ---------------------------------------------------------------------
+    // 5. TABLE VIEW RENDER
+    // ---------------------------------------------------------------------
+    function renderTable(container, list) {
+      const totalCount = list.length;
+      const maxPage = Math.ceil(totalCount / tablePageSize) || 1;
+      if (tableCurrentPage > maxPage) tableCurrentPage = maxPage;
+
+      const startIdx = (tableCurrentPage - 1) * tablePageSize;
+      const endIdx = Math.min(startIdx + tablePageSize, totalCount);
+      const pageSlice = list.slice(startIdx, endIdx);
+
+      const rows = pageSlice.map((item, idx) => {
+        const cardMeta = SRS_ENGINE.getCard(item.word);
+        const retention = SRS_ENGINE.getRetention(item.word);
+        const box = cardMeta ? (cardMeta.box || 1) : 0;
+        const interval = cardMeta ? (cardMeta.interval || 1) : 1;
+
+        let statusBadge = `<span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-400">Yeni</span>`;
+        if (box >= 5) {
+          statusBadge = `<span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold">K5 (Kalıcı - ${interval}g)</span>`;
+        } else if (box === 4) {
+          statusBadge = `<span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 font-bold">K4 (${interval}g)</span>`;
+        } else if (box === 3) {
+          statusBadge = `<span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 font-bold">K3 (${interval}g)</span>`;
+        } else if (box === 2) {
+          statusBadge = `<span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 font-bold">K2 (${interval}g)</span>`;
+        } else if (box === 1) {
+          statusBadge = `<span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 font-bold">K1 (1g)</span>`;
+        }
+
+        const meaningText = item.meaningTr || item.meaning || item.tr || '';
+        const exampleText = item.exampleEn || item.example || item.ex || '';
+
+        return `
+          <tr class="border-b border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+            <td class="p-3.5 font-bold text-black dark:text-white font-sans flex items-center space-x-2">
+              <button onclick="App.speakText('${item.word.replace(/'/g, "\\'")}')" class="text-neutral-400 hover:text-black dark:hover:text-white text-xs">🔊</button>
+              <span>${item.word}</span>
+            </td>
+            <td class="p-3.5 font-mono text-xs text-neutral-400">${item.phonetic || ''}</td>
+            <td class="p-3.5 font-mono text-[11px] text-neutral-500 capitalize">${item.partOfSpeech || 'kelime'}</td>
+            <td class="p-3.5 text-xs text-black dark:text-neutral-200 font-medium">${meaningText}</td>
+            <td class="p-3.5 text-xs text-neutral-500 italic hidden md:table-cell">"${exampleText}"</td>
+            <td class="p-3.5 font-mono text-[10px]">
+              <span class="px-2 py-0.5 rounded-full border border-black/10 dark:border-white/10 font-bold">${item.level || 'B2'}</span>
+            </td>
+            <td class="p-3.5 text-right font-mono">
+              <div class="flex items-center justify-end space-x-1.5">
+                <span class="text-[9px] text-neutral-400 font-mono">%${retention}</span>
+                ${statusBadge}
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="space-y-4">
+          <div class="vercel-card rounded-2xl overflow-x-auto shadow-sm">
+            <table class="w-full text-left text-xs">
+              <thead class="border-b border-black/5 dark:border-white/10 bg-neutral-50 dark:bg-[#0c0c0c] text-neutral-400 font-mono text-[10px] uppercase tracking-wider">
+                <tr>
+                  <th class="p-3.5">Kelime</th>
+                  <th class="p-3.5">Fonetik</th>
+                  <th class="p-3.5">Tür</th>
+                  <th class="p-3.5">Türkçe Anlamı</th>
+                  <th class="p-3.5 hidden md:table-cell">Örnek Cümle</th>
+                  <th class="p-3.5">Seviye</th>
+                  <th class="p-3.5 text-right">SRS / Bellek</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rows}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Pagination -->
+          <div class="flex items-center justify-between text-xs font-mono text-neutral-500 pt-2">
+            <div>Toplam ${totalCount} kelimeden ${startIdx + 1} - ${endIdx} arası gösteriliyor (Sayfa ${tableCurrentPage} / ${maxPage})</div>
+            <div class="flex items-center space-x-2">
+              <button onclick="tablePrevPage()" ${tableCurrentPage <= 1 ? 'disabled' : ''} class="px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 disabled:opacity-30">
+                ◀ Önceki
+              </button>
+              <button onclick="tableNextPage(${maxPage})" ${tableCurrentPage >= maxPage ? 'disabled' : ''} class="px-3 py-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 disabled:opacity-30">
+                Sonraki ▶
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function tablePrevPage() {
+      if (tableCurrentPage > 1) {
+        tableCurrentPage--;
+        render();
+        window.scrollTo({ top: 150, behavior: 'smooth' });
+      }
+    }
+
+    function tableNextPage(max) {
+      if (tableCurrentPage < max) {
+        tableCurrentPage++;
+        render();
+        window.scrollTo({ top: 150, behavior: 'smooth' });
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // NAVIGATION & CARD RATING
+    // ---------------------------------------------------------------------
+    function flipCard() {
+      isFlipped = !isFlipped;
+      const el = document.getElementById('flashcard-element');
+      if (el) {
+        if (isFlipped) el.classList.add('is-flipped');
+        else el.classList.remove('is-flipped');
+      }
+    }
+
+    function nextCard(total) {
+      isFlipped = false;
+      interactiveState.answered = false;
+      interactiveState.currentWord = null;
+
+      const words = getFilteredWords();
+      const count = total || (isDailySessionActive ? sessionWords.length : words.length);
+
+      if (isDailySessionActive) {
+        if (sessionIndex < sessionWords.length - 1) {
+          sessionIndex++;
+          render();
+        } else {
+          // Session Finished!
+          renderSessionCelebration(document.getElementById('vocab-workspace'));
+        }
+      } else {
+        if (count > 0) {
+          if (currentCardIndex < count - 1) currentCardIndex++;
+          else currentCardIndex = 0;
+        }
+        render();
+      }
+    }
+
+    function prevCard(total) {
+      isFlipped = false;
+      interactiveState.answered = false;
+      interactiveState.currentWord = null;
+
+      const words = getFilteredWords();
+      const count = total || (isDailySessionActive ? sessionWords.length : words.length);
+
+      if (isDailySessionActive) {
+        if (sessionIndex > 0) sessionIndex--;
+        else sessionIndex = Math.max(0, sessionWords.length - 1);
+      } else {
+        if (count > 0) {
+          if (currentCardIndex > 0) currentCardIndex--;
+          else currentCardIndex = Math.max(0, count - 1);
+        }
+      }
+      render();
+    }
+
+    function rateCardAndAdvance(word, quality, total) {
+      SRS_ENGINE.rateWord(word, quality);
+      setTimeout(() => {
+        nextCard(total);
+      }, 250);
+    }
+
+    // ---------------------------------------------------------------------
+    // VIEW / MODE SWITCHER
+    // ---------------------------------------------------------------------
+    function switchMode(mode) {
+      currentMode = mode;
+      interactiveState.answered = false;
+      interactiveState.currentWord = null;
+      isFlipped = false;
+
+      ['card', 'cloze', 'collocation', 'table'].forEach(m => {
+        const btn = document.getElementById(`btn-mode-${m}`);
+        if (btn) {
+          btn.className = (m === mode)
+            ? 'px-3 py-1.5 rounded-full text-xs font-semibold transition-all bg-white dark:bg-neutral-800 shadow-sm text-black dark:text-white'
+            : 'px-3 py-1.5 rounded-full text-xs font-semibold transition-all text-neutral-500 hover:text-black dark:hover:text-white';
+        }
+      });
+
+      render();
+    }
+
+    // Level Filter Selector
+    function selectLevelFilter(lvl) {
+      if (isDailySessionActive) {
+        isDailySessionActive = false;
+      }
+      activeLevel = lvl;
+      currentCardIndex = 0;
+      tableCurrentPage = 1;
+      isFlipped = false;
+      interactiveState.answered = false;
+      interactiveState.currentWord = null;
+
+      document.querySelectorAll('.level-pill').forEach(btn => {
+        btn.className = 'level-pill px-2.5 py-1 rounded-full font-mono transition-all text-neutral-500 hover:text-black dark:hover:text-white';
+      });
+
+      const activeBtn = document.getElementById(`pill-${lvl}`);
+      if (activeBtn) {
+        if (lvl === 'DUE') {
+          activeBtn.className = 'level-pill px-3 py-1 rounded-full font-mono font-bold transition-all bg-rose-600 text-white shadow-sm';
+        } else if (lvl === 'NOTEBOOK') {
+          activeBtn.className = 'level-pill px-3 py-1 rounded-full font-mono font-bold transition-all bg-purple-600 text-white shadow-sm';
+        } else {
+          activeBtn.className = 'level-pill px-3 py-1 rounded-full font-mono font-bold transition-all bg-black dark:bg-white text-white dark:text-black shadow-sm';
+        }
+      }
+
+      render();
+    }
+
+    function handleVocabSearch(val) {
+      searchQuery = val;
+      currentCardIndex = 0;
+      tableCurrentPage = 1;
+      isFlipped = false;
+      render();
+    }
+
+    // ---------------------------------------------------------------------
+    // STATS UPDATE FOR TOP BARS & BANNER
+    // ---------------------------------------------------------------------
+    function updateSrsStatsBar() {
+      const stats = SRS_ENGINE.getStats();
+      const totalWords = getAllWords().length || 1750;
+
+      // Zen Top Telemetry Badges
+      const zenStreak = document.getElementById('zen-streak');
+      if (zenStreak) zenStreak.innerText = stats.streak;
+      const zenRetention = document.getElementById('zen-retention');
+      if (zenRetention) zenRetention.innerText = `%${stats.averageRetention}`;
+      const zenDue = document.getElementById('zen-due');
+      if (zenDue) zenDue.innerText = stats.dueCount;
+
+      // Banner values (if present)
+      const bannerDue = document.getElementById('banner-due-count');
+      if (bannerDue) bannerDue.innerText = `${stats.dueCount} Kelime`;
+      const bannerStreak = document.getElementById('banner-streak-count');
+      if (bannerStreak) bannerStreak.innerText = `${stats.streak} Gün`;
+      const bannerRetention = document.getElementById('banner-retention-rate');
+      if (bannerRetention) bannerRetention.innerText = `%${stats.averageRetention}`;
+
+      // Memory Matrix Bar counts (if present)
+      const statusText = document.getElementById('srs-status-text');
+      if (statusText) statusText.innerText = `${stats.mastered} / ${totalWords} Kelime Kalıcı Hafızada (%${Math.round((stats.mastered / totalWords) * 100)})`;
+
+      const box1 = document.getElementById('box1-stat');
+      if (box1) box1.innerText = stats.learning;
+      const box2 = document.getElementById('box2-stat');
+      if (box2) box2.innerText = stats.reviewing;
+      const box3 = document.getElementById('box3-stat');
+      if (box3) box3.innerText = stats.retaining;
+      const box4 = document.getElementById('box4-stat');
+      if (box4) box4.innerText = stats.consolidating;
+      const box5 = document.getElementById('box5-stat');
+      if (box5) box5.innerText = stats.permanent;
+
+      // Progress bars
+      const calcPct = (cnt) => totalWords > 0 ? `${(cnt / totalWords) * 100}%` : '0%';
+      const p1 = document.getElementById('prog-box1');
+      if (p1) p1.style.width = calcPct(stats.learning);
+      const p2 = document.getElementById('prog-box2');
+      if (p2) p2.style.width = calcPct(stats.reviewing);
+      const p3 = document.getElementById('prog-box3');
+      if (p3) p3.style.width = calcPct(stats.retaining);
+      const p4 = document.getElementById('prog-box4');
+      if (p4) p4.style.width = calcPct(stats.consolidating);
+      const p5 = document.getElementById('prog-box5');
+      if (p5) p5.style.width = calcPct(stats.permanent);
+
+      // Level tab counts
+      const duePill = document.getElementById('pill-DUE');
+      if (duePill) duePill.innerText = `🔔 Bugün Tekrar (${stats.dueCount})`;
+
+      const nbPill = document.getElementById('pill-NOTEBOOK');
+      if (nbPill) nbPill.innerText = `📝 Kelime Defterim (${stats.notebookCount})`;
+    }
+
+    // Modal Operations
+    function openAddWordModal() {
+      document.getElementById('add-word-modal').classList.remove('hidden');
+      document.getElementById('add-word-modal').classList.add('flex');
+    }
+    function closeAddWordModal() {
+      document.getElementById('add-word-modal').classList.add('hidden');
+      document.getElementById('add-word-modal').classList.remove('flex');
+    }
+    function submitNewWord() {
+      const word = document.getElementById('modal-new-word').value.trim();
+      const meaning = document.getElementById('modal-new-meaning').value.trim();
+      const example = document.getElementById('modal-new-example').value.trim();
+      const level = document.getElementById('modal-new-level').value;
+
+      if (!word || !meaning) {
+        App.showToast("Kelime ve anlam alanları zorunludur.", "warning");
+        return;
+      }
+
+      const ok = SRS_ENGINE.addWordToNotebook(word, meaning, example, level);
+      if (ok) {
+        closeAddWordModal();
+        document.getElementById('modal-new-word').value = '';
+        document.getElementById('modal-new-meaning').value = '';
+        document.getElementById('modal-new-example').value = '';
+        selectLevelFilter('NOTEBOOK');
+      }
+    }
+
+    function quickAddNotebook(word, meaning, level) {
+      SRS_ENGINE.addWordToNotebook(word, meaning, '', level, 'Hızlı Ekleme');
+      updateSrsStatsBar();
+    }
+
+    function removeNotebookItem(id) {
+      SRS_ENGINE.removeWordFromNotebook(id);
+      render();
+    }
+
+    // ---------------------------------------------------------------------
+    // KEYBOARD SHORTCUTS (Space: Flip/Advance, 1/2/3/4: Rate/Options, R: Listen)
+    // ---------------------------------------------------------------------
+    document.addEventListener('keydown', (e) => {
+      if (document.activeElement && ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+
+      const words = getFilteredWords();
+      if (words.length === 0) return;
+      const activeIdx = isDailySessionActive ? sessionIndex : currentCardIndex;
+      const item = words[activeIdx];
+      if (!item) return;
+
+      // Audio Shortcut
+      if (e.code === 'KeyR') {
+        App.speakText(item.word);
+        return;
+      }
+
+      // Next / Prev Arrows
+      if (e.code === 'ArrowRight') {
+        e.preventDefault();
+        nextCard(words.length);
+        return;
+      } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        prevCard(words.length);
+        return;
+      }
+
+      // Space / Enter behavior
+      if (e.code === 'Space' || e.code === 'Enter') {
+        e.preventDefault();
+        if (currentMode === 'card') {
+          flipCard();
+        } else if (['cloze', 'collocation'].includes(currentMode) && interactiveState.answered) {
+          nextCard(words.length);
+        }
+        return;
+      }
+
+      // Interactive A / B / C / D shortcuts
+      if (['cloze', 'collocation'].includes(currentMode) && !interactiveState.answered) {
+        let chosen = -1;
+        if (e.key === 'a' || e.key === 'A') chosen = 0;
+        else if (e.key === 'b' || e.key === 'B') chosen = 1;
+        else if (e.key === 'c' || e.key === 'C') chosen = 2;
+        else if (e.key === 'd' || e.key === 'D') chosen = 3;
+
+        if (chosen >= 0 && chosen < (interactiveState.options ? interactiveState.options.length : 0)) {
+          e.preventDefault();
+          if (currentMode === 'cloze') handleClozeOptionSelect(chosen, item.word, words.length);
+          else handleCollocationOptionSelect(chosen, item.word, words.length);
+          return;
+        }
+      }
+
+      // 1, 2, 3, 4 Shortcuts: Rate card OR Select option in interactive modes
+      if (e.key === '1') {
+        if (currentMode === 'card' || interactiveState.answered) {
+          rateCardAndAdvance(item.word, 'again', words.length);
+        } else if (['cloze', 'collocation'].includes(currentMode) && !interactiveState.answered) {
+          if (currentMode === 'cloze') handleClozeOptionSelect(0, item.word, words.length);
+          else handleCollocationOptionSelect(0, item.word, words.length);
+        }
+      } else if (e.key === '2') {
+        if (currentMode === 'card' || interactiveState.answered) {
+          rateCardAndAdvance(item.word, 'hard', words.length);
+        } else if (['cloze', 'collocation'].includes(currentMode) && !interactiveState.answered) {
+          if (currentMode === 'cloze') handleClozeOptionSelect(1, item.word, words.length);
+          else handleCollocationOptionSelect(1, item.word, words.length);
+        }
+      } else if (e.key === '3') {
+        if (currentMode === 'card' || interactiveState.answered) {
+          rateCardAndAdvance(item.word, 'good', words.length);
+        } else if (['cloze', 'collocation'].includes(currentMode) && !interactiveState.answered) {
+          if (currentMode === 'cloze') handleClozeOptionSelect(2, item.word, words.length);
+          else handleCollocationOptionSelect(2, item.word, words.length);
+        }
+      } else if (e.key === '4') {
+        if (currentMode === 'card' || interactiveState.answered) {
+          rateCardAndAdvance(item.word, 'easy', words.length);
+        } else if (['cloze', 'collocation'].includes(currentMode) && !interactiveState.answered) {
+          if (currentMode === 'cloze') handleClozeOptionSelect(3, item.word, words.length);
+          else handleCollocationOptionSelect(3, item.word, words.length);
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      render();
+    });
+  </script>
+</body>
+</html>

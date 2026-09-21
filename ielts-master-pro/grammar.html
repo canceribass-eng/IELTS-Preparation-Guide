@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEFR A1-C2 Kapsamlı Gramer & Video Dersleri | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-white selection:text-black">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-80 transition-opacity shadow-sm">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-amber-500 hover:text-amber-400 font-bold border border-amber-500/25 bg-amber-500/10 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+    
+    <!-- Title and Search Section -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-5">
+      <div>
+        <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-1">
+          <span>CEFR Standart Müfredatı · A1'den C2'ye 148 Kapsamlı Başlık & İnteraktif Video Dersi</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-black dark:text-white">Tam Gramer Bilgi Bankası</h1>
+      </div>
+
+      <!-- Search Box -->
+      <div class="relative w-full md:w-72">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-neutral-400 text-xs font-mono">🔍</span>
+        <input type="text" id="grammar-search" oninput="handleSearch()" placeholder="Konu, kural veya terim ara..." class="w-full pl-9 pr-4 py-2 rounded-full text-xs bg-neutral-100 dark:bg-neutral-900 border border-black/10 dark:border-white/10 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white transition-all text-black dark:text-white font-mono">
+      </div>
+    </div>
+
+    <!-- Apple Segmented Level Filter Pills -->
+    <div class="flex items-center space-x-1.5 sm:space-x-2 overflow-x-auto pb-1 text-xs font-mono">
+      <button onclick="selectLevel('A1')" id="btn-lvl-A1" class="lvl-btn px-3.5 py-1.5 rounded-full border transition-colors font-semibold">A1 (23)</button>
+      <button onclick="selectLevel('A2')" id="btn-lvl-A2" class="lvl-btn px-3.5 py-1.5 rounded-full border transition-colors font-semibold">A2 (29)</button>
+      <button onclick="selectLevel('B1')" id="btn-lvl-B1" class="lvl-btn px-3.5 py-1.5 rounded-full border transition-colors font-semibold">B1 (27)</button>
+      <button onclick="selectLevel('B2')" id="btn-lvl-B2" class="lvl-btn px-3.5 py-1.5 rounded-full border transition-colors font-semibold">B2 (25)</button>
+      <button onclick="selectLevel('C1')" id="btn-lvl-C1" class="lvl-btn px-3.5 py-1.5 rounded-full border transition-colors font-semibold">C1 (24)</button>
+      <button onclick="selectLevel('C2')" id="btn-lvl-C2" class="lvl-btn px-3.5 py-1.5 rounded-full border transition-colors font-semibold">C2 (20)</button>
+    </div>
+
+    <!-- Layout: Left Sidebar + Right Detail -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Topic Navigation Sidebar -->
+      <div class="lg:col-span-4 space-y-2.5 lg:sticky lg:top-20 self-start">
+        <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-neutral-400">
+          <span id="sidebar-category-title">Konular</span>
+          <span id="sidebar-topic-count">148 Konu</span>
+        </div>
+        <div id="topics-list" class="space-y-1.5 max-h-[750px] overflow-y-auto pr-1">
+          <!-- Injected via renderTopicList() -->
+        </div>
+      </div>
+
+      <!-- Main Topic Explanation View -->
+      <div class="lg:col-span-8">
+        <div id="topic-detail" class="space-y-6">
+          <!-- Injected via renderTopicDetail() -->
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">148 CEFR Gramer Müfredatı · İnteraktif Video Motoru & Sentaks Laboratuvarı</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>A1'den C2'ye Tam Kapsam</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="text-amber-500 font-bold">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Connect Data from Platform -->
+  <script src="../ielts-master-platform/assets/js/grammar/a1.js"></script>
+  <script src="../ielts-master-platform/assets/js/grammar/a2.js"></script>
+  <script src="../ielts-master-platform/assets/js/grammar/b1.js"></script>
+  <script src="../ielts-master-platform/assets/js/grammar/b2.js"></script>
+  <script src="../ielts-master-platform/assets/js/grammar/c1.js"></script>
+  <script src="../ielts-master-platform/assets/js/grammar/c2.js"></script>
+  <script src="../ielts-master-platform/assets/js/grammar-data.js"></script>
+  <script src="../ielts-master-platform/assets/js/grammar-video.js"></script>
+  <script src="assets/js/grammar-interactive.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    let currentLevel = 'A1';
+    let currentTopicIndex = 0;
+    let filteredTopics = null;
+
+    function formatCategory(category, level) {
+      if (!category) return '';
+      const lvl = level || '[A-Za-z0-9]+';
+      return category.replace(new RegExp('^' + lvl + '\\s*[-–—:]\\s*', 'i'), '').trim();
+    }
+
+    function selectLevel(lvl) {
+      currentLevel = lvl;
+      currentTopicIndex = 0;
+      filteredTopics = null;
+      document.getElementById('grammar-search').value = '';
+
+      updateLevelButtons();
+      renderTopicList();
+      renderTopicDetail();
+    }
+
+    function updateLevelButtons() {
+      document.querySelectorAll('.lvl-btn').forEach(btn => {
+        btn.className = 'lvl-btn px-3.5 py-1.5 rounded-full font-mono text-xs border transition-colors bg-transparent border-black/10 dark:border-white/10 text-neutral-600 dark:text-neutral-400 hover:bg-black/5 dark:hover:bg-white/5 font-semibold';
+      });
+
+      const activeBtn = document.getElementById(`btn-lvl-${currentLevel}`);
+      if (activeBtn) {
+        activeBtn.className = 'lvl-btn px-3.5 py-1.5 rounded-full font-mono text-xs border transition-colors bg-amber-500 text-black border-amber-500 shadow-sm font-bold';
+      }
+    }
+
+    function getActiveTopics() {
+      if (filteredTopics) return filteredTopics;
+      return (typeof GRAMMAR_DATA !== 'undefined' && GRAMMAR_DATA[currentLevel]) ? GRAMMAR_DATA[currentLevel] : [];
+    }
+
+    function renderTopicList() {
+      const listContainer = document.getElementById('topics-list');
+      const topics = getActiveTopics();
+      const countEl = document.getElementById('sidebar-topic-count');
+      const catEl = document.getElementById('sidebar-category-title');
+
+      if (countEl) countEl.innerText = `${topics.length} Konu`;
+      if (catEl) catEl.innerText = filteredTopics ? 'Arama Sonuçları' : `${currentLevel} Konu Listesi`;
+
+      if (topics.length === 0) {
+        listContainer.innerHTML = `<div class="p-4 rounded-xl text-xs text-neutral-400 vercel-card">Eşleşen gramer konusu bulunamadı.</div>`;
+        return;
+      }
+
+      listContainer.innerHTML = topics.map((t, idx) => {
+        const isActive = idx === currentTopicIndex;
+        return `
+          <button onclick="selectTopic(${idx})" id="topic-item-btn-${idx}" class="topic-item-btn w-full text-left p-3 rounded-xl border transition-colors flex flex-col space-y-0.5 ${
+            isActive 
+              ? 'bg-black/5 dark:bg-white/10 border-black/20 dark:border-white/20' 
+              : 'vercel-card hover:border-black/20 dark:hover:border-white/20'
+          }">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-[10px] text-neutral-400 font-bold">${t.level}</span>
+              <span class="text-[10px] text-neutral-400 font-mono">#${idx + 1}</span>
+            </div>
+            <span class="font-bold text-xs text-black dark:text-white tracking-tight">${t.title}</span>
+            <span class="text-[11px] text-neutral-500">${t.titleTr}</span>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectTopic(idx) {
+      if (currentTopicIndex === idx) return;
+
+      const prevBtn = document.getElementById(`topic-item-btn-${currentTopicIndex}`);
+      if (prevBtn) {
+        prevBtn.className = 'topic-item-btn w-full text-left p-3 rounded-xl border transition-colors flex flex-col space-y-0.5 vercel-card hover:border-black/20 dark:hover:border-white/20';
+      }
+
+      currentTopicIndex = idx;
+
+      const nextBtn = document.getElementById(`topic-item-btn-${idx}`);
+      if (nextBtn) {
+        nextBtn.className = 'topic-item-btn w-full text-left p-3 rounded-xl border transition-colors flex flex-col space-y-0.5 bg-black/5 dark:bg-white/10 border-black/20 dark:border-white/20';
+      }
+
+      renderTopicDetail();
+      // Stationary: no window.scrollTo to keep page completely steady
+    }
+
+    function renderTopicDetail() {
+      const detailContainer = document.getElementById('topic-detail');
+      const topics = getActiveTopics();
+      const topic = topics[currentTopicIndex];
+
+      if (!topic) {
+        detailContainer.innerHTML = `<div class="p-8 text-center text-neutral-400">Bir konu seçin.</div>`;
+        return;
+      }
+
+      let rulesHtml = (topic.rules || []).map(r => `<li class="flex items-start space-x-2"><span>•</span><span>${r}</span></li>`).join('');
+      
+      let examplesHtml = (topic.examples || []).map(ex => `
+        <div class="p-3 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-1 text-xs">
+          <div class="font-medium text-black dark:text-white flex items-center justify-between font-mono">
+            <span>"${ex.en}"</span>
+            <button onclick="App.speakText('${ex.en.replace(/'/g, "\\'")}')" class="text-[10px] px-2 py-0.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5" title="Dinle">🔊</button>
+          </div>
+          <div class="text-[11px] text-neutral-500">${ex.tr}</div>
+        </div>
+      `).join('');
+
+      let quizzes = [];
+      if (Array.isArray(topic.miniQuiz)) {
+        quizzes = topic.miniQuiz;
+      } else if (topic.miniQuiz) {
+        quizzes = [topic.miniQuiz];
+      }
+
+      let quizHtml = quizzes.map((qz, qIdx) => {
+        const questionText = qz.question || qz.q;
+        const optionsList = qz.options || [];
+        const answerVal = qz.answer !== undefined ? qz.answer : optionsList[qz.correct];
+        const explanationText = qz.explanation || "";
+
+        return `
+          <div class="p-4 rounded-xl vercel-card space-y-2.5" id="quiz-block-${qIdx}">
+            <span class="text-[10px] font-mono text-neutral-400 uppercase">Pekiştirme Testi #${qIdx + 1}</span>
+            <p class="text-xs sm:text-sm font-semibold text-black dark:text-white">${questionText}</p>
+            <div class="space-y-1.5">
+              ${optionsList.map((opt, oIdx) => `
+                <button onclick="checkQuizAnswerUnified(${qIdx}, '${opt.replace(/'/g, "\\'")}', '${String(answerVal).replace(/'/g, "\\'")}', '${explanationText.replace(/'/g, "\\'")}')" class="quiz-opt-btn-${qIdx} w-full text-left p-2.5 rounded-lg text-xs border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+            <div id="quiz-feedback-${qIdx}" class="hidden p-2.5 rounded-lg text-xs font-mono"></div>
+          </div>
+        `;
+      }).join('');
+
+      const hasVideo = (typeof GrammarVideoPlayer !== 'undefined');
+      const detailedGuideHtml = (typeof InteractiveGrammarHub !== 'undefined' && InteractiveGrammarHub.getDetailedTopicGuide)
+        ? InteractiveGrammarHub.getDetailedTopicGuide(topic)
+        : null;
+
+      const formattedCat = formatCategory(topic.category, topic.level) || topic.titleTr;
+
+      detailContainer.innerHTML = `
+        <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-6">
+          
+          <div class="border-b border-black/5 dark:border-white/10 pb-5 space-y-1.5">
+            <div class="flex items-center space-x-2">
+              <span class="font-mono text-xs px-2.5 py-0.5 rounded-full border border-black/10 dark:border-white/15 bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 font-bold">
+                ${topic.level}
+              </span>
+              <span class="text-xs text-neutral-400 font-mono">${formattedCat}</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight text-black dark:text-white">${topic.title}</h2>
+            <h3 class="text-sm font-semibold text-neutral-500">${topic.titleTr}</h3>
+            <p class="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed pt-1">${topic.explanation || topic.summary || ''}</p>
+          </div>
+
+          <!-- Interactive Learning Hub (4 Next-Gen Formats) -->
+          <div class="vercel-card rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-[#0a0a0a] text-white shadow-xl space-y-0">
+            <!-- Mode Switcher Pill Bar -->
+            <div class="p-3.5 bg-black/80 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto">
+                <button onclick="InteractiveGrammarHub.setMode('motion')" id="tab-mode-motion" class="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors bg-white text-black shadow-md">
+                  🎬 1. Sinematik Motion Video
+                </button>
+                <button onclick="InteractiveGrammarHub.setMode('kinetic')" id="tab-mode-kinetic" class="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors text-neutral-400 hover:text-white bg-transparent">
+                  ⚡ 2. Sentaks Lab (Kinetic)
+                </button>
+                <button onclick="InteractiveGrammarHub.setMode('dialogue')" id="tab-mode-dialogue" class="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors text-neutral-400 hover:text-white bg-transparent">
+                  🎭 3. İnteraktif Senaryo (Dr. Clara)
+                </button>
+                <button onclick="InteractiveGrammarHub.setMode('slide')" id="tab-mode-slide" class="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold transition-colors text-neutral-400 hover:text-white bg-transparent">
+                  📽️ 4. Klasik Slayt
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic View Container for Kinetic & Dialogue Modes -->
+            <div id="interactive-stage-container" class="p-5 sm:p-7">
+              <!-- Injected via InteractiveGrammarHub -->
+            </div>
+
+            <!-- Slide Player Container for Mode 4 (Classic Slide Player) -->
+            <div id="slide-player-container" class="hidden">
+              <!-- Compact Header with Speech Narration Bar -->
+              <div class="px-3 py-1.5 sm:py-2 bg-black/70 border-b border-white/10 flex items-center justify-between text-xs font-mono">
+                <div class="flex items-center space-x-2 min-w-0">
+                  <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+                  <span class="font-mono text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-neutral-200 truncate">🎬 Klasik Slayt</span>
+                  <span class="text-neutral-500 hidden sm:inline">·</span>
+                  <span class="text-neutral-400 font-mono text-[10px] hidden sm:inline truncate" id="video-scene-title">Bölüm 1/4</span>
+                </div>
+
+                <!-- Compact Speech / Narration Widget -->
+                <div class="flex items-center space-x-1 sm:space-x-1.5 text-[10px] font-mono flex-shrink-0">
+                  <div class="flex items-center space-x-1 bg-white/5 border border-white/15 rounded-md px-1.5 py-0.5">
+                    <span class="text-neutral-400 text-[9px]">🎙️</span>
+                    <select id="video-voice-select" onchange="GrammarVideoPlayer.setVoice(this.value)" class="bg-transparent text-neutral-200 text-[10px] font-mono focus:outline-none max-w-[95px] sm:max-w-[125px] truncate cursor-pointer" title="Yapay Zeka Sesini Değiştir">
+                      <option value="">Ses Yükleniyor...</option>
+                    </select>
+                  </div>
+
+                  <!-- Speed Pills (Compact) -->
+                  <div class="inline-flex items-center space-x-0.5 bg-white/5 border border-white/15 rounded-md p-0.5">
+                    <button onclick="GrammarVideoPlayer.setSpeed(0.8)" id="v-speed-08" class="video-speed-btn px-1.5 py-0.5 rounded text-[9px] transition-colors text-neutral-400 hover:text-white">0.8x</button>
+                    <button onclick="GrammarVideoPlayer.setSpeed(1.0)" id="v-speed-10" class="video-speed-btn px-1.5 py-0.5 rounded text-[9px] transition-colors bg-white text-black font-bold">1.0x</button>
+                    <button onclick="GrammarVideoPlayer.setSpeed(1.2)" id="v-speed-12" class="video-speed-btn px-1.5 py-0.5 rounded text-[9px] transition-colors text-neutral-400 hover:text-white">1.2x</button>
+                  </div>
+
+                  <!-- Replay Narration button -->
+                  <button onclick="GrammarVideoPlayer.speakCurrentScene()" class="px-1.5 py-0.5 rounded bg-white/5 hover:bg-white/15 border border-white/15 text-neutral-300 hover:text-white text-[9px] flex items-center space-x-1" title="Slayt Anlatımını Dinle">
+                    <span>🗣️</span>
+                    <span class="hidden md:inline">Dinle</span>
+                  </button>
+
+                  <!-- Mute Audio Button -->
+                  <button onclick="GrammarVideoPlayer.toggleMute()" id="video-mute-btn" class="p-1 rounded hover:bg-white/10 text-neutral-300 text-xs" title="Sesi Aç/Kapat">🔊</button>
+                </div>
+              </div>
+
+              <div class="p-5 sm:p-7 min-h-[220px] flex items-center justify-center relative bg-gradient-to-b from-[#111111] to-[#070707]" id="video-screen-stage"></div>
+
+              <!-- Compact Subtitle Bar -->
+              <div class="px-3.5 py-1.5 sm:py-2 bg-black/85 backdrop-blur-sm border-t border-white/10 text-center space-y-0.5">
+                <div id="video-subtitle-tr" class="text-[11px] sm:text-xs font-medium text-amber-300 tracking-wide line-clamp-1">
+                  Dersi başlatmak için aşağıdaki "▶ Dersi Başlat" butonuna tıklayın.
+                </div>
+                <div id="video-subtitle-en" class="text-[10px] sm:text-[11px] text-neutral-400 font-mono italic line-clamp-1">
+                  Click "Start Lesson" below to begin the interactive animated session.
+                </div>
+              </div>
+
+              <div class="w-full bg-white/10 h-1.5 relative">
+                <div id="video-progress-fill" class="bg-amber-400 h-full transition-all duration-300" style="width: 25%;"></div>
+              </div>
+
+              <div class="p-2.5 sm:p-3 bg-black/60 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs font-mono">
+                <div class="flex items-center space-x-2">
+                  <button onclick="GrammarVideoPlayer.togglePlay()" id="video-play-btn" class="px-3.5 py-1 rounded-full text-xs font-bold font-mono bg-white text-black shadow transition-all hover:opacity-90">
+                    ▶ Dersi Başlat
+                  </button>
+                  <button onclick="GrammarVideoPlayer.prevScene()" class="p-1 rounded-lg border border-white/10 hover:bg-white/10 text-neutral-300 text-xs" title="Önceki">
+                    ⏮
+                  </button>
+                  <button onclick="GrammarVideoPlayer.nextScene()" class="p-1 rounded-lg border border-white/10 hover:bg-white/10 text-neutral-300 text-xs" title="Sonraki">
+                    ⏭
+                  </button>
+                </div>
+                <div id="video-step-pills" class="flex items-center space-x-1 overflow-x-auto"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- In-Depth Encyclopedic Topic Guide (Comprehensive 7-Section Masterclass) -->
+          ${detailedGuideHtml || `
+            <!-- Formula Box Fallback -->
+            <div class="p-4 rounded-xl bg-neutral-50 dark:bg-[#070707] border border-black/5 dark:border-white/10 space-y-1">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Yapı & Formül</span>
+              <div class="font-mono text-xs sm:text-sm font-semibold text-black dark:text-white">
+                ${topic.formula}
+              </div>
+            </div>
+
+            <!-- Rules -->
+            ${rulesHtml ? `
+              <div class="space-y-2">
+                <h4 class="text-xs uppercase tracking-wider font-mono text-neutral-400">Temel Prensipler & Kurallar</h4>
+                <ul class="space-y-1.5 text-xs text-neutral-600 dark:text-neutral-300 pl-1 font-sans">
+                  ${rulesHtml}
+                </ul>
+              </div>
+            ` : ''}
+
+            <!-- IELTS Highlight -->
+            ${topic.ieltsApplication ? `
+              <div class="p-4 rounded-xl border border-black/10 dark:border-white/10 space-y-1">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-500 font-bold">🎯 IELTS Sınav İlişkisi & Band 7-9 Taktikleri</span>
+                <p class="text-xs text-neutral-600 dark:text-neutral-300 leading-relaxed">${topic.ieltsApplication}</p>
+              </div>
+            ` : ''}
+
+            <!-- Examples -->
+            <div class="space-y-2">
+              <h4 class="text-xs uppercase tracking-wider font-mono text-neutral-400">Örnek Cümleler</h4>
+              <div class="space-y-2">${examplesHtml}</div>
+            </div>
+
+            <!-- Common Mistakes -->
+            ${(topic.commonMistake || topic.commonMistakes) ? `
+              <div class="p-4 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 text-xs space-y-1">
+                <span class="font-mono text-[10px] uppercase text-rose-500 font-bold">⚠️ Sık Yapılan Hatalar & Tuzaklar</span>
+                <p class="text-neutral-600 dark:text-neutral-300 text-[11px]">${topic.commonMistake || topic.commonMistakes}</p>
+              </div>
+            ` : ''}
+          `}
+
+          <!-- Mini Quiz -->
+          ${quizHtml ? `
+            <div class="space-y-3 pt-4 border-t border-black/5 dark:border-white/10">
+              <h4 class="text-xs uppercase tracking-wider font-mono text-neutral-400">Kendini Dene (Pekiştirme)</h4>
+              <div class="space-y-3">${quizHtml}</div>
+            </div>
+          ` : ''}
+
+        </div>
+      `;
+
+      if (typeof InteractiveGrammarHub !== 'undefined') {
+        InteractiveGrammarHub.init(topic);
+      } else if (hasVideo) {
+        GrammarVideoPlayer.loadVideo(topic);
+        GrammarVideoPlayer.renderCurrentScene();
+      } else {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function checkQuizAnswerUnified(qIdx, selectedOpt, correctOpt, explanation) {
+      const buttons = document.querySelectorAll(`.quiz-opt-btn-${qIdx}`);
+      const feedback = document.getElementById(`quiz-feedback-${qIdx}`);
+
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.innerText.trim() === correctOpt.trim()) {
+          btn.className = 'w-full text-left p-2.5 rounded-lg text-xs font-mono font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/40';
+        } else if (btn.innerText.trim() === selectedOpt.trim()) {
+          btn.className = 'w-full text-left p-2.5 rounded-lg text-xs font-mono font-bold bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/40';
+        } else {
+          btn.className = 'w-full text-left p-2.5 rounded-lg text-xs border opacity-40';
+        }
+      });
+
+      feedback.classList.remove('hidden');
+      if (selectedOpt.trim().toLowerCase() === correctOpt.trim().toLowerCase()) {
+        feedback.className = 'p-2.5 rounded-lg text-xs bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400';
+        feedback.innerHTML = `<strong>✓ Tebrikler!</strong> Doğru cevap. ${explanation}`;
+      } else {
+        feedback.className = 'p-2.5 rounded-lg text-xs bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400';
+        feedback.innerHTML = `<strong>✕ Yanlış.</strong> Doğru cevap: <strong>${correctOpt}</strong>. ${explanation}`;
+      }
+    }
+
+    function handleSearch() {
+      const q = document.getElementById('grammar-search').value.toLowerCase().trim();
+      const allTopics = (typeof GRAMMAR_DATA !== 'undefined' && GRAMMAR_DATA[currentLevel]) ? GRAMMAR_DATA[currentLevel] : [];
+      if (!q) {
+        filteredTopics = null;
+      } else {
+        filteredTopics = allTopics.filter(t => {
+          return (t.title && t.title.toLowerCase().includes(q)) || 
+                 (t.titleTr && t.titleTr.toLowerCase().includes(q)) || 
+                 (t.formula && t.formula.toLowerCase().includes(q)) || 
+                 (t.explanation && t.explanation.toLowerCase().includes(q));
+        });
+      }
+      currentTopicIndex = 0;
+      renderTopicList();
+      renderTopicDetail();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (App.initVoices) App.initVoices();
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = () => {
+          if (App.initVoices) App.initVoices();
+          if (typeof InteractiveGrammarHub !== 'undefined') {
+            InteractiveGrammarHub.motion?.populateVoiceDropdown?.();
+            InteractiveGrammarHub.slide?.populateVoiceDropdown?.();
+          }
+          if (typeof GrammarVideoPlayer !== 'undefined' && GrammarVideoPlayer.populateVoiceDropdown) {
+            GrammarVideoPlayer.populateVoiceDropdown();
+          }
+        };
+      }
+      // Check for URL parameters from test links
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLevel = urlParams.get('level');
+      const urlTopic = urlParams.get('topic');
+
+      if (urlLevel && ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].includes(urlLevel.toUpperCase())) {
+        currentLevel = urlLevel.toUpperCase();
+      }
+
+      if (urlTopic && typeof GRAMMAR_DATA !== 'undefined') {
+        const topics = GRAMMAR_DATA[currentLevel] || [];
+        const foundIdx = topics.findIndex(t => 
+          t.title.toLowerCase() === urlTopic.toLowerCase() || 
+          t.title.toLowerCase().includes(urlTopic.toLowerCase()) ||
+          (t.id && t.id.toLowerCase() === urlTopic.toLowerCase())
+        );
+        if (foundIdx !== -1) {
+          currentTopicIndex = foundIdx;
+        }
+      }
+
+      updateLevelButtons();
+      renderTopicList();
+      renderTopicDetail();
+    });
+  </script>
+</body>
+</html>

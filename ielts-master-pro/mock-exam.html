@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Bilgisayarlı Deneme Sınavı (CD-IELTS 4 Beceri Simulator) | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .cd-split-pane { height: calc(100vh - 210px); min-height: 520px; }
+    .custom-scroll::-webkit-scrollbar { width: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: rgba(150, 150, 150, 0.25); border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-rose-500/20 selection:text-rose-400">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-90 transition-opacity shadow-sm shadow-amber-500/30">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-rose-600 text-white font-bold shadow-sm">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- 1. INTRO / EXAM SELECTOR & CANDIDATE REGISTRATION        -->
+  <!-- ======================================================== -->
+  <main id="mock-intro-view" class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+    <div class="vercel-card rounded-3xl p-6 sm:p-10 space-y-6 text-center max-w-3xl mx-auto shadow-2xl">
+      <div class="inline-flex items-center space-x-2 p-2 px-4 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-500 font-mono text-xs font-bold">
+        <span>⏱️ 4 Beceri (Listening, Reading, Writing, Speaking) Tam Sınav Simülatörü</span>
+      </div>
+
+      <h1 class="text-2xl sm:text-3xl font-black text-black dark:text-white tracking-tight">
+        Computer-Delivered IELTS Academic Deneme Sınavı Merkezi
+      </h1>
+
+      <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans max-w-xl mx-auto">
+        Resmi British Council / IDP bilgisayarlı sınav ekranı standartlarında; sesli Listening, iki pencereli Reading, SVG grafikli Writing ve mikrofonlu canlı Speaking mülakatını deneyimleyin.
+      </p>
+
+      <!-- 20 Cambridge Mock Exams Hub -->
+      <div class="space-y-4 text-left">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-3">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">
+              Cambridge IELTS 10-19 Çıkmış Soru Formatında Deneme Arşivi
+            </span>
+            <h3 class="text-sm sm:text-base font-bold text-black dark:text-white mt-0.5">
+              20 Tam Kapsamlı Academic Deneme Sınavı
+            </h3>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex items-center space-x-1 overflow-x-auto pb-1 text-xs font-mono">
+            <button onclick="filterMockCategory('all')" id="tab-mock-all" class="mock-cat-pill px-3 py-1 rounded-full font-bold bg-black dark:bg-white text-white dark:text-black">
+              Tümü (20)
+            </button>
+            <button onclick="filterMockCategory('nature')" id="tab-mock-nature" class="mock-cat-pill px-2.5 py-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white">
+              🌿 Doğa (6)
+            </button>
+            <button onclick="filterMockCategory('tech')" id="tab-mock-tech" class="mock-cat-pill px-2.5 py-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white">
+              🤖 Bilim (5)
+            </button>
+            <button onclick="filterMockCategory('society')" id="tab-mock-society" class="mock-cat-pill px-2.5 py-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white">
+              🏙️ Şehir (4)
+            </button>
+            <button onclick="filterMockCategory('history')" id="tab-mock-history" class="mock-cat-pill px-2.5 py-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white">
+              🏛️ Tarih (5)
+            </button>
+          </div>
+        </div>
+
+        <!-- 20 Exam Cards Grid Container -->
+        <div id="mock-exams-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[460px] overflow-y-auto pr-1 custom-scroll">
+          <!-- Injected dynamically via renderMockExamGrid() -->
+        </div>
+      </div>
+
+      <!-- 4 Modules Overview Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-left font-mono text-xs pt-1">
+        <div class="p-3 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-0.5">
+          <span class="text-rose-500 font-bold block">1. Listening</span>
+          <span class="text-[10px] text-neutral-400">Ses Kaydı + 10 Soru</span>
+        </div>
+        <div class="p-3 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-0.5">
+          <span class="text-emerald-500 font-bold block">2. Reading</span>
+          <span class="text-[10px] text-neutral-400">Bölünmüş Ekran + 10 Soru</span>
+        </div>
+        <div class="p-3 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-0.5">
+          <span class="text-purple-500 font-bold block">3. Writing</span>
+          <span class="text-[10px] text-neutral-400">SVG Grafik + Linter</span>
+        </div>
+        <div class="p-3 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-0.5">
+          <span class="text-blue-500 font-bold block">4. Speaking</span>
+          <span class="text-[10px] text-neutral-400">Canlı Mikrofon Mülakatı</span>
+        </div>
+      </div>
+
+      <!-- Candidate Info -->
+      <div class="pt-2 max-w-sm mx-auto text-left space-y-1.5">
+        <label class="block text-xs font-mono text-neutral-400">Aday Adı & Soyadı (Resmi TRF Karnesi İçin):</label>
+        <input type="text" id="candidate-name-input" placeholder="Örn: Nihat Can Çeribaş" class="w-full px-4 py-2.5 rounded-xl bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 text-xs font-mono text-black dark:text-white focus:outline-none focus:ring-1 focus:ring-rose-500">
+      </div>
+
+      <div class="pt-2">
+        <button onclick="startSimulationExam()" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-mono text-xs font-bold transition-all shadow-lg hover:shadow-rose-600/30">
+          Sınav Simülatörünü Başlat ➔
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- 2. COMPUTER-DELIVERED IELTS SIMULATION RUNNER SCREEN     -->
+  <!-- ======================================================== -->
+  <div id="mock-sim-runner" class="hidden flex-1 flex flex-col w-full">
+    
+    <!-- CD-IELTS Top Examination Control Strip -->
+    <div class="bg-[#111111] text-white border-b border-white/10 px-4 sm:px-6 py-2.5 flex items-center justify-between text-xs font-mono select-none">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
+          <span class="font-bold text-white uppercase tracking-wider" id="sim-candidate-badge">Nihat Can Çeribaş</span>
+          <span class="text-neutral-500">·</span>
+          <span class="text-neutral-400" id="sim-id-badge">ID: 048291</span>
+          <span class="text-neutral-500 hidden sm:inline">·</span>
+          <span class="text-rose-400 font-bold hidden sm:inline" id="sim-pack-badge">MOCK #1</span>
+        </div>
+
+        <!-- Section Switcher Tabs -->
+        <div class="hidden md:flex items-center space-x-1 border-l border-white/10 pl-4">
+          <button onclick="switchSimSection('listening')" id="tab-sec-listening" class="sim-sec-btn px-3 py-1 rounded text-xs font-bold bg-white text-black transition-all">
+            🎧 1. Listening
+          </button>
+          <button onclick="switchSimSection('reading')" id="tab-sec-reading" class="sim-sec-btn px-3 py-1 rounded text-xs text-neutral-400 hover:text-white transition-all">
+            📖 2. Reading
+          </button>
+          <button onclick="switchSimSection('writing')" id="tab-sec-writing" class="sim-sec-btn px-3 py-1 rounded text-xs text-neutral-400 hover:text-white transition-all">
+            ✍️ 3. Writing
+          </button>
+          <button onclick="switchSimSection('speaking')" id="tab-sec-speaking" class="sim-sec-btn px-3 py-1 rounded text-xs text-neutral-400 hover:text-white transition-all">
+            🗣️ 4. Speaking
+          </button>
+        </div>
+      </div>
+
+      <!-- Timer & Complete Button -->
+      <div class="flex items-center space-x-3">
+        <div class="flex items-center space-x-1.5 bg-black/60 px-3 py-1 rounded border border-white/10">
+          <span class="text-neutral-400 text-[10px]">REMAINING:</span>
+          <span id="sim-timer-display" class="font-bold text-rose-400 text-sm">02:30:00</span>
+        </div>
+        <button onclick="confirmFinishExam()" class="px-4 py-1.5 rounded font-bold text-xs bg-emerald-600 hover:bg-emerald-500 text-white shadow transition-all">
+          Sınavı Bitir & TRF Al ✓
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Section Stage Canvas -->
+    <div class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col justify-between">
+      
+      <div id="sim-stage-content" class="w-full flex-1">
+        <!-- Injected dynamically based on active section -->
+      </div>
+
+      <!-- Bottom Question Navigator Strip (CD-IELTS style) -->
+      <div id="sim-bottom-nav" class="mt-4 pt-3 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
+        <div class="flex items-center space-x-2">
+          <span class="text-neutral-400 text-[11px]">Sorular:</span>
+          <div id="sim-question-pills" class="flex items-center space-x-1 overflow-x-auto pb-1">
+            <!-- 1..10 Question pills injected dynamically -->
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button onclick="simNavigateQuestion(-1)" class="px-3 py-1 rounded border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
+            ◀ Önceki Soru
+          </button>
+          <button onclick="simNavigateQuestion(1)" class="px-3 py-1 rounded border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
+            Sonraki Soru ▶
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- 3. OFFICIAL 4-SKILL TRF CERTIFICATE & REVIEW VIEW        -->
+  <!-- ======================================================== -->
+  <main id="mock-trf-view" class="hidden flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+    
+    <div class="flex items-center justify-between">
+      <button onclick="returnToIntro()" class="text-xs font-mono text-neutral-400 hover:text-black dark:hover:text-white flex items-center space-x-1">
+        <span>←</span>
+        <span>Yeni Sınava Başla</span>
+      </button>
+      <div class="flex items-center space-x-2">
+        <button onclick="toggleReviewMode()" id="btn-toggle-review" class="px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5">
+          👁️ Yanıtlarımı ve Çözüm Detaylarını İncele
+        </button>
+        <button onclick="window.print()" class="px-5 py-2 rounded-xl bg-black dark:bg-white text-white dark:text-black font-mono text-xs font-bold flex items-center space-x-2 shadow-sm">
+          <span>🖨️</span>
+          <span>TRF Karnesini Yazdır (PDF)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Official Cambridge / IDP Style TRF Certificate -->
+    <div class="vercel-card rounded-3xl p-6 sm:p-12 space-y-8 border-2 border-black/20 dark:border-white/20 bg-white dark:bg-[#070707] relative overflow-hidden shadow-2xl">
+      
+      <!-- Watermark -->
+      <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none text-black dark:text-white font-black text-8xl rotate-[-25deg]">
+        IELTS TRF
+      </div>
+
+      <!-- Header -->
+      <div class="border-b-2 border-black dark:border-white pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <span class="font-mono text-xs uppercase tracking-widest text-neutral-500">INTERNATIONAL ENGLISH LANGUAGE TESTING SYSTEM</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-black dark:text-white tracking-tight">Official Test Report Form (TRF)</h2>
+          <span class="text-xs font-mono text-neutral-400">Academic Comprehensive Examination · 4 Skills Verified</span>
+        </div>
+
+        <div class="text-left sm:text-right font-mono text-xs text-neutral-500 space-y-0.5">
+          <div>Centre Number: <strong>TR-902 (IDP / British Council Simulated)</strong></div>
+          <div>Candidate Number: <strong id="trf-cand-num">004821</strong></div>
+          <div>Test Date: <strong id="trf-date">03/09/2026</strong></div>
+        </div>
+      </div>
+
+      <!-- Candidate Bio -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs p-4 rounded-2xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5">
+        <div>
+          <span class="text-[10px] text-neutral-400 block uppercase">Candidate Name:</span>
+          <span class="text-sm font-bold text-black dark:text-white" id="trf-candidate-name">Nihat Can Çeribaş</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-neutral-400 block uppercase">Scheme:</span>
+          <span class="text-sm font-bold text-black dark:text-white">Academic CD-IELTS</span>
+        </div>
+        <div>
+          <span class="text-[10px] text-neutral-400 block uppercase">CEFR Equivalent:</span>
+          <span class="text-sm font-bold text-emerald-500" id="trf-cefr-badge">C1 Advanced</span>
+        </div>
+      </div>
+
+      <!-- 4 Band Scores + Overall Band Table -->
+      <div class="space-y-2">
+        <span class="font-mono text-xs font-bold text-neutral-400 uppercase tracking-wider block">Official 4-Skill Test Results Breakdown</span>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 font-mono text-center">
+          <div class="p-4 rounded-xl border border-black/10 dark:border-white/10 space-y-1">
+            <span class="text-neutral-400 text-[10px] uppercase block">Listening</span>
+            <div class="text-2xl font-black text-black dark:text-white" id="trf-band-l">7.5</div>
+            <span class="text-[10px] text-neutral-400" id="trf-raw-l">8 / 10 Doğru</span>
+          </div>
+
+          <div class="p-4 rounded-xl border border-black/10 dark:border-white/10 space-y-1">
+            <span class="text-neutral-400 text-[10px] uppercase block">Reading</span>
+            <div class="text-2xl font-black text-black dark:text-white" id="trf-band-r">7.5</div>
+            <span class="text-[10px] text-neutral-400" id="trf-raw-r">8 / 10 Doğru</span>
+          </div>
+
+          <div class="p-4 rounded-xl border border-black/10 dark:border-white/10 space-y-1">
+            <span class="text-neutral-400 text-[10px] uppercase block">Writing</span>
+            <div class="text-2xl font-black text-black dark:text-white" id="trf-band-w">7.0</div>
+            <span class="text-[10px] text-neutral-400" id="trf-raw-w">Task 1 + 2 Analizi</span>
+          </div>
+
+          <div class="p-4 rounded-xl border border-black/10 dark:border-white/10 space-y-1">
+            <span class="text-neutral-400 text-[10px] uppercase block">Speaking</span>
+            <div class="text-2xl font-black text-black dark:text-white" id="trf-band-s">7.5</div>
+            <span class="text-[10px] text-neutral-400" id="trf-raw-s">Part 1-3 Mülakatı</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-emerald-500/10 border-2 border-emerald-500 text-emerald-600 dark:text-emerald-400 space-y-1 col-span-2 sm:col-span-1">
+            <span class="text-[10px] uppercase block font-bold">Overall Band</span>
+            <div class="text-3xl font-black" id="trf-band-overall">7.5</div>
+            <span class="text-[10px]" id="trf-overall-status">Competent User</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Examiner Authentication -->
+      <div class="pt-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-[11px] text-neutral-400">
+        <div class="space-y-0.5">
+          <div>Validation Number: <strong id="trf-val-num">VLD-849204-TR</strong></div>
+          <div>Verification: <em>IELTS Master Automated 4-Skill Scoring & Evaluation Engine</em></div>
+        </div>
+        <div class="p-2 px-3 rounded-lg border border-emerald-500/30 text-emerald-500 font-bold text-center">
+          ✓ OFFICIALLY VALIDATED TRF
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Review Section (Hidden by default) -->
+    <div id="exam-review-container" class="hidden space-y-6 pt-4">
+      <div class="border-b border-black/5 dark:border-white/10 pb-3">
+        <h3 class="text-lg font-bold text-black dark:text-white">Detaylı 4 Beceri Soru & Cevap Değerlendirmesi</h3>
+        <p class="text-xs text-neutral-500 font-mono">Verdiğiniz yanıtlar, konuşma kayıtlarınız ve doğru cevap anahtarları.</p>
+      </div>
+
+      <!-- Listening Review -->
+      <div class="space-y-3">
+        <h4 class="text-sm font-bold font-mono text-rose-500">🎧 1. Listening Değerlendirmesi</h4>
+        <div id="review-listening-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+      </div>
+
+      <!-- Reading Review -->
+      <div class="space-y-3 pt-4">
+        <h4 class="text-sm font-bold font-mono text-emerald-500">📖 2. Reading Değerlendirmesi</h4>
+        <div id="review-reading-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+      </div>
+
+      <!-- Writing Review -->
+      <div class="space-y-3 pt-4">
+        <h4 class="text-sm font-bold font-mono text-purple-500">✍️ 3. Writing Değerlendirmesi</h4>
+        <div id="review-writing-box" class="p-5 rounded-2xl vercel-card space-y-3 text-xs"></div>
+      </div>
+
+      <!-- Speaking Review -->
+      <div class="space-y-3 pt-4">
+        <h4 class="text-sm font-bold font-mono text-blue-500">🗣️ 4. Speaking Mülakatı Değerlendirmesi</h4>
+        <div id="review-speaking-box" class="p-5 rounded-2xl vercel-card space-y-3 text-xs font-mono"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">4 Beceri CD-IELTS Akademik Sınav Simülatörü & Yapay Zeka Skorlama</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Birebir Gerçek Sınav Arayüzü</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="text-amber-500 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script>
+    // State Variables
+    let currentMockId = "mock1";
+    let activeCategory = "all";
+    let activeSection = "listening"; // 'listening' | 'reading' | 'writing' | 'speaking'
+    let currentQuestionIdx = 0;
+    let simTimerSeconds = 150 * 60; // 2.5 hours
+    let simTimerInterval = null;
+    let candidateName = "Nihat Can Çeribaş";
+    let candidateId = "048291";
+
+    // User Answers
+    let userAnswers = {
+      listening: {},
+      reading: {},
+      writing: { task1: "", task2: "" },
+      speaking: {
+        part1: {},
+        part2Transcript: "",
+        part3: {},
+        wpm: 0,
+        audioBlobUrl: null
+      }
+    };
+
+    // Speaking Recording State
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let isSpeakingRecording = false;
+    let speakingTimerInterval = null;
+    let speakingSeconds = 0;
+    let speechRecognizer = null;
+    let activeSpeakingStep = 1; // 1: Part 1, 2: Part 2, 3: Part 3
+    let prepTimerInterval = null;
+
+    // Get Active Mock from MOCK_DATABASE
+    function getActiveMock() {
+      if (typeof MOCK_DATABASE !== 'undefined' && MOCK_DATABASE[currentMockId]) {
+        return MOCK_DATABASE[currentMockId];
+      }
+      return (typeof MOCK_DATABASE !== 'undefined') ? Object.values(MOCK_DATABASE)[0] : null;
+    }
+
+    // Filter by Category
+    function filterMockCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.mock-cat-pill').forEach(btn => {
+        btn.className = 'mock-cat-pill px-2.5 py-1 rounded-full text-neutral-500 hover:text-black dark:hover:text-white';
+      });
+      const activeBtn = document.getElementById(`tab-mock-${cat}`);
+      if (activeBtn) {
+        activeBtn.className = 'mock-cat-pill px-3 py-1 rounded-full font-bold bg-black dark:bg-white text-white dark:text-black';
+      }
+      renderMockExamGrid();
+    }
+
+    // Select Exam Pack
+    function selectMockExamPack(packId) {
+      currentMockId = packId;
+      renderMockExamGrid();
+      const mock = getActiveMock();
+      if (mock) {
+        App.showToast(`${mock.label} (${mock.cambridgeRef}) seçildi!`, "info");
+      }
+    }
+
+    // Render 20 Mock Exams in Grid
+    function renderMockExamGrid() {
+      const container = document.getElementById('mock-exams-grid');
+      if (!container || typeof MOCK_DATABASE === 'undefined') return;
+
+      const exams = Object.values(MOCK_DATABASE);
+      const filtered = activeCategory === 'all' 
+        ? exams 
+        : exams.filter(e => e.category === activeCategory);
+
+      container.innerHTML = filtered.map(item => {
+        const isSelected = item.id === currentMockId;
+        const pastScore = localStorage.getItem(`mock_exam_score_${item.id}`);
+
+        return `
+          <div onclick="selectMockExamPack('${item.id}')" class="exam-pack-card p-4 rounded-2xl border transition-all text-left space-y-2 cursor-pointer ${
+            isSelected 
+              ? 'bg-rose-500/10 border-rose-500 shadow-md ring-1 ring-rose-500' 
+              : 'border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 bg-white/50 dark:bg-neutral-900/50'
+          }">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="font-bold ${isSelected ? 'text-rose-500' : 'text-neutral-400'}">${item.label}</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full border border-black/10 dark:border-white/10 text-neutral-400">${item.categoryLabel}</span>
+            </div>
+
+            <div class="space-y-0.5">
+              <h4 class="text-xs font-bold text-black dark:text-white leading-snug line-clamp-2">${item.theme}</h4>
+              <span class="text-[10px] font-mono text-neutral-400 block">${item.cambridgeRef}</span>
+            </div>
+
+            <div class="pt-2 border-t border-black/5 dark:border-white/5 flex items-center justify-between font-mono text-[11px]">
+              ${pastScore ? `
+                <span class="text-emerald-500 font-bold">✓ Band: ${pastScore}</span>
+              ` : `
+                <span class="text-neutral-500">○ Henüz Çözülmedi</span>
+              `}
+              <span class="text-xs ${isSelected ? 'text-rose-500 font-bold' : 'text-neutral-400'}">
+                ${isSelected ? 'Seçildi ✓' : 'Seç ➔'}
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Start Exam Simulation
+    function startSimulationExam() {
+      const nameInput = document.getElementById('candidate-name-input').value.trim();
+      if (nameInput) candidateName = nameInput;
+      candidateId = Math.floor(100000 + Math.random() * 900000).toString();
+
+      document.getElementById('sim-candidate-badge').innerText = candidateName;
+      document.getElementById('sim-id-badge').innerText = `ID: ${candidateId}`;
+      document.getElementById('sim-pack-badge').innerText = getActiveMock().label;
+
+      document.getElementById('mock-intro-view').classList.add('hidden');
+      document.getElementById('mock-trf-view').classList.add('hidden');
+      document.getElementById('mock-sim-runner').classList.remove('hidden');
+
+      activeSection = 'listening';
+      currentQuestionIdx = 0;
+      startSimTimer();
+      renderActiveSection();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Timer Logic
+    function startSimTimer() {
+      clearInterval(simTimerInterval);
+      simTimerInterval = setInterval(() => {
+        if (simTimerSeconds > 0) {
+          simTimerSeconds--;
+          const h = Math.floor(simTimerSeconds / 3600);
+          const m = Math.floor((simTimerSeconds % 3600) / 60);
+          const s = simTimerSeconds % 60;
+          document.getElementById('sim-timer-display').innerText = 
+            `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        } else {
+          clearInterval(simTimerInterval);
+          App.showToast("Sınav süreniz doldu! TRF Karneniz hesaplanıyor.", "warning");
+          calculateAndShowTRF();
+        }
+      }, 1000);
+    }
+
+    // Switch Section
+    function switchSimSection(sec) {
+      activeSection = sec;
+      currentQuestionIdx = 0;
+      
+      document.querySelectorAll('.sim-sec-btn').forEach(btn => {
+        btn.className = 'sim-sec-btn px-3 py-1 rounded text-xs font-bold text-neutral-400 hover:text-white transition-all';
+      });
+      const activeBtn = document.getElementById(`tab-sec-${sec}`);
+      if (activeBtn) {
+        activeBtn.className = 'sim-sec-btn px-3 py-1 rounded text-xs font-bold bg-white text-black transition-all';
+      }
+
+      renderActiveSection();
+    }
+
+    // Render Active Section
+    function renderActiveSection() {
+      const stage = document.getElementById('sim-stage-content');
+      const bottomNav = document.getElementById('sim-bottom-nav');
+
+      if (activeSection === 'listening') {
+        bottomNav.classList.remove('hidden');
+        renderListeningSection(stage);
+      } else if (activeSection === 'reading') {
+        bottomNav.classList.remove('hidden');
+        renderReadingSection(stage);
+      } else if (activeSection === 'writing') {
+        bottomNav.classList.add('hidden');
+        renderWritingSection(stage);
+      } else if (activeSection === 'speaking') {
+        bottomNav.classList.add('hidden');
+        renderSpeakingSection(stage);
+      }
+
+      renderQuestionPills();
+    }
+
+    // ========================================================
+    // 1. LISTENING SECTION
+    // ========================================================
+    function renderListeningSection(container) {
+      const data = getActiveMock().listening;
+      const q = data.questions[currentQuestionIdx];
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          <div class="p-4 rounded-2xl bg-neutral-900 border border-white/10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+              <span class="text-xl">🎧</span>
+              <div>
+                <span class="text-[10px] font-mono text-rose-400 uppercase tracking-widest block font-bold">Listening Audio Stream · Soru 1-10</span>
+                <h3 class="text-xs sm:text-sm font-bold">${data.title}</h3>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-2">
+              <button onclick="playListeningAudio()" id="btn-audio-sim" class="px-4 py-2 rounded-xl bg-white text-black font-mono text-xs font-bold hover:bg-neutral-200 transition-all flex items-center space-x-2">
+                <span>🔊</span>
+                <span id="btn-audio-sim-text">Ses Kaydını Başlat</span>
+              </button>
+              <button onclick="stopListeningAudio()" class="p-2 rounded-xl border border-white/10 text-neutral-400 hover:text-white text-xs font-mono">
+                ⏹
+              </button>
+            </div>
+          </div>
+
+          <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-6">
+            <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-4">
+              <div class="flex items-center space-x-2 font-mono text-xs">
+                <span class="px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-500 font-bold">Soru #${q.id} / 10</span>
+                <span class="text-neutral-400">${q.type === 'fill' ? 'Form Tamamlama (Gap-Fill)' : 'Çoktan Seçmeli (MCQ)'}</span>
+              </div>
+              <span class="text-xs font-mono text-neutral-400">Section 1: Daily Social Scenario</span>
+            </div>
+
+            <div class="space-y-4">
+              <p class="text-sm sm:text-base font-semibold text-black dark:text-white leading-relaxed font-sans">
+                ${q.prompt}
+              </p>
+
+              ${q.type === 'fill' ? `
+                <div class="max-w-md space-y-2 pt-2">
+                  <label class="block text-xs font-mono text-neutral-400">${q.label}:</label>
+                  <input type="text" 
+                    id="ans-input-l-${q.id}" 
+                    value="${userAnswers.listening[q.id] || ''}" 
+                    oninput="saveListeningAnswer(${q.id}, this.value)"
+                    placeholder="Yanıtınızı buraya yazın..." 
+                    class="w-full p-3 rounded-xl bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 font-mono text-sm text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-rose-500">
+                </div>
+              ` : `
+                <div class="space-y-2 max-w-lg pt-2 font-mono text-xs">
+                  ${q.options.map(opt => {
+                    const optKey = opt.charAt(0);
+                    const isSelected = userAnswers.listening[q.id] === optKey;
+                    return `
+                      <button onclick="saveListeningAnswer(${q.id}, '${optKey}')" class="w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between ${
+                        isSelected 
+                          ? 'bg-black dark:bg-white text-white dark:text-black border-black dark:border-white font-bold shadow-sm' 
+                          : 'border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-700 dark:text-neutral-300'
+                      }">
+                        <span>${opt}</span>
+                        ${isSelected ? '<span class="text-emerald-400 font-bold">✓</span>' : ''}
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              `}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ========================================================
+    // 2. READING SECTION (Split-Screen)
+    // ========================================================
+    function renderReadingSection(container) {
+      const data = getActiveMock().reading;
+      const q = data.questions[currentQuestionIdx];
+
+      container.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-7 vercel-card rounded-2xl p-6 sm:p-8 cd-split-pane overflow-y-auto custom-scroll space-y-4">
+            <div class="border-b border-black/5 dark:border-white/10 pb-3">
+              <span class="font-mono text-[10px] uppercase text-emerald-500 font-bold tracking-widest block">Reading Passage 1 · Split Screen</span>
+              <h3 class="text-base sm:text-lg font-black text-black dark:text-white mt-1">${data.title}</h3>
+            </div>
+            <div class="text-xs sm:text-sm leading-relaxed text-neutral-700 dark:text-neutral-300 font-sans whitespace-pre-line space-y-4">
+              ${data.passage}
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 vercel-card rounded-2xl p-6 cd-split-pane overflow-y-auto custom-scroll space-y-5">
+            <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+              <span class="font-mono text-xs font-bold text-emerald-500 px-2.5 py-0.5 rounded-full bg-emerald-500/10">Soru #${q.id} / 10</span>
+              <span class="text-xs font-mono text-neutral-400">${q.type === 'tfng' ? 'True / False / Not Given' : (q.type === 'fill' ? 'Sentence Completion' : 'Multiple Choice')}</span>
+            </div>
+
+            <div class="space-y-4">
+              <p class="text-xs sm:text-sm font-semibold text-black dark:text-white leading-relaxed">
+                ${q.prompt}
+              </p>
+
+              ${q.type === 'tfng' ? `
+                <div class="space-y-2 font-mono text-xs">
+                  ${q.options.map(opt => {
+                    const isSelected = userAnswers.reading[q.id] === opt;
+                    return `
+                      <button onclick="saveReadingAnswer(${q.id}, '${opt}')" class="w-full text-left p-3 rounded-xl border transition-all flex items-center justify-between ${
+                        isSelected 
+                          ? 'bg-black dark:bg-white text-white dark:text-black border-black dark:border-white font-bold shadow-sm' 
+                          : 'border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-700 dark:text-neutral-300'
+                      }">
+                        <span>${opt}</span>
+                        ${isSelected ? '<span class="text-emerald-400 font-bold">✓</span>' : ''}
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              ` : (q.type === 'fill' ? `
+                <div class="space-y-2 pt-2">
+                  <label class="block text-xs font-mono text-neutral-400">${q.label}:</label>
+                  <input type="text" 
+                    id="ans-input-r-${q.id}" 
+                    value="${userAnswers.reading[q.id] || ''}" 
+                    oninput="saveReadingAnswer(${q.id}, this.value)"
+                    placeholder="Eksik kelimeyi buraya yazın..." 
+                    class="w-full p-3 rounded-xl bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 font-mono text-sm text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                </div>
+              ` : `
+                <div class="space-y-2 font-mono text-xs">
+                  ${q.options.map(opt => {
+                    const optKey = opt.charAt(0);
+                    const isSelected = userAnswers.reading[q.id] === optKey;
+                    return `
+                      <button onclick="saveReadingAnswer(${q.id}, '${optKey}')" class="w-full text-left p-3 rounded-xl border transition-all flex items-center justify-between ${
+                        isSelected 
+                          ? 'bg-black dark:bg-white text-white dark:text-black border-black dark:border-white font-bold shadow-sm' 
+                          : 'border-black/5 dark:border-white/5 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-700 dark:text-neutral-300'
+                      }">
+                        <span>${opt}</span>
+                        ${isSelected ? '<span class="text-emerald-400 font-bold">✓</span>' : ''}
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              `)}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ========================================================
+    // 3. WRITING SECTION (With Visual SVG Chart & Linter)
+    // ========================================================
+    function renderWritingSection(container) {
+      const mock = getActiveMock();
+      const t1 = mock.writing.task1;
+      const t2 = mock.writing.task2;
+      const w1 = userAnswers.writing.task1.trim() ? userAnswers.writing.task1.trim().split(/\s+/).length : 0;
+      const w2 = userAnswers.writing.task2.trim() ? userAnswers.writing.task2.trim().split(/\s+/).length : 0;
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          
+          <!-- TASK 1 (Report with Visual SVG Graphic) -->
+          <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+              <div>
+                <span class="font-mono text-xs font-bold text-purple-500 uppercase">${t1.type}</span>
+                <h3 class="text-base font-bold text-black dark:text-white mt-0.5">Akademik Veri Analizi ve Rapor</h3>
+              </div>
+              <div class="flex items-center space-x-2 font-mono text-xs">
+                <span id="t1-word-badge" class="px-3 py-1 rounded-full font-bold ${w1 >= 150 ? 'bg-emerald-500/10 text-emerald-500' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-400'}">
+                  ${w1} / 150 Kelime
+                </span>
+              </div>
+            </div>
+
+            <!-- Task 1 Prompt -->
+            <div class="p-3.5 rounded-xl bg-neutral-100 dark:bg-[#111111] text-xs leading-relaxed text-black dark:text-white font-sans">
+              <strong>Sınav Yönergesi:</strong> ${t1.prompt}
+            </div>
+
+            <!-- INTERACTIVE SVG GRAPHIC -->
+            <div class="p-4 rounded-2xl bg-neutral-50 dark:bg-[#070707] border border-black/5 dark:border-white/10 space-y-2">
+              <div class="flex items-center justify-between text-[11px] font-mono text-neutral-400">
+                <span>📊 Veri Grafiği (Task 1 Reference Chart)</span>
+                <span>% Değerler (2010 - 2025)</span>
+              </div>
+              <div class="w-full flex justify-center py-2 overflow-x-auto">
+                ${renderTask1SvgChart(t1.svgType)}
+              </div>
+            </div>
+
+            <textarea 
+              id="w-task1-input" 
+              rows="6" 
+              oninput="handleWritingInput('task1', this.value)"
+              placeholder="Task 1 akademik raporunuzu buraya yazın (En az 150 kelime)..." 
+              class="w-full p-4 rounded-xl font-mono text-xs sm:text-sm bg-neutral-50 dark:bg-[#070707] border border-black/10 dark:border-white/10 focus:outline-none focus:ring-1 focus:ring-purple-500 text-black dark:text-white">${userAnswers.writing.task1}</textarea>
+          </div>
+
+          <!-- TASK 2 (Discursive Essay with Live Paraphrase Linter) -->
+          <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+              <div>
+                <span class="font-mono text-xs font-bold text-purple-500 uppercase">${t2.type}</span>
+                <h3 class="text-base font-bold text-black dark:text-white mt-0.5">Argümantatif Akademik Essay</h3>
+              </div>
+              <div class="flex items-center space-x-2 font-mono text-xs">
+                <span id="t2-word-badge" class="px-3 py-1 rounded-full font-bold ${w2 >= 250 ? 'bg-emerald-500/10 text-emerald-500' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-400'}">
+                  ${w2} / 250 Kelime
+                </span>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-neutral-100 dark:bg-[#111111] text-xs leading-relaxed text-black dark:text-white font-sans">
+              <strong>Sınav Yönergesi:</strong> ${t2.prompt}
+            </div>
+
+            <textarea 
+              id="w-task2-input" 
+              rows="9" 
+              oninput="handleWritingInput('task2', this.value)"
+              placeholder="Task 2 akademik essayinizi buraya yazın (En az 250 kelime)..." 
+              class="w-full p-4 rounded-xl font-mono text-xs sm:text-sm bg-neutral-50 dark:bg-[#070707] border border-black/10 dark:border-white/10 focus:outline-none focus:ring-1 focus:ring-purple-500 text-black dark:text-white">${userAnswers.writing.task2}</textarea>
+
+            <!-- LIVE ACADEMIC PARAPHRASE LINTER PANEL -->
+            <div id="writing-linter-panel" class="p-4 rounded-xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-2 text-xs font-mono">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-neutral-400 text-[10px] uppercase">Akademik Kelime Kalitesi & Band 8+ Alternatifleri:</span>
+                <span id="linter-academic-score" class="text-emerald-500 font-bold">Skor: 85/100</span>
+              </div>
+              <div id="linter-suggestions-list" class="flex flex-wrap gap-1.5 text-[11px] text-neutral-500">
+                <span class="italic">Metniniz yazıldıkça temel kelimelerin akademik alternatifleri burada önerilir.</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      // Trigger initial linter analysis
+      analyzeWritingEssay(userAnswers.writing.task2);
+    }
+
+    function renderTask1SvgChart(type) {
+      if (type === 'health_lines') {
+        return `
+          <svg width="480" height="180" viewBox="0 0 480 180" class="max-w-full">
+            <line x1="50" y1="20" x2="50" y2="140" stroke="#555" stroke-width="1.5"/>
+            <line x1="50" y1="140" x2="450" y2="140" stroke="#555" stroke-width="1.5"/>
+            <text x="15" y="30" fill="#888" font-size="9" font-family="monospace">$50B</text>
+            <text x="15" y="80" fill="#888" font-size="9" font-family="monospace">$25B</text>
+            <text x="25" y="140" fill="#888" font-size="9" font-family="monospace">$0</text>
+            <!-- Line 1: Healthcare Tech -->
+            <polyline points="70,120 170,100 270,60 370,30" fill="none" stroke="#10b981" stroke-width="3"/>
+            <!-- Line 2: Traditional Spend -->
+            <polyline points="70,90 170,80 270,75 370,65" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-dasharray="4"/>
+            <!-- X Axis Labels -->
+            <text x="60" y="158" fill="#888" font-size="9" font-family="monospace">2015</text>
+            <text x="160" y="158" fill="#888" font-size="9" font-family="monospace">2018</text>
+            <text x="260" y="158" fill="#888" font-size="9" font-family="monospace">2022</text>
+            <text x="360" y="158" fill="#888" font-size="9" font-family="monospace">2025</text>
+            <!-- Legend -->
+            <circle cx="390" cy="20" r="4" fill="#10b981"/><text x="400" y="23" fill="#aaa" font-size="8" font-family="monospace">AI Health</text>
+            <circle cx="390" cy="35" r="4" fill="#6366f1"/><text x="400" y="38" fill="#aaa" font-size="8" font-family="monospace">Trad. Care</text>
+          </svg>
+        `;
+      }
+
+      // Default: Energy Transition Bars
+      return `
+        <svg width="480" height="180" viewBox="0 0 480 180" class="max-w-full">
+          <line x1="50" y1="20" x2="50" y2="140" stroke="#555" stroke-width="1.5"/>
+          <line x1="50" y1="140" x2="450" y2="140" stroke="#555" stroke-width="1.5"/>
+          <text x="20" y="30" fill="#888" font-size="9" font-family="monospace">80%</text>
+          <text x="20" y="70" fill="#888" font-size="9" font-family="monospace">50%</text>
+          <text x="20" y="110" fill="#888" font-size="9" font-family="monospace">20%</text>
+          <text x="25" y="140" fill="#888" font-size="9" font-family="monospace">0%</text>
+          <!-- Bars 2010 vs 2025 -->
+          <rect x="80" y="85" width="24" height="55" fill="#f59e0b" rx="3"/>
+          <rect x="108" y="35" width="24" height="105" fill="#10b981" rx="3"/>
+          <text x="82" y="158" fill="#aaa" font-size="9" font-family="monospace">North (EU)</text>
+
+          <rect x="170" y="95" width="24" height="45" fill="#f59e0b" rx="3"/>
+          <rect x="198" y="45" width="24" height="95" fill="#10b981" rx="3"/>
+          <text x="174" y="158" fill="#aaa" font-size="9" font-family="monospace">West (EU)</text>
+
+          <rect x="260" y="110" width="24" height="30" fill="#f59e0b" rx="3"/>
+          <rect x="288" y="65" width="24" height="75" fill="#10b981" rx="3"/>
+          <text x="265" y="158" fill="#aaa" font-size="9" font-family="monospace">South (EU)</text>
+
+          <rect x="350" y="115" width="24" height="25" fill="#f59e0b" rx="3"/>
+          <rect x="378" y="80" width="24" height="60" fill="#10b981" rx="3"/>
+          <text x="358" y="158" fill="#aaa" font-size="9" font-family="monospace">East (EU)</text>
+          <!-- Legend -->
+          <rect x="390" y="15" width="12" height="10" fill="#f59e0b" rx="2"/><text x="408" y="24" fill="#aaa" font-size="8" font-family="monospace">2010</text>
+          <rect x="390" y="30" width="12" height="10" fill="#10b981" rx="2"/><text x="408" y="39" fill="#aaa" font-size="8" font-family="monospace">2025</text>
+        </svg>
+      `;
+    }
+
+    // ========================================================
+    // 4. LIVE SPEAKING INTERVIEW SIMULATION SECTION
+    // ========================================================
+    function renderSpeakingSection(container) {
+      const mock = getActiveMock();
+      const spk = mock.speaking;
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          
+          <!-- Interview Overview Header -->
+          <div class="vercel-card rounded-2xl p-6 sm:p-7 space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-4">
+              <div class="flex items-center space-x-3">
+                <span class="text-2xl">🗣️</span>
+                <div>
+                  <span class="font-mono text-[10px] uppercase text-blue-500 font-bold tracking-widest block">IELTS Speaking Simulation</span>
+                  <h3 class="text-base font-bold text-black dark:text-white">Canlı Mülakat & Konuşma Değerlendirmesi</h3>
+                </div>
+              </div>
+
+              <!-- Speaking Part Selector Pills -->
+              <div class="flex items-center space-x-1.5 font-mono text-xs">
+                <button onclick="setSpeakingStep(1)" id="btn-spk-step1" class="px-3 py-1 rounded-full ${activeSpeakingStep === 1 ? 'bg-black dark:bg-white text-white dark:text-black font-bold' : 'border border-black/10 dark:border-white/10 text-neutral-400'}">Part 1: Giriş</button>
+                <button onclick="setSpeakingStep(2)" id="btn-spk-step2" class="px-3 py-1 rounded-full ${activeSpeakingStep === 2 ? 'bg-black dark:bg-white text-white dark:text-black font-bold' : 'border border-black/10 dark:border-white/10 text-neutral-400'}">Part 2: Cue Card</button>
+                <button onclick="setSpeakingStep(3)" id="btn-spk-step3" class="px-3 py-1 rounded-full ${activeSpeakingStep === 3 ? 'bg-black dark:bg-white text-white dark:text-black font-bold' : 'border border-black/10 dark:border-white/10 text-neutral-400'}">Part 3: Tartışma</button>
+              </div>
+            </div>
+
+            <!-- Dynamic Part Stage -->
+            <div id="speaking-dynamic-stage" class="pt-2">
+              <!-- Injected by renderSpeakingCurrentStep() -->
+            </div>
+          </div>
+
+          <!-- Live Recording & Speech-to-Text Terminal -->
+          <div class="vercel-card rounded-2xl p-6 sm:p-7 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-3">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-neutral-400">Canlı Mikrofon Terminali</span>
+                <h4 class="text-sm font-bold text-black dark:text-white">Cevabınızı Konuşun & Anlık Dökümü İnceleyin</h4>
+              </div>
+
+              <div class="flex items-center space-x-3 font-mono text-xs">
+                <span id="speaking-timer-display" class="font-bold text-neutral-400">00:00</span>
+                <button onclick="toggleSpeakingRecording()" id="btn-toggle-recording" class="px-4 py-2 rounded-full font-semibold flex items-center space-x-2 bg-rose-600 hover:bg-rose-700 text-white shadow transition-all">
+                  <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                  <span id="btn-rec-label">Kaydı Başlat 🎙️</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Speech Transcript Box -->
+            <div class="space-y-2 font-mono text-xs">
+              <div class="flex items-center justify-between text-neutral-400 text-[11px]">
+                <span>Canlı Transkripsiyon Dökümü:</span>
+                <span id="speaking-wpm-badge" class="text-emerald-500 font-bold">WPM: 0 (İdeal: 110-140)</span>
+              </div>
+              <div id="speaking-live-transcript" class="min-h-[80px] p-4 rounded-xl bg-neutral-50 dark:bg-[#070707] border border-black/5 dark:border-white/10 text-xs sm:text-sm font-sans leading-relaxed text-black dark:text-white italic">
+                Mikrofonu başlattığınızda İngilizce konuşmanız canlı döküm olarak buraya yansıtılır...
+              </div>
+            </div>
+
+            <!-- Playback Container -->
+            <div id="speaking-playback-container" class="hidden p-3 rounded-xl bg-neutral-100 dark:bg-[#111111] space-y-2 font-mono text-xs">
+              <span class="text-neutral-400 text-[10px] uppercase block">Ses Kaydınızı Dinleyin:</span>
+              <audio id="speaking-audio-player" controls class="w-full h-8"></audio>
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      renderSpeakingCurrentStep();
+    }
+
+    function setSpeakingStep(step) {
+      activeSpeakingStep = step;
+      document.querySelectorAll('[id^="btn-spk-step"]').forEach((b, i) => {
+        b.className = `px-3 py-1 rounded-full ${i + 1 === step ? 'bg-black dark:bg-white text-white dark:text-black font-bold' : 'border border-black/10 dark:border-white/10 text-neutral-400'}`;
+      });
+      renderSpeakingCurrentStep();
+    }
+
+    function renderSpeakingCurrentStep() {
+      const stage = document.getElementById('speaking-dynamic-stage');
+      if (!stage) return;
+      const spk = getActiveMock().speaking;
+
+      if (activeSpeakingStep === 1) {
+        stage.innerHTML = `
+          <div class="space-y-4 font-mono text-xs">
+            <span class="text-neutral-400 uppercase text-[10px]">Part 1: Tanışma & Günlük Konular (Examiner Soruları)</span>
+            <div class="space-y-2.5">
+              ${spk.part1.map((item, idx) => `
+                <div class="p-3 rounded-xl border border-black/5 dark:border-white/10 flex items-center justify-between gap-3">
+                  <div class="space-y-0.5">
+                    <span class="text-[10px] text-neutral-400">Soru #${idx + 1} (${item.topic}):</span>
+                    <p class="text-xs font-semibold text-black dark:text-white font-sans">"${item.q}"</p>
+                  </div>
+                  <button onclick="App.speakText('${item.q.replace(/'/g, "\\'")}')" class="shrink-0 px-3 py-1.5 rounded-lg border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-[11px] font-bold">
+                    Examiner Dinle 🔊
+                  </button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } else if (activeSpeakingStep === 2) {
+        stage.innerHTML = `
+          <div class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
+              <span class="text-neutral-400 uppercase text-[10px]">Part 2: Bireysel Sunum (Cue Card Görevi)</span>
+              <div class="flex items-center space-x-2">
+                <span id="prep-timer-display" class="font-bold text-emerald-500 text-sm">01:00</span>
+                <button onclick="startPrepCountdown()" id="btn-prep-countdown" class="px-3 py-1.5 rounded-xl bg-black dark:bg-white text-white dark:text-black font-bold">
+                  1 Dk Hazırlık Başlat
+                </button>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-neutral-50 dark:bg-[#111111] border border-black/10 dark:border-white/10 space-y-2 text-xs">
+              <h4 class="font-bold text-sm text-black dark:text-white font-sans">${spk.part2.cardPrompt}</h4>
+              <p class="text-neutral-400 font-mono text-[11px]">Şu noktaları içerecek şekilde 2 dakika konuşun:</p>
+              <ul class="space-y-1 text-neutral-600 dark:text-neutral-300 font-sans pl-1">
+                ${spk.part2.points.map(p => `<li>• ${p}</li>`).join('')}
+              </ul>
+            </div>
+
+            <textarea id="speaking-cue-notes" rows="2" placeholder="1 dakikalık sürede anahtar kelimelerinizi buraya not alın..." class="w-full p-3 rounded-xl bg-neutral-100 dark:bg-[#070707] border border-black/10 dark:border-white/10 font-mono text-xs focus:outline-none"></textarea>
+          </div>
+        `;
+      } else if (activeSpeakingStep === 3) {
+        stage.innerHTML = `
+          <div class="space-y-4 font-mono text-xs">
+            <span class="text-neutral-400 uppercase text-[10px]">Part 3: İki Taraflı Soyut Tartışma (Analytical Discussion)</span>
+            <div class="space-y-2.5">
+              ${spk.part3.map((item, idx) => `
+                <div class="p-3 rounded-xl border border-black/5 dark:border-white/10 flex items-center justify-between gap-3">
+                  <div class="space-y-0.5">
+                    <span class="text-[10px] text-neutral-400">Derinlemesine Soru #${idx + 1} (${item.topic}):</span>
+                    <p class="text-xs font-semibold text-black dark:text-white font-sans">"${item.q}"</p>
+                  </div>
+                  <button onclick="App.speakText('${item.q.replace(/'/g, "\\'")}')" class="shrink-0 px-3 py-1.5 rounded-lg border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-[11px] font-bold">
+                    Examiner Dinle 🔊
+                  </button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function startPrepCountdown() {
+      let prepSec = 60;
+      const btn = document.getElementById('btn-prep-countdown');
+      if (btn) btn.disabled = true;
+
+      clearInterval(prepTimerInterval);
+      prepTimerInterval = setInterval(() => {
+        prepSec--;
+        const disp = document.getElementById('prep-timer-display');
+        if (disp) {
+          const m = Math.floor(prepSec / 60);
+          const s = prepSec % 60;
+          disp.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+        if (prepSec <= 0) {
+          clearInterval(prepTimerInterval);
+          App.showToast("1 dakikalık düşünme süreniz doldu! Lütfen konuşmaya başlayın 🎙️", "info");
+        }
+      }, 1000);
+    }
+
+    async function toggleSpeakingRecording() {
+      const btn = document.getElementById('btn-toggle-recording');
+      const label = document.getElementById('btn-rec-label');
+      const transcriptBox = document.getElementById('speaking-live-transcript');
+      const wpmBadge = document.getElementById('speaking-wpm-badge');
+
+      if (!isSpeakingRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+
+          mediaRecorder.ondataavailable = (e) => {
+            if (e.data.size > 0) audioChunks.push(e.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            const blob = new Blob(audioChunks, { type: 'audio/webm' });
+            userAnswers.speaking.audioBlobUrl = URL.createObjectURL(blob);
+            const player = document.getElementById('speaking-audio-player');
+            const cont = document.getElementById('speaking-playback-container');
+            if (player && cont) {
+              player.src = userAnswers.speaking.audioBlobUrl;
+              cont.classList.remove('hidden');
+            }
+          };
+
+          const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+          if (SR) {
+            speechRecognizer = new SR();
+            speechRecognizer.continuous = true;
+            speechRecognizer.interimResults = true;
+            speechRecognizer.lang = 'en-GB';
+
+            transcriptBox.innerText = '';
+            speechRecognizer.onresult = (e) => {
+              let full = '';
+              for (let i = 0; i < e.results.length; i++) full += e.results[i][0].transcript + ' ';
+              transcriptBox.innerText = full.trim();
+              userAnswers.speaking.part2Transcript = full.trim();
+
+              const words = full.trim() ? full.trim().split(/\s+/).length : 0;
+              if (speakingSeconds > 0) {
+                const wpm = Math.round((words / speakingSeconds) * 60);
+                userAnswers.speaking.wpm = wpm;
+                if (wpmBadge) wpmBadge.innerText = `WPM: ${wpm} (${words} Kelime)`;
+              }
+            };
+            speechRecognizer.start();
+          }
+
+          mediaRecorder.start();
+          isSpeakingRecording = true;
+          speakingSeconds = 0;
+          btn.className = 'px-4 py-2 rounded-full font-semibold flex items-center space-x-2 bg-neutral-900 dark:bg-white text-white dark:text-black shadow transition-all';
+          label.innerText = 'Kaydı Durdur ⏹';
+
+          speakingTimerInterval = setInterval(() => {
+            speakingSeconds++;
+            const m = Math.floor(speakingSeconds / 60);
+            const s = speakingSeconds % 60;
+            const disp = document.getElementById('speaking-timer-display');
+            if (disp) disp.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+          }, 1000);
+
+          App.showToast("Mikrofon kaydı ve döküm başladı!", "info");
+        } catch (err) {
+          App.showToast("Mikrofona erişilemedi.", "error");
+        }
+      } else {
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
+          mediaRecorder.stream.getTracks().forEach(t => t.stop());
+        }
+        if (speechRecognizer) {
+          speechRecognizer.stop();
+          speechRecognizer = null;
+        }
+        clearInterval(speakingTimerInterval);
+        isSpeakingRecording = false;
+        btn.className = 'px-4 py-2 rounded-full font-semibold flex items-center space-x-2 bg-rose-600 hover:bg-rose-700 text-white shadow transition-all';
+        label.innerText = 'Yeni Kayıt Başlat 🎙️';
+        App.showToast("Konuşma kaydınız tamamlandı ve kaydedildi!", "success");
+      }
+    }
+
+    // Question Navigation Strip Render
+    function renderQuestionPills() {
+      const container = document.getElementById('sim-question-pills');
+      if (!container) return;
+
+      const mock = getActiveMock();
+      const questions = activeSection === 'listening' ? mock.listening.questions : (activeSection === 'reading' ? mock.reading.questions : []);
+      if (questions.length === 0) return;
+
+      container.innerHTML = questions.map((q, idx) => {
+        const isCurrent = idx === currentQuestionIdx;
+        const ans = activeSection === 'listening' ? userAnswers.listening[q.id] : userAnswers.reading[q.id];
+        const isAnswered = ans && ans.toString().trim().length > 0;
+
+        let style = 'border-black/10 dark:border-white/10 text-neutral-400';
+        if (isCurrent) {
+          style = 'bg-rose-600 text-white font-bold border-rose-600';
+        } else if (isAnswered) {
+          style = 'bg-black dark:bg-white text-white dark:text-black font-semibold';
+        }
+
+        return `
+          <button onclick="simGoToQuestion(${idx})" class="w-7 h-7 rounded-lg border text-xs flex items-center justify-center transition-all ${style}">
+            ${idx + 1}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function simNavigateQuestion(delta) {
+      const mock = getActiveMock();
+      const max = (activeSection === 'listening' ? mock.listening.questions.length : mock.reading.questions.length) - 1;
+      const next = currentQuestionIdx + delta;
+      if (next >= 0 && next <= max) {
+        currentQuestionIdx = next;
+        renderActiveSection();
+      }
+    }
+
+    function simGoToQuestion(idx) {
+      currentQuestionIdx = idx;
+      renderActiveSection();
+    }
+
+    // Answers Handling
+    function saveListeningAnswer(qId, val) {
+      userAnswers.listening[qId] = val.trim();
+      renderQuestionPills();
+    }
+
+    function saveReadingAnswer(qId, val) {
+      userAnswers.reading[qId] = val.trim();
+      renderActiveSection();
+    }
+
+    function handleWritingInput(taskKey, val) {
+      userAnswers.writing[taskKey] = val;
+      const words = val.trim() ? val.trim().split(/\s+/).length : 0;
+      const target = taskKey === 'task1' ? 150 : 250;
+      const badge = document.getElementById(taskKey === 'task1' ? 't1-word-badge' : 't2-word-badge');
+
+      if (badge) {
+        badge.innerText = `${words} / ${target} Kelime`;
+        badge.className = `px-3 py-1 rounded-full font-bold ${words >= target ? 'bg-emerald-500/10 text-emerald-500' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-400'}`;
+      }
+
+      if (taskKey === 'task2') {
+        analyzeWritingEssay(val);
+      }
+    }
+
+    function analyzeWritingEssay(text) {
+      const analysis = App.AcademicLinter.analyzeText(text);
+      const scoreEl = document.getElementById('linter-academic-score');
+      const listEl = document.getElementById('linter-suggestions-list');
+
+      if (scoreEl) scoreEl.innerText = `Skor: ${analysis.academicScore}/100`;
+      if (listEl) {
+        if (analysis.detected.length === 0) {
+          listEl.innerHTML = `<span class="text-emerald-500">✓ Tebrikler! Metninizde aşırı tekrarlanan basit kelime bulunamadı.</span>`;
+        } else {
+          listEl.innerHTML = analysis.detected.map(d => `
+            <div class="p-2 rounded-lg bg-black/5 dark:bg-white/5 space-y-0.5 w-full">
+              <span class="font-bold text-amber-500">"${d.word}" yerine:</span>
+              <span class="text-emerald-500 dark:text-emerald-400">${d.alternatives.join(', ')}</span>
+            </div>
+          `).join('');
+        }
+      }
+    }
+
+    // Audio Playback
+    let audioUtterance = null;
+    function playListeningAudio() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        audioUtterance = new SpeechSynthesisUtterance(getActiveMock().listening.audioScript);
+        audioUtterance.lang = 'en-GB';
+        audioUtterance.rate = 1.0;
+
+        const btnText = document.getElementById('btn-audio-sim-text');
+        audioUtterance.onstart = () => { if (btnText) btnText.innerText = 'Çalıyor... 🔊'; };
+        audioUtterance.onend = () => { if (btnText) btnText.innerText = 'Yeniden Çal 🔊'; };
+        window.speechSynthesis.speak(audioUtterance);
+      }
+    }
+
+    function stopListeningAudio() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const btnText = document.getElementById('btn-audio-sim-text');
+        if (btnText) btnText.innerText = 'Ses Kaydını Başlat';
+      }
+    }
+
+    function confirmFinishExam() {
+      if (confirm("IELTS 4 Beceri Deneme Sınavını tamamlayıp resmi TRF karnenizi üretmek istiyor musunuz?")) {
+        calculateAndShowTRF();
+      }
+    }
+
+    // ========================================================
+    // 4-SKILL SCORING & TRF GENERATOR
+    // ========================================================
+    function calculateAndShowTRF() {
+      clearInterval(simTimerInterval);
+      stopListeningAudio();
+
+      const mock = getActiveMock();
+
+      // 1. Listening Score (10 Qs)
+      let lCorrect = 0;
+      mock.listening.questions.forEach(q => {
+        const uAns = (userAnswers.listening[q.id] || '').trim().toLowerCase();
+        const cAns = q.answer.trim().toLowerCase();
+        if (uAns && (cAns === uAns || cAns.includes(uAns) || uAns.includes(cAns))) lCorrect++;
+      });
+      const lBand = calculateSkillBand(lCorrect, 10);
+
+      // 2. Reading Score (10 Qs)
+      let rCorrect = 0;
+      mock.reading.questions.forEach(q => {
+        const uAns = (userAnswers.reading[q.id] || '').trim().toLowerCase();
+        const cAns = q.answer.trim().toLowerCase();
+        if (uAns && (cAns === uAns || cAns.includes(uAns) || uAns.includes(cAns))) rCorrect++;
+      });
+      const rBand = calculateSkillBand(rCorrect, 10);
+
+      // 3. Writing Score
+      const w1 = userAnswers.writing.task1.trim() ? userAnswers.writing.task1.trim().split(/\s+/).length : 0;
+      const w2 = userAnswers.writing.task2.trim() ? userAnswers.writing.task2.trim().split(/\s+/).length : 0;
+      let wBand = 6.0;
+      if (w1 >= 150 && w2 >= 250) wBand = 7.5;
+      else if (w1 >= 130 && w2 >= 200) wBand = 6.5;
+      else if (w1 < 50 && w2 < 50) wBand = 4.5;
+      else wBand = 5.5;
+
+      // 4. Speaking Score
+      const spkWpm = userAnswers.speaking.wpm || 0;
+      const spkWords = userAnswers.speaking.part2Transcript ? userAnswers.speaking.part2Transcript.split(/\s+/).length : 0;
+      let sBand = 6.5;
+      if (spkWpm >= 110 && spkWords >= 100) sBand = 8.0;
+      else if (spkWpm >= 85 || spkWords >= 60) sBand = 7.0;
+      else if (spkWords < 20) sBand = 5.0;
+      else sBand = 6.0;
+
+      // Overall Band (Average of all 4 skills, rounded to nearest 0.5)
+      const exactAvg = (lBand + rBand + wBand + sBand) / 4;
+      const overallBand = roundIeltsBand(exactAvg);
+
+      // CEFR Badge
+      let cefrText = "C1 Advanced";
+      let overallStatus = "Very Good User";
+      if (overallBand >= 8.5) { cefrText = "C2 Mastery"; overallStatus = "Expert User"; }
+      else if (overallBand >= 7.0) { cefrText = "C1 Advanced"; overallStatus = "Good User"; }
+      else if (overallBand >= 5.5) { cefrText = "B2 Vantage"; overallStatus = "Competent User"; }
+      else { cefrText = "B1 Threshold"; overallStatus = "Modest User"; }
+
+      // Save to localStorage for Analytics
+      localStorage.setItem(`mock_exam_last_overall`, overallBand.toString());
+      localStorage.setItem(`mock_exam_last_date`, new Date().toLocaleDateString('tr-TR'));
+      localStorage.setItem(`mock_exam_score_${currentMockId}`, overallBand.toFixed(1));
+
+      // Show TRF Screen
+      document.getElementById('mock-sim-runner').classList.add('hidden');
+      document.getElementById('mock-trf-view').classList.remove('hidden');
+
+      document.getElementById('trf-candidate-name').innerText = candidateName;
+      document.getElementById('trf-cand-num').innerText = candidateId;
+      document.getElementById('trf-date').innerText = new Date().toLocaleDateString('tr-TR');
+      document.getElementById('trf-cefr-badge').innerText = cefrText;
+      document.getElementById('trf-val-num').innerText = `VLD-${candidateId}-${Date.now().toString().slice(-4)}`;
+
+      document.getElementById('trf-band-l').innerText = lBand.toFixed(1);
+      document.getElementById('trf-raw-l').innerText = `${lCorrect} / 10 Doğru`;
+
+      document.getElementById('trf-band-r').innerText = rBand.toFixed(1);
+      document.getElementById('trf-raw-r').innerText = `${rCorrect} / 10 Doğru`;
+
+      document.getElementById('trf-band-w').innerText = wBand.toFixed(1);
+      document.getElementById('trf-raw-w').innerText = `T1: ${w1}w | T2: ${w2}w`;
+
+      document.getElementById('trf-band-s').innerText = sBand.toFixed(1);
+      document.getElementById('trf-raw-s').innerText = `${spkWpm} WPM · ${spkWords}w`;
+
+      document.getElementById('trf-band-overall').innerText = overallBand.toFixed(1);
+      document.getElementById('trf-overall-status').innerText = overallStatus;
+
+      // Populate Detailed Reviews
+      populateReviewData(lCorrect, rCorrect, w1, w2, wBand, sBand, spkWpm, spkWords);
+
+      App.showToast(`4 Beceri Sınavı Puanlandı! Genel Band: ${overallBand.toFixed(1)} 🎓`, "success");
+      window.scrollTo({ top: 50, behavior: 'smooth' });
+    }
+
+    function calculateSkillBand(correct, total) {
+      const pct = (correct / total) * 100;
+      if (pct >= 90) return 8.5;
+      if (pct >= 80) return 7.5;
+      if (pct >= 70) return 7.0;
+      if (pct >= 60) return 6.5;
+      if (pct >= 50) return 6.0;
+      if (pct >= 40) return 5.5;
+      if (pct >= 30) return 5.0;
+      return 4.5;
+    }
+
+    function roundIeltsBand(score) {
+      const decimal = score - Math.floor(score);
+      if (decimal < 0.25) return Math.floor(score);
+      if (decimal >= 0.25 && decimal < 0.75) return Math.floor(score) + 0.5;
+      return Math.ceil(score);
+    }
+
+    function populateReviewData(lCorrect, rCorrect, w1, w2, wBand, sBand, spkWpm, spkWords) {
+      const mock = getActiveMock();
+      const lList = document.getElementById('review-listening-list');
+      const rList = document.getElementById('review-reading-list');
+      const wBox = document.getElementById('review-writing-box');
+      const sBox = document.getElementById('review-speaking-box');
+
+      lList.innerHTML = mock.listening.questions.map(q => {
+        const u = (userAnswers.listening[q.id] || '').trim();
+        const isOk = u && (q.answer.toLowerCase() === u.toLowerCase() || q.answer.toLowerCase().includes(u.toLowerCase()) || u.toLowerCase().includes(q.answer.toLowerCase()));
+        return `
+          <div class="p-3.5 rounded-xl border ${isOk ? 'border-emerald-500/30 bg-emerald-500/5' : 'border-rose-500/30 bg-rose-500/5'} space-y-1 font-mono text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold">Soru #${q.id}</span>
+              <span class="${isOk ? 'text-emerald-500' : 'text-rose-500'} font-bold">${isOk ? '✓ Doğru' : '✕ Yanlış'}</span>
+            </div>
+            <div>Sizin Yanıtınız: <strong>${u || '(Boş)'}</strong></div>
+            <div class="text-emerald-600 dark:text-emerald-400">Doğru Cevap: <strong>${q.answer}</strong></div>
+            <p class="text-[11px] text-neutral-400 font-sans pt-1 border-t border-black/5 dark:border-white/5">${q.explanation}</p>
+          </div>
+        `;
+      }).join('');
+
+      rList.innerHTML = mock.reading.questions.map(q => {
+        const u = (userAnswers.reading[q.id] || '').trim();
+        const isOk = u && (q.answer.toLowerCase() === u.toLowerCase() || q.answer.toLowerCase().includes(u.toLowerCase()) || u.toLowerCase().includes(q.answer.toLowerCase()));
+        return `
+          <div class="p-3.5 rounded-xl border ${isOk ? 'border-emerald-500/30 bg-emerald-500/5' : 'border-rose-500/30 bg-rose-500/5'} space-y-1 font-mono text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold">Soru #${q.id}</span>
+              <span class="${isOk ? 'text-emerald-500' : 'text-rose-500'} font-bold">${isOk ? '✓ Doğru' : '✕ Yanlış'}</span>
+            </div>
+            <div>Sizin Yanıtınız: <strong>${u || '(Boş)'}</strong></div>
+            <div class="text-emerald-600 dark:text-emerald-400">Doğru Cevap: <strong>${q.answer}</strong></div>
+            <p class="text-[11px] text-neutral-400 font-sans pt-1 border-t border-black/5 dark:border-white/5">${q.explanation}</p>
+          </div>
+        `;
+      }).join('');
+
+      wBox.innerHTML = `
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <span class="font-bold text-black dark:text-white font-mono">Task 1 Rapor Değerlendirmesi:</span>
+            <p class="text-neutral-500">Yazılan Kelime: <strong>${w1} kelime</strong> (Baraj: 150 kelime). ${w1 >= 150 ? '✓ Kelime sayısı yeterli.' : '⚠️ Barajın altında.'}</p>
+          </div>
+          <div class="space-y-1">
+            <span class="font-bold text-black dark:text-white font-mono">Task 2 Essay Değerlendirmesi:</span>
+            <p class="text-neutral-500">Yazılan Kelime: <strong>${w2} kelime</strong> (Baraj: 250 kelime). ${w2 >= 250 ? '✓ Essay uzunluğu standartlara uygun.' : '⚠️ Barajın altında.'}</p>
+          </div>
+        </div>
+      `;
+
+      sBox.innerHTML = `
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <span>Konuşma Akıcılığı: <strong>${spkWpm} WPM</strong></span>
+            <span class="text-emerald-500 font-bold">Speaking Band ${sBand.toFixed(1)}</span>
+          </div>
+          <div class="p-3 rounded-xl bg-neutral-50 dark:bg-[#111111] text-neutral-600 dark:text-neutral-400">
+            Döküm: "${userAnswers.speaking.part2Transcript || '(Kayıt alınmadı)'}"
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleReviewMode() {
+      const container = document.getElementById('exam-review-container');
+      const btn = document.getElementById('btn-toggle-review');
+      if (container.classList.contains('hidden')) {
+        container.classList.remove('hidden');
+        btn.innerText = '🙈 İnceleme Modunu Kapat';
+        container.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        container.classList.add('hidden');
+        btn.innerText = '👁️ Yanıtlarımı ve Çözüm Detaylarını İncele';
+      }
+    }
+
+    function returnToIntro() {
+      document.getElementById('mock-trf-view').classList.add('hidden');
+      document.getElementById('mock-sim-runner').classList.add('hidden');
+      document.getElementById('mock-intro-view').classList.remove('hidden');
+      simTimerSeconds = 150 * 60;
+      renderMockExamGrid();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderMockExamGrid();
+    });
+  </script>
+</body>
+</html>

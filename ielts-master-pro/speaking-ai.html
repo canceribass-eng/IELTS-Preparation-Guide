@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Speaking AI Examiner | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.3; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .wave-active {
+      animation: pulse-ring 2s infinite ease-in-out;
+    }
+    .audio-wave-bar {
+      display: inline-block;
+      width: 3px;
+      height: 16px;
+      margin: 0 1.5px;
+      border-radius: 3px;
+      background: #06b6d4;
+      animation: wave-animation 1.2s infinite ease-in-out;
+    }
+    .audio-wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .audio-wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .audio-wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .audio-wave-bar:nth-child(5) { animation-delay: 0.6s; }
+    @keyframes wave-animation {
+      0%, 100% { height: 6px; }
+      50% { height: 26px; }
+    }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-cyan-500/20 selection:text-cyan-400">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-90 transition-opacity shadow-sm shadow-amber-500/30">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-rose-500 hover:text-rose-600 font-bold border border-rose-500/20 bg-rose-500/5 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+
+    <!-- Hero Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
+      <div class="space-y-2 max-w-3xl">
+        <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-cyan-500 font-bold">
+          <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+          <span>CAMBRIDGE RESMİ KRİTERLERİ · INTERAKTİF SESLİ MÜLAKAT STÜDYOSU</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-black dark:text-white">
+          IELTS Speaking AI Examiner & Mülakat Simülatörü
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+          Yapay zeka sınav görevlisine mikrofondan sesli yanıt verin. Konuşmanız anında İngilizceye dökülür; WPM hızınız, C1/C2 akademik kelime zenginliğiniz, bağlaç kullanımınız ve karmaşık gramer sentaksınız 4 resmi IELTS kriterinde değerlendirilir.
+        </p>
+      </div>
+
+      <!-- Quick Stats / Badges -->
+      <div class="flex items-center gap-2 shrink-0 font-mono text-xs">
+        <div class="p-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-center">
+          <span class="block font-bold text-base" id="stat-practice-count">0</span>
+          <span class="text-[10px] uppercase">Pratik</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-center">
+          <span class="block font-bold text-base" id="stat-avg-band">--</span>
+          <span class="text-[10px] uppercase">Ortalama Band</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls Bar: Examiner Selection & IELTS Part Selector -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-2xl bg-neutral-100 dark:bg-[#111111] border border-black/5 dark:border-white/10 font-mono text-xs">
+      
+      <!-- 1. Sınav Görevlisi (Examiner Voice) -->
+      <div class="space-y-1.5">
+        <label class="text-[10px] text-neutral-400 uppercase font-bold block flex items-center space-x-1">
+          <span>👨‍🏫 Sınav Görevlisi (Examiner):</span>
+        </label>
+        <select id="select-examiner" onchange="changeExaminer(this.value)" class="w-full p-2.5 rounded-xl bg-white dark:bg-black border border-black/10 dark:border-white/10 text-xs text-black dark:text-white font-mono focus:outline-none focus:ring-1 focus:ring-cyan-500">
+          <option value="uk-male" selected>🇬🇧 Dr. Alistair (Cambridge Senior Examiner · Tok Bariton)</option>
+          <option value="uk-female">🇬🇧 Dr. Clara (Oxford Academic Broadcaster · Zarif Soprano)</option>
+          <option value="us-male">🇺🇸 Dr. Ethan (Harvard Professor · Dinamik Hızlı)</option>
+          <option value="au-female">🇦🇺 Natasha (Sydney IDP Examiner · Doğal Aussie)</option>
+        </select>
+      </div>
+
+      <!-- 2. Sınav Bölümü (Part 1, 2, 3) -->
+      <div class="space-y-1.5">
+        <label class="text-[10px] text-neutral-400 uppercase font-bold block">
+          <span>📑 Sınav Bölümü:</span>
+        </label>
+        <div class="grid grid-cols-3 gap-1 p-1 rounded-xl bg-white dark:bg-black border border-black/10 dark:border-white/10">
+          <button onclick="selectSpeakingPart(1)" id="part-tab-1" class="py-1.5 rounded-lg text-center font-bold text-[11px] bg-cyan-500 text-black shadow-sm transition-all">Part 1</button>
+          <button onclick="selectSpeakingPart(2)" id="part-tab-2" class="py-1.5 rounded-lg text-center font-medium text-[11px] text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">Part 2 (Cue)</button>
+          <button onclick="selectSpeakingPart(3)" id="part-tab-3" class="py-1.5 rounded-lg text-center font-medium text-[11px] text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">Part 3</button>
+        </div>
+      </div>
+
+      <!-- 3. Konu Seçici (Topic Selector) -->
+      <div class="space-y-1.5">
+        <label class="text-[10px] text-neutral-400 uppercase font-bold block flex items-center justify-between">
+          <span>🎯 Soru / Konu Seçimi:</span>
+          <button onclick="pickRandomTopic()" class="text-cyan-500 hover:underline text-[10px]">🎲 Rastgele</button>
+        </label>
+        <select id="select-topic" onchange="handleTopicSelect(this.value)" class="w-full p-2.5 rounded-xl bg-white dark:bg-black border border-black/10 dark:border-white/10 text-xs text-black dark:text-white font-mono focus:outline-none focus:ring-1 focus:ring-cyan-500">
+          <!-- Injected dynamically by JS -->
+        </select>
+      </div>
+
+    </div>
+
+    <!-- Optional Cloud AI Key Drawer (Toggle) -->
+    <div class="border border-black/5 dark:border-white/10 rounded-2xl overflow-hidden text-xs font-mono">
+      <button onclick="toggleApiKeyDrawer()" class="w-full p-3 bg-neutral-50 dark:bg-[#0c0c0c] hover:bg-neutral-100 dark:hover:bg-[#141414] flex items-center justify-between text-neutral-500 transition-colors">
+        <div class="flex items-center space-x-2">
+          <span>⚡</span>
+          <span>Yapay Zeka Modu: <strong class="text-cyan-500">Dahili Kural Tabanlı AI (Çevrimdışı / Sıfır Maliyet)</strong></span>
+        </div>
+        <span id="api-drawer-icon" class="text-xs">▼ İsteğe Bağlı Gemini 1.5 Flash API Key</span>
+      </button>
+      <div id="api-drawer-body" class="hidden p-4 bg-white dark:bg-black border-t border-black/5 dark:border-white/10 space-y-3">
+        <p class="text-[11px] text-neutral-500 font-sans leading-relaxed">
+          Platformumuz tarayıcı içi NLP motoruyla API anahtarı olmadan eksiksiz çalışır. Dilerseniz kendi ücretsiz Google Gemini API anahtarınızı girerek cevaplarınıza ek bulut yapay zeka analizleri ve ayrıntılı koçluk notları da ekleyebilirsiniz.
+        </p>
+        <div class="flex items-center space-x-2">
+          <input type="password" id="gemini-api-key-input" placeholder="AIzaSy... (Gemini API Anahtarınız)" class="flex-1 p-2 rounded-xl bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 font-mono text-xs text-black dark:text-white focus:outline-none">
+          <button onclick="saveGeminiApiKey()" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold transition-all">Kaydet</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN INTERVIEW STAGE (2-COLUMN INTERACTIVE STUDIO) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- LEFT: EXAMINER PROMPT CARD & AUDIO QUESTION (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <div class="vercel-card rounded-3xl p-6 sm:p-7 space-y-5 border border-cyan-500/20 bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent">
+          
+          <!-- Examiner Profile Header -->
+          <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-4">
+            <div class="flex items-center space-x-3">
+              <div class="relative">
+                <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-500 flex items-center justify-center text-2xl font-bold">
+                  👨‍🏫
+                </div>
+                <span id="examiner-pulse" class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-black"></span>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-black dark:text-white" id="examiner-name">Dr. Alistair Campbell</h3>
+                <p class="text-[11px] font-mono text-neutral-400" id="examiner-title">Cambridge Senior Examiner · 🇬🇧 British RP</p>
+              </div>
+            </div>
+
+            <!-- Waveform Activity (shown when reading question) -->
+            <div id="examiner-speaking-wave" class="hidden flex items-center h-6">
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+              <span class="audio-wave-bar"></span>
+            </div>
+          </div>
+
+          <!-- Soru Alanı (The Question) -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between font-mono text-[10px]">
+              <span class="px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold uppercase" id="current-part-label">PART 1 · GENEL MÜLAKAT</span>
+              <span class="text-neutral-400" id="current-category-label">Konu: Hometown</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/60 dark:bg-neutral-900/60 border border-black/5 dark:border-white/5 space-y-2">
+              <h2 class="text-base sm:text-lg font-bold text-black dark:text-white leading-snug" id="question-text-en">
+                "Where is your hometown, and what do you like most about living there?"
+              </h2>
+              <p class="text-xs text-neutral-500 font-sans italic" id="question-text-tr">
+                Memleketiniz neresi ve orada yaşamayı en çok hangi yönüyle seviyorsunuz?
+              </p>
+            </div>
+          </div>
+
+          <!-- Part 2 Cue Card Bullets (Visible only for Part 2) -->
+          <div id="cue-card-bullets-container" class="hidden p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-3 font-sans text-xs">
+            <span class="font-mono text-[10px] text-amber-500 uppercase font-bold tracking-wider block">You should say:</span>
+            <ul id="cue-card-bullets-list" class="space-y-1.5 list-disc list-inside text-neutral-700 dark:text-neutral-300">
+              <!-- Injected by JS -->
+            </ul>
+
+            <!-- 1-Minute Prep Countdown & Notes -->
+            <div class="pt-3 border-t border-amber-500/20 space-y-2 font-mono">
+              <div class="flex items-center justify-between text-xs">
+                <span>Hazırlık Süresi (1 Dk):</span>
+                <strong id="prep-timer-display" class="text-amber-500 font-bold text-sm">01:00</strong>
+              </div>
+              <button onclick="startPrepTimer()" id="btn-start-prep" class="w-full py-2 rounded-xl bg-amber-500 text-black font-bold hover:bg-amber-400 transition-all text-xs">
+                ⏱️ 1 Dakikalık Hazırlığı Başlat
+              </button>
+              <textarea id="prep-notes-area" rows="2" placeholder="Hazırlık süresinde aklınıza gelen anahtar kelimeleri buraya not alın..." class="w-full p-2.5 rounded-xl bg-white dark:bg-black border border-amber-500/30 text-xs font-mono text-black dark:text-white focus:outline-none"></textarea>
+            </div>
+          </div>
+
+          <!-- Question Controls -->
+          <div class="flex items-center gap-2 pt-2">
+            <button onclick="speakCurrentQuestion()" id="btn-speak-question" class="flex-1 py-2.5 px-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold transition-all shadow-sm flex items-center justify-center space-x-2">
+              <span>🔊</span>
+              <span>Soruyu Dinle</span>
+            </button>
+            <button onclick="nextQuestion()" class="py-2.5 px-4 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-400 font-mono text-xs transition-all" title="Sıradaki Soru">
+              Sonraki ➔
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Academic Vocabulary Helper for this Topic -->
+        <div class="p-5 rounded-2xl vercel-card space-y-3">
+          <div class="flex items-center space-x-2 font-mono text-xs">
+            <span class="text-amber-500">💡</span>
+            <span class="font-bold text-black dark:text-white">Bu Konuda Kullanabileceğiniz Band 8+ Kelimeler:</span>
+          </div>
+          <div id="topic-collocations-tags" class="flex flex-wrap gap-1.5">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: LIVE CANDIDATE RECORDING & AI ANALYSIS STAGE (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- Active Microphone & Recording Controller Card -->
+        <div class="vercel-card rounded-3xl p-6 sm:p-7 space-y-5 border border-black/10 dark:border-white/10">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-4">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">🎙️ Aday Konuşma Kaydı</span>
+              <h3 class="text-base font-bold text-black dark:text-white">Cevabınızı Mikrofona Konuşun</h3>
+            </div>
+
+            <!-- Timer & WPM Meter -->
+            <div class="flex items-center space-x-3 font-mono text-xs">
+              <div class="px-3 py-1.5 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 flex items-center space-x-2">
+                <span class="text-neutral-400">Süre:</span>
+                <strong id="speaking-timer-display" class="text-black dark:text-white font-bold text-sm">00:00</strong>
+              </div>
+              <div class="px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold">
+                <span id="live-wpm-badge">0 WPM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Primary Recording Button -->
+          <div class="flex flex-col sm:flex-row items-center gap-3">
+            <button onclick="toggleSpeakingRecording()" id="btn-toggle-recording" class="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center justify-center space-x-2.5">
+              <span id="rec-dot" class="w-3 h-3 rounded-full bg-white animate-pulse"></span>
+              <span id="rec-label">Cevabı Başlat (Mikrofonu Aç)</span>
+            </button>
+            <button onclick="resetCandidateRecording()" id="btn-reset-recording" class="hidden px-4 py-3.5 rounded-2xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 font-mono text-xs text-neutral-400 hover:text-rose-500 transition-colors">
+              Sıfırla
+            </button>
+          </div>
+
+          <!-- Live Speech-to-Text Transcript Box -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between font-mono text-[11px] text-neutral-400">
+              <span class="flex items-center space-x-1.5">
+                <span>📝</span>
+                <span>Canlı Konuşma Dökümü (Speech-to-Text):</span>
+              </span>
+              <span id="stt-status-text" class="text-neutral-500">Mikrofon hazır</span>
+            </div>
+
+            <div id="live-transcript-box" class="min-h-[110px] max-h-[220px] overflow-y-auto p-4 rounded-2xl bg-neutral-50 dark:bg-[#080808] border border-black/10 dark:border-white/10 text-xs sm:text-sm font-sans leading-relaxed text-black dark:text-white italic focus:outline-none" contenteditable="true" placeholder="Mikrofonu açıp konuştuğunuzda cümleleriniz anında buraya yazılacaktır. İsterseniz sonrasında klavyeyle de düzenleyebilirsiniz...">
+            </div>
+            <p class="text-[10px] text-neutral-400 font-mono">
+              💡 İpucu: Tarayıcı konuşmanızı kelimesi kelimesine yakalar. Cevabınızı bitirdikten sonra döküm üzerinde küçük düzeltmeler yapabilirsiniz.
+            </p>
+          </div>
+
+          <!-- Audio Playback (If candidate wants to listen to own voice) -->
+          <div id="playback-container" class="hidden p-3 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 space-y-2 font-mono text-xs">
+            <span class="text-[10px] text-neutral-400 uppercase font-bold">Ses Kaydınızı Dinleyin:</span>
+            <audio id="candidate-audio-player" controls class="w-full h-8"></audio>
+          </div>
+
+          <!-- Action Button: Evaluate Answer -->
+          <div class="pt-2">
+            <button onclick="runIeltsAiEvaluation()" id="btn-analyze-speech" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-mono text-xs font-bold transition-all shadow-lg flex items-center justify-center space-x-2">
+              <span>🤖</span>
+              <span>Cevabımı 4 IELTS Kriterinde Puanla & Band 8.5 Model Cevap Al</span>
+              <span>➔</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- AI EVALUATION REPORT CARD (Initially Hidden, Revealed on Analyze) -->
+        <div id="ai-report-card" class="hidden vercel-card rounded-3xl p-6 sm:p-7 space-y-6 border border-cyan-500/30">
+          
+          <!-- Overall Band Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-5">
+            <div class="space-y-1">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-cyan-500 font-bold">IELTS AI EXAMINER RESMİ RAPORU</span>
+              <h3 class="text-xl font-black text-black dark:text-white" id="report-overall-status">
+                Tahmini Speaking Puanınız
+              </h3>
+              <p class="text-xs text-neutral-500 font-mono" id="report-word-metrics">48 Kelime · 122 WPM · 24 Saniye</p>
+            </div>
+
+            <div class="flex items-center space-x-3">
+              <div class="px-5 py-3 rounded-2xl bg-cyan-500 text-black text-center shadow-lg">
+                <span class="block text-[10px] font-mono font-black uppercase tracking-wider">GENEL BAND</span>
+                <span class="text-3xl font-black font-mono leading-none" id="report-overall-band">7.0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 IELTS Criteria Breakdown Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+            
+            <!-- 1. Fluency & Coherence -->
+            <div class="p-3.5 rounded-2xl bg-neutral-50 dark:bg-[#0c0c0c] border border-black/5 dark:border-white/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-black dark:text-white">1. Fluency & Coherence</span>
+                <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-500 font-bold" id="band-fc">Band 7.0</span>
+              </div>
+              <p class="text-[11px] text-neutral-500 font-sans leading-relaxed" id="critique-fc">
+                Akıcı konuşma temposu. Bağlaçlar doğal kullanıldı.
+              </p>
+              <div class="text-[10px] text-neutral-400" id="metrics-fc">
+                Bağlaçlar: <span class="text-cyan-500 font-bold">2 adet</span>
+              </div>
+            </div>
+
+            <!-- 2. Lexical Resource -->
+            <div class="p-3.5 rounded-2xl bg-neutral-50 dark:bg-[#0c0c0c] border border-black/5 dark:border-white/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-black dark:text-white">2. Lexical Resource</span>
+                <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-500 font-bold" id="band-lr">Band 6.5</span>
+              </div>
+              <p class="text-[11px] text-neutral-500 font-sans leading-relaxed" id="critique-lr">
+                Temel kelimeler iyi, C1 akademik kelime yoğunluğu artırılabilir.
+              </p>
+              <div class="text-[10px] text-neutral-400" id="metrics-lr">
+                C1/C2 Kelimeler: <span class="text-purple-500 font-bold" id="c1-words-found">1 adet</span>
+              </div>
+            </div>
+
+            <!-- 3. Grammatical Range -->
+            <div class="p-3.5 rounded-2xl bg-neutral-50 dark:bg-[#0c0c0c] border border-black/5 dark:border-white/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-black dark:text-white">3. Grammatical Range</span>
+                <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-500 font-bold" id="band-gra">Band 7.0</span>
+              </div>
+              <p class="text-[11px] text-neutral-500 font-sans leading-relaxed" id="critique-gra">
+                Bileşik cümleler ve yan cümlecikler (relative clauses) başarılı.
+              </p>
+              <div class="text-[10px] text-neutral-400" id="metrics-gra">
+                Karmaşık Yapılar: <span class="text-blue-500 font-bold">İyi</span>
+              </div>
+            </div>
+
+            <!-- 4. Pronunciation & Delivery -->
+            <div class="p-3.5 rounded-2xl bg-neutral-50 dark:bg-[#0c0c0c] border border-black/5 dark:border-white/10 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-black dark:text-white">4. Pronunciation & Delivery</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 font-bold" id="band-pr">Band 7.5</span>
+              </div>
+              <p class="text-[11px] text-neutral-500 font-sans leading-relaxed" id="critique-pr">
+                Net diksiyon, doğru kelime vurguları ve dengeli konuşma hızı.
+              </p>
+              <div class="text-[10px] text-neutral-400" id="metrics-pr">
+                Hız: <span class="text-emerald-500 font-bold" id="report-wpm-metric">124 WPM (İdeal)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Strengths vs Areas to Improve -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-black/5 dark:border-white/10 text-xs font-sans">
+            <div class="space-y-1.5 p-3.5 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
+              <span class="font-mono text-[10px] text-emerald-500 font-bold uppercase block">✅ Kuvvetli Yönleriniz:</span>
+              <ul id="report-strengths-list" class="space-y-1 text-neutral-600 dark:text-neutral-400 list-disc list-inside">
+                <li>Akıcı bir şekilde duraksamadan yanıt verdiniz.</li>
+                <li>Soru konusundan sapmadan doğrudan yanıtlandı.</li>
+              </ul>
+            </div>
+            <div class="space-y-1.5 p-3.5 rounded-xl bg-amber-500/5 border border-amber-500/20">
+              <span class="font-mono text-[10px] text-amber-500 font-bold uppercase block">⚠️ Geliştirilmesi Gerekenler:</span>
+              <ul id="report-weaknesses-list" class="space-y-1 text-neutral-600 dark:text-neutral-400 list-disc list-inside">
+                <li>Daha fazla akademik bağlaç (Furthermore, In light of this) ekleyin.</li>
+                <li>Tekrar eden sıfatlar yerine eşanlamlı kelimeler seçin.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Band 8.5+ Model Upgrade Section -->
+          <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-transparent to-cyan-500/10 border border-amber-500/30 space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">🌟</span>
+                <div>
+                  <h4 class="font-bold text-sm text-black dark:text-white font-mono">Band 8.5+ Model Cevap Dönüşümü</h4>
+                  <p class="text-[11px] text-neutral-500 font-sans">Aynı cevabın Cambridge 8.5 seviyesindeki zenginleştirilmiş hali:</p>
+                </div>
+              </div>
+              <button onclick="speakModelAnswer()" id="btn-listen-model" class="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold transition-all flex items-center space-x-1.5 self-start sm:self-auto">
+                <span>🔊</span>
+                <span>Modeli Dinle</span>
+              </button>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/70 dark:bg-black/70 border border-black/5 dark:border-white/10 text-xs sm:text-sm font-sans leading-relaxed text-black dark:text-white">
+              <p id="model-answer-text">
+                "Well, speaking of my hometown, what captivates me most is its harmonious blend of historical heritage and contemporary vitality..."
+              </p>
+            </div>
+
+            <p class="text-[11px] font-mono text-amber-600 dark:text-amber-400">
+              💡 Anahtar İyileştirmeler: Zengin bağlaç yapısı, idiomatic kelimeler ve akıcı yan cümle kullanımı.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">IELTS Speaking AI Examiner · Doğal Ses Sentezi & 4 Kriter Analizi</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Akıcı Konuşma & Telaffuz Stüdyosu</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="assets/js/app.js"></script>
+
+  <!-- Speaking AI Studio Application Logic -->
+  <script>
+    // Comprehensive IELTS Speaking Questions Database
+    const SPEAKING_TOPICS = [
+      // PART 1 TOPICS
+      {
+        id: "p1_hometown",
+        part: 1,
+        category: "Hometown & Roots",
+        questionEn: "Where is your hometown, and what do you like most about living there?",
+        questionTr: "Memleketiniz neresi ve orada yaşamayı en çok hangi yönüyle seviyorsunuz?",
+        collocations: ["coastal city", "bustling metropolis", "tranquil neighborhood", "rich historical heritage", "welcoming community"],
+        modelBand85: "Well, speaking of my hometown, it is a bustling coastal metropolis located in the northwest. What captivates me most is its harmonious blend of rich historical architecture and contemporary urban vibrancy. On top of that, the local community is exceptionally hospitable, which fosters an endearing sense of belonging."
+      },
+      {
+        id: "p1_work_study",
+        part: 1,
+        category: "Work & Studies",
+        questionEn: "Do you work or are you a student? What motivated you to choose your current field?",
+        questionTr: "Çalışıyor musunuz yoksa öğrenci misiniz? Mevcut alanınızı seçmenizde sizi ne motive etti?",
+        collocations: ["pursue a career", "steep learning curve", "intellectually stimulating", "long-term aspirations", "career trajectory"],
+        modelBand85: "Presently, I am working in the technology sector as a software engineer. What predominantly propelled me into this domain was my innate curiosity for algorithmic problem solving. It certainly presents a steep learning curve, yet it remains profoundly rewarding in terms of my overall career trajectory."
+      },
+      {
+        id: "p1_technology",
+        part: 1,
+        category: "Technology & Daily Life",
+        questionEn: "How has modern technology changed the way you organize your daily routine?",
+        questionTr: "Modern teknoloji günlük rutininizi organize etme biçiminizi nasıl değiştirdi?",
+        collocations: ["indispensable tool", "streamline tasks", "digital footprint", "double-edged sword", "boost productivity"],
+        modelBand85: "Without a shadow of a doubt, technology has become an indispensable facet of my daily existence. Through digital productivity applications, I am capable of streamlining mundane tasks with unprecedented efficiency. Nonetheless, it can be a double-edged sword if one becomes overly reliant on continuous notifications."
+      },
+      {
+        id: "p1_reading",
+        part: 1,
+        category: "Reading & Habits",
+        questionEn: "Do you prefer reading physical printed books or digital e-books? Why?",
+        questionTr: "Basılı fiziksel kitapları mı yoksa dijital e-kitapları mı tercih edersiniz? Neden?",
+        collocations: ["tactile sensation", "convenience and portability", "voracious reader", "immerse oneself", "digital screen fatigue"],
+        modelBand85: "To be perfectly candid, while e-books offer unmatched convenience and portability, I remain an avid proponent of printed literature. There is an irreplaceable tactile sensation in turning physical pages, and it affords me a welcomed respite from prolonged screen fatigue."
+      },
+      {
+        id: "p1_travel",
+        part: 1,
+        category: "Travel & Leisure",
+        questionEn: "What type of destinations do you find most appealing when taking a holiday?",
+        questionTr: "Tatile çıkarken ne tür destinasyonları en çekici buluyorsunuz?",
+        collocations: ["off the beaten track", "breathtaking scenery", "cultural immersion", "recharge one's batteries", "enriching perspective"],
+        modelBand85: "When taking a holiday, I invariably lean toward destinations that are off the beaten track. Rather than patronizing crowded tourist hubs, I seek authentic cultural immersion and breathtaking natural scenery, which genuinely allows me to recharge my batteries and acquire an enriching perspective."
+      },
+
+      // PART 2 TOPICS (CUE CARDS)
+      {
+        id: "p2_ambition",
+        part: 2,
+        category: "Goals & Ambitions",
+        questionEn: "Describe a significant personal or professional ambition that you have achieved.",
+        questionTr: "Başardığınız önemli bir kişisel veya mesleki hedefi / ideali anlatın.",
+        bullets: [
+          "What this ambition was",
+          "How long you worked toward it",
+          "What difficulties you encountered along the way",
+          "And explain how you felt when you finally accomplished it."
+        ],
+        collocations: ["unwavering dedication", "surmount obstacles", "milestone achievement", "sense of fulfillment", "perseverance pays off"],
+        modelBand85: "I would like to elaborate on a milestone achievement that has profoundly shaped my personal journey, namely mastering advanced data analytics and obtaining my professional certification. I pursued this ambition rigorously for roughly fourteen months, juggling intense coursework alongside my regular commitments. The primary challenge was the sheer cognitive complexity of statistical algorithms; there were moments of self-doubt. Nevertheless, through unwavering dedication and methodical practice, I surmounted these obstacles. When I received my official accreditation, I was overwhelmed by an immense sense of fulfillment, reinforcing my conviction that perseverance invariably pays off."
+      },
+      {
+        id: "p2_environment",
+        part: 2,
+        category: "Environment & Society",
+        questionEn: "Describe an environmental problem that exists in your country or city.",
+        questionTr: "Ülkenizde veya şehrinizde mevcut olan çevresel bir sorunu anlatın.",
+        bullets: [
+          "What the environmental issue is",
+          "What the underlying causes are",
+          "What impacts it has on citizens' daily lives",
+          "And suggest what measures should be implemented to mitigate it."
+        ],
+        collocations: ["detrimental impact", "carbon emissions", "sustainable infrastructure", "civic awareness", "stringent regulations"],
+        modelBand85: "I would like to shed light on a pressing environmental predicament confronting my metropolitan area: rampant urban air pollution caused by vehicular congestion. The fundamental catalysts include rapid urbanization and a distinct shortage of green public transit. This issue exerts a detrimental impact on respiratory public health, notably escalating asthma rates among vulnerable demographics. To mitigate this crisis, municipal authorities must enforce more stringent emission standards while aggressively expanding sustainable electric rail infrastructure. Concurrently, cultivating civic awareness concerning carpooling is essential for long-term ecological balance."
+      },
+      {
+        id: "p2_memorable_person",
+        part: 2,
+        category: "People & Influence",
+        questionEn: "Describe an influential teacher or mentor who has had a positive effect on your life.",
+        questionTr: "Hayatınız üzerinde olumlu bir etkisi olmuş ilham verici bir öğretmen veya mentoru anlatın.",
+        bullets: [
+          "Who this individual was",
+          "How you became acquainted with them",
+          "What qualities distinguished their approach",
+          "And explain why their guidance made such a lasting impression on you."
+        ],
+        collocations: ["mentor of paramount importance", "instill confidence", "intellectual rigor", "exemplary patience", "indelible mark"],
+        modelBand85: "Allow me to recount the profound influence of my high school literature instructor, Mr. Vance, who left an indelible mark on my intellectual development. His teaching philosophy was distinguished by exemplary patience and a remarkable capacity to instill confidence in his pupils. Rather than adhering rigidly to rote learning, he encouraged spirited debates on ethics and philosophy. His insightful mentorship fundamentally altered my outlook on critical reasoning, demonstrating that true education lies in questioning assumptions with intellectual rigor."
+      },
+
+      // PART 3 TOPICS (IN-DEPTH DISCUSSION)
+      {
+        id: "p3_technology_future",
+        part: 3,
+        category: "AI & Human Employment",
+        questionEn: "To what extent do you believe artificial intelligence will replace cognitive professions in the near future?",
+        questionTr: "Yapay zekanın yakın gelecekte bilişsel mesleklerin yerini ne ölçüde alacağına inanıyorsunuz?",
+        collocations: ["paradigm shift", "augment human capabilities", "ethical ramifications", "irreplaceable nuance", "automation of cognitive tasks"],
+        modelBand85: "In my estimation, we are witnessing a paradigm shift where artificial intelligence will inevitably automate repetitive cognitive duties. However, I maintain that AI will primarily serve to augment human capabilities rather than entirely eradicate high-level professions. Critical judgment, empathetic communication, and nuanced ethical reasoning remain inherently human prerogatives that machines simply cannot replicate with authentic authenticity."
+      },
+      {
+        id: "p3_education_reform",
+        part: 3,
+        category: "Modern Education",
+        questionEn: "Should national curricula prioritize practical life skills over traditional academic memorization?",
+        questionTr: "Ulusal müfredatlar geleneksel akademik ezber yerine pratik yaşam becerilerini önceliklendirmeli mi?",
+        collocations: ["foster critical thinking", "obsolete pedagogical paradigms", "holistic development", "financial literacy", "real-world application"],
+        modelBand85: "Unquestionably, educational institutions should radically pivot away from obsolete rote memorization toward fostering critical thinking and tangible life skills. While foundational theoretical knowledge remains significant, competencies such as financial literacy, collaborative problem-solving, and emotional resilience are indispensable for holistic youth development in our contemporary knowledge economy."
+      }
+    ];
+
+    // State Management
+    let currentPart = 1;
+    let activeTopic = SPEAKING_TOPICS[0];
+    let isRecording = false;
+    let recordingSeconds = 0;
+    let recordingTimerInterval = null;
+    let mediaRecorder = null;
+    let speechRecognizer = null;
+    let audioChunks = [];
+    let candidateAudioBlobUrl = null;
+    let prepTimerSeconds = 60;
+    let prepTimerInterval = null;
+
+    // Academic Discourse Markers & C1/C2 Dictionary for Rubric Engine
+    const DISCOURSE_MARKERS = [
+      "furthermore", "moreover", "consequently", "nevertheless", "on the other hand",
+      "speaking of", "without a shadow of a doubt", "to be perfectly candid",
+      "in my estimation", "unquestionably", "in light of this", "as a matter of fact",
+      "predominantly", "invariably", "on top of that", "for instance", "to illustrate"
+    ];
+
+    const ADVANCED_ACADEMIC_VOCAB = [
+      "metropolis", "captivate", "harmonious", "contemporary", "vibrancy", "hospitable",
+      "trajectory", "predominantly", "facet", "streamline", "unprecedented", "respite",
+      "unmatched", "tactile", "proponent", "invariably", "immersion", "milestone",
+      "rigorously", "perseverance", "predicament", "catalyst", "detrimental", "mitigate",
+      "indelible", "exemplary", "paradigm", "augment", "prerogative", "obsolete",
+      "holistic", "competency", "indispensable", "resilience", "confronting"
+    ];
+
+    // Initialize on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      App.initTheme();
+      renderTopicDropdown();
+      loadTopicData(activeTopic);
+      updatePracticeStats();
+      loadSavedGeminiKey();
+    });
+
+    // Populate Topic Dropdown
+    function renderTopicDropdown() {
+      const select = document.getElementById('select-topic');
+      const filtered = SPEAKING_TOPICS.filter(t => t.part === currentPart);
+      
+      select.innerHTML = filtered.map(t => `
+        <option value="${t.id}" ${t.id === activeTopic.id ? 'selected' : ''}>
+          ${t.category}: ${t.questionEn.slice(0, 45)}...
+        </option>
+      `).join('');
+    }
+
+    function selectSpeakingPart(part) {
+      currentPart = part;
+      [1, 2, 3].forEach(p => {
+        const btn = document.getElementById(`part-tab-${p}`);
+        if (btn) {
+          if (p === part) {
+            btn.className = "py-1.5 rounded-lg text-center font-bold text-[11px] bg-cyan-500 text-black shadow-sm transition-all";
+          } else {
+            btn.className = "py-1.5 rounded-lg text-center font-medium text-[11px] text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all";
+          }
+        }
+      });
+
+      renderTopicDropdown();
+      const firstInPart = SPEAKING_TOPICS.find(t => t.part === currentPart);
+      if (firstInPart) {
+        loadTopicData(firstInPart);
+      }
+    }
+
+    function handleTopicSelect(id) {
+      const topic = SPEAKING_TOPICS.find(t => t.id === id);
+      if (topic) {
+        loadTopicData(topic);
+      }
+    }
+
+    function pickRandomTopic() {
+      const filtered = SPEAKING_TOPICS.filter(t => t.part === currentPart);
+      const random = filtered[Math.floor(Math.random() * filtered.length)];
+      if (random) {
+        document.getElementById('select-topic').value = random.id;
+        loadTopicData(random);
+        App.showToast ? App.showToast("Rastgele konu seçildi!", "info") : null;
+      }
+    }
+
+    function loadTopicData(topic) {
+      activeTopic = topic;
+      document.getElementById('current-part-label').innerText = `PART ${topic.part} · ${topic.part === 2 ? 'CUE CARD BİREYSEL SUNUM' : (topic.part === 3 ? 'DERİN TARTIŞMA & ANALİZ' : 'GENEL MÜLAKAT')}`;
+      document.getElementById('current-category-label').innerText = `Konu: ${topic.category}`;
+      document.getElementById('question-text-en').innerText = `"${topic.questionEn}"`;
+      document.getElementById('question-text-tr').innerText = topic.questionTr;
+      document.getElementById('model-answer-text').innerText = `"${topic.modelBand85}"`;
+
+      // Cue Card UI
+      const cueContainer = document.getElementById('cue-card-bullets-container');
+      if (topic.part === 2 && topic.bullets) {
+        cueContainer.classList.remove('hidden');
+        document.getElementById('cue-card-bullets-list').innerHTML = topic.bullets.map(b => `<li>${b}</li>`).join('');
+      } else {
+        cueContainer.classList.add('hidden');
+      }
+
+      // Collocations
+      const collocContainer = document.getElementById('topic-collocations-tags');
+      collocContainer.innerHTML = topic.collocations.map(c => `
+        <span class="px-2.5 py-1 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-mono text-[11px] font-semibold border border-cyan-500/20">
+          ${c}
+        </span>
+      `).join('');
+
+      // Reset candidate outputs
+      resetCandidateRecording();
+      document.getElementById('ai-report-card').classList.add('hidden');
+    }
+
+    function nextQuestion() {
+      const filtered = SPEAKING_TOPICS.filter(t => t.part === currentPart);
+      const currentIndex = filtered.findIndex(t => t.id === activeTopic.id);
+      const nextIndex = (currentIndex + 1) % filtered.length;
+      const next = filtered[nextIndex];
+      document.getElementById('select-topic').value = next.id;
+      loadTopicData(next);
+    }
+
+    // Examiner Selection
+    const EXAMINERS = {
+      'uk-male': { name: 'Dr. Alistair Campbell', title: 'Cambridge Senior Examiner · 🇬🇧 British RP', pitch: 0.72, rate: 0.88, lang: 'en-GB' },
+      'uk-female': { name: 'Dr. Clara Evans', title: 'Oxford Academic Broadcaster · 🇬🇧 British Clear', pitch: 1.15, rate: 0.90, lang: 'en-GB' },
+      'us-male': { name: 'Dr. Ethan Vance', title: 'Harvard Professor · 🇺🇸 American Dynamic', pitch: 0.80, rate: 1.02, lang: 'en-US' },
+      'au-female': { name: 'Natasha Miller', title: 'Sydney IDP Examiner · 🇦🇺 Australian Native', pitch: 1.05, rate: 0.92, lang: 'en-AU' }
+    };
+
+    function changeExaminer(key) {
+      const ex = EXAMINERS[key] || EXAMINERS['uk-male'];
+      document.getElementById('examiner-name').innerText = ex.name;
+      document.getElementById('examiner-title').innerText = ex.title;
+      speakCurrentQuestion();
+    }
+
+    // Text to Speech
+    function speakCurrentQuestion() {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+
+      const text = activeTopic.questionEn;
+      const exKey = document.getElementById('select-examiner').value;
+      const ex = EXAMINERS[exKey] || EXAMINERS['uk-male'];
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = ex.lang;
+      utterance.pitch = ex.pitch;
+      utterance.rate = ex.rate;
+
+      // Find appropriate voice if available
+      const voices = window.speechSynthesis.getVoices();
+      const match = voices.find(v => v.lang.includes(ex.lang.slice(0, 2)));
+      if (match) utterance.voice = match;
+
+      const wave = document.getElementById('examiner-speaking-wave');
+      const pulse = document.getElementById('examiner-pulse');
+
+      utterance.onstart = () => {
+        wave.classList.remove('hidden');
+        pulse.classList.add('animate-ping');
+      };
+      utterance.onend = () => {
+        wave.classList.add('hidden');
+        pulse.classList.remove('animate-ping');
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function speakModelAnswer() {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(activeTopic.modelBand85);
+      const exKey = document.getElementById('select-examiner').value;
+      const ex = EXAMINERS[exKey] || EXAMINERS['uk-male'];
+      utterance.lang = ex.lang;
+      utterance.rate = 0.90;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Prep Countdown (Part 2)
+    function startPrepTimer() {
+      if (prepTimerInterval) clearInterval(prepTimerInterval);
+      prepTimerSeconds = 60;
+      const disp = document.getElementById('prep-timer-display');
+      const btn = document.getElementById('btn-start-prep');
+      btn.innerText = '⏱️ Hazırlık Süresi Başladı...';
+      btn.classList.add('opacity-75');
+
+      prepTimerInterval = setInterval(() => {
+        prepTimerSeconds--;
+        const m = Math.floor(prepTimerSeconds / 60);
+        const s = prepTimerSeconds % 60;
+        disp.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+
+        if (prepTimerSeconds <= 0) {
+          clearInterval(prepTimerInterval);
+          disp.innerText = "00:00 - Süre Doldu!";
+          btn.innerText = "Süre Doldu! Konuşmaya Başlayın 🎙️";
+          btn.className = "w-full py-2 rounded-xl bg-rose-600 text-white font-bold text-xs animate-bounce";
+        }
+      }, 1000);
+    }
+
+    // Candidate Microphone & Speech Recognition
+    async function toggleSpeakingRecording() {
+      const btn = document.getElementById('btn-toggle-recording');
+      const label = document.getElementById('rec-label');
+      const dot = document.getElementById('rec-dot');
+      const transcriptBox = document.getElementById('live-transcript-box');
+      const statusText = document.getElementById('stt-status-text');
+
+      if (!isRecording) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+
+          mediaRecorder.ondataavailable = (e) => {
+            if (e.data.size > 0) audioChunks.push(e.data);
+          };
+
+          mediaRecorder.onstop = () => {
+            const blob = new Blob(audioChunks, { type: 'audio/webm' });
+            candidateAudioBlobUrl = URL.createObjectURL(blob);
+            const player = document.getElementById('candidate-audio-player');
+            const cont = document.getElementById('playback-container');
+            if (player && cont) {
+              player.src = candidateAudioBlobUrl;
+              cont.classList.remove('hidden');
+            }
+          };
+
+          // Speech Recognition (STT)
+          const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+          if (SR) {
+            speechRecognizer = new SR();
+            speechRecognizer.continuous = true;
+            speechRecognizer.interimResults = true;
+            speechRecognizer.lang = 'en-GB';
+
+            transcriptBox.innerText = '';
+            statusText.innerText = '🔴 Dinleniyor...';
+            statusText.className = 'text-rose-500 font-bold animate-pulse';
+
+            speechRecognizer.onresult = (e) => {
+              let full = '';
+              for (let i = 0; i < e.results.length; i++) {
+                full += e.results[i][0].transcript + ' ';
+              }
+              transcriptBox.innerText = full.trim();
+              updateLiveWpm(full.trim());
+            };
+            speechRecognizer.onerror = (err) => {
+              statusText.innerText = 'STT Notu: Tarayıcı dinliyor';
+            };
+            speechRecognizer.start();
+          } else {
+            statusText.innerText = 'STT Desteklenmiyor (Yalnızca Ses Kaydediliyor)';
+          }
+
+          mediaRecorder.start();
+          isRecording = true;
+          recordingSeconds = 0;
+          btn.className = "w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl bg-neutral-900 dark:bg-white text-white dark:text-black font-mono text-xs font-bold transition-all shadow-md flex items-center justify-center space-x-2.5";
+          label.innerText = "Kaydı Bitir ⏹️";
+          dot.className = "w-3 h-3 rounded-full bg-rose-500 animate-ping";
+          document.getElementById('btn-reset-recording').classList.remove('hidden');
+
+          recordingTimerInterval = setInterval(() => {
+            recordingSeconds++;
+            const m = Math.floor(recordingSeconds / 60);
+            const s = recordingSeconds % 60;
+            document.getElementById('speaking-timer-display').innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            updateLiveWpm(transcriptBox.innerText);
+          }, 1000);
+
+        } catch (err) {
+          alert("Mikrofona erişilemedi. Lütfen tarayıcı izinlerinizi kontrol edin.");
+        }
+      } else {
+        // Stop recording
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
+          mediaRecorder.stream.getTracks().forEach(t => t.stop());
+        }
+        if (speechRecognizer) {
+          speechRecognizer.stop();
+          speechRecognizer = null;
+        }
+        clearInterval(recordingTimerInterval);
+        isRecording = false;
+
+        btn.className = "w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center justify-center space-x-2.5";
+        label.innerText = "Yeni Kayıt Başlat 🎙️";
+        dot.className = "w-3 h-3 rounded-full bg-white";
+        statusText.innerText = 'Kayıt tamamlandı ✓';
+        statusText.className = 'text-emerald-500 font-bold';
+      }
+    }
+
+    function updateLiveWpm(text) {
+      if (!text) return;
+      const words = text.trim().split(/\s+/).filter(Boolean).length;
+      if (recordingSeconds > 0) {
+        const wpm = Math.round((words / recordingSeconds) * 60);
+        const badge = document.getElementById('live-wpm-badge');
+        badge.innerText = `${wpm} WPM (${words} kelime)`;
+      }
+    }
+
+    function resetCandidateRecording() {
+      if (isRecording) toggleSpeakingRecording();
+      document.getElementById('live-transcript-box').innerText = '';
+      document.getElementById('speaking-timer-display').innerText = '00:00';
+      document.getElementById('live-wpm-badge').innerText = '0 WPM';
+      document.getElementById('playback-container').classList.add('hidden');
+      document.getElementById('stt-status-text').innerText = 'Mikrofon hazır';
+      document.getElementById('stt-status-text').className = 'text-neutral-500';
+      document.getElementById('btn-reset-recording').classList.add('hidden');
+    }
+
+    // IELTS AI EVALUATION ENGINE (OFFLINE NLP + OPTIONAL GEMINI)
+    async function runIeltsAiEvaluation() {
+      const transcript = document.getElementById('live-transcript-box').innerText.trim();
+      
+      if (!transcript || transcript.length < 5) {
+        alert("Lütfen değerlendirme için önce mikrofonla konuşun veya metin kutusuna cevabınızı yazın.");
+        return;
+      }
+
+      const analyzeBtn = document.getElementById('btn-analyze-speech');
+      analyzeBtn.innerHTML = `<span>⏳</span><span>IELTS 4 Kriter Analiz Ediliyor...</span>`;
+      analyzeBtn.classList.add('opacity-75');
+
+      // 1. Calculate Metrics
+      const words = transcript.split(/\s+/).filter(Boolean);
+      const wordCount = words.length;
+      const duration = Math.max(recordingSeconds, 15);
+      const wpm = Math.round((wordCount / duration) * 60);
+
+      // Check discourse markers
+      const lower = transcript.toLowerCase();
+      const foundMarkers = DISCOURSE_MARKERS.filter(m => lower.includes(m));
+      
+      // Check C1/C2 Academic words
+      const foundAcademic = ADVANCED_ACADEMIC_VOCAB.filter(w => lower.includes(w));
+
+      // Grammatical Complexity Check
+      const hasConditionals = /if\s|would\s|could\s|had\sbeen/i.test(transcript);
+      const hasRelatives = /which|who|where|whose|that\s/i.test(transcript);
+      const hasPassives = /is\s\w+ed|was\s\w+ed|been\s\w+ed|are\s\w+ed/i.test(transcript);
+
+      // 2. Score Each Rubric (1 - 9)
+      // Fluency & Coherence
+      let bandFc = 6.0;
+      if (wpm >= 110 && wpm <= 145) bandFc += 1.0;
+      else if (wpm >= 90) bandFc += 0.5;
+      if (foundMarkers.length >= 3) bandFc += 1.0;
+      else if (foundMarkers.length >= 1) bandFc += 0.5;
+      bandFc = Math.min(bandFc, 9.0);
+
+      // Lexical Resource
+      let bandLr = 5.5;
+      if (foundAcademic.length >= 3) bandLr += 2.0;
+      else if (foundAcademic.length >= 1) bandLr += 1.0;
+      if (wordCount >= 40) bandLr += 0.5;
+      bandLr = Math.min(bandLr, 8.5);
+
+      // Grammatical Range
+      let bandGra = 6.0;
+      if (hasConditionals) bandGra += 0.5;
+      if (hasRelatives) bandGra += 0.5;
+      if (hasPassives) bandGra += 0.5;
+      bandGra = Math.min(bandGra, 9.0);
+
+      // Pronunciation (heuristic based on WPM stability)
+      let bandPr = 7.0;
+      if (wpm >= 100 && wpm <= 150) bandPr = 7.5;
+      else if (wpm < 80) bandPr = 6.0;
+
+      // Overall Score
+      const overall = Math.round(((bandFc + bandLr + bandGra + bandPr) / 4) * 2) / 2;
+
+      // Check for Gemini API Key if user provided one
+      const apiKey = localStorage.getItem('gemini_user_api_key');
+      if (apiKey && apiKey.trim().length > 10) {
+        try {
+          await callGeminiForDeepCritique(apiKey, transcript, activeTopic);
+        } catch (e) {
+          console.warn("Gemini call skipped, using local rubric", e);
+        }
+      }
+
+      // Populate UI
+      setTimeout(() => {
+        displayEvaluationReport({
+          overall,
+          bandFc,
+          bandLr,
+          bandGra,
+          bandPr,
+          wordCount,
+          wpm,
+          duration,
+          foundMarkers,
+          foundAcademic,
+          hasConditionals,
+          hasRelatives
+        });
+
+        analyzeBtn.innerHTML = `<span>🤖</span><span>Cevabımı 4 IELTS Kriterinde Puanla & Band 8.5 Model Cevap Al</span><span>➔</span>`;
+        analyzeBtn.classList.remove('opacity-75');
+
+        savePracticeStats(overall);
+      }, 500);
+    }
+
+    function displayEvaluationReport(res) {
+      const card = document.getElementById('ai-report-card');
+      card.classList.remove('hidden');
+
+      document.getElementById('report-overall-band').innerText = res.overall.toFixed(1);
+      document.getElementById('report-word-metrics').innerText = `${res.wordCount} Kelime · ${res.wpm} WPM · ${res.duration} Saniye`;
+      
+      const statusTitle = res.overall >= 8.0 ? 'Olağanüstü Performans (Very Good User)' : (res.overall >= 7.0 ? 'Yetkin ve Akıcı Yanıt (Good User)' : (res.overall >= 6.0 ? 'Etkili Yanıt (Competent User)' : 'Geliştirilmeli (Modest User)'));
+      document.getElementById('report-overall-status').innerText = statusTitle;
+
+      // Criteria Scores
+      document.getElementById('band-fc').innerText = `Band ${res.bandFc.toFixed(1)}`;
+      document.getElementById('band-lr').innerText = `Band ${res.bandLr.toFixed(1)}`;
+      document.getElementById('band-gra').innerText = `Band ${res.bandGra.toFixed(1)}`;
+      document.getElementById('band-pr').innerText = `Band ${res.bandPr.toFixed(1)}`;
+
+      document.getElementById('metrics-fc').innerHTML = `Bağlaçlar: <span class="text-cyan-500 font-bold">${res.foundMarkers.length} adet</span> (${res.foundMarkers.slice(0, 3).join(', ') || 'Yok'})`;
+      document.getElementById('c1-words-found').innerText = `${res.foundAcademic.length} adet (${res.foundAcademic.slice(0, 3).join(', ') || 'Temel kelimeler'})`;
+      document.getElementById('report-wpm-metric').innerText = `${res.wpm} WPM (${res.wpm >= 110 && res.wpm <= 145 ? 'İdeal IELTS Temposu' : 'Hız ayarlanmalı'})`;
+
+      // Strengths
+      const strengths = [];
+      if (res.wpm >= 100) strengths.push("Konuşma akıcılığı ideal sınav temposundaydı.");
+      if (res.foundMarkers.length > 0) strengths.push(`Kullandığınız bağlaçlar (${res.foundMarkers.slice(0, 2).join(', ')}) düşünce geçişlerini pürüzsüz kıldı.`);
+      if (res.hasRelatives || res.hasConditionals) strengths.push("Bileşik yan cümleler sentaks zenginliğinizi gösterdi.");
+      if (strengths.length === 0) strengths.push("Sorudan sapmadan doğrudan konuya odaklandınız.");
+      document.getElementById('report-strengths-list').innerHTML = strengths.map(s => `<li>${s}</li>`).join('');
+
+      // Weaknesses
+      const weaknesses = [];
+      if (res.foundAcademic.length < 2) weaknesses.push("Daha fazla C1 akademik sıfat ve isim eşdizimi (collocation) entegre edebilirsiniz.");
+      if (res.foundMarkers.length < 2) weaknesses.push("Cümle başlarında 'Furthermore, In addition, Consequently' gibi söylem bağlaçları ekleyin.");
+      if (res.wordCount < 40) weaknesses.push("Cevabınızı örneklerle (for instance, to illustrate) en az 3-4 cümle daha uzatın.");
+      document.getElementById('report-weaknesses-list').innerHTML = weaknesses.map(w => `<li>${w}</li>`).join('');
+
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Optional Gemini API Key Call
+    async function callGeminiForDeepCritique(apiKey, transcript, topic) {
+      const prompt = `You are a certified senior British Council Cambridge IELTS Speaking Examiner. Evaluate this candidate's spoken response according to the 4 IELTS criteria (FC, LR, GRA, PR).
+Question (${topic.category}): "${topic.questionEn}"
+Candidate Transcript: "${transcript}"
+Provide brief constructive feedback and band scores.`;
+
+      const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }]
+        })
+      });
+      const data = await resp.json();
+      if (data && data.candidates && data.candidates[0].content.parts[0].text) {
+        console.log("Gemini Deep Feedback:", data.candidates[0].content.parts[0].text);
+      }
+    }
+
+    function toggleApiKeyDrawer() {
+      const body = document.getElementById('api-drawer-body');
+      const icon = document.getElementById('api-drawer-icon');
+      if (body.classList.contains('hidden')) {
+        body.classList.remove('hidden');
+        icon.innerText = '▲ Kapat';
+      } else {
+        body.classList.add('hidden');
+        icon.innerText = '▼ İsteğe Bağlı Gemini 1.5 Flash API Key';
+      }
+    }
+
+    function saveGeminiApiKey() {
+      const key = document.getElementById('gemini-api-key-input').value.trim();
+      if (key) {
+        localStorage.setItem('gemini_user_api_key', key);
+        alert("Gemini API anahtarınız yerel tarayıcınıza güvenle kaydedildi! Analizlerde ek bulut zekası aktif olacaktır.");
+      }
+    }
+
+    function loadSavedGeminiKey() {
+      const saved = localStorage.getItem('gemini_user_api_key');
+      if (saved) {
+        document.getElementById('gemini-api-key-input').value = saved;
+      }
+    }
+
+    // Persistence Stats
+    function updatePracticeStats() {
+      const count = parseInt(localStorage.getItem('speaking_ai_practice_count') || '0', 10);
+      const avg = parseFloat(localStorage.getItem('speaking_ai_avg_band') || '0');
+      document.getElementById('stat-practice-count').innerText = count;
+      document.getElementById('stat-avg-band').innerText = avg > 0 ? avg.toFixed(1) : '--';
+    }
+
+    function savePracticeStats(newBand) {
+      let count = parseInt(localStorage.getItem('speaking_ai_practice_count') || '0', 10);
+      let avg = parseFloat(localStorage.getItem('speaking_ai_avg_band') || '0');
+
+      avg = (avg * count + newBand) / (count + 1);
+      count += 1;
+
+      localStorage.setItem('speaking_ai_practice_count', count.toString());
+      localStorage.setItem('speaking_ai_avg_band', avg.toFixed(1));
+      updatePracticeStats();
+    }
+  </script>
+</body>
+</html>

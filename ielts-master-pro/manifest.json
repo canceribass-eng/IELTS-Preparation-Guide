@@ -1,0 +1,22 @@
+{
+  "name": "IELTS Master Pro - CEFR & IELTS Preparation Ecosystem",
+  "short_name": "IELTS Pro",
+  "description": "240 IELTS Testi, 148 Gramer Video Dersi, 80 CEFR Testi, Aralıklı Tekrar ve Analitik Merkezi",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000000'/><polygon points='50,20 80,75 20,75' fill='%23ffffff'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000000'/><polygon points='50,20 80,75 20,75' fill='%23ffffff'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

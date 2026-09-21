@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Master Pro | CEFR, IELTS, SRS & Analitik Ekosistemi</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-amber-300/30 dark:selection:bg-amber-400/20">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-80 transition-opacity shadow-sm">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-amber-500 hover:text-amber-400 font-bold border border-amber-500/25 bg-amber-500/10 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-10 w-full space-y-12">
+    
+    <div class="space-y-4 max-w-3xl">
+      <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-amber-500 font-bold">
+        <span>IELTS MASTER PRO · İLERİ DÜZEY AKILLI EĞİTİM PLATFORMU</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-black dark:text-white leading-tight">
+        Hedeflediğiniz IELTS Band Skoruna Bilimsel Metotlarla Ulaşın.
+      </h1>
+      <p class="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+        148 CEFR interaktif video dersi, Leitner aralıklı tekrar (SRS) kelime algoritması, 80 deneme sınavı (1.600 soru), 7 boyutlu yetkinlik radarı ve resmi standartlarda tam IELTS deneme simülatörü.
+      </p>
+    </div>
+
+    <!-- Personal Target Band & Daily Missions Widget -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      
+      <!-- Target Band & Exam Countdown Card -->
+      <div class="lg:col-span-4 vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between border border-black/10 dark:border-white/10">
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Hedef Takibi</span>
+            <span class="text-xs font-mono text-emerald-500 font-bold" id="goal-status-badge">Aktif Hedef</span>
+          </div>
+
+          <div>
+            <span class="text-xs text-neutral-500 font-mono block">Hedef IELTS Band Skoru:</span>
+            <div class="flex items-center space-x-2 pt-1">
+              <select id="select-target-band" onchange="updateUserGoal()" class="text-xl sm:text-2xl font-black bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 rounded-xl px-3 py-1.5 text-black dark:text-white font-mono focus:outline-none">
+                <option value="6.0">Band 6.0</option>
+                <option value="6.5">Band 6.5</option>
+                <option value="7.0">Band 7.0</option>
+                <option value="7.5" selected>Band 7.5</option>
+                <option value="8.0">Band 8.0</option>
+                <option value="8.5">Band 8.5</option>
+                <option value="9.0">Band 9.0</option>
+              </select>
+              <span class="text-xs text-neutral-400 font-mono">Akademik Hedef</span>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-black/5 dark:border-white/5 space-y-1">
+            <span class="text-xs text-neutral-500 font-mono block">Sınav Tarihiniz:</span>
+            <input type="date" id="input-exam-date" onchange="updateUserGoal()" class="w-full px-3 py-2 rounded-xl bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 text-xs font-mono text-black dark:text-white focus:outline-none">
+          </div>
+        </div>
+
+        <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between font-mono text-xs text-amber-600 dark:text-amber-400">
+          <span>Sınava Kalan:</span>
+          <strong class="text-sm font-bold" id="days-left-count">Tarih Belirleyin</strong>
+        </div>
+      </div>
+
+      <!-- 3 Daily Study Missions Card -->
+      <div class="lg:col-span-8 vercel-card rounded-3xl p-6 sm:p-7 space-y-5 border border-black/10 dark:border-white/10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/5 dark:border-white/10 pb-4">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Günün Çalışma Planı</span>
+            <h3 class="text-base sm:text-lg font-bold text-black dark:text-white mt-0.5">Bugünkü 3 Öncelikli Göreviniz</h3>
+          </div>
+          <div class="flex items-center space-x-2 font-mono text-xs">
+            <span class="text-neutral-400">İlerleme:</span>
+            <span id="missions-progress-text" class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 font-bold">0 / 3 Görev</span>
+          </div>
+        </div>
+
+        <!-- Missions List -->
+        <div id="daily-missions-list" class="space-y-3 font-mono text-xs">
+          <!-- Injected dynamically via renderDailyMissions() -->
+        </div>
+
+        <div class="w-full h-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden">
+          <div id="missions-progress-bar" class="h-full bg-purple-500 transition-all duration-500 w-0"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 6 Flagship Modules Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Module 1: Analytics -->
+      <a href="analytics.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-amber-500/40 transition-all">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center text-lg font-bold">
+            📊
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-amber-500 transition-colors">Öğrenci Karnesi & Yetkinlik Radarı</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            7 eksenli örümcek grafik ile zayıf gramer noktalarınızı, günlük serinizi ve CEFR tamamlanma oranınızı analiz edin.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between font-mono text-xs text-amber-500 font-bold">
+          <span>Karneni İncele</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Module 2: Mock Exam -->
+      <a href="mock-exam.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-rose-500/40 transition-all border border-rose-500/20">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-500 flex items-center justify-center text-lg font-bold">
+            ⏱️
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-rose-500 transition-colors">20 Tam Cambridge Mock Exam (4 Beceri)</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            Cambridge 10-19 akademik formatında 20 deneme sınavı: Sesli Listening, iki pencereli Reading, SVG grafikli Writing ve canlı mikrofonlu Speaking mülakatı.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-rose-500/20 flex items-center justify-between font-mono text-xs text-rose-500 font-bold">
+          <span>20 Sınavı Keşfet</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Module 3: Test Center -->
+      <a href="tests.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-emerald-500/40 transition-all">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 flex items-center justify-center text-lg font-bold">
+            📝
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-emerald-500 transition-colors">80 Test & Eksik Analiz Merkezi</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            A1-C2 için 60 test ve 20 karma test (1.600 soru). Yanlış yapılan sorular doğrudan ilgili gramer dersine bağlanır.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between font-mono text-xs text-emerald-500 font-bold">
+          <span>Testleri Çöz</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Module 4: Grammar Videos -->
+      <a href="grammar.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-blue-500/40 transition-all">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-500 flex items-center justify-center text-lg font-bold">
+            🎬
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-blue-500 transition-colors">148 İnteraktif Gramer Video Dersi</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            Tüm CEFR konularında akıcı nöral seslendirmeli, iki dilli altyazılı ve 4 sahneli interaktif HTML5 video dersleri.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between font-mono text-xs text-blue-500 font-bold">
+          <span>Dersleri İzle</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Module 5: Vocabulary & SRS -->
+      <a href="vocabulary.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-purple-500/40 transition-all">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-500 flex items-center justify-center text-lg font-bold">
+            🧠
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-purple-500 transition-colors">Aralıklı Tekrar (SRS) & Kelime Defterim</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            1.750+ kelime, Leitner 3 kutulu hafıza algoritması, unutulan kelimeleri otomatik hatırlatma ve özel kelime ekleme.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between font-mono text-xs text-purple-500 font-bold">
+          <span>Kelimeleri Çalış</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Module 6: IELTS Skills -->
+      <a href="ielts.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-cyan-500/40 transition-all">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-500 flex items-center justify-center text-lg font-bold">
+            🎓
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-cyan-500 transition-colors">IELTS 4 Beceri & 3 Kademeli Cevaplar</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            Listening, Reading, Writing, Speaking alıştırmaları; Orta (Band 5.5), İyi (Band 7.0) ve Çok İyi (Band 8.5) karşılaştırmalı çözümler.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between font-mono text-xs text-cyan-500 font-bold">
+          <span>Becerileri Geliştir</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Module 7: Reading Practice -->
+      <a href="reading.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-amber-500/40 transition-all border border-amber-500/20">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center text-lg font-bold">
+            📚
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-amber-500 transition-colors">100 CEFR Okuma Metni & Vurgulu Kelimeler</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            A1'den C2'ye 100 metin. Her okuma bir gramer kuralına referans verir; yeni kelimeler sarı vurguludur ve anında kelime defterine eklenebilir.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-amber-500/20 flex items-center justify-between font-mono text-xs text-amber-500 font-bold">
+          <span>Metinleri Oku</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+      <!-- Module 8: 100 Classic Books Library -->
+      <a href="library.html" class="vercel-card rounded-3xl p-6 sm:p-7 space-y-4 flex flex-col justify-between group hover:border-purple-500/40 transition-all border border-purple-500/20 bg-gradient-to-br from-purple-500/5 via-transparent to-transparent">
+        <div class="space-y-2">
+          <div class="w-10 h-10 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-500 flex items-center justify-center text-lg font-bold">
+            🏛️
+          </div>
+          <div class="inline-flex items-center space-x-1.5 font-mono text-[10px] text-purple-400 font-bold uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse"></span>
+            <span>YENİ · A1-C2 DÜNYA KLASİKLERİ</span>
+          </div>
+          <h3 class="text-lg font-bold text-black dark:text-white group-hover:text-purple-500 transition-colors">100 Dünya Klasiği & Kütüphane</h3>
+          <p class="text-xs text-neutral-500 font-sans leading-relaxed">
+            Ezop'tan Sherlock Holmes, Dorian Gray ve Marcus Aurelius'a 100 başyapıt. 500-700 kelimelik çoklu bölümler, tek tıkla canlı sözlük & SRS defteri, sesli kitap ve 5 mini soru.
+          </p>
+        </div>
+        <div class="pt-3 border-t border-purple-500/20 flex items-center justify-between font-mono text-xs text-purple-500 font-bold">
+          <span>Kütüphaneyi Aç (100 Eser)</span>
+          <span>➔</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Bottom Quick Launch & Exam Countdown CTA Banner -->
+    <div class="mt-12 p-6 sm:p-8 rounded-3xl vercel-card border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+      <div class="space-y-2 text-center md:text-left">
+        <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-amber-500 font-bold">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>SINAV MERKEZİ & HIZLI BAŞLANGIÇ</span>
+        </div>
+        <h3 class="text-xl sm:text-2xl font-bold text-black dark:text-white">Hedeflediğin IELTS Skoruna Bugün Başla</h3>
+        <p class="text-xs text-neutral-500 font-sans max-w-xl">
+          Tüm modüller birbiriyle tam senkronizedir. Gramer çalışırken kelimeleri SRS defterine atın, ardından gerçekçi Mock Exam simülatöründe kendinizi test edin.
+        </p>
+      </div>
+      <div class="flex items-center space-x-3 shrink-0">
+        <a href="diagnostic.html" class="px-5 py-3 rounded-2xl border border-amber-500/30 text-xs font-mono font-bold hover:bg-amber-500/10 text-amber-600 dark:text-amber-400 transition-all">
+          Seviyeni Belirle ➔
+        </a>
+        <a href="mock-exam.html" class="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold transition-all shadow-md hover:shadow-amber-500/20 active:scale-95">
+          Mock Exam'e Başla ➔
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">CEFR A1-C2, IELTS 4 Beceri & Yapay Zeka Destekli Sınav Ekosistemi</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Hedef: Band 8.5+ · Sürekli Gelişim</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script>
+    function loadUserGoalUI() {
+      const goal = App.DailyMissions.getGoal();
+      const bandSelect = document.getElementById('select-target-band');
+      const dateInput = document.getElementById('input-exam-date');
+      const daysLeft = document.getElementById('days-left-count');
+
+      if (bandSelect && goal.targetBand) bandSelect.value = goal.targetBand;
+      if (dateInput && goal.examDate) dateInput.value = goal.examDate;
+
+      if (daysLeft) {
+        if (goal.daysLeft !== null) {
+          daysLeft.innerText = `${goal.daysLeft} Gün Kaldı`;
+        } else {
+          daysLeft.innerText = 'Tarih Belirleyin';
+        }
+      }
+    }
+
+    function updateUserGoal() {
+      const band = document.getElementById('select-target-band').value;
+      const date = document.getElementById('input-exam-date').value;
+      App.DailyMissions.setGoal(band, date);
+      loadUserGoalUI();
+    }
+
+    function renderDailyMissions() {
+      const list = App.DailyMissions.getMissions();
+      const container = document.getElementById('daily-missions-list');
+      if (!container) return;
+
+      let completedCount = 0;
+
+      container.innerHTML = list.map(m => {
+        if (m.completed) completedCount++;
+
+        return `
+          <div class="p-3.5 rounded-2xl border transition-all flex items-center justify-between gap-3 ${
+            m.completed 
+              ? 'bg-emerald-500/5 border-emerald-500/30 text-emerald-600 dark:text-emerald-400' 
+              : 'vercel-card hover:border-black/20 dark:hover:border-white/20'
+          }">
+            <div class="flex items-center space-x-3">
+              <button onclick="toggleMissionItem('${m.id}')" class="w-6 h-6 rounded-lg border flex items-center justify-center text-xs font-bold transition-all ${
+                m.completed ? 'bg-emerald-600 text-white border-emerald-600' : 'border-black/20 dark:border-white/20 text-transparent hover:border-black'
+              }">
+                ✓
+              </button>
+              <div>
+                <span class="font-bold text-xs ${m.completed ? 'line-through opacity-70 text-black dark:text-white' : 'text-black dark:text-white'}">
+                  ${m.icon} ${m.title}
+                </span>
+                <p class="text-[11px] text-neutral-500 font-sans mt-0.5">${m.desc}</p>
+              </div>
+            </div>
+
+            <a href="${m.link}" class="shrink-0 px-3 py-1.5 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 font-mono text-[11px] text-neutral-700 dark:text-neutral-300">
+              Başla ➔
+            </a>
+          </div>
+        `;
+      }).join('');
+
+      // Progress Bar
+      const total = list.length;
+      const pct = Math.round((completedCount / total) * 100);
+      const textEl = document.getElementById('missions-progress-text');
+      const barEl = document.getElementById('missions-progress-bar');
+
+      if (textEl) textEl.innerText = `${completedCount} / ${total} Görev (%${pct})`;
+      if (barEl) {
+        barEl.style.width = `${pct}%`;
+        if (pct === 100) {
+          barEl.className = 'h-full bg-emerald-500 transition-all duration-500';
+          if (textEl) textEl.className = 'px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 font-bold';
+        }
+      }
+    }
+
+    function toggleMissionItem(id) {
+      App.DailyMissions.toggleMission(id);
+      renderDailyMissions();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadUserGoalUI();
+      renderDailyMissions();
+    });
+  </script>
+</body>
+</html>

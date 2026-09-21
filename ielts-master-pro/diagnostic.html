@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEFR Seviye Tespit & IELTS Band Tahmini | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-white selection:text-black">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-90 transition-opacity shadow-sm shadow-amber-500/30">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-rose-500 hover:text-rose-600 font-bold border border-rose-500/20 bg-rose-500/5 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-3xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8">
+
+    <!-- Header Section -->
+    <div class="text-center space-y-2 border-b border-black/5 dark:border-white/10 pb-6">
+      <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+        <span>A1'den C2'ye Kademeli Teşhis Testi</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-black dark:text-white">CEFR Seviye Tespit & IELTS Band Tahmini</h1>
+      <p class="text-xs text-neutral-500 max-w-md mx-auto">15 soruluk bu test gramer, kelime ve sentaks bilginizi analiz ederek tahmini IELTS Band skorunuzu ve çalışma yol haritanızı belirler.</p>
+    </div>
+
+    <!-- TEST CONTAINER -->
+    <div id="quiz-container" class="space-y-6">
+      
+      <!-- Progress Bar -->
+      <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+        <span id="q-counter">Soru: 1 / 15</span>
+        <span id="q-level-badge" class="px-2 py-0.5 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white font-bold">A1 Seviyesi</span>
+      </div>
+      <div class="w-full h-1.5 rounded-full bg-neutral-100 dark:bg-neutral-900 overflow-hidden">
+        <div id="progress-bar-fill" class="h-full bg-black dark:bg-white transition-all duration-300 w-[6.6%]"></div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-6">
+        <h3 id="question-text" class="text-base sm:text-lg font-semibold text-black dark:text-white leading-snug"></h3>
+        <div id="options-container" class="space-y-2.5"></div>
+        <div id="instant-feedback" class="hidden p-3 rounded-xl text-xs font-mono"></div>
+      </div>
+
+      <!-- Bottom Next Action -->
+      <div class="flex justify-end">
+        <button onclick="nextQuestion()" id="next-btn" class="hidden px-6 py-2 rounded-full font-semibold text-xs bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transition-opacity">
+          Sonraki Soru ➔
+        </button>
+      </div>
+
+    </div>
+
+    <!-- RESULT REPORT CONTAINER -->
+    <div id="result-container" class="hidden space-y-8">
+      
+      <div class="vercel-card rounded-3xl p-8 sm:p-10 text-center space-y-6">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl mx-auto font-black">
+          ✓
+        </div>
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400">Test Tamamlandı · Analiz Raporu</span>
+          <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-black dark:text-white mt-1">Seviye Değerlendirmeniz Hazır</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md mx-auto pt-2">
+          <div class="p-5 rounded-2xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-1">
+            <span class="text-[10px] font-mono text-neutral-400 uppercase">CEFR Seviyeniz</span>
+            <div id="res-cefr" class="text-3xl font-black text-black dark:text-white">B2</div>
+            <span id="res-cefr-desc" class="text-[11px] text-neutral-500 font-medium">Vantage (İleri Orta)</span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-1">
+            <span class="text-[10px] font-mono text-neutral-400 uppercase">Tahmini IELTS Skoru</span>
+            <div id="res-band" class="text-3xl font-black text-emerald-500">6.0 - 6.5</div>
+            <span class="text-[11px] text-neutral-500 font-medium">Üniversite Kabul Barajı</span>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-neutral-50 dark:bg-[#070707] border border-black/5 dark:border-white/10 text-xs text-neutral-600 dark:text-neutral-400 text-left space-y-2">
+          <h4 class="font-bold font-mono uppercase text-black dark:text-white text-[11px]">🎯 Size Özel Çalışma Yol Haritası:</h4>
+          <p id="res-roadmap" class="leading-relaxed"></p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <a href="ielts.html" class="px-6 py-2.5 rounded-full font-bold text-xs bg-amber-500 hover:bg-amber-400 text-black shadow-md active:scale-95 transition-all">
+            IELTS Becerilerine Başla ➔
+          </a>
+          <button onclick="restartTest()" class="px-4 py-2 rounded-full font-mono text-xs border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
+            Testi Tekrarla 🔄
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">CEFR Seviye Tespit & IELTS Band Tahmini Motoru</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Bireysel Seviye & Yol Haritası</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script>
+    const DIAGNOSTIC_QUESTIONS = [
+      {
+        level: "A1",
+        q: "Look at the sentence: 'She ___ at the university library every Tuesday afternoon.' Which word correctly fills the blank?",
+        options: ["studies", "study", "studying", "is study"],
+        correct: 0,
+        explanation: "Geniş zamanda 3. tekil şahıs (She) fiilinde -s takısı (-ies) kullanılır: 'studies'."
+      },
+      {
+        level: "A1",
+        q: "Choose the correct question form: '___ you have a library membership card?'",
+        options: ["Are", "Do", "Have", "Does"],
+        correct: 1,
+        explanation: "'You' öznesi ile geniş zaman soru yardımcı fiili 'Do'dur."
+      },
+      {
+        level: "A2",
+        q: "Identify the correct past sentence: 'Last year, the city council ___ a new public transport initiative.'",
+        options: ["launched", "launches", "has launched", "was launch"],
+        correct: 0,
+        explanation: "'Last year' belirli bir geçmiş zaman zarfıdır ve Past Simple (launched) gerektirir."
+      },
+      {
+        level: "A2",
+        q: "Which sentence has correct comparative grammar?",
+        options: [
+          "Electric vehicles are more faster than diesel cars.",
+          "Electric vehicles are much faster than diesel cars.",
+          "Electric vehicles are fast than diesel cars.",
+          "Electric vehicles are more fast than diesel cars."
+        ],
+        correct: 1,
+        explanation: "Tek heceli sıfatlarda 'faster' denir ve vurgu için 'much faster' kullanılır."
+      },
+      {
+        level: "A2",
+        q: "Complete the sentence: 'You ___ wear a helmet when riding a motorized scooter; it is required by municipal law.'",
+        options: ["might", "must", "could", "would"],
+        correct: 1,
+        explanation: "Kanuni zorunluluk bildirmek için 'must' kullanılır."
+      },
+      {
+        level: "B1",
+        q: "Select the sentence with accurate usage of Present Perfect:",
+        options: [
+          "Researchers have published the initial findings two weeks ago.",
+          "Researchers have published several groundbreaking papers since 2021.",
+          "Researchers published several papers since 2021.",
+          "Researchers have publish the report yesterday."
+        ],
+        correct: 1,
+        explanation: "'Since 2021' başlangıç noktası belirtir ve Present Perfect ('have published') gerektirir."
+      },
+      {
+        level: "B1",
+        q: "Complete the conditional: 'If municipal authorities invest in cycling lanes, urban traffic congestion ___ noticeably.'",
+        options: ["will decrease", "would decrease", "decreased", "had decreased"],
+        correct: 0,
+        explanation: "Type 1 koşul cümlesinde temel cümle 'will + V1' alır."
+      },
+      {
+        level: "B1",
+        q: "Choose the best academic synonym for 'a big difference':",
+        options: ["a significant discrepancy", "a loud difference", "a huge distinct", "a heavy gap"],
+        correct: 0,
+        explanation: "Akademik İngilizcede 'significant discrepancy' yüksek band kelime eşdizimidir."
+      },
+      {
+        level: "B2",
+        q: "Which sentence demonstrates the correct passive voice construction?",
+        options: [
+          "Stringent emission regulations have introduced by the government.",
+          "Stringent emission regulations have been introduced by the government.",
+          "Stringent emission regulations were been introduced by the government.",
+          "Stringent emission regulations has been introduced by the government."
+        ],
+        correct: 1,
+        explanation: "Çoğul özne (regulations) ile Present Perfect Passive 'have been + V3' şeklindedir."
+      },
+      {
+        level: "B2",
+        q: "Complete the non-defining relative clause: 'Dr. Sterling, ___ clinical trials received international acclaim, will address the forum.'",
+        options: ["who", "whose", "which", "that"],
+        correct: 1,
+        explanation: "Klinik deneylerin sahibini (mülkiyet) belirttiği için 'whose' kullanılır."
+      },
+      {
+        level: "B2",
+        q: "Which word best completes: 'The government took urgent measures to ___ the economic consequences of the crisis.'",
+        options: ["mitigate", "pollute", "deteriorate", "aggravate"],
+        correct: 0,
+        explanation: "'Mitigate' hafifletmek, olumsuz etkiyi azaltmak anlamına gelir."
+      },
+      {
+        level: "C1",
+        q: "Select the grammatically accurate negative inversion sentence:",
+        options: [
+          "Not only the policy failed, but it also provoked public discontent.",
+          "Not only did the policy fail, but it also provoked public discontent.",
+          "Not only does the policy failed, but it also provoked discontent.",
+          "Not only had the policy failed, but also it provoked discontent."
+        ],
+        correct: 1,
+        explanation: "'Not only' cümle başında devrik yapı kurar: yardımcı fiil (did) + özne + yalın fiil."
+      },
+      {
+        level: "C1",
+        q: "Choose the cleft sentence structure that accurately highlights the emphasized element:",
+        options: [
+          "What is needed are more strict regulations.",
+          "What is urgently needed is comprehensive regulatory reform.",
+          "It is comprehensive regulatory reform what is needed.",
+          "What do critics argue is false entirely."
+        ],
+        correct: 1,
+        explanation: "'What is urgently needed is [singular noun phrase]' C1 düzeyinde kusursuz cleft vurgusudur."
+      },
+      {
+        level: "C1",
+        q: "Which sentence avoids a dangling participle?",
+        options: [
+          "Having finalized the statistical analysis, the research manuscript was submitted to the journal.",
+          "Having finalized the statistical analysis, the scientists submitted the manuscript to the journal.",
+          "Having finalized the statistical analysis, an unexpected error was discovered in the data.",
+          "Finalizing the statistical analysis, the paper looked ready."
+        ],
+        correct: 1,
+        explanation: "Analizi tamamlayan 'the scientists'dır; ana cümlenin öznesi doğru eşleşmiştir."
+      },
+      {
+        level: "C2",
+        q: "Select the most sophisticated inverted conditional reflecting C2 register:",
+        options: [
+          "If the regulatory bodies had intervened earlier, the insolvency would have been averted.",
+          "Had the regulatory bodies intervened earlier, the systemic insolvency could have been averted.",
+          "Had not the regulatory bodies intervened earlier, the insolvency was averted.",
+          "Were the regulatory bodies had intervened, the crisis would stop."
+        ],
+        correct: 1,
+        explanation: "'Had + S + V3...' C2 seviyesinde en prestijli devrik koşul yapısıdır."
+      }
+    ];
+
+    let currentQIdx = 0;
+    let userScore = 0;
+
+    function renderQuestion() {
+      const q = DIAGNOSTIC_QUESTIONS[currentQIdx];
+      document.getElementById('q-counter').innerText = `Soru: ${currentQIdx + 1} / ${DIAGNOSTIC_QUESTIONS.length}`;
+      document.getElementById('q-level-badge').innerText = `${q.level} Seviyesi`;
+      document.getElementById('progress-bar-fill').style.width = `${((currentQIdx + 1) / DIAGNOSTIC_QUESTIONS.length) * 100}%`;
+      document.getElementById('question-text').innerText = q.q;
+
+      const optsContainer = document.getElementById('options-container');
+      const feedback = document.getElementById('instant-feedback');
+      const nextBtn = document.getElementById('next-btn');
+
+      feedback.className = 'hidden';
+      nextBtn.classList.add('hidden');
+
+      optsContainer.innerHTML = q.options.map((opt, idx) => `
+        <button onclick="selectOption(${idx})" class="opt-btn w-full text-left p-3.5 rounded-xl border border-black/10 dark:border-white/10 text-xs sm:text-sm hover:bg-black/5 dark:hover:bg-white/5 transition-all text-neutral-800 dark:text-neutral-200">
+          <span class="font-mono text-neutral-400 mr-2">${String.fromCharCode(65 + idx)})</span>
+          ${opt}
+        </button>
+      `).join('');
+    }
+
+    function selectOption(idx) {
+      const q = DIAGNOSTIC_QUESTIONS[currentQIdx];
+      const buttons = document.querySelectorAll('.opt-btn');
+      const feedback = document.getElementById('instant-feedback');
+      const nextBtn = document.getElementById('next-btn');
+
+      buttons.forEach((btn, bIdx) => {
+        btn.disabled = true;
+        if (bIdx === q.correct) {
+          btn.className = 'w-full text-left p-3.5 rounded-xl text-xs sm:text-sm font-bold bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400';
+        } else if (bIdx === idx) {
+          btn.className = 'w-full text-left p-3.5 rounded-xl text-xs sm:text-sm font-bold bg-rose-500/10 border border-rose-500/30 text-rose-600 dark:text-rose-400';
+        } else {
+          btn.className = 'w-full text-left p-3.5 rounded-xl text-xs sm:text-sm opacity-40 border border-black/10 dark:border-white/10';
+        }
+      });
+
+      if (idx === q.correct) {
+        userScore++;
+        feedback.className = 'p-3 rounded-xl text-xs font-mono bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400';
+        feedback.innerHTML = `<strong>✓ Doğru!</strong> ${q.explanation}`;
+      } else {
+        feedback.className = 'p-3 rounded-xl text-xs font-mono bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400';
+        feedback.innerHTML = `<strong>✕ Yanlış.</strong> ${q.explanation}`;
+      }
+
+      nextBtn.classList.remove('hidden');
+    }
+
+    function nextQuestion() {
+      if (currentQIdx < DIAGNOSTIC_QUESTIONS.length - 1) {
+        currentQIdx++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('result-container').classList.remove('hidden');
+
+      let cefr = "A2";
+      let desc = "Elementary (Temel Kullanıcı)";
+      let band = "3.5 - 4.5";
+      let roadmap = "";
+
+      if (userScore >= 14) {
+        cefr = "C2";
+        desc = "Mastery (Uzman / Ana Dili Düzeyi)";
+        band = "8.5 - 9.0";
+        roadmap = "Tebrikler! Gramer ve sentaks bilginiz en üst düzeydedir. Writing Task 2'de Nominalization ve Speaking Part 3 soyut argüman geliştirme tekniklerine odaklanarak doğrudan Band 9.0 hedefleyebilirsiniz.";
+      } else if (userScore >= 11) {
+        cefr = "C1";
+        desc = "Effective Operational Proficiency (İleri Düzey)";
+        band = "7.0 - 8.0";
+        roadmap = "Mükemmel bir temeliniz var! C1 Inversion ve Cleft cümle yapılarını essaylerinizde doğal bir akışla kullanma pratiği yapın. Akademik Word List (AWL) kelimelerine ve Task 1 süreç diyagramlarına odaklanın.";
+      } else if (userScore >= 8) {
+        cefr = "B2";
+        desc = "Vantage (Bağımsız Kullanıcı / Üniversite Kabul)";
+        band = "6.0 - 6.5";
+        roadmap = "İngiltere, Kanada ve Avrupa üniversitelerinin lisans/yüksek lisans kabul barajındasınız. Puanınızı 7.0+ üzerine taşımak için B2 Passive Voice, Conditionals ve Writing Task 2 akademik bağlaçlarını sıkça pratik edin.";
+      } else if (userScore >= 5) {
+        cefr = "B1";
+        desc = "Threshold (Orta Düzey)";
+        band = "5.0 - 5.5";
+        roadmap = "Temel cümle yapılarına hakimsiniz. Present Perfect vs Past Simple ayrımını oturtmalı ve A2-B1 kelime flashcardları ile kelime haznenizi genişletmelisiniz. Listening Section 1 & 2 soru tiplerine ağırlık verin.";
+      } else {
+        cefr = "A2";
+        desc = "Elementary (Başlangıç - Temel Seviye)";
+        band = "3.5 - 4.5";
+        roadmap = "Gramer Bankası'ndaki A1 ve A2 seviye konu anlatımlarını adım adım tamamlayın. Geniş zaman ve geçmiş zaman formüllerini pekiştirerek günde 10 yeni flashcard çalışın.";
+      }
+
+      document.getElementById('res-cefr').innerText = cefr;
+      document.getElementById('res-cefr-desc').innerText = desc;
+      document.getElementById('res-band').innerText = band;
+      document.getElementById('res-roadmap').innerText = roadmap;
+    }
+
+    function restartTest() {
+      currentQIdx = 0;
+      userScore = 0;
+      document.getElementById('result-container').classList.add('hidden');
+      document.getElementById('quiz-container').classList.remove('hidden');
+      renderQuestion();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderQuestion();
+    });
+  </script>
+</body>
+</html>

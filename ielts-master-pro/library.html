@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Master Kütüphanesi | 100 Dünya Klasiği (A1-C2)</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .word-clickable {
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 1px 2px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+    .word-clickable:hover {
+      background-color: rgba(245, 158, 11, 0.25);
+      color: #f59e0b;
+    }
+    .sentence-playing {
+      background-color: rgba(245, 158, 11, 0.15);
+      border-left: 3px solid #f59e0b;
+      padding-left: 6px;
+      transition: all 0.2s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-amber-300/30 dark:selection:bg-amber-400/20">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-80 transition-opacity shadow-sm">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-amber-500 hover:text-amber-400 font-bold border border-amber-500/25 bg-amber-500/10 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+
+    <!-- ======================================================== -->
+    <!-- VIEW 1: 100-BOOK CATALOG SHELF VIEW (DEFAULT)            -->
+    <!-- ======================================================== -->
+    <div id="view-library-catalog" class="space-y-8">
+
+      <!-- Hero Banner -->
+      <div class="space-y-3 max-w-3xl">
+        <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-purple-500 font-bold">
+          <span>🏛️ PUBLIC DOMAIN DÜNYA EDEBİYATI · CEFR A1 - C2 KAPSAMLI OKUMA</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-black dark:text-white">
+          IELTS Master Kütüphanesi: 100 Dünya Klasiği
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed font-sans">
+          Ezop masallarından Sherlock Holmes'e, Dorian Gray'den Marcus Aurelius'a 100 ölümsüz eser. 500-700 kelimelik ısırık boyutunda bölümler, tıklanabilir anlık kelime sözlüğü, Cambridge sesli kitap senkronizasyonu ve her bölüm sonunda 5 mini sınav sorusu.
+        </p>
+      </div>
+
+      <!-- Controls: Level Pills & Search -->
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 p-4 rounded-3xl bg-neutral-100 dark:bg-[#111111] border border-black/5 dark:border-white/10 font-mono text-xs">
+        
+        <!-- CEFR Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5" id="level-filter-pills">
+          <button onclick="filterCatalog('ALL')" id="pill-ALL" class="px-3.5 py-1.5 rounded-xl font-bold bg-purple-600 text-white shadow-sm transition-all">Tümü (100)</button>
+          <button onclick="filterCatalog('A1')" id="pill-A1" class="px-3 py-1.5 rounded-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">A1 (10)</button>
+          <button onclick="filterCatalog('A2')" id="pill-A2" class="px-3 py-1.5 rounded-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">A2 (20)</button>
+          <button onclick="filterCatalog('B1')" id="pill-B1" class="px-3 py-1.5 rounded-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">B1 (20)</button>
+          <button onclick="filterCatalog('B2')" id="pill-B2" class="px-3 py-1.5 rounded-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">B2 (20)</button>
+          <button onclick="filterCatalog('C1')" id="pill-C1" class="px-3 py-1.5 rounded-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">C1 (15)</button>
+          <button onclick="filterCatalog('C2')" id="pill-C2" class="px-3 py-1.5 rounded-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all">C2 (15)</button>
+        </div>
+
+        <!-- Search Box -->
+        <div class="flex items-center space-x-2 shrink-0">
+          <div class="relative w-full sm:w-64">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-neutral-400 pointer-events-none">🔍</span>
+            <input type="text" id="library-search-input" oninput="handleLibrarySearch(this.value)" placeholder="Kitap veya yazar ara..." class="w-full pl-9 pr-3 py-2 rounded-xl bg-white dark:bg-black border border-black/10 dark:border-white/10 text-xs font-mono text-black dark:text-white focus:outline-none focus:ring-1 focus:ring-purple-500">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Book Cards Grid -->
+      <div id="library-books-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <!-- Injected dynamically via renderLibraryCatalog() -->
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- VIEW 2: INTERACTIVE BITE-SIZED READER & AUDIOBOOK STAGE  -->
+    <!-- ======================================================== -->
+    <div id="view-reader-stage" class="hidden space-y-6">
+
+      <!-- Navigation & Breadcrumb -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-4">
+        <button onclick="returnToCatalog()" class="px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 font-mono text-xs font-bold transition-all flex items-center space-x-2 self-start">
+          <span>⬅️</span>
+          <span>Kütüphaneye Dön</span>
+        </button>
+
+        <div class="flex items-center space-x-2 font-mono text-xs">
+          <span id="reader-book-level-badge" class="px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-400 font-bold">B2</span>
+          <span class="text-neutral-400">·</span>
+          <span id="reader-book-title-badge" class="text-black dark:text-white font-bold truncate max-w-[180px]">The Call of the Wild</span>
+          <span class="text-neutral-400">·</span>
+          <span id="reader-chapter-progress-pill" class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-300 font-bold">Bölüm 1 / 4</span>
+        </div>
+      </div>
+
+      <!-- Reader Main Layout: 2 Columns (Left: Meta & Chapters / Right: Text & Audio) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- Left Sidebar: Book Details & Chapters (4 Cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          
+          <div class="vercel-card rounded-3xl p-6 space-y-4 border border-black/10 dark:border-white/10">
+            <div class="flex items-center space-x-3">
+              <span id="reader-cover-icon" class="text-3xl p-3 rounded-2xl bg-purple-500/10 border border-purple-500/20">📖</span>
+              <div>
+                <h2 id="reader-meta-title" class="text-base font-bold text-black dark:text-white leading-tight">Book Title</h2>
+                <p id="reader-meta-author" class="text-xs text-neutral-400 font-mono">Author Name · Year</p>
+              </div>
+            </div>
+
+            <p id="reader-meta-desc" class="text-xs text-neutral-500 font-sans leading-relaxed border-t border-black/5 dark:border-white/10 pt-3">
+              Book summary description.
+            </p>
+
+            <!-- Chapters Navigation List -->
+            <div class="space-y-2 pt-2 border-t border-black/5 dark:border-white/10">
+              <span class="text-[10px] font-mono text-neutral-400 uppercase font-bold block">Bölümler (Isırık Boyutu · 500-700w):</span>
+              <div id="reader-chapters-list" class="space-y-1.5 font-mono text-xs max-h-56 overflow-y-auto">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Target Academic Vocabulary Box for this Chapter -->
+          <div class="vercel-card rounded-2xl p-5 space-y-3">
+            <div class="flex items-center space-x-2 font-mono text-xs">
+              <span class="text-amber-500">💎</span>
+              <span class="font-bold text-black dark:text-white">Bölümün Hedef Kelimeleri (SRS):</span>
+            </div>
+            <p class="text-[11px] text-neutral-500 font-sans">
+              Metin içinde bilmediğiniz herhangi bir kelimeye tıklayarak Türkçe anlamını görebilir ve tek tıkla Kelime & SRS defterinize ekleyebilirsiniz.
+            </p>
+            <div id="reader-vocab-chips" class="flex flex-wrap gap-1.5">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Pane: Bite-Sized Reading, Audio Player & 5 Questions (8 Cols) -->
+        <div class="lg:col-span-8 space-y-6">
+
+          <!-- Audiobook & Reader Toolbar -->
+          <div class="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-neutral-100 dark:bg-[#111111] border border-black/5 dark:border-white/10 font-mono text-xs">
+            
+            <!-- Left: Audiobook Audio Player Controls -->
+            <div class="flex items-center space-x-2">
+              <button onclick="toggleAudiobook()" id="btn-audiobook-play" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold transition-all shadow-sm flex items-center space-x-1.5">
+                <span id="audiobook-icon">🔊</span>
+                <span id="audiobook-label">Sesli Kitabı Dinle</span>
+              </button>
+              <select id="select-audiobook-voice" onchange="changeAudiobookVoice(this.value)" class="p-2 rounded-xl bg-white dark:bg-black border border-black/10 dark:border-white/10 text-[11px] text-neutral-700 dark:text-neutral-300 focus:outline-none">
+                <option value="uk-male">🇬🇧 Dr. Alistair (Tok Anlatıcı)</option>
+                <option value="uk-female" selected>🇬🇧 Dr. Clara (Zarif Oxford)</option>
+                <option value="us-male">🇺🇸 Dr. Ethan (Amerikan)</option>
+              </select>
+            </div>
+
+            <!-- Right: Font Size & WPM Stopwatch -->
+            <div class="flex items-center space-x-2">
+              <button onclick="handleReaderWpm()" id="btn-reader-wpm" class="px-3 py-1.5 rounded-xl border border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-300 hover:bg-black/5 dark:hover:bg-white/5 transition-all flex items-center space-x-1 font-bold">
+                <span>⏱️</span>
+                <span id="reader-wpm-label">Hız Ölç (WPM)</span>
+              </button>
+              <div class="flex items-center border border-black/10 dark:border-white/10 rounded-xl overflow-hidden">
+                <button onclick="changeFontSize(-1)" class="px-2.5 py-1 text-xs hover:bg-black/5 dark:hover:bg-white/5 font-bold">A-</button>
+                <button onclick="changeFontSize(1)" class="px-2.5 py-1 text-xs hover:bg-black/5 dark:hover:bg-white/5 font-bold">A+</button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Reading Passage Text Card -->
+          <div class="vercel-card rounded-3xl p-6 sm:p-9 space-y-5 border border-black/10 dark:border-white/10">
+            <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-4">
+              <div>
+                <span class="text-[10px] font-mono text-purple-500 uppercase font-bold tracking-wider" id="reader-chapter-label">BÖLÜM 1</span>
+                <h3 class="text-xl sm:text-2xl font-black text-black dark:text-white" id="reader-chapter-title">Chapter Title</h3>
+              </div>
+              <span class="text-xs font-mono text-neutral-400" id="reader-word-count-badge">~550 Kelime</span>
+            </div>
+
+            <!-- The Text Body -->
+            <div id="reader-text-container" class="text-neutral-800 dark:text-neutral-200 leading-relaxed font-sans space-y-4" style="font-size: 16px;">
+              <!-- Injected by JS with interactive clickable words -->
+            </div>
+          </div>
+
+          <!-- 5 End-of-Chapter Mini Questions (Cambridge Standard) -->
+          <div class="vercel-card rounded-3xl p-6 sm:p-8 space-y-5 border border-purple-500/20">
+            <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-lg">📝</span>
+                <h4 class="text-base font-bold text-black dark:text-white font-mono uppercase tracking-wider">
+                  Bölüm Sonu 5 Mini Sınav Sorusu
+                </h4>
+              </div>
+              <span id="quiz-score-badge" class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 font-mono text-xs font-bold">0 / 5 Tamamlandı</span>
+            </div>
+
+            <div id="reader-quiz-container" class="space-y-4">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+
+          <!-- Chapter Navigation Bar -->
+          <div class="vercel-card rounded-3xl p-5 border border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs shadow-sm">
+            <button id="btn-prev-chapter" onclick="prevChapter()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center space-x-1.5">
+              <span>⬅</span>
+              <span>Önceki Bölüm</span>
+            </button>
+
+            <div class="text-center space-y-1.5">
+              <span id="chapter-nav-status" class="font-bold text-black dark:text-white block">Bölüm 1 / 4 (%25 Tamamlandı)</span>
+              <div class="w-40 h-2 bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden mx-auto">
+                <div id="chapter-nav-bar" class="h-full bg-gradient-to-r from-purple-600 to-indigo-500 transition-all duration-300" style="width: 25%"></div>
+              </div>
+            </div>
+
+            <button id="btn-next-chapter" onclick="nextChapter()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold transition-all shadow-sm flex items-center justify-center space-x-2">
+              <span id="btn-next-chapter-label">Sonraki Bölüm (Bölüm 2)</span>
+              <span>➔</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Interactive Word Definition & SRS Popover Modal -->
+  <div id="word-lookup-modal" class="hidden fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="vercel-card rounded-3xl p-6 max-w-sm w-full space-y-4 border border-amber-500/40 shadow-2xl bg-white dark:bg-[#0c0c0c] animate-scale-in">
+      <div class="flex items-start justify-between">
+        <div>
+          <div class="flex items-center space-x-2">
+            <h3 id="modal-word-title" class="text-xl font-bold text-black dark:text-white font-mono">Word</h3>
+            <button onclick="speakCurrentWord()" title="Telaffuzu Dinle (İngiliz Aksanı)" class="text-xs p-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all">🔊</button>
+          </div>
+          <span id="modal-word-ipa" class="text-xs font-mono text-neutral-400">/phonetic/</span>
+        </div>
+        <button onclick="closeWordModal()" class="p-1.5 rounded-full text-neutral-400 hover:text-black dark:hover:text-white text-xs">✕</button>
+      </div>
+
+      <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-mono text-amber-600 dark:text-amber-400 font-bold uppercase tracking-wider">Türkçe Karşılığı:</span>
+          <button onclick="toggleMeaningEdit()" id="btn-toggle-edit-meaning" class="text-[10px] font-mono text-neutral-400 hover:text-amber-500 transition-colors flex items-center space-x-1">
+            <span>✏️</span>
+            <span>Düzenle</span>
+          </button>
+        </div>
+        <div id="modal-word-meaning-wrapper">
+          <p id="modal-word-meaning" class="text-sm font-bold text-black dark:text-white capitalize">Anlam yükleniyor...</p>
+          <input id="modal-word-meaning-input" type="text" class="hidden w-full p-2 mt-1 rounded-xl text-xs bg-white dark:bg-black border border-amber-500/40 text-black dark:text-white font-sans focus:outline-none focus:ring-1 focus:ring-amber-500" placeholder="Türkçe anlamı yazınız...">
+        </div>
+      </div>
+
+      <div class="space-y-2 pt-2">
+        <button onclick="addModalWordToSrs()" id="btn-modal-add-srs" class="w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold transition-all shadow-sm flex items-center justify-center space-x-2">
+          <span>📥</span>
+          <span>Kelime & SRS Defterime Ekle (Kutu 1)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">100 Dünya Klasiği · Çift Dilli Canlı Sözlük, Sesli Kitap & Bölüm Soruları</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>A1-C2 Edebi & Akademik Arşiv</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="text-amber-500 font-bold">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/library-data.js"></script>
+
+  <!-- Application Logic -->
+  <script>
+    let activeFilter = 'ALL';
+    let activeBook = null;
+    let activeChapter = null;
+    let activeChapterIndex = 0;
+    let currentFontSize = 16;
+    let isAudiobookPlaying = false;
+    let audiobookUtterance = null;
+    let wpmSeconds = 0;
+    let wpmInterval = null;
+    let isWpmTracking = false;
+    let userQuizAnswers = {};
+    let isEditingMeaning = false;
+    let dictCache = {};
+    try {
+      dictCache = JSON.parse(localStorage.getItem('ielts_dict_cache') || '{}');
+    } catch(e) {
+      dictCache = {};
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      App.initTheme();
+      renderLibraryCatalog();
+    });
+
+    // 1. Catalog View
+    function filterCatalog(lvl) {
+      activeFilter = lvl;
+      const pills = ['ALL', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+      pills.forEach(p => {
+        const btn = document.getElementById(`pill-${p}`);
+        if (btn) {
+          if (p === lvl) {
+            btn.className = "px-3.5 py-1.5 rounded-xl font-bold bg-purple-600 text-white shadow-sm transition-all";
+          } else {
+            btn.className = "px-3 py-1.5 rounded-xl text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-all";
+          }
+        }
+      });
+      renderLibraryCatalog();
+    }
+
+    function handleLibrarySearch(query) {
+      renderLibraryCatalog(query.trim().toLowerCase());
+    }
+
+    function renderLibraryCatalog(searchQuery = '') {
+      const container = document.getElementById('library-books-grid');
+      if (!container) return;
+
+      let list = IELTS_LIBRARY_CATALOG;
+      if (activeFilter !== 'ALL') {
+        list = list.filter(b => b.level === activeFilter);
+      }
+      if (searchQuery) {
+        list = list.filter(b => 
+          b.title.toLowerCase().includes(searchQuery) ||
+          b.titleTr.toLowerCase().includes(searchQuery) ||
+          b.author.toLowerCase().includes(searchQuery) ||
+          b.category.toLowerCase().includes(searchQuery)
+        );
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full p-8 text-center text-xs font-mono text-neutral-400 border border-dashed border-black/10 dark:border-white/10 rounded-2xl">
+            Aranan kriterlere uygun klasik eser bulunamadı.
+          </div>
+        `;
+        return;
+      }
+
+      const levelColors = {
+        'A1': 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+        'A2': 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+        'B1': 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+        'B2': 'bg-purple-500/10 text-purple-500 border-purple-500/20',
+        'C1': 'bg-pink-500/10 text-pink-500 border-pink-500/20',
+        'C2': 'bg-rose-500/10 text-rose-500 border-rose-500/20'
+      };
+
+      container.innerHTML = list.map(book => {
+        const isRead = localStorage.getItem(`lib_read_${book.id}`) === 'true';
+        const colorClass = levelColors[book.level] || 'bg-purple-500/10 text-purple-500';
+
+        return `
+          <div onclick="openBookReader('${book.id}')" class="book-card vercel-card rounded-3xl p-5 space-y-4 flex flex-col justify-between cursor-pointer border border-black/5 dark:border-white/5 hover:border-purple-500/40 transition-all group">
+            
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl p-2.5 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 group-hover:scale-110 transition-transform">
+                  ${book.icon}
+                </span>
+                <span class="px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold border ${colorClass}">
+                  ${book.level}
+                </span>
+              </div>
+
+              <div class="space-y-1">
+                <h3 class="text-sm font-bold text-black dark:text-white line-clamp-1 group-hover:text-purple-500 transition-colors">
+                  ${book.title}
+                </h3>
+                <p class="text-xs text-neutral-500 line-clamp-1 font-sans">${book.titleTr}</p>
+                <p class="text-[11px] text-neutral-400 font-mono">${book.author} · ${book.year}</p>
+              </div>
+
+              <p class="text-[11px] text-neutral-500 line-clamp-2 leading-relaxed font-sans">
+                ${book.desc}
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between font-mono text-[10px] text-neutral-400">
+              <span>${book.category}</span>
+              <span class="text-purple-500 font-bold group-hover:translate-x-0.5 transition-transform">Oku ➔</span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 2. Reader Stage View
+    function openBookReader(bookId, chapterIndex = 0) {
+      const book = IELTS_LIBRARY_CATALOG.find(b => b.id === bookId);
+      if (!book) return;
+
+      activeBook = book;
+      stopAudiobook();
+      stopReaderWpm();
+
+      // Ensure full multi-chapter arc is loaded
+      const chapters = (typeof getBookChapters === 'function') ? getBookChapters(book) : (book.chapters || []);
+      if (!chapters || chapters.length === 0) return;
+
+      activeChapterIndex = Math.max(0, Math.min(chapterIndex, chapters.length - 1));
+      activeChapter = chapters[activeChapterIndex];
+
+      // Populate UI Header & Meta
+      document.getElementById('view-library-catalog').classList.add('hidden');
+      document.getElementById('view-reader-stage').classList.remove('hidden');
+
+      document.getElementById('reader-book-level-badge').innerText = book.level;
+      document.getElementById('reader-book-title-badge').innerText = book.title;
+      document.getElementById('reader-chapter-progress-pill').innerText = `Bölüm ${activeChapterIndex + 1} / ${chapters.length}`;
+      document.getElementById('reader-cover-icon').innerText = book.icon;
+      document.getElementById('reader-meta-title').innerText = book.title;
+      document.getElementById('reader-meta-author').innerText = `${book.author} · ${book.year}`;
+      document.getElementById('reader-meta-desc').innerText = book.desc;
+
+      document.getElementById('reader-chapter-label').innerText = `BÖLÜM ${activeChapter.chapterNum || (activeChapterIndex + 1)}`;
+      document.getElementById('reader-chapter-title').innerText = activeChapter.title;
+      document.getElementById('reader-word-count-badge').innerText = `~${activeChapter.wordCount || 560} Kelime`;
+
+      // Render Left Sidebar Chapters List
+      const chaptersNav = document.getElementById('reader-chapters-list');
+      chaptersNav.innerHTML = chapters.map((ch, idx) => {
+        const isCur = idx === activeChapterIndex;
+        return `
+          <button onclick="openBookReader('${book.id}', ${idx})" class="w-full text-left p-2.5 rounded-xl transition-all flex items-center justify-between ${
+            isCur 
+              ? 'bg-purple-600 text-white font-bold shadow-sm' 
+              : 'hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-400'
+          }">
+            <div class="truncate pr-2">
+              <span class="block text-[11px] font-bold truncate">Bölüm ${ch.chapterNum || (idx + 1)}: ${ch.title}</span>
+              <span class="block text-[10px] opacity-80 font-sans truncate">${ch.titleTr || ''} · ${ch.readTime || '5 dk'}</span>
+            </div>
+            <span class="font-mono text-xs shrink-0">${isCur ? '●' : '○'}</span>
+          </button>
+        `;
+      }).join('');
+
+      // Update Bottom Chapter Navigation Bar
+      const pct = Math.round(((activeChapterIndex + 1) / chapters.length) * 100);
+      const prevBtn = document.getElementById('btn-prev-chapter');
+      const nextBtnLabel = document.getElementById('btn-next-chapter-label');
+      const navStatus = document.getElementById('chapter-nav-status');
+      const navBar = document.getElementById('chapter-nav-bar');
+
+      if (prevBtn) prevBtn.disabled = (activeChapterIndex === 0);
+      if (navStatus) navStatus.innerText = `Bölüm ${activeChapterIndex + 1} / ${chapters.length} (%${pct} Tamamlandı)`;
+      if (navBar) navBar.style.width = `${pct}%`;
+      if (nextBtnLabel) {
+        if (activeChapterIndex < chapters.length - 1) {
+          nextBtnLabel.innerText = `Sonraki Bölüm (Bölüm ${activeChapterIndex + 2})`;
+        } else {
+          nextBtnLabel.innerText = `🎉 Kitabı Tamamla & Bitir`;
+        }
+      }
+
+      // Render Vocabulary Chips
+      const vocabArea = document.getElementById('reader-vocab-chips');
+      const vList = activeChapter.vocabulary || [];
+      vocabArea.innerHTML = vList.map(v => `
+        <span onclick="triggerWordLookup('${v.word}')" class="px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 font-mono text-[11px] font-semibold border border-amber-500/20 cursor-pointer hover:bg-amber-500/20 transition-all">
+          ${v.word} (${v.tr})
+        </span>
+      `).join('') || '<span class="text-xs text-neutral-400 font-mono">Bölüm kelimeleri metin içinde tıklanabilir.</span>';
+
+      // Render Clickable Words Body Text
+      renderClickableText(activeChapter.text);
+
+      // Render 5 Mini Questions
+      renderChapterQuiz(activeChapter.questions || []);
+
+      window.scrollTo({ top: 40, behavior: 'smooth' });
+    }
+
+    function prevChapter() {
+      if (!activeBook) return;
+      const chapters = (typeof getBookChapters === 'function') ? getBookChapters(activeBook) : (activeBook.chapters || []);
+      if (activeChapterIndex > 0) {
+        openBookReader(activeBook.id, activeChapterIndex - 1);
+      }
+    }
+
+    function nextChapter() {
+      if (!activeBook) return;
+      const chapters = (typeof getBookChapters === 'function') ? getBookChapters(activeBook) : (activeBook.chapters || []);
+      if (activeChapterIndex < chapters.length - 1) {
+        openBookReader(activeBook.id, activeChapterIndex + 1);
+      } else {
+        localStorage.setItem(`lib_completed_${activeBook.id}`, 'true');
+        alert(`🎉 Tebrikler! "${activeBook.title}" eserinin tüm ${chapters.length} bölümünü başarıyla tamamladınız!\n\nOkuma hanenize başarı rozeti eklendi.`);
+        returnToCatalog();
+      }
+    }
+
+    function returnToCatalog() {
+      stopAudiobook();
+      stopReaderWpm();
+      document.getElementById('view-reader-stage').classList.add('hidden');
+      document.getElementById('view-library-catalog').classList.remove('hidden');
+    }
+
+    // Interactive Word Wrapping
+    function renderClickableText(rawText) {
+      const container = document.getElementById('reader-text-container');
+      const paragraphs = rawText.split('\n\n');
+
+      container.innerHTML = paragraphs.map((para, pIdx) => {
+        // Split paragraph into words preserving punctuation
+        const tokens = para.split(/(\s+|[.,!?;:"'—–\(\)])/);
+        const wrapped = tokens.map(tok => {
+          if (/^[a-zA-Z]{2,}$/.test(tok)) {
+            return `<span class="word-clickable" onclick="triggerWordLookup('${tok}')">${tok}</span>`;
+          }
+          return tok;
+        }).join('');
+
+        return `<p id="para-${pIdx}" class="leading-relaxed font-sans">${wrapped}</p>`;
+      }).join('');
+    }
+
+    // ========================================================================
+    // Word Lookup & Live Turkish Translation Engine (0ms Cache + GTX + MyMemory)
+    // ========================================================================
+    let selectedLookupWord = null;
+
+    async function triggerWordLookup(word) {
+      const clean = word.toLowerCase().replace(/[^a-z]/g, '');
+      if (!clean) return;
+
+      selectedLookupWord = clean;
+      isEditingMeaning = false;
+
+      // Reset modal UI
+      document.getElementById('modal-word-title').innerText = word;
+      document.getElementById('modal-word-ipa').innerText = `/ˈ${clean}/`;
+
+      const meaningEl = document.getElementById('modal-word-meaning');
+      const inputEl = document.getElementById('modal-word-meaning-input');
+      const editBtn = document.getElementById('btn-toggle-edit-meaning');
+      if (inputEl) inputEl.classList.add('hidden');
+      if (meaningEl) meaningEl.classList.remove('hidden');
+      if (editBtn) editBtn.innerHTML = '<span>✏️</span><span>Düzenle</span>';
+
+      updateModalSrsState(clean);
+      document.getElementById('word-lookup-modal').classList.remove('hidden');
+
+      // 1. Check in-memory/localStorage dictionary cache
+      if (dictCache && dictCache[clean]) {
+        displayMeaning(dictCache[clean].tr, dictCache[clean].ipa);
+        return;
+      }
+
+      // 2. Check built-in core dictionary
+      if (typeof IELTS_LIBRARY_DICTIONARY !== 'undefined' && IELTS_LIBRARY_DICTIONARY[clean]) {
+        const item = IELTS_LIBRARY_DICTIONARY[clean];
+        cacheMeaning(clean, item.tr, item.ipa);
+        displayMeaning(item.tr, item.ipa);
+        return;
+      }
+
+      // 3. Check active chapter target vocabulary
+      if (activeChapter && activeChapter.vocabulary) {
+        const found = activeChapter.vocabulary.find(v => v.word.toLowerCase() === clean);
+        if (found) {
+          cacheMeaning(clean, found.tr, `/ˈ${clean}/`);
+          displayMeaning(found.tr, `/ˈ${clean}/`);
+          return;
+        }
+      }
+
+      // 4. Try Morphological Lemmatizer (Root detection)
+      if (typeof findLemma === 'function') {
+        const lemma = findLemma(clean);
+        if (lemma && typeof IELTS_LIBRARY_DICTIONARY !== 'undefined' && IELTS_LIBRARY_DICTIONARY[lemma]) {
+          const item = IELTS_LIBRARY_DICTIONARY[lemma];
+          const lemmaTr = `${item.tr} (kök: ${lemma})`;
+          cacheMeaning(clean, lemmaTr, item.ipa);
+          displayMeaning(lemmaTr, item.ipa);
+          return;
+        }
+      }
+
+      // 5. Live Online Translation API (Instant CORS Google GTX & MyMemory fallback)
+      meaningEl.innerHTML = `
+        <span class="inline-flex items-center space-x-1.5 text-amber-500 font-mono text-xs">
+          <span class="animate-spin inline-block">⏳</span>
+          <span>Türkçe çevirisi aranıyor...</span>
+        </span>
+      `;
+
+      const liveTr = await fetchOnlineTranslation(clean);
+      if (liveTr) {
+        cacheMeaning(clean, liveTr, `/ˈ${clean}/`);
+        displayMeaning(liveTr, `/ˈ${clean}/`);
+      } else {
+        displayMeaning(`${clean} (İngilizce kelime)`, `/ˈ${clean}/`);
+      }
+    }
+
+    async function fetchOnlineTranslation(word) {
+      // Primary: Google Translate GTX endpoint (CORS-friendly public API)
+      try {
+        const gUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=tr&dt=t&q=${encodeURIComponent(word)}`;
+        const res = await fetch(gUrl);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data[0] && data[0][0] && data[0][0][0]) {
+            return data[0][0][0].toLowerCase().trim();
+          }
+        }
+      } catch (e1) {
+        console.warn("Primary GTX translation failed:", e1);
+      }
+
+      // Secondary: MyMemory Translation API
+      try {
+        const mUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(word)}&langpair=en|tr`;
+        const res = await fetch(mUrl);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.responseData && data.responseData.translatedText) {
+            return data.responseData.translatedText.toLowerCase().trim();
+          }
+        }
+      } catch (e2) {
+        console.warn("Secondary MyMemory translation failed:", e2);
+      }
+
+      return null;
+    }
+
+    function displayMeaning(text, ipa) {
+      const meaningEl = document.getElementById('modal-word-meaning');
+      const inputEl = document.getElementById('modal-word-meaning-input');
+      const ipaEl = document.getElementById('modal-word-ipa');
+
+      if (ipa && ipaEl) ipaEl.innerText = ipa;
+      if (meaningEl) meaningEl.innerText = text;
+      if (inputEl) inputEl.value = text;
+    }
+
+    function cacheMeaning(word, translation, ipa) {
+      if (!dictCache) dictCache = {};
+      dictCache[word] = { tr: translation, ipa: ipa || `/ˈ${word}/` };
+      try {
+        localStorage.setItem('ielts_dict_cache', JSON.stringify(dictCache));
+      } catch(e) {}
+      if (typeof IELTS_LIBRARY_DICTIONARY !== 'undefined') {
+        IELTS_LIBRARY_DICTIONARY[word] = { tr: translation, ipa: ipa || `/ˈ${word}/` };
+      }
+    }
+
+    function toggleMeaningEdit() {
+      const meaningEl = document.getElementById('modal-word-meaning');
+      const inputEl = document.getElementById('modal-word-meaning-input');
+      const editBtn = document.getElementById('btn-toggle-edit-meaning');
+
+      isEditingMeaning = !isEditingMeaning;
+      if (isEditingMeaning) {
+        meaningEl.classList.add('hidden');
+        inputEl.classList.remove('hidden');
+        inputEl.focus();
+        editBtn.innerHTML = '<span>💾</span><span>Kaydet</span>';
+      } else {
+        const val = inputEl.value.trim();
+        if (val) {
+          meaningEl.innerText = val;
+          if (selectedLookupWord) cacheMeaning(selectedLookupWord, val);
+        }
+        inputEl.classList.add('hidden');
+        meaningEl.classList.remove('hidden');
+        editBtn.innerHTML = '<span>✏️</span><span>Düzenle</span>';
+      }
+    }
+
+    function speakCurrentWord() {
+      if (!('speechSynthesis' in window) || !selectedLookupWord) return;
+      const u = new SpeechSynthesisUtterance(selectedLookupWord);
+      u.lang = 'en-GB';
+      u.rate = 0.85;
+      window.speechSynthesis.speak(u);
+    }
+
+    function closeWordModal() {
+      document.getElementById('word-lookup-modal').classList.add('hidden');
+    }
+
+    function updateModalSrsState(cleanWord) {
+      const notebook = JSON.parse(localStorage.getItem('ielts_srs_notebook') || '[]');
+      const exists = notebook.some(item => item.word && item.word.toLowerCase() === cleanWord);
+      const btn = document.getElementById('btn-modal-add-srs');
+      if (!btn) return;
+
+      if (exists) {
+        btn.innerText = '✓ Defterinizde Ekli (Kutu 1)';
+        btn.className = 'w-full py-2.5 px-4 rounded-xl bg-emerald-500/20 text-emerald-500 font-mono text-xs font-bold border border-emerald-500/30 cursor-default';
+      } else {
+        btn.innerText = '📥 Kelime & SRS Defterime Ekle (Kutu 1)';
+        btn.className = 'w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold transition-all shadow-sm flex items-center justify-center space-x-2';
+      }
+    }
+
+    function addModalWordToSrs() {
+      if (!selectedLookupWord) return;
+      const notebook = JSON.parse(localStorage.getItem('ielts_srs_notebook') || '[]');
+      const clean = selectedLookupWord.toLowerCase();
+
+      // Read edited value or displayed text
+      const inputEl = document.getElementById('modal-word-meaning-input');
+      const meaningEl = document.getElementById('modal-word-meaning');
+      const finalMeaning = (isEditingMeaning && inputEl && inputEl.value.trim()) 
+        ? inputEl.value.trim() 
+        : (meaningEl ? meaningEl.innerText : clean);
+
+      const exists = notebook.some(item => item.word && item.word.toLowerCase() === clean);
+      if (!exists) {
+        notebook.push({
+          id: `lib_${Date.now()}`,
+          word: clean,
+          meaning: finalMeaning,
+          source: activeBook ? activeBook.title : 'Klasik Kütüphane',
+          dateAdded: new Date().toISOString().slice(0, 10),
+          box: 1, // Box 1 in Leitner SRS
+          nextReview: new Date().toISOString().slice(0, 10)
+        });
+        localStorage.setItem('ielts_srs_notebook', JSON.stringify(notebook));
+      }
+
+      const btn = document.getElementById('btn-modal-add-srs');
+      btn.innerText = '✓ Başarıyla SRS Kutu 1\'e Eklendi!';
+      btn.className = 'w-full py-2.5 px-4 rounded-xl bg-emerald-500 text-white font-mono text-xs font-bold transition-all';
+      setTimeout(closeWordModal, 800);
+    }
+
+    // 3. Audiobook Narration
+    function toggleAudiobook() {
+      if (!('speechSynthesis' in window)) {
+        alert("Tarayıcınız ses sentezleme özelliğini desteklemiyor.");
+        return;
+      }
+
+      const btn = document.getElementById('btn-audiobook-play');
+      const label = document.getElementById('audiobook-label');
+      const icon = document.getElementById('audiobook-icon');
+
+      if (!isAudiobookPlaying) {
+        window.speechSynthesis.cancel();
+        const text = activeChapter.text;
+        audiobookUtterance = new SpeechSynthesisUtterance(text);
+
+        const vKey = document.getElementById('select-audiobook-voice').value;
+        audiobookUtterance.lang = vKey.startsWith('us') ? 'en-US' : 'en-GB';
+        audiobookUtterance.rate = 0.90;
+
+        const voices = window.speechSynthesis.getVoices();
+        const match = voices.find(v => v.lang.includes(audiobookUtterance.lang.slice(0, 2)));
+        if (match) audiobookUtterance.voice = match;
+
+        audiobookUtterance.onstart = () => {
+          isAudiobookPlaying = true;
+          btn.className = "px-4 py-2 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-black font-bold transition-all shadow-sm flex items-center space-x-1.5";
+          label.innerText = "Sesli Kitabı Durdur ⏹";
+          icon.innerText = "⏸";
+        };
+
+        audiobookUtterance.onend = () => {
+          stopAudiobook();
+        };
+
+        window.speechSynthesis.speak(audiobookUtterance);
+      } else {
+        stopAudiobook();
+      }
+    }
+
+    function stopAudiobook() {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      isAudiobookPlaying = false;
+      const btn = document.getElementById('btn-audiobook-play');
+      const label = document.getElementById('audiobook-label');
+      const icon = document.getElementById('audiobook-icon');
+      if (btn && label && icon) {
+        btn.className = "px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold transition-all shadow-sm flex items-center space-x-1.5";
+        label.innerText = "Sesli Kitabı Dinle";
+        icon.innerText = "🔊";
+      }
+    }
+
+    function changeAudiobookVoice() {
+      if (isAudiobookPlaying) {
+        stopAudiobook();
+        toggleAudiobook();
+      }
+    }
+
+    // 4. Font Size & WPM
+    function changeFontSize(delta) {
+      currentFontSize = Math.min(Math.max(currentFontSize + delta, 13), 24);
+      document.getElementById('reader-text-container').style.fontSize = `${currentFontSize}px`;
+    }
+
+    function handleReaderWpm() {
+      const label = document.getElementById('reader-wpm-label');
+      if (!isWpmTracking) {
+        wpmSeconds = 0;
+        isWpmTracking = true;
+        label.innerText = "Okunuyor... (0s)";
+        wpmInterval = setInterval(() => {
+          wpmSeconds++;
+          const wCount = activeChapter ? activeChapter.wordCount || 520 : 520;
+          const wpm = Math.round((wCount / Math.max(wpmSeconds, 1)) * 60);
+          label.innerText = `${wpm} WPM (${wpmSeconds}s)`;
+        }, 1000);
+      } else {
+        stopReaderWpm();
+      }
+    }
+
+    function stopReaderWpm() {
+      if (wpmInterval) clearInterval(wpmInterval);
+      isWpmTracking = false;
+      const label = document.getElementById('reader-wpm-label');
+      if (label && wpmSeconds > 0) {
+        const wCount = activeChapter ? activeChapter.wordCount || 520 : 520;
+        const finalWpm = Math.round((wCount / wpmSeconds) * 60);
+        label.innerText = `Sonuç: ${finalWpm} WPM`;
+      } else if (label) {
+        label.innerText = "Hız Ölç (WPM)";
+      }
+    }
+
+    // 5. 5 Mini Questions Quiz Engine
+    function renderChapterQuiz(questions) {
+      const container = document.getElementById('reader-quiz-container');
+      const badge = document.getElementById('quiz-score-badge');
+      userQuizAnswers = {};
+
+      if (!questions || questions.length === 0) {
+        container.innerHTML = `
+          <div class="p-4 text-xs font-mono text-neutral-400">
+            Bu bölüm için mini sorular hazırlanmaktadır.
+          </div>
+        `;
+        return;
+      }
+
+      badge.innerText = `0 / ${questions.length} Cevaplandı`;
+
+      container.innerHTML = questions.map((q, qIdx) => {
+        let optionsHtml = '';
+
+        if (q.type === 'tfng') {
+          const opts = ['True', 'False', 'Not Given'];
+          optionsHtml = `
+            <div class="grid grid-cols-3 gap-2 pt-1 font-mono text-xs">
+              ${opts.map(opt => `
+                <button onclick="handleAnswerQuestion(${qIdx}, '${opt}')" id="q-${qIdx}-opt-${opt.replace(/\s+/g, '')}" class="py-2 px-3 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 font-semibold transition-all">
+                  ${opt}
+                </button>
+              `).join('')}
+            </div>
+          `;
+        } else {
+          optionsHtml = `
+            <div class="space-y-1.5 pt-1 text-xs">
+              ${q.options.map((opt, oIdx) => `
+                <button onclick="handleAnswerQuestion(${qIdx}, ${oIdx})" id="q-${qIdx}-opt-${oIdx}" class="w-full text-left p-2.5 px-3 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition-all flex items-center space-x-2">
+                  <span class="w-5 h-5 rounded-full border flex items-center justify-center font-mono text-[10px] shrink-0">${String.fromCharCode(65 + oIdx)}</span>
+                  <span>${opt}</span>
+                </button>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        return `
+          <div class="p-4 rounded-2xl bg-white/60 dark:bg-black/40 border border-black/5 dark:border-white/5 space-y-2 font-sans text-xs">
+            <div class="flex items-center justify-between font-mono text-[10px]">
+              <span class="font-bold text-purple-500 uppercase">Soru #${qIdx + 1} · ${q.type === 'tfng' ? 'True/False/Not Given' : (q.type === 'vocab' ? 'Bağlamdan Anlam' : 'Çoktan Seçmeli')}</span>
+              <span id="q-feedback-badge-${qIdx}" class="text-neutral-400">Yanıt bekleniyor</span>
+            </div>
+            <p class="font-bold text-black dark:text-white leading-relaxed text-sm">${q.text}</p>
+            ${optionsHtml}
+            <div id="q-explanation-${qIdx}" class="hidden p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 font-mono text-[11px] leading-relaxed">
+              💡 Çözüm: ${q.explanation}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleAnswerQuestion(qIdx, selectedOpt) {
+      if (userQuizAnswers[qIdx] !== undefined) return; // already answered
+      userQuizAnswers[qIdx] = selectedOpt;
+
+      const q = activeChapter.questions[qIdx];
+      let isCorrect = false;
+
+      if (q.type === 'tfng') {
+        isCorrect = selectedOpt === q.answer;
+        const btnId = `q-${qIdx}-opt-${selectedOpt.replace(/\s+/g, '')}`;
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          btn.className = isCorrect ? 'py-2 px-3 rounded-xl bg-emerald-500 text-white font-bold' : 'py-2 px-3 rounded-xl bg-rose-500 text-white font-bold';
+        }
+      } else {
+        isCorrect = selectedOpt === q.answer;
+        const btnId = `q-${qIdx}-opt-${selectedOpt}`;
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          btn.className = isCorrect ? 'w-full text-left p-2.5 px-3 rounded-xl bg-emerald-500 text-white font-bold flex items-center space-x-2' : 'w-full text-left p-2.5 px-3 rounded-xl bg-rose-500 text-white font-bold flex items-center space-x-2';
+        }
+      }
+
+      const fb = document.getElementById(`q-feedback-badge-${qIdx}`);
+      if (fb) {
+        fb.innerText = isCorrect ? '✓ Doğru' : '✕ Yanlış';
+        fb.className = isCorrect ? 'text-emerald-500 font-bold' : 'text-rose-500 font-bold';
+      }
+
+      const exp = document.getElementById(`q-explanation-${qIdx}`);
+      if (exp) exp.classList.remove('hidden');
+
+      // Update score badge
+      const totalQ = activeChapter.questions.length;
+      const answeredCount = Object.keys(userQuizAnswers).length;
+      document.getElementById('quiz-score-badge').innerText = `${answeredCount} / ${totalQ} Cevaplandı`;
+
+      if (answeredCount === totalQ) {
+        localStorage.setItem(`lib_read_${activeBook.id}`, 'true');
+      }
+    }
+  </script>
+</body>
+</html>

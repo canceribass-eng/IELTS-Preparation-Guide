@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEFR & Karma Soru Test Merkezi | IELTS Master Pro</title>
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            vercel: {
+              border: '#222222',
+              card: '#0a0a0a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#fafafa] text-[#111111] dark:bg-[#000000] dark:text-[#ededed] min-h-screen flex flex-col antialiased selection:bg-amber-300/30 dark:selection:bg-amber-400/20">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-80 transition-opacity shadow-sm">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-amber-500 hover:text-amber-400 font-bold border border-amber-500/25 bg-amber-500/10 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+    
+    <!-- Platform Header -->
+    <div class="border-b border-black/5 dark:border-white/10 pb-5">
+      <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-1">
+        <span>CEFR Seviye Sınavları & Karma Denemeler · Eksik Tespiti & Gramer Yönlendirmesi</span>
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-black dark:text-white">
+        Gramer & Sentaks Test Merkezi
+      </h1>
+      <p class="text-xs text-neutral-500 mt-1">
+        Her seviye için 10'ar test ve seviyelerden bağımsız 20 karma test (80 test · 1.600 soru). Çözdüğünüz her test sonucunda eksik olduğunuz konular tespit edilir ve doğrudan o konunun video dersine yönlendirilirsiniz.
+      </p>
+    </div>
+
+    <!-- VIEW 1: TEST SELECTION & CATEGORY TABS -->
+    <div id="test-list-view" class="space-y-6">
+      
+      <!-- Level Tabs -->
+      <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 text-xs font-mono">
+        <button onclick="switchTestCategory('A1')" id="tab-btn-A1" class="px-3.5 py-1.5 rounded-xl font-bold transition-all bg-amber-500 text-black shadow-xs shadow-amber-500/20 font-mono">
+          🌱 A1 (10 Test)
+        </button>
+        <button onclick="switchTestCategory('A2')" id="tab-btn-A2" class="px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 font-mono">
+          🌿 A2 (10 Test)
+        </button>
+        <button onclick="switchTestCategory('B1')" id="tab-btn-B1" class="px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 font-mono">
+          🌲 B1 (10 Test)
+        </button>
+        <button onclick="switchTestCategory('B2')" id="tab-btn-B2" class="px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 font-mono">
+          🎯 B2 (10 Test)
+        </button>
+        <button onclick="switchTestCategory('C1')" id="tab-btn-C1" class="px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 font-mono">
+          ⚡ C1 (10 Test)
+        </button>
+        <button onclick="switchTestCategory('C2')" id="tab-btn-C2" class="px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 font-mono">
+          👑 C2 (10 Test)
+        </button>
+        <button onclick="switchTestCategory('karma')" id="tab-btn-karma" class="px-4 py-1.5 rounded-xl transition-all text-purple-600 dark:text-purple-400 hover:text-purple-700 font-bold border border-purple-500/20 bg-purple-500/5">
+          🌀 Karma Sorular (20 Test)
+        </button>
+      </div>
+
+      <!-- Category Banner -->
+      <div id="category-banner" class="p-4 rounded-2xl vercel-card flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div>
+          <span class="font-mono text-[10px] uppercase text-neutral-400" id="cat-badge">Seviye: A1 (Başlangıç)</span>
+          <h3 class="text-sm font-bold text-black dark:text-white mt-0.5" id="cat-title">A1 Seviyesi Gramer & Sentaks Testleri (10 Adet Deneme)</h3>
+        </div>
+        <div class="flex items-center space-x-3 text-neutral-400 font-mono text-[11px]">
+          <span>Her Test 20 Soru</span>
+          <span>·</span>
+          <span>Süre: 25 Dk</span>
+          <span>·</span>
+          <span>Kişiselleştirilmiş Eksik Raporu</span>
+        </div>
+      </div>
+
+      <!-- Test Cards Grid -->
+      <div id="test-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Injected dynamically -->
+      </div>
+
+    </div>
+
+    <!-- VIEW 2: ACTIVE TEST RUNNER SCREEN -->
+    <div id="test-runner-view" class="hidden space-y-6">
+      
+      <!-- Top Test Status Bar -->
+      <div class="vercel-card rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-0.5">
+          <div class="flex items-center space-x-2">
+            <span class="font-mono text-[10px] uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-black/5 dark:bg-white/10 font-bold text-black dark:text-white" id="runner-level-badge">A1 Test #1</span>
+            <span class="text-xs text-neutral-400 font-mono">20 Soru</span>
+          </div>
+          <h2 class="text-base sm:text-lg font-bold text-black dark:text-white" id="runner-test-title">A1 Seviye Denemesi #1</h2>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <div class="flex items-center space-x-2 p-2 px-3 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 font-mono text-xs">
+            <span class="text-neutral-400">⏱️ Kalan:</span>
+            <span id="runner-timer" class="font-bold text-sm text-black dark:text-white">25:00</span>
+          </div>
+
+          <button onclick="finishTestAndGenerateReport()" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center space-x-1.5 transition-all">
+            <span>✅</span>
+            <span>Testi Bitir & Raporu Gör</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 20 Question Palette Dots -->
+      <div class="vercel-card rounded-2xl p-4 space-y-2">
+        <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+          <span>Soru Gezintisi (20 Soru):</span>
+          <span id="palette-progress-text">0 / 20 Yanıtlandı</span>
+        </div>
+        <div id="question-palette-dots" class="flex flex-wrap gap-1.5">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-6">
+        <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-4">
+          <span class="font-mono text-xs font-bold text-neutral-400" id="current-q-number">Soru 1 / 20</span>
+          <span class="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-500" id="current-q-topic">Gramer Konusu</span>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-base sm:text-lg font-semibold text-black dark:text-white leading-relaxed font-sans" id="current-q-prompt">
+            <!-- Question text -->
+          </p>
+
+          <div id="current-q-options" class="space-y-2.5">
+            <!-- 4 Options injected -->
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex items-center justify-between pt-4 border-t border-black/5 dark:border-white/10">
+          <button onclick="goToPreviousQuestion()" id="btn-prev-q" class="px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 text-xs font-mono hover:bg-black/5 dark:hover:bg-white/5 disabled:opacity-30">
+            ⏮ Önceki Soru
+          </button>
+          <button onclick="goToNextQuestion()" id="btn-next-q" class="px-5 py-2 rounded-xl bg-black dark:bg-white text-white dark:text-black text-xs font-mono font-bold hover:opacity-90">
+            Sonraki Soru ⏭
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VIEW 3: DIAGNOSTIC & PRESCRIPTIVE REPORT SCREEN -->
+    <div id="test-report-view" class="hidden space-y-6">
+      
+      <!-- Scorecard Header -->
+      <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-5">
+          <div class="space-y-1">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400" id="report-test-label">A1 Test #1 Karnesi</span>
+            <h2 class="text-xl sm:text-2xl font-black text-black dark:text-white" id="report-main-heading">Test Tamamlandı!</h2>
+            <p class="text-xs text-neutral-500 font-mono" id="report-time-taken">Tamamlanma Süresi: 14:22</p>
+          </div>
+
+          <div class="text-right sm:text-right">
+            <span class="text-[10px] font-mono uppercase text-neutral-400 block">Doğruluk Oranı</span>
+            <div class="text-3xl sm:text-4xl font-black text-emerald-500" id="report-score-pct">%85</div>
+            <span class="text-xs font-mono text-neutral-400" id="report-score-count">17 / 20 Doğru</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center font-mono text-xs pt-2">
+          <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+            <span class="block text-lg font-bold" id="metric-correct">17</span>
+            <span class="text-[10px]">Doğru</span>
+          </div>
+          <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400">
+            <span class="block text-lg font-bold" id="metric-wrong">3</span>
+            <span class="text-[10px]">Yanlış</span>
+          </div>
+          <div class="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-black/5 dark:border-white/10 text-neutral-500">
+            <span class="block text-lg font-bold" id="metric-empty">0</span>
+            <span class="text-[10px]">Boş</span>
+          </div>
+          <div class="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400">
+            <span class="block text-lg font-bold" id="metric-level">A2 Adayı</span>
+            <span class="text-[10px]">Tahmini Seviye</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRESCRIPTIVE DEVELOPMENT ROADMAP -->
+      <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4 border border-amber-500/20 bg-amber-500/5">
+        <div class="flex items-center space-x-2">
+          <span class="text-base">🚀</span>
+          <h3 class="text-base font-bold text-black dark:text-white">Gelişime Dayalı Yol Haritası & Yapılması Gerekenler</h3>
+        </div>
+        <p class="text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed" id="prescriptive-summary">
+          <!-- Injected summary -->
+        </p>
+
+        <div class="space-y-2 pt-2 border-t border-amber-500/20">
+          <span class="font-mono text-xs font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider block">Öncelikli Eylem Planınız:</span>
+          <ul class="space-y-2 text-xs text-neutral-700 dark:text-neutral-300" id="prescriptive-action-list">
+            <!-- Injected action steps -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- MISSED GRAMMAR TOPICS WITH DIRECT JUMP LINKS -->
+      <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4" id="missed-topics-card">
+        <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+          <div class="flex items-center space-x-2">
+            <span class="text-base">🔴</span>
+            <h3 class="text-base font-bold text-black dark:text-white">Eksik Gramer Konuları & Doğrudan Ders Linkleri</h3>
+          </div>
+          <span class="font-mono text-xs text-rose-500" id="missed-topics-count">0 Konu Tekrar Edilmeli</span>
+        </div>
+        
+        <div id="missed-topics-container" class="space-y-3">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- FULL QUESTION REVIEW ACCORDION -->
+      <div class="vercel-card rounded-2xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-3">
+          <h3 class="text-base font-bold text-black dark:text-white">Tüm Soruların ve Seçeneklerin Çözüm Analizi</h3>
+          <span class="font-mono text-xs text-neutral-400">20 Soru</span>
+        </div>
+
+        <div id="full-review-container" class="space-y-4">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Bottom Actions -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4">
+        <button onclick="returnToTestListView()" class="px-5 py-2.5 rounded-xl border border-black/10 dark:border-white/10 text-xs font-mono font-bold hover:bg-black/5 dark:hover:bg-white/5 transition-all">
+          📋 Diğer Testlere Dön
+        </button>
+        <button onclick="retakeCurrentTest()" class="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-mono font-bold transition-all shadow-md active:scale-95">
+          ↺ Bu Testi Yeniden Çöz
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">80 Kapsamlı Test · 1.600 Soru, Anlık Puanlama & Gramer Eksik Teşhisi</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Ölçüm & Değerlendirme Merkezi</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="hover:text-amber-500 transition-colors">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="text-amber-500 font-bold">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/tests/test-engine.js"></script>
+  <script>
+    let currentCategory = 'A1';
+    let currentQuestions = [];
+    let testStartTime = null;
+
+    function switchTestCategory(cat) {
+      currentCategory = cat;
+      TEST_ENGINE.activeLevel = cat;
+
+      ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'karma'].forEach(c => {
+        const btn = document.getElementById(`tab-btn-${c}`);
+        if (btn) {
+          if (c === cat) {
+            btn.className = 'px-3.5 py-1.5 rounded-xl font-bold transition-all bg-amber-500 text-black shadow-xs shadow-amber-500/20 font-mono';
+          } else {
+            btn.className = 'px-3.5 py-1.5 rounded-xl transition-all text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 font-mono';
+          }
+        }
+      });
+
+      updateCategoryBanner();
+      renderTestCardsGrid();
+    }
+
+    function updateCategoryBanner() {
+      const isKarma = (currentCategory === 'karma');
+      const badge = document.getElementById('cat-badge');
+      const title = document.getElementById('cat-title');
+
+      if (isKarma) {
+        if (badge) badge.innerText = "Alt Başlık: Karma Sorular";
+        if (title) title.innerText = "A1'den C2'ye 20 Karma Soru Denemesi (400 Soru Toplam)";
+      } else {
+        if (badge) badge.innerText = `Seviye: ${currentCategory}`;
+        if (title) title.innerText = `${currentCategory} Seviyesi Gramer & Sentaks Testleri (10 Adet Deneme)`;
+      }
+    }
+
+    function renderTestCardsGrid() {
+      const grid = document.getElementById('test-cards-grid');
+      const isKarma = (currentCategory === 'karma');
+      const totalTests = isKarma ? 20 : 10;
+
+      let html = '';
+      for (let i = 1; i <= totalTests; i++) {
+        const testId = `${currentCategory}-t${i}`;
+        const savedScore = localStorage.getItem(`test_score_${testId}`);
+        let scoreBadge = `<span class="px-2 py-0.5 rounded bg-black/5 dark:bg-white/10 text-neutral-400 font-mono text-[10px]">Çözülmedi</span>`;
+
+        if (savedScore) {
+          const score = parseInt(savedScore, 10);
+          const color = score >= 16 ? 'text-emerald-500' : (score >= 12 ? 'text-amber-500' : 'text-rose-500');
+          scoreBadge = `<span class="px-2 py-0.5 rounded bg-black/5 dark:bg-white/10 font-bold font-mono text-[10px] ${color}">Skor: ${score} / 20</span>`;
+        }
+
+        const titleText = isKarma ? `Karma Deneme #${i}` : `${currentCategory} Seviye Testi #${i}`;
+        const focusText = isKarma ? `A1-C2 Karma Soru Seti` : `Temel ${currentCategory} Gramer & Cümle Yapıları`;
+
+        html += `
+          <div class="vercel-card rounded-2xl p-5 space-y-3 flex flex-col justify-between hover:border-black/20 dark:hover:border-white/20 transition-all group">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-xs font-bold text-neutral-400">Test #${i}</span>
+                ${scoreBadge}
+              </div>
+              <h4 class="font-bold text-sm text-black dark:text-white group-hover:text-amber-500 transition-colors">${titleText}</h4>
+              <p class="text-xs text-neutral-500 font-mono">${focusText}</p>
+            </div>
+
+            <div class="pt-3 border-t border-black/5 dark:border-white/10 flex items-center justify-between">
+              <span class="font-mono text-[11px] text-neutral-400">20 Soru · 25 Dk</span>
+              <button onclick="startTest('${currentCategory}', ${i})" class="px-3.5 py-1.5 rounded-xl bg-black dark:bg-white text-white dark:text-black font-mono text-xs font-bold hover:opacity-90 transition-opacity">
+                Başla ➔
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      grid.innerHTML = html;
+    }
+
+    function startTest(level, testNum) {
+      TEST_ENGINE.activeLevel = level;
+      TEST_ENGINE.activeTestNum = testNum;
+      TEST_ENGINE.currentQuestionIdx = 0;
+      TEST_ENGINE.userAnswers = {};
+      TEST_ENGINE.timerSeconds = 25 * 60;
+      testStartTime = new Date();
+
+      currentQuestions = TEST_ENGINE.getTestQuestions(level, testNum);
+
+      document.getElementById('test-list-view').classList.add('hidden');
+      document.getElementById('test-report-view').classList.add('hidden');
+      document.getElementById('test-runner-view').classList.remove('hidden');
+
+      const isKarma = (level === 'karma');
+      document.getElementById('runner-level-badge').innerText = isKarma ? `Karma Test #${testNum}` : `${level} Test #${testNum}`;
+      document.getElementById('runner-test-title').innerText = isKarma ? `Karma Seviye Denemesi #${testNum}` : `${level} Seviye Gramer Denemesi #${testNum}`;
+
+      startRunnerTimer();
+      renderQuestionPalette();
+      renderCurrentQuestion();
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+
+    function startRunnerTimer() {
+      clearInterval(TEST_ENGINE.timerInterval);
+      TEST_ENGINE.timerInterval = setInterval(() => {
+        if (TEST_ENGINE.timerSeconds > 0) {
+          TEST_ENGINE.timerSeconds--;
+          const m = Math.floor(TEST_ENGINE.timerSeconds / 60);
+          const s = TEST_ENGINE.timerSeconds % 60;
+          const display = document.getElementById('runner-timer');
+          if (display) display.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        } else {
+          clearInterval(TEST_ENGINE.timerInterval);
+          App.showToast("Süreniz doldu! Test değerlendiriliyor 🔔", "warning");
+          finishTestAndGenerateReport();
+        }
+      }, 1000);
+    }
+
+    function renderQuestionPalette() {
+      const palette = document.getElementById('question-palette-dots');
+      const progressText = document.getElementById('palette-progress-text');
+      const answeredCount = Object.keys(TEST_ENGINE.userAnswers).length;
+
+      if (progressText) progressText.innerText = `${answeredCount} / 20 Yanıtlandı`;
+
+      palette.innerHTML = currentQuestions.map((q, idx) => {
+        const isCurrent = idx === TEST_ENGINE.currentQuestionIdx;
+        const isAnswered = TEST_ENGINE.userAnswers[idx] !== undefined;
+
+        let dotClass = 'w-7 h-7 rounded-lg font-mono text-xs flex items-center justify-center transition-all ';
+        if (isCurrent) {
+          dotClass += 'bg-black dark:bg-white text-white dark:text-black font-bold ring-2 ring-amber-400';
+        } else if (isAnswered) {
+          dotClass += 'bg-emerald-600 text-white font-bold';
+        } else {
+          dotClass += 'bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:bg-neutral-200 dark:hover:bg-neutral-700';
+        }
+
+        return `<button onclick="jumpToQuestion(${idx})" class="${dotClass}">${idx + 1}</button>`;
+      }).join('');
+    }
+
+    function renderCurrentQuestion() {
+      const idx = TEST_ENGINE.currentQuestionIdx;
+      const q = currentQuestions[idx];
+      if (!q) return;
+
+      document.getElementById('current-q-number').innerText = `Soru ${idx + 1} / 20`;
+      document.getElementById('current-q-topic').innerText = q.grammarTopicTitle || 'Gramer';
+      document.getElementById('current-q-prompt').innerText = q.question;
+
+      const optionsContainer = document.getElementById('current-q-options');
+      const selected = TEST_ENGINE.userAnswers[idx];
+
+      optionsContainer.innerHTML = q.options.map((opt, oIdx) => {
+        const isSelected = selected === opt;
+        return `
+          <button onclick="selectOption('${opt.replace(/'/g, "\\'")}')" class="w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm font-mono flex items-center justify-between transition-all ${
+            isSelected 
+              ? 'bg-black dark:bg-white text-white dark:text-black border-black dark:border-white font-bold shadow-xs' 
+              : 'border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 text-neutral-700 dark:text-neutral-300'
+          }">
+            <div class="flex items-center space-x-3">
+              <span class="w-6 h-6 rounded-lg ${isSelected ? 'bg-white/20 dark:bg-black/20' : 'bg-black/5 dark:bg-white/10'} flex items-center justify-center font-bold text-xs">
+                ${String.fromCharCode(65 + oIdx)}
+              </span>
+              <span>${opt}</span>
+            </div>
+            ${isSelected ? '<span>✓</span>' : ''}
+          </button>
+        `;
+      }).join('');
+
+      document.getElementById('btn-prev-q').disabled = (idx === 0);
+      document.getElementById('btn-next-q').innerText = (idx === currentQuestions.length - 1) ? 'Testi Bitir ➔' : 'Sonraki Soru ⏭';
+
+      renderQuestionPalette();
+    }
+
+    function selectOption(opt) {
+      const idx = TEST_ENGINE.currentQuestionIdx;
+      TEST_ENGINE.userAnswers[idx] = opt;
+      renderCurrentQuestion();
+    }
+
+    function goToNextQuestion() {
+      if (TEST_ENGINE.currentQuestionIdx < currentQuestions.length - 1) {
+        TEST_ENGINE.currentQuestionIdx++;
+        renderCurrentQuestion();
+      } else {
+        finishTestAndGenerateReport();
+      }
+    }
+
+    function goToPreviousQuestion() {
+      if (TEST_ENGINE.currentQuestionIdx > 0) {
+        TEST_ENGINE.currentQuestionIdx--;
+        renderCurrentQuestion();
+      }
+    }
+
+    function jumpToQuestion(idx) {
+      TEST_ENGINE.currentQuestionIdx = idx;
+      renderCurrentQuestion();
+    }
+
+    function finishTestAndGenerateReport() {
+      clearInterval(TEST_ENGINE.timerInterval);
+
+      let correctCount = 0;
+      let wrongCount = 0;
+      let emptyCount = 0;
+      const wrongQuestions = [];
+
+      currentQuestions.forEach((q, idx) => {
+        const userAns = TEST_ENGINE.userAnswers[idx];
+        if (!userAns) {
+          emptyCount++;
+          wrongQuestions.push({ ...q, userAns: '(Boş Bırakıldı)', isCorrect: false });
+        } else if (userAns.trim().toLowerCase() === q.answer.trim().toLowerCase()) {
+          correctCount++;
+        } else {
+          wrongCount++;
+          wrongQuestions.push({ ...q, userAns, isCorrect: false });
+        }
+      });
+
+      const testId = `${TEST_ENGINE.activeLevel}-t${TEST_ENGINE.activeTestNum}`;
+      localStorage.setItem(`test_score_${testId}`, correctCount);
+
+      const roadmap = TEST_ENGINE.generatePrescriptiveRoadmap(
+        wrongQuestions, 
+        TEST_ENGINE.activeLevel, 
+        correctCount, 
+        currentQuestions.length
+      );
+
+      document.getElementById('test-runner-view').classList.add('hidden');
+      document.getElementById('test-report-view').classList.remove('hidden');
+
+      const pct = Math.round((correctCount / currentQuestions.length) * 100);
+      document.getElementById('report-score-pct').innerText = `%${pct}`;
+      document.getElementById('report-score-count').innerText = `${correctCount} / ${currentQuestions.length} Doğru`;
+      document.getElementById('metric-correct').innerText = correctCount;
+      document.getElementById('metric-wrong').innerText = wrongCount;
+      document.getElementById('metric-empty').innerText = emptyCount;
+
+      let estLevel = "A1";
+      if (pct >= 85) estLevel = "Yetkin (Üst Seviye)";
+      else if (pct >= 70) estLevel = "İyi Düzey";
+      else if (pct >= 50) estLevel = "Orta Düzey";
+      else estLevel = "Geliştirilmeli";
+      document.getElementById('metric-level').innerText = estLevel;
+
+      document.getElementById('prescriptive-summary').innerText = roadmap.summaryDiagnosis;
+      document.getElementById('prescriptive-action-list').innerHTML = roadmap.actionSteps.map(step => `
+        <li class="flex items-start space-x-2">
+          <span class="text-amber-500 font-bold">•</span>
+          <span>${step}</span>
+        </li>
+      `).join('');
+
+      const missedContainer = document.getElementById('missed-topics-container');
+      document.getElementById('missed-topics-count').innerText = `${wrongQuestions.length} Soru / ${roadmap.failedTopicTitles.length} Konu`;
+
+      if (wrongQuestions.length === 0) {
+        missedContainer.innerHTML = `
+          <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-xs font-mono">
+            🎉 Kusursuz! Bu testte hiçbir gramer hatası yapmadınız. Tüm kurallara hakimsiniz.
+          </div>
+        `;
+      } else {
+        missedContainer.innerHTML = wrongQuestions.map((wq, i) => {
+          const topicLevel = wq.level === 'karma' ? 'A2' : wq.level;
+          const grammarLink = `grammar.html?level=${topicLevel}&topic=${encodeURIComponent(wq.grammarTopicTitle)}`;
+
+          return `
+            <div class="p-4 rounded-xl vercel-card space-y-2.5 border border-rose-500/20">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black/5 dark:border-white/10 pb-2">
+                <div class="flex items-center space-x-2">
+                  <span class="font-mono text-xs font-bold text-rose-500">Soru #${wq.qNum}</span>
+                  <span class="text-xs font-bold text-black dark:text-white">${wq.grammarTopicTitle}</span>
+                </div>
+                <a href="${grammarLink}" target="_blank" class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-amber-400 text-black text-[11px] font-mono font-bold hover:opacity-90 transition-opacity">
+                  <span>📖</span>
+                  <span>Gramer Bankasında Aç & Dersi İzle ➔</span>
+                </a>
+              </div>
+
+              <p class="text-xs text-black dark:text-white font-mono">${wq.question}</p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono pt-1">
+                <div class="p-2 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400">
+                  <span class="opacity-75 block text-[10px]">Sizin Yanıtınız:</span>
+                  <span class="font-bold">${wq.userAns}</span>
+                </div>
+                <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                  <span class="opacity-75 block text-[10px]">Doğru Yanıt:</span>
+                  <span class="font-bold">${wq.answer}</span>
+                </div>
+              </div>
+
+              <div class="p-2.5 rounded-lg bg-neutral-50 dark:bg-[#141414] text-[11px] text-neutral-500 font-sans leading-relaxed">
+                <strong>Analitik Çözüm:</strong> ${wq.explanation}
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      const reviewContainer = document.getElementById('full-review-container');
+      reviewContainer.innerHTML = currentQuestions.map((q, idx) => {
+        const userAns = TEST_ENGINE.userAnswers[idx] || '(Boş)';
+        const isCorrect = userAns.trim().toLowerCase() === q.answer.trim().toLowerCase();
+
+        return `
+          <div class="p-4 rounded-xl vercel-card space-y-2 text-xs">
+            <div class="flex items-center justify-between border-b border-black/5 dark:border-white/10 pb-2">
+              <span class="font-mono text-neutral-400 font-bold">Soru #${idx + 1} · ${q.grammarTopicTitle}</span>
+              <span class="font-mono font-bold ${isCorrect ? 'text-emerald-500' : 'text-rose-500'}">
+                ${isCorrect ? '✓ Doğru' : '✕ Yanlış'}
+              </span>
+            </div>
+            <p class="font-medium text-black dark:text-white text-xs sm:text-sm font-mono">${q.question}</p>
+            <div class="text-[11px] text-neutral-500">
+              <span>Cevabınız: <strong>${userAns}</strong></span> | 
+              <span class="text-emerald-500">Doğru: <strong>${q.answer}</strong></span>
+            </div>
+            <div class="text-[11px] text-neutral-400 pt-1 border-t border-black/5 dark:border-white/5 font-sans">
+              <strong>Açıklama:</strong> ${q.explanation}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+
+    function returnToTestListView() {
+      document.getElementById('test-report-view').classList.add('hidden');
+      document.getElementById('test-runner-view').classList.add('hidden');
+      document.getElementById('test-list-view').classList.remove('hidden');
+      renderTestCardsGrid();
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+
+    function retakeCurrentTest() {
+      startTest(TEST_ENGINE.activeLevel, TEST_ENGINE.activeTestNum);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      switchTestCategory('A1');
+    });
+  </script>
+</body>
+</html>

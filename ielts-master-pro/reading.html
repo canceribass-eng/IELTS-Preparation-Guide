@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Okuma Çalışması (100 CEFR Metni) · IELTS Master Pro</title>
+  <meta name="description" content="A1-C2 seviyelerinde 100 adet gramer referanslı okuma metni, interaktif vurgulu kelimeler ve anlık kavrama soruları.">
+  
+  <script>
+    (function(){const s=localStorage.getItem('ielts_theme');if(s==='light'||(!s&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches)){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}})();
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Tailwind CSS CDN & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Geist Mono', 'monospace'],
+            serif: ['Lora', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .vocab-hl {
+      background-color: rgba(245, 158, 11, 0.22);
+      border-bottom: 2px solid #f59e0b;
+      color: inherit;
+      padding: 2px 4px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+    .vocab-hl:hover {
+      background-color: rgba(245, 158, 11, 0.45);
+      transform: translateY(-1px);
+    }
+    .dark .vocab-hl {
+      background-color: rgba(251, 191, 36, 0.25);
+      border-bottom-color: #fbbf24;
+    }
+    .dark .vocab-hl:hover {
+      background-color: rgba(251, 191, 36, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-[#0a0a0a] text-neutral-900 dark:text-neutral-100 min-h-screen flex flex-col font-sans transition-colors duration-200 antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- Apple Unified Fixed Header -->
+  <header class="sticky top-0 z-50 w-full apple-glass transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-2">
+      <!-- Left: Logo Brand -->
+      <a href="index.html" class="flex items-center space-x-2.5 shrink-0 group">
+        <div class="w-7 h-7 rounded-lg bg-amber-500 text-black flex items-center justify-center font-black text-xs group-hover:opacity-80 transition-opacity shadow-sm">
+          ▲
+        </div>
+        <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+      </a>
+
+      <!-- Center: Main Navigation (Full 9 items, fully visible, never clipped) -->
+      <nav class="hidden md:flex items-center space-x-0.5 lg:space-x-1 font-medium text-xs whitespace-nowrap">
+        <a href="index.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="px-2.5 lg:px-3 py-1.5 rounded-full bg-amber-500 text-black font-bold shadow-sm shadow-amber-500/20">Okuma Çalışması</a>
+        <a href="library.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Testler</a>
+        <a href="analytics.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-neutral-600 dark:text-neutral-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="px-2.5 lg:px-3 py-1.5 rounded-full text-amber-500 hover:text-amber-400 font-bold border border-amber-500/25 bg-amber-500/10 transition-colors">Mock Exam</a>
+      </nav>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center space-x-2 shrink-0">
+        <button onclick="window.print()" class="p-1.5 px-2.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-xs font-mono text-neutral-600 dark:text-neutral-400 flex items-center space-x-1" title="Yazdır / PDF">
+          <span>🖨️</span>
+          <span class="hidden sm:inline text-[11px]">Yazdır</span>
+        </button>
+        <button onclick="App.toggleTheme()" class="theme-toggle-btn p-1.5 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-neutral-600 dark:text-neutral-400" title="Tema">
+          <!-- Injected by JS -->
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+    
+    <!-- Title and Search Section -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-black/5 dark:border-white/10 pb-6">
+      <div class="space-y-1">
+        <div class="inline-flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-amber-500 font-bold">
+          <span>📚 CEFR READING ENGINE · 100 AKADEMİK & TEMATİK METİN</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-black text-black dark:text-white tracking-tight">
+          Okuma Çalışması & Gramer Entegrasyonu
+        </h1>
+        <p class="text-xs sm:text-sm text-neutral-500 max-w-2xl font-sans">
+          Her metin bir gramer kuralını pekiştirir. Sarı vurgulu kelimelere tıklayarak telaffuzunu dinleyebilir, Türkçe anlamını görebilir ve tek tıkla Kelime Defterinize ekleyebilirsiniz.
+        </p>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="w-full md:w-72">
+        <div class="relative">
+          <input type="text" id="reading-search-input" oninput="handleReadingSearch(this.value)" placeholder="Metin, konu veya gramer ara..." class="w-full px-4 py-2.5 pl-9 rounded-2xl bg-neutral-100 dark:bg-[#141414] border border-black/10 dark:border-white/10 text-xs font-mono text-black dark:text-white focus:outline-none focus:ring-1 focus:ring-amber-500">
+          <span class="absolute left-3 top-2.5 text-neutral-400 text-xs">🔍</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CEFR Level Selection Hub (6 Kart: Seviyeye Tıklayınca Açılır) -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+        <span class="uppercase tracking-wider font-bold">1. Adım: Çalışmak İstediğiniz Seviyeyi Seçin</span>
+        <span id="active-level-indicator" class="text-amber-500 font-bold font-mono">Seçili Seviye: A1 (Başlangıç · 15 Metin)</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <!-- A1 Card -->
+        <button onclick="filterReadingLevel('A1')" id="card-lvl-A1" class="read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 bg-emerald-500/10 border-emerald-500 shadow-md ring-2 ring-emerald-500/30 scale-[1.02]">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-black px-2 py-0.5 rounded-full bg-emerald-500 text-white">A1</span>
+            <span class="text-[10px] font-mono text-neutral-400">15 Metin</span>
+          </div>
+          <div class="mt-2.5 space-y-0.5">
+            <h4 class="text-xs font-bold text-black dark:text-white">Başlangıç</h4>
+            <p class="text-[10px] text-neutral-500 line-clamp-1">Temel Yapılar & Rutin</p>
+          </div>
+        </button>
+
+        <!-- A2 Card -->
+        <button onclick="filterReadingLevel('A2')" id="card-lvl-A2" class="read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 border-black/10 dark:border-white/10 hover:border-teal-500/50 bg-white/40 dark:bg-neutral-900/40">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-black px-2 py-0.5 rounded-full bg-teal-500/15 text-teal-600 dark:text-teal-400">A2</span>
+            <span class="text-[10px] font-mono text-neutral-400">20 Metin</span>
+          </div>
+          <div class="mt-2.5 space-y-0.5">
+            <h4 class="text-xs font-bold text-black dark:text-white">Temel</h4>
+            <p class="text-[10px] text-neutral-500 line-clamp-1">Zamanlar & Kıyaslama</p>
+          </div>
+        </button>
+
+        <!-- B1 Card -->
+        <button onclick="filterReadingLevel('B1')" id="card-lvl-B1" class="read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 border-black/10 dark:border-white/10 hover:border-blue-500/50 bg-white/40 dark:bg-neutral-900/40">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-black px-2 py-0.5 rounded-full bg-blue-500/15 text-blue-600 dark:text-blue-400">B1</span>
+            <span class="text-[10px] font-mono text-neutral-400">25 Metin</span>
+          </div>
+          <div class="mt-2.5 space-y-0.5">
+            <h4 class="text-xs font-bold text-black dark:text-white">Orta Seviye</h4>
+            <p class="text-[10px] text-neutral-500 line-clamp-1">Perfect & Edilgen</p>
+          </div>
+        </button>
+
+        <!-- B2 Card -->
+        <button onclick="filterReadingLevel('B2')" id="card-lvl-B2" class="read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 border-black/10 dark:border-white/10 hover:border-amber-500/50 bg-white/40 dark:bg-neutral-900/40">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-black px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400">B2</span>
+            <span class="text-[10px] font-mono text-neutral-400">20 Metin</span>
+          </div>
+          <div class="mt-2.5 space-y-0.5">
+            <h4 class="text-xs font-bold text-black dark:text-white">İleri-Orta</h4>
+            <p class="text-[10px] text-neutral-500 line-clamp-1">Akademik Metinler</p>
+          </div>
+        </button>
+
+        <!-- C1 Card -->
+        <button onclick="filterReadingLevel('C1')" id="card-lvl-C1" class="read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 border-black/10 dark:border-white/10 hover:border-purple-500/50 bg-white/40 dark:bg-neutral-900/40">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-black px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-600 dark:text-purple-400">C1</span>
+            <span class="text-[10px] font-mono text-neutral-400">10 Metin</span>
+          </div>
+          <div class="mt-2.5 space-y-0.5">
+            <h4 class="text-xs font-bold text-black dark:text-white">İleri Düzey</h4>
+            <p class="text-[10px] text-neutral-500 line-clamp-1">Sözdizim & Retorik</p>
+          </div>
+        </button>
+
+        <!-- C2 Card -->
+        <button onclick="filterReadingLevel('C2')" id="card-lvl-C2" class="read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 border-black/10 dark:border-white/10 hover:border-rose-500/50 bg-white/40 dark:bg-neutral-900/40">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-black px-2 py-0.5 rounded-full bg-rose-500/15 text-rose-600 dark:text-rose-400">C2</span>
+            <span class="text-[10px] font-mono text-neutral-400">10 Metin</span>
+          </div>
+          <div class="mt-2.5 space-y-0.5">
+            <h4 class="text-xs font-bold text-black dark:text-white">Ustalık</h4>
+            <p class="text-[10px] text-neutral-500 line-clamp-1">Felsefi & Bilimsel</p>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Master-Detail Reading Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Left Column: Passage List (4/12) -->
+      <div class="lg:col-span-4 space-y-3">
+        <div class="flex items-center justify-between text-xs font-mono px-1">
+          <div class="flex items-center space-x-1.5">
+            <span id="reading-level-badge" class="font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 text-[10px]">A1</span>
+            <span id="reading-list-title" class="font-bold text-black dark:text-white uppercase tracking-wider text-[11px]">A1 Metinleri</span>
+          </div>
+          <span id="reading-list-count" class="text-neutral-400 text-[11px]">15 Metin</span>
+        </div>
+
+        <!-- Quick Mini Level Switcher Strip -->
+        <div class="flex items-center space-x-1 p-1 rounded-xl bg-neutral-100 dark:bg-[#151515] border border-black/5 dark:border-white/5 text-[10px] font-mono">
+          <button onclick="filterReadingLevel('A1')" id="mini-lvl-A1" class="mini-lvl-btn flex-1 py-1 rounded-lg font-bold transition-all bg-emerald-500 text-white shadow-xs">A1</button>
+          <button onclick="filterReadingLevel('A2')" id="mini-lvl-A2" class="mini-lvl-btn flex-1 py-1 rounded-lg font-medium text-neutral-400 hover:text-black dark:hover:text-white transition-all">A2</button>
+          <button onclick="filterReadingLevel('B1')" id="mini-lvl-B1" class="mini-lvl-btn flex-1 py-1 rounded-lg font-medium text-neutral-400 hover:text-black dark:hover:text-white transition-all">B1</button>
+          <button onclick="filterReadingLevel('B2')" id="mini-lvl-B2" class="mini-lvl-btn flex-1 py-1 rounded-lg font-medium text-neutral-400 hover:text-black dark:hover:text-white transition-all">B2</button>
+          <button onclick="filterReadingLevel('C1')" id="mini-lvl-C1" class="mini-lvl-btn flex-1 py-1 rounded-lg font-medium text-neutral-400 hover:text-black dark:hover:text-white transition-all">C1</button>
+          <button onclick="filterReadingLevel('C2')" id="mini-lvl-C2" class="mini-lvl-btn flex-1 py-1 rounded-lg font-medium text-neutral-400 hover:text-black dark:hover:text-white transition-all">C2</button>
+        </div>
+
+        <div id="reading-catalog-list" class="space-y-2 max-h-[750px] overflow-y-auto pr-1 custom-scroll">
+          <!-- Injected dynamically via renderReadingCatalog() -->
+        </div>
+      </div>
+
+      <!-- Right Column: Reading Room & Text Display (8/12) -->
+      <div class="lg:col-span-8 space-y-6">
+        <div id="reading-room-container" class="vercel-card rounded-3xl p-6 sm:p-9 space-y-6 border border-black/5 dark:border-white/10 shadow-xl">
+          <!-- Injected dynamically via renderActivePassage() -->
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Interactive Vocabulary Popover Modal -->
+  <div id="vocab-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="vercel-card rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-amber-500/30">
+      <div class="flex items-start justify-between">
+        <div>
+          <span id="modal-vocab-pos" class="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 font-bold">verb</span>
+          <div class="flex items-center space-x-2 mt-1">
+            <h3 id="modal-vocab-word" class="text-2xl font-black text-black dark:text-white">word</h3>
+            <button onclick="playVocabAudio(currentSelectedWord)" class="p-1.5 rounded-full bg-black/5 dark:bg-white/10 hover:bg-amber-500 hover:text-white transition-colors" title="Telaffuz Dinle">
+              🔊
+            </button>
+          </div>
+          <span id="modal-vocab-phonetic" class="text-xs font-mono text-neutral-400">/wɜːd/</span>
+        </div>
+        <button onclick="closeVocabModal()" class="w-8 h-8 rounded-full bg-black/5 dark:bg-white/10 flex items-center justify-center text-xs text-neutral-400 hover:text-black dark:hover:text-white">✕</button>
+      </div>
+
+      <div class="p-3.5 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-1">
+        <span class="text-[10px] font-mono text-amber-500 font-bold uppercase tracking-wider block">Türkçe Karşılığı</span>
+        <p id="modal-vocab-tr" class="text-base font-bold text-black dark:text-white">anlamı</p>
+      </div>
+
+      <div class="space-y-1 text-xs text-neutral-600 dark:text-neutral-300">
+        <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-wider block">İngilizce Tanım</span>
+        <p id="modal-vocab-def" class="font-sans leading-relaxed">English definition</p>
+      </div>
+
+      <div class="space-y-1 text-xs text-neutral-600 dark:text-neutral-400 bg-neutral-50 dark:bg-[#111111] p-3 rounded-xl border border-black/5 dark:border-white/5">
+        <span class="text-[10px] font-mono text-neutral-400 uppercase tracking-wider block">Metin İçi Örnek Cümle</span>
+        <p id="modal-vocab-example" class="font-serif italic text-black dark:text-neutral-200">"Example sentence from context."</p>
+      </div>
+
+      <div class="pt-2 flex items-center space-x-2">
+        <button onclick="addCurrentWordToNotebook()" class="flex-1 py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold font-mono text-xs transition-all shadow-md flex items-center justify-center space-x-1.5">
+          <span>⭐</span>
+          <span>Kelime Defterime Ekle</span>
+        </button>
+        <button onclick="closeVocabModal()" class="py-2.5 px-4 rounded-xl border border-black/10 dark:border-white/10 text-xs font-mono text-neutral-400 hover:text-black dark:hover:text-white">
+          Kapat
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Apple-Glass Footer with Signature Amber Brand Continuity -->
+  <footer class="mt-auto border-t border-black/10 dark:border-white/10 relative bg-white/40 dark:bg-black/40 backdrop-blur-md">
+    <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="w-7 h-7 rounded-lg bg-black dark:bg-white text-white dark:text-black flex items-center justify-center font-black text-xs">
+            ▲
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-tight text-black dark:text-white whitespace-nowrap">IELTS Master <span class="text-amber-500 font-mono font-bold">PRO</span></span>
+            <p class="text-[11px] text-neutral-500 font-sans">100 CEFR Okuma Metni · İnteraktif Vurgulu Kelimeler & Canlı Kavrama Testi</p>
+          </div>
+        </div>
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-500 font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>A1'den C2'ye Akademik Okuma</span>
+        </div>
+      </div>
+
+      <nav class="flex flex-wrap items-center justify-center md:justify-start gap-x-5 gap-y-2 text-xs text-neutral-500 dark:text-neutral-400 font-medium pt-2 border-t border-black/5 dark:border-white/5">
+        <a href="index.html" class="hover:text-amber-500 transition-colors">Genel Bakış</a>
+        <a href="ielts.html" class="hover:text-amber-500 transition-colors">IELTS Becerileri</a>
+        <a href="grammar.html" class="hover:text-amber-500 transition-colors">Gramer Bankası</a>
+        <a href="vocabulary.html" class="hover:text-amber-500 transition-colors">Kelime & SRS</a>
+        <a href="reading.html" class="text-amber-500 font-bold">Okuma Çalışması</a>
+        <a href="library.html" class="hover:text-amber-500 transition-colors">Kütüphane</a>
+        <a href="tests.html" class="hover:text-amber-500 transition-colors">Testler</a>
+        <a href="analytics.html" class="hover:text-amber-500 transition-colors">Analitik</a>
+        <a href="mock-exam.html" class="hover:text-amber-500 transition-colors text-amber-500/90 font-bold">Mock Exam</a>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] font-mono text-neutral-400 pt-3 border-t border-black/5 dark:border-white/5">
+        <p>© 2026 IELTS Master <span class="text-amber-500 font-bold">PRO</span> · Tüm hakları saklıdır.</p>
+        <p class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span>Apple & Vercel Design System</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/srs-engine.js"></script>
+  <script src="assets/js/reading/a1.js"></script>
+  <script src="assets/js/reading/a2.js"></script>
+  <script src="assets/js/reading/b1.js"></script>
+  <script src="assets/js/reading/b2.js"></script>
+  <script src="assets/js/reading/c1.js"></script>
+  <script src="assets/js/reading/c2.js"></script>
+  <script src="assets/js/reading-data.js"></script>
+
+  <script>
+    // State Variables
+    let currentLevel = 'A1';
+    let activePassageId = 'read_a1_01';
+    let searchQuery = '';
+    let readingFontSize = 17; // px
+    let isReadingPlaying = false;
+    let currentSelectedWord = null;
+
+    const LEVEL_CONFIG = {
+      'A1': { name: 'Başlangıç', count: 15, tag: 'Temel Yapılar & Rutin', badgeColor: 'bg-emerald-500 text-white', activeBorder: 'bg-emerald-500/10 border-emerald-500 shadow-md ring-2 ring-emerald-500/30 scale-[1.02]', miniActive: 'bg-emerald-500 text-white shadow-xs' },
+      'A2': { name: 'Temel', count: 20, tag: 'Zamanlar & Kıyaslama', badgeColor: 'bg-teal-500 text-white', activeBorder: 'bg-teal-500/10 border-teal-500 shadow-md ring-2 ring-teal-500/30 scale-[1.02]', miniActive: 'bg-teal-500 text-white shadow-xs' },
+      'B1': { name: 'Orta Seviye', count: 25, tag: 'Perfect & Edilgen', badgeColor: 'bg-blue-500 text-white', activeBorder: 'bg-blue-500/10 border-blue-500 shadow-md ring-2 ring-blue-500/30 scale-[1.02]', miniActive: 'bg-blue-500 text-white shadow-xs' },
+      'B2': { name: 'İleri-Orta', count: 20, tag: 'Akademik Metinler', badgeColor: 'bg-amber-500 text-white', activeBorder: 'bg-amber-500/10 border-amber-500 shadow-md ring-2 ring-amber-500/30 scale-[1.02]', miniActive: 'bg-amber-500 text-white shadow-xs' },
+      'C1': { name: 'İleri Düzey', count: 10, tag: 'Sözdizim & Retorik', badgeColor: 'bg-purple-500 text-white', activeBorder: 'bg-purple-500/10 border-purple-500 shadow-md ring-2 ring-purple-500/30 scale-[1.02]', miniActive: 'bg-purple-500 text-white shadow-xs' },
+      'C2': { name: 'Ustalık', count: 10, tag: 'Felsefi & Bilimsel', badgeColor: 'bg-rose-500 text-white', activeBorder: 'bg-rose-500/10 border-rose-500 shadow-md ring-2 ring-rose-500/30 scale-[1.02]', miniActive: 'bg-rose-500 text-white shadow-xs' }
+    };
+
+    // Filter Level (Tüm okumalar asla aşağı yığılmaz; sadece tıklanan seviye gelir)
+    function filterReadingLevel(lvl) {
+      if (!LEVEL_CONFIG[lvl]) lvl = 'A1';
+      currentLevel = lvl;
+
+      // Update 6 Top Hub Cards
+      Object.keys(LEVEL_CONFIG).forEach(l => {
+        const card = document.getElementById(`card-lvl-${l}`);
+        if (!card) return;
+        if (l === lvl) {
+          card.className = `read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 ${LEVEL_CONFIG[l].activeBorder}`;
+        } else {
+          card.className = `read-lvl-card p-4 rounded-2xl border text-left transition-all duration-200 border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 bg-white/40 dark:bg-neutral-900/40`;
+        }
+      });
+
+      // Update Sidebar Mini Buttons
+      Object.keys(LEVEL_CONFIG).forEach(l => {
+        const miniBtn = document.getElementById(`mini-lvl-${l}`);
+        if (!miniBtn) return;
+        if (l === lvl) {
+          miniBtn.className = `mini-lvl-btn flex-1 py-1 rounded-lg font-bold transition-all ${LEVEL_CONFIG[l].miniActive}`;
+        } else {
+          miniBtn.className = `mini-lvl-btn flex-1 py-1 rounded-lg font-medium text-neutral-400 hover:text-black dark:hover:text-white transition-all`;
+        }
+      });
+
+      // Update Indicators
+      const cfg = LEVEL_CONFIG[lvl];
+      const ind = document.getElementById('active-level-indicator');
+      if (ind) ind.innerText = `Seçili Seviye: ${lvl} (${cfg.name} · ${cfg.count} Metin)`;
+
+      const badge = document.getElementById('reading-level-badge');
+      if (badge) {
+        badge.innerText = lvl;
+        badge.className = `font-bold px-2 py-0.5 rounded-full text-[10px] ${getLevelBadgeClass(lvl)}`;
+      }
+
+      const titleEl = document.getElementById('reading-list-title');
+      if (titleEl) titleEl.innerText = `${lvl} ${cfg.name} Metinleri`;
+
+      const filtered = getFilteredPassages();
+      if (filtered.length > 0) {
+        activePassageId = filtered[0].id;
+      }
+
+      renderReadingCatalog();
+      renderActivePassage();
+    }
+
+    function handleReadingSearch(val) {
+      searchQuery = val.trim().toLowerCase();
+      const filtered = getFilteredPassages();
+      if (filtered.length > 0 && !filtered.some(p => p.id === activePassageId)) {
+        activePassageId = filtered[0].id;
+      }
+      renderReadingCatalog();
+      renderActivePassage();
+    }
+
+    function getFilteredPassages() {
+      if (typeof READING_DATABASE === 'undefined') return [];
+      
+      // Sadece seçili seviyenin metinlerini filtreler
+      let list = READING_DATABASE.filter(item => item.level === currentLevel);
+
+      if (searchQuery) {
+        list = list.filter(item => 
+          item.title.toLowerCase().includes(searchQuery) ||
+          item.titleTr.toLowerCase().includes(searchQuery) ||
+          item.category.toLowerCase().includes(searchQuery) ||
+          (item.grammarRef && item.grammarRef.name.toLowerCase().includes(searchQuery))
+        );
+      }
+      return list;
+    }
+
+    function selectPassage(id) {
+      activePassageId = id;
+      if (isReadingPlaying) stopReadingAudio();
+      renderReadingCatalog();
+      renderActivePassage();
+      window.scrollTo({ top: 220, behavior: 'smooth' });
+    }
+
+    // Render Left Catalog List (Yalnızca seçilen seviyenin düzenli listesi)
+    function renderReadingCatalog() {
+      const listContainer = document.getElementById('reading-catalog-list');
+      const countEl = document.getElementById('reading-list-count');
+      const filtered = getFilteredPassages();
+
+      if (countEl) countEl.innerText = `${filtered.length} Metin`;
+
+      if (filtered.length === 0) {
+        listContainer.innerHTML = `<div class="p-5 rounded-2xl vercel-card text-xs text-neutral-400">Bu seviyede aramanıza uygun metin bulunamadı.</div>`;
+        return;
+      }
+
+      listContainer.innerHTML = filtered.map((item, idx) => {
+        const isActive = item.id === activePassageId;
+        const isRead = localStorage.getItem(`reading_read_${item.id}`) === 'true';
+        const numStr = String(idx + 1).padStart(2, '0');
+
+        return `
+          <div onclick="selectPassage('${item.id}')" class="p-3 rounded-2xl border transition-all text-left space-y-1.5 cursor-pointer ${
+            isActive 
+              ? 'bg-amber-500/10 border-amber-500 shadow-md ring-1 ring-amber-500' 
+              : 'border-black/10 dark:border-white/10 hover:border-black/25 dark:hover:border-white/25 bg-white/40 dark:bg-neutral-900/40'
+          }">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <div class="flex items-center space-x-1.5">
+                <span class="text-[10px] font-bold text-neutral-400">#${numStr}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${getLevelBadgeClass(item.level)}">${item.level}</span>
+              </div>
+              <span class="text-[10px] text-neutral-400">${item.category}</span>
+            </div>
+
+            <div class="space-y-0.5">
+              <h4 class="text-xs font-bold text-black dark:text-white leading-snug line-clamp-1">${item.title}</h4>
+              <p class="text-[11px] text-neutral-500 line-clamp-1">${item.titleTr}</p>
+            </div>
+
+            <div class="pt-1 border-t border-black/5 dark:border-white/5 flex items-center justify-between font-mono text-[10px] text-neutral-400">
+              <span class="line-clamp-1 max-w-[170px]">🔗 ${item.grammarRef ? item.grammarRef.name : ''}</span>
+              <span class="${isRead ? 'text-emerald-500 font-bold' : ''}">
+                ${isRead ? '✓ Okundu' : `${item.wordCount}w · ${item.readTime}`}
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function getLevelBadgeClass(level) {
+      switch(level) {
+        case 'A1': return 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20';
+        case 'A2': return 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20';
+        case 'B1': return 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20';
+        case 'B2': return 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20';
+        case 'C1': return 'bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20';
+        case 'C2': return 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20';
+        default: return 'bg-neutral-500/10 text-neutral-400';
+      }
+    }
+
+    // Render Active Reading Room
+    function renderActivePassage() {
+      const container = document.getElementById('reading-room-container');
+      if (typeof READING_DATABASE === 'undefined') return;
+
+      const passage = READING_DATABASE.find(p => p.id === activePassageId);
+      if (!passage) {
+        container.innerHTML = `<div class="p-8 text-center text-neutral-400 text-xs">Lütfen bir okuma metni seçin.</div>`;
+        return;
+      }
+
+      const isRead = localStorage.getItem(`reading_read_${passage.id}`) === 'true';
+
+      container.innerHTML = `
+        <!-- Toolbar Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-black/5 dark:border-white/10 pb-4">
+          <div class="space-y-1">
+            <div class="flex items-center space-x-2">
+              <span class="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full ${getLevelBadgeClass(passage.level)}">${passage.level}</span>
+              <span class="text-xs font-mono text-neutral-400">${passage.category}</span>
+              <span class="text-xs font-mono text-neutral-400">· ⏱️ ${passage.readTime}</span>
+              <span class="text-xs font-mono text-neutral-400">· 📝 ${passage.wordCount} Kelime</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-black dark:text-white tracking-tight">${passage.title}</h2>
+            <h3 class="text-xs text-neutral-500 font-sans">${passage.titleTr}</h3>
+          </div>
+
+          <!-- Controls: Audio, Font, Mark -->
+          <div class="flex items-center space-x-2 self-start sm:self-auto text-xs font-mono">
+            <button onclick="toggleReadingAudio()" id="btn-read-audio" class="p-2 px-3 rounded-xl border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 transition-colors flex items-center space-x-1.5" title="Sesli Dinle">
+              <span id="read-audio-icon">🔊</span>
+              <span id="read-audio-text">Sesli Oku</span>
+            </button>
+
+            <div class="flex items-center rounded-xl border border-black/10 dark:border-white/10 overflow-hidden">
+              <button onclick="adjustFontSize(-1)" class="px-2.5 py-2 hover:bg-black/5 dark:hover:bg-white/10" title="Küçült">A-</button>
+              <button onclick="adjustFontSize(1)" class="px-2.5 py-2 hover:bg-black/5 dark:hover:bg-white/10 border-l border-black/10 dark:border-white/10" title="Büyüt">A+</button>
+            </div>
+
+            <button onclick="toggleMarkAsRead('${passage.id}')" id="btn-mark-read" class="p-2 px-3.5 rounded-xl border font-bold transition-all ${
+              isRead 
+                ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-500' 
+                : 'border-black/10 dark:border-white/10 hover:border-emerald-500 text-neutral-500 hover:text-emerald-500'
+            }">
+              ${isRead ? '✓ Okundu' : '○ Okundu İşaretle'}
+            </button>
+          </div>
+        </div>
+
+        <!-- Grammar Direct Link Banner -->
+        <div class="p-3.5 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div class="space-y-0.5">
+            <span class="text-[10px] font-mono text-amber-500 font-bold uppercase tracking-wider block">Hedef Gramer Konusu</span>
+            <div class="font-bold text-black dark:text-white flex items-center space-x-1.5">
+              <span>🔗</span>
+              <span>${passage.grammarRef ? passage.grammarRef.name : ''}</span>
+            </div>
+            <p class="text-[11px] text-neutral-500">${passage.grammarRef ? passage.grammarRef.targetFocus : ''}</p>
+          </div>
+
+          <a href="grammar.html" class="px-4 py-2 rounded-xl bg-black dark:bg-white text-white dark:text-black font-mono font-bold text-xs hover:opacity-85 transition-opacity whitespace-nowrap self-start sm:self-auto">
+            Gramer Dersini İzle ➔
+          </a>
+        </div>
+
+        <!-- Text Body with Interactive Highlights -->
+        <div id="passage-text-body" class="font-serif leading-relaxed text-neutral-800 dark:text-neutral-200 tracking-normal transition-all" style="font-size: ${readingFontSize}px;">
+          ${passage.text}
+        </div>
+
+        <!-- Comprehension Check Section -->
+        <div class="pt-6 border-t border-black/5 dark:border-white/10 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-amber-500 font-bold block">Kavrama Kontrolü</span>
+              <h4 class="text-sm font-bold text-black dark:text-white">Metinle İlgili 2 Hızlı Soru</h4>
+            </div>
+            <span class="text-xs font-mono text-neutral-400">Anında Çözüm</span>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3">
+            ${passage.questions.map((q, qIdx) => `
+              <div class="p-4 rounded-2xl bg-neutral-50 dark:bg-[#111111] border border-black/5 dark:border-white/5 space-y-2.5 text-xs">
+                <p class="font-bold text-black dark:text-white">${qIdx + 1}. ${q.q}</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 font-mono">
+                  ${q.options.map(opt => `
+                    <button onclick="checkQuestionAnswer('${passage.id}', ${qIdx}, '${opt.charAt(0)}', this)" class="q-opt-btn p-2 px-3 rounded-xl border border-black/10 dark:border-white/10 text-left hover:border-amber-500 transition-all">
+                      ${opt}
+                    </button>
+                  `).join('')}
+                </div>
+                <div id="q-feedback-${passage.id}-${qIdx}" class="hidden text-[11px] font-sans pt-1"></div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      attachHighlightListeners();
+    }
+
+    // Attach Click Events to Highlights
+    function attachHighlightListeners() {
+      document.querySelectorAll('.vocab-hl').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const word = el.getAttribute('data-word');
+          const pos = el.getAttribute('data-pos') || 'kelime';
+          const phonetic = el.getAttribute('data-phonetic') || '';
+          const tr = el.getAttribute('data-tr') || '';
+          const def = el.getAttribute('data-def') || '';
+          const ex = el.getAttribute('data-ex') || el.innerText;
+
+          currentSelectedWord = { word, pos, phonetic, tr, def, ex };
+          openVocabModal(currentSelectedWord);
+        });
+      });
+    }
+
+    function openVocabModal(data) {
+      document.getElementById('modal-vocab-word').innerText = data.word;
+      document.getElementById('modal-vocab-pos').innerText = data.pos;
+      document.getElementById('modal-vocab-phonetic').innerText = data.phonetic;
+      document.getElementById('modal-vocab-tr').innerText = data.tr;
+      document.getElementById('modal-vocab-def').innerText = data.def;
+      document.getElementById('modal-vocab-example').innerText = `"${data.ex}"`;
+
+      document.getElementById('vocab-modal').classList.remove('hidden');
+    }
+
+    function closeVocabModal() {
+      document.getElementById('vocab-modal').classList.add('hidden');
+    }
+
+    function playVocabAudio(data) {
+      if (!data || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(data.word);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function addCurrentWordToNotebook() {
+      if (!currentSelectedWord) return;
+      
+      const customWord = {
+        word: currentSelectedWord.word,
+        phonetic: currentSelectedWord.phonetic,
+        pos: currentSelectedWord.pos,
+        turkish: currentSelectedWord.tr,
+        meaning: currentSelectedWord.def,
+        example: currentSelectedWord.ex,
+        level: currentLevel === 'ALL' ? 'B1' : currentLevel
+      };
+
+      if (typeof SRS_ENGINE !== 'undefined') {
+        SRS_ENGINE.addCustomWord(customWord);
+      } else {
+        let notebook = JSON.parse(localStorage.getItem('ielts_custom_vocab') || '[]');
+        notebook.push({ ...customWord, id: 'cust_' + Date.now(), addedAt: new Date().toISOString() });
+        localStorage.setItem('ielts_custom_vocab', JSON.stringify(notebook));
+      }
+
+      App.showToast(`"${currentSelectedWord.word}" kelimesi Kelime Defterinize eklendi! ⭐`, "success");
+      closeVocabModal();
+    }
+
+    // Toggle Mark As Read
+    function toggleMarkAsRead(id) {
+      const isRead = localStorage.getItem(`reading_read_${id}`) === 'true';
+      localStorage.setItem(`reading_read_${id}`, (!isRead).toString());
+      
+      if (!isRead) {
+        App.showToast("Tebrikler! Okuma metni tamamlandı olarak işaretlendi. ✓", "success");
+        App.recordActivity();
+      }
+      renderReadingCatalog();
+      renderActivePassage();
+    }
+
+    // Adjust Font Size
+    function adjustFontSize(delta) {
+      readingFontSize = Math.max(14, Math.min(26, readingFontSize + delta));
+      const body = document.getElementById('passage-text-body');
+      if (body) body.style.fontSize = `${readingFontSize}px`;
+    }
+
+    // SpeechSynthesis Audio Read-Aloud
+    function toggleReadingAudio() {
+      if (!('speechSynthesis' in window)) {
+        App.showToast("Tarayıcınız sesli okuma özelliğini desteklemiyor.", "warning");
+        return;
+      }
+
+      if (isReadingPlaying) {
+        stopReadingAudio();
+        return;
+      }
+
+      const passage = READING_DATABASE.find(p => p.id === activePassageId);
+      if (!passage) return;
+
+      // Strip HTML tags for clean reading
+      const div = document.createElement('div');
+      div.innerHTML = passage.text;
+      const cleanText = div.innerText;
+
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(cleanText);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.95;
+
+      utterance.onstart = () => {
+        isReadingPlaying = true;
+        document.getElementById('read-audio-icon').innerText = '⏹️';
+        document.getElementById('read-audio-text').innerText = 'Durdur';
+      };
+
+      utterance.onend = () => {
+        isReadingPlaying = false;
+        document.getElementById('read-audio-icon').innerText = '🔊';
+        document.getElementById('read-audio-text').innerText = 'Sesli Oku';
+      };
+
+      utterance.onerror = () => {
+        isReadingPlaying = false;
+        document.getElementById('read-audio-icon').innerText = '🔊';
+        document.getElementById('read-audio-text').innerText = 'Sesli Oku';
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopReadingAudio() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      isReadingPlaying = false;
+      const icon = document.getElementById('read-audio-icon');
+      const text = document.getElementById('read-audio-text');
+      if (icon) icon.innerText = '🔊';
+      if (text) text.innerText = 'Sesli Oku';
+    }
+
+    // Check Question Answer
+    function checkQuestionAnswer(passageId, qIdx, selectedLetter, btn) {
+      const passage = READING_DATABASE.find(p => p.id === passageId);
+      if (!passage || !passage.questions[qIdx]) return;
+
+      const q = passage.questions[qIdx];
+      const isCorrect = q.answer.startsWith(selectedLetter);
+      const feedbackEl = document.getElementById(`q-feedback-${passageId}-${qIdx}`);
+
+      // Highlight options
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.q-opt-btn').forEach(b => {
+        b.className = 'q-opt-btn p-2 px-3 rounded-xl border border-black/10 dark:border-white/10 text-left text-neutral-400';
+      });
+
+      if (isCorrect) {
+        btn.className = 'q-opt-btn p-2 px-3 rounded-xl border border-emerald-500 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold';
+        feedbackEl.className = 'text-[11px] font-sans pt-1 text-emerald-600 dark:text-emerald-400 block';
+        feedbackEl.innerHTML = `✓ <strong>Doğru!</strong> ${q.exp}`;
+        App.showToast("Kavrama Sorusu Doğru! 🎯", "success");
+      } else {
+        btn.className = 'q-opt-btn p-2 px-3 rounded-xl border border-rose-500 bg-rose-500/10 text-rose-500 font-bold';
+        feedbackEl.className = 'text-[11px] font-sans pt-1 text-rose-500 block';
+        feedbackEl.innerHTML = `✕ <strong>Yanlış.</strong> Doğru Cevap: ${q.answer}. ${q.exp}`;
+      }
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for URL param ?id=read_... or ?level=...
+      const urlParams = new URLSearchParams(window.location.search);
+      const targetLevel = urlParams.get('level');
+      const targetId = urlParams.get('id');
+
+      if (targetLevel && LEVEL_CONFIG[targetLevel.toUpperCase()]) {
+        filterReadingLevel(targetLevel.toUpperCase());
+      } else if (targetId && typeof READING_DATABASE !== 'undefined') {
+        const found = READING_DATABASE.find(p => p.id === targetId);
+        if (found) {
+          filterReadingLevel(found.level);
+          activePassageId = found.id;
+          renderActivePassage();
+        } else {
+          filterReadingLevel('A1');
+        }
+      } else {
+        filterReadingLevel('A1');
+      }
+    });
+  </script>
+</body>
+</html>
